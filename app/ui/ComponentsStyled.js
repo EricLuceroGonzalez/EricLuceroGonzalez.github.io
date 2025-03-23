@@ -28,7 +28,6 @@ export const MainBg = styled.div`
     text-align: justify;
     padding: 1rem 5px;
   }
-  border: 1px solid var(--bg);
 `;
 export const MainPageBg = styled.div`
   flex: 1;
