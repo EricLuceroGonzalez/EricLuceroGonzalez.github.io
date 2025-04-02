@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@remotion/player": "^4.0.285",
     "babel-plugin-styled-components": "^2.1.4",
     "better-react-mathjax": "^2.1.0",
     "chart.js": "^4.4.8",
@@ -42,6 +43,7 @@
     "remark-rehype": "^11.1.1",
     "remark-sub-super": "^1.0.21",
     "remark-supersub": "^1.0.0",
+    "remotion": "^4.0.285",
     "styled-components": "^6.1.15",
     "usehooks-ts": "^3.1.1"
   },

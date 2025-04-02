@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   MdBlockQuote,
   MdCite,
@@ -13,6 +15,9 @@ import {
   MdSubHeadA,
   MdSubHeadB,
   MdSubHeadC,
+  MdTable,
+  MdTableD,
+  MdTableHead,
   MdUnorderedList,
 } from "@/app/ui/MarkDownComponents";
 import CodeBlock from "@/app/components/CodeWrapper";
@@ -35,14 +40,27 @@ const MdxComponents = {
   p: (props) => <MdParagraph {...props}>{props.children}</MdParagraph>,
   code: ({ node, inline, className, children, ...props }) => {
     const match = /language-(\w+)/.exec(className || "");
+    // Extraer el contenido del código correctamente
+    const getText = (child) => {
+      if (React.isValidElement(child)) {
+        // Si es un elemento transicional, extraer su contenido
+        return typeof child.props.children === "string"
+          ? child.props.children
+          : "";
+      }
+      return typeof child === "string" ? child : "";
+    };
+
+    // Si children es un array, lo mapeamos correctamente
+    const codeText = Array.isArray(children)
+      ? children.map(getText).join("").trim()
+      : getText(children).trim();
+
     return !inline && match ? (
-      <CodeBlock
-        language={match[1]}
-        value={String(children).replace(/\n$/, "")}
-      />
+      <CodeBlock language={match[1]} value={codeText} />
     ) : (
       <code className={className} {...props}>
-        {children}
+        {codeText}
       </code>
     );
   },
@@ -53,8 +71,8 @@ const MdxComponents = {
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
-          height="1em"
-          width="1em"
+          height="0.8em"
+          width="0.8em"
           {...props}
         >
           <path d="M13 3l3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z" />
@@ -84,5 +102,8 @@ const MdxComponents = {
       </MdImage>
     );
   },
+  table: (props) => <MdTable {...props} />,
+  th: (props) => <MdTableHead {...props} />,
+  td: (props) => <MdTableD {...props} />,
 };
 export default MdxComponents;

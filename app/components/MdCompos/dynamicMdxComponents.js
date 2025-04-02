@@ -1,7 +1,7 @@
 // components/dynamicMdxComponents.js
 import React, { lazy, Suspense } from "react";
-import { CitationSup } from "../CitationSup";
-import { ReferenceList } from "../ReferenceList";
+import { CitationSup } from "./CitationSup";
+import { ReferenceList } from "./ReferenceList";
 
 const BarChart = lazy(() => import("./BarChartsMDX"));
 

@@ -72,6 +72,9 @@ export const MdLink = styled.a`
   color: var(--link-fg);
   font-weight: bold;
   padding: 2px 5px;
+  &:hover {
+    color: var(--emphasis-fg);
+  }
 `;
 
 export const MdStrong = styled.strong`
@@ -133,4 +136,27 @@ export const HeroImage = styled.div`
   @media (max-width: 660px) {
     width: 100%;
   }
+`;
+
+export const MdTable = styled.table`
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  @media (max-width: 660px) {
+    width: 95%;
+  }
+`;
+
+export const MdTableHead = styled.th`
+  background-color: var(--strong-fg);
+  color: var(--bg);
+  /* text-align: left; */
+  padding: 5px 2px;
+`;
+
+export const MdTableD = styled.td`
+  background-color: var(--bg);
+  color: var(--strong-fg);
+  padding: 2px 2px;
+  border: 1px solid var(--gray-light);
 `;

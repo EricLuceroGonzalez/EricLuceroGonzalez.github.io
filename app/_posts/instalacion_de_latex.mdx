@@ -10,13 +10,26 @@ coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1741389125/elCron
 coverImageAlt: 'Imagen de cover del con el logo de latex y unas paginas'
 excerpt: 'LaTeX es una herramienta poderosa para crear documentos de alta calidad, especialmente en el ámbito académico y técnico. Aprende a crear tu primer documento y descubre las ventajas de usar LaTeX para el control preciso del formato, las fórmulas'
 doctype: ["latex","curso"]
+isPublic: true
 ---
 
-LaTeX es un sistema de composición de textos ideal para crear documentos de alta calidad, especialmente en el ámbito académico, científico y técnico. En este tutorial, aprenderás cómo instalar LaTeX en los sistemas operativos más comunes: Windows, macOS y Linux.
+## Actualizacion de TexLive
 
-## ¿Qué es LaTeX?
+Si ya tienes instalado una version de TexLive, entonces quizás debas (no necesariamente) actualizar.
+Esto no es muy necesario si solo utilizas latex para generar documentos con símbolos matemáticos. Actualizar realmente puede ser un dolor de cabeza si ya estas
+acostubmbrado a un sistema. En (este enlace)[https://tug.org/texlive/upgrade.html]....
 
-LaTeX es una herramienta poderosa que te permite crear documentos con fórmulas matemáticas, tablas, figuras, y más. Es ideal para la escritura de documentos técnicos y académicos, ya que su salida es de muy alta calidad.
+Para verificar la version que tienes puedes usar
+
+```bash
+tlmgr --version
+cd /usr/local/texlive
+```
+
+## Instalación preferida
+
+- Según [la página oficial de TUG](https://www.tug.org/texlive/), existen tres opciones. La preferida (independientemente del sistema operativo) que tengo es la que se detalla bajo el nombre de 
+[install on Unix/GNU/Linux](https://www.tug.org/texlive/quickinstall.html), valido para sistemas Linux y MacOS.
 
 ## Instalación en Windows
 
@@ -58,3 +71,4 @@ En la mayoría de las distribuciones de Linux, puedes instalar LaTeX usando el g
    ```bash
    sudo apt update
    sudo apt install texlive-full
+   ```

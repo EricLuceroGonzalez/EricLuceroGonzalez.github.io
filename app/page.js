@@ -1,5 +1,3 @@
-// import React from "react";
-// import { getAllPosts } from "@/app/lib/api";
 import {
   CoverTitle,
   HomePageCover,
@@ -17,14 +15,11 @@ import {
 } from "./ui/MarkDownComponents";
 import ScrollDiv from "./components/navigation/ScrollDiv";
 import { getAllPosts } from "./lib/api";
-import RandomDots from "./components/Canvas/RandomDots";
 import MovingDots from "./components/Canvas/MovingDots";
-import CircleFollow from "./components/Canvas/CanvaCircle";
-import CircleBounce from "./components/Canvas/CircleBounce";
 
 function Home() {
   const allPostsData = getAllPosts();
-  // console.log(allPostsData);
+
   return (
     <PageContainer>
       <ScrollDiv />
@@ -42,7 +37,6 @@ function Home() {
           <HomePageCoverImage>
             {/* <MovingDots numDots={100} width={100} height={150} speed={2} /> */}
             <MovingDots numDots={100} speed={2} />
-
             {/* <CircleBounce /> */}
           </HomePageCoverImage>
         </HomePageCover>

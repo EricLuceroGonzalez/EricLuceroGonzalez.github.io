@@ -21,7 +21,7 @@ a {
     /* Fondos y Textos */
     --bg: #F8F9FA; /* Fondo principal blanco suave */
     --fg: #222222; /* Texto oscuro principal */
-    --accent:#FF3366; /* Rojo vibrante para acentos */
+    --accent:#FF3366  ; /* Rojo vibrante para acentos */
     /* #B2A5FF */
     /* Títulos y Encabezados */
     --heading: #D18B00; /* Dorado oscuro para títulos */
@@ -81,7 +81,7 @@ a {
     --secondary-btn-hover: #2B8A6E; /* Verd e oscuro para hover */
     
     /* Enlaces y Énfasis */
-    --link-fg: #E2ADF2; /* Lila claro para enlaces */
+    --link-fg: #1C7ED6; /* Lila claro para enlaces */
     --link-bg: transparent; /* Fondo transparente para enlaces */
     --strong-fg: #FF3366; /* Cyan para negritas */
     --strong-bg: transparent; /* Fondo para negritas */

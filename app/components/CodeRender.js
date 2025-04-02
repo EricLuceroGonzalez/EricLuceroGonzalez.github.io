@@ -97,8 +97,8 @@ const RenderCodeBlock = ({ props }) => {
                   <svg
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    height="1em"
-                    width="1em"
+                    height="0.6em"
+                    width="0.6em"
                     {...props}
                   >
                     <path d="M13 3l3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z" />
@@ -116,10 +116,40 @@ const RenderCodeBlock = ({ props }) => {
                 />
               ) : (
                 <code className={className} {...props}>
-                  {children}
+                  {String(children).trim()}
                 </code>
               );
             },
+            table: (props) => (
+              <table
+                {...props}
+                style={{
+                  width: "100%",
+                  borderCollapse: "collapse",
+                  margin: "20px 0",
+                }}
+              />
+            ),
+            th: (props) => (
+              <th
+                {...props}
+                style={{
+                  backgroundColor: "#333",
+                  color: "white",
+                  padding: "10px",
+                  border: "1px solid #ddd",
+                }}
+              />
+            ),
+            td: (props) => (
+              <td
+                {...props}
+                style={{
+                  padding: "10px",
+                  border: "1px solid #ddd",
+                }}
+              />
+            ),
           }}
         >
           {props}
