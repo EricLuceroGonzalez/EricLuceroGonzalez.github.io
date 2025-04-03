@@ -1,10 +1,18 @@
 "use client";
 import { useState } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+// import {} from "react-syntax-highlighter/dist/styles/prism";
+// import { coldarkDark } from "react-syntax-highlighter/styles/prism";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+// import { darcula } from "react-syntax-highlighter/dist/styles/darcula";
+// import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import SyntaxHighlighter from "react-syntax-highlighter";
+
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import styled from "styled-components";
 import { LuCopy, LuCopyCheck } from "react-icons/lu";
+import { github } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { stackoverflowDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 const CodeBlockWrapper = styled.div`
   position: relative;
   margin-bottom: 1.5rem;
@@ -68,10 +76,10 @@ const CodeBlock = ({ language, value }) => {
       </Toolbar>
       <SyntaxHighlighter
         language={language}
-        style={coldarkDark}
+        style={stackoverflowDark}
         wrapLines={true}
         showLineNumbers={true}
-        customStyle={{ lineHeight: "0.75", fontSize: "small" }}
+        customStyle={{ lineHeight: "1.5", fontSize: "medium" }}
       >
         {value}
       </SyntaxHighlighter>

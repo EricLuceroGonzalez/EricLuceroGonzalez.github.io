@@ -13,6 +13,7 @@ export const CardContainer = styled.div`
 export const ImageContainer = styled.div`
   padding: 0px 3px;
   flex-grow: 1;
+  /* border: 1px solid var(--accent); */
 `;
 export const TextContainer = styled.div`
   display: flex;

@@ -3,7 +3,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true, // Habilita Strict Mode
-  transpilePackages: ["next-mdx-remote"],
+  transpilePackages: ["next-mdx-remote", "react-pdf"],
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   compiler: {
     styledComponents: true, // Habilita el soporte para styled-components
@@ -19,6 +19,8 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false }; // Evita errores con fs en el navegador
+    config.resolve.alias.canvas = false;
+    config.resolve.alias.encoding = false;
     return config;
   },
 };

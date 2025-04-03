@@ -21,9 +21,35 @@ export const MdListItem = styled.li`
   }
 `;
 export const MdUnorderedList = styled.ul`
+  /* list-style-position: inside;
+  margin: auto;
+  width: 95%;
+  li {
+    &::before {
+      content: "0";
+      color: red;
+    }
+  } */
+
+  list-style: none; /* Elimina los bullets predeterminados */
   list-style-position: inside;
   margin: auto;
   width: 95%;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5em; /* Ajusta el espaciado para el nuevo bullet */
+
+    &::before {
+      content: "●"; /* Puedes cambiar esto a cualquier símbolo o emoji */
+      color: var(--accent);
+      font-size: 1em;
+      position: absolute;
+      left: 0;
+      top: 0.1em; /* Ajusta para alinear con el texto */
+    }
+  }
 `;
 
 export const MdOrderedList = styled.ol`

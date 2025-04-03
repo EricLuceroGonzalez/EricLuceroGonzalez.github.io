@@ -65,6 +65,7 @@ function getPostsByType(types = [], orderNum = 0) {
 
   const filteredPosts = slugs
     .map((slug) => getPostBySlug(slug))
+    .filter((post) => post.isPublic) // Filtra solo los publicados
     .filter((post) => types.every((type) => post.doctype.includes(type))) // Filtra por tipos
     .sort((post1, post2) => post1.order - post2.order); // Ordena por el campo 'order'
 

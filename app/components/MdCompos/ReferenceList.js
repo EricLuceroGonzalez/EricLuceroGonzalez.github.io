@@ -4,13 +4,7 @@ import { IoReturnDownBack } from "react-icons/io5";
 import styled from "styled-components";
 
 const RefNumbers = styled.ol`
-  /* li::marker {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--link-fg);
-    content: "[" counter(list-item) "] ";
-  } */
-
+  font-size: medium;
   list-style: none;
   counter-reset: ref-counter;
   padding-left: 0;
@@ -31,21 +25,6 @@ const RefNumbers = styled.ol`
       font-weight: bold;
       text-align: right;
     }
-  }
-`;
-const RefNum = styled.li`
-  color: var(--fg);
-  font-size: 1.2em;
-  list-style-position: inside;
-
-  counter-increment: reference-counter;
-  margin-bottom: 0.5rem;
-
-  &::before {
-    content: "[" counter(reference-counter) "]";
-    margin-right: 0.5rem;
-    color: var(--link-fg);
-    font-weight: bold;
   }
 `;
 

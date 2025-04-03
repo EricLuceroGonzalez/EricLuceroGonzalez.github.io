@@ -85,7 +85,14 @@ const AllPosts = ({
               ))}
             </SideInfo>
           </MetaInfo>
-          <ExcerptContainer>{excerpt.substring(0, 250)}...</ExcerptContainer>
+          <ExcerptContainer>
+            {
+              // excerpt.substring(0, 250)
+              excerpt.length > 200
+                ? excerpt.substring(0, excerpt.lastIndexOf(" ", 200)) + "..."
+                : excerpt
+            }
+          </ExcerptContainer>
         </TextContainer>
       </CardContainer>
     </Link>

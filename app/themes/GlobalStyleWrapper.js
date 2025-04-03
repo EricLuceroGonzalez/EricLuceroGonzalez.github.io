@@ -21,7 +21,7 @@ a {
     /* Fondos y Textos */
     --bg: #F8F9FA; /* Fondo principal blanco suave */
     --fg: #222222; /* Texto oscuro principal */
-    --accent:#FF3366  ; /* Rojo vibrante para acentos */
+    --accent:#0077FF  ; /* Rojo vibrante para acentos */
     /* #B2A5FF */
     /* Títulos y Encabezados */
     --heading: #D18B00; /* Dorado oscuro para títulos */
@@ -33,10 +33,10 @@ a {
     --primary-btn-hover: #F1C40F; /* Amarillo brillante para hover */
     --secondary-btn-bg: #0077FF; /* Azul fuerte para botones secundarios */
     --secondary-btn-fg: white; /* Texto en botones secundarios */
-    --secondary-btn-hover: #005FCC; /* Azul más oscuro para hover */
+    --secondary-btn-hover: #0077FF; /* Azul más oscuro para hover */
 
     /* Enlaces y Énfasis */
-    --link-fg: #5A47AB; /* Azul morado para enlaces */
+    --link-fg: #FFA500; /* Azul morado para enlaces */
     --link-bg: transparent; /* Fondo transparente para enlaces */
     --strong-fg: #0077FF; /* Azul fuerte para negritas */
     --strong-bg: transparent; /* Azul fuerte para negritas */
@@ -81,7 +81,7 @@ a {
     --secondary-btn-hover: #2B8A6E; /* Verd e oscuro para hover */
     
     /* Enlaces y Énfasis */
-    --link-fg: #1C7ED6; /* Lila claro para enlaces */
+    --link-fg: #0077FF; /* Lila claro para enlaces */
     --link-bg: transparent; /* Fondo transparente para enlaces */
     --strong-fg: #FF3366; /* Cyan para negritas */
     --strong-bg: transparent; /* Fondo para negritas */
@@ -95,7 +95,7 @@ a {
     --code-bg: #282C34; /* Fondo para bloques de código */
 
     /* Bordes */
-    --primary-border: #1C7ED6; /* Azul para bordes */
+    --primary-border: #0077FF; /* Azul para bordes */
     --border-stroke: #FF3366; /* Rosa brillante para bordes (unificado con botones primarios) */
 
     /* Colores Adicionales */
