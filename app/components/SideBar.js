@@ -2,7 +2,6 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useState } from "react";
-import Image from "next/image";
 
 // Sidebar estilo fijo al costado
 const Sidebar = styled.aside`

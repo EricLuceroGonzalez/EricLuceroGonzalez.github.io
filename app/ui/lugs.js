@@ -162,6 +162,8 @@ export const SectionType = styled.div`
   background-color: ${(props) => {
     // Retorna el color basado en la prop "tag"
     switch (props.tag) {
+      case "blog":
+        return "var(--accent)";
       case "js":
         return "var(--heading)";
       case "latex":
@@ -170,6 +172,10 @@ export const SectionType = styled.div`
         return "var(--emphasis-fg)";
       case "python":
         return "var(--link-fg)";
+      case "ia":
+        return "var(--primary-border)";
+      case "IA":
+        return "var(--primary-border)";
       default:
         return "var(--subheading)"; // Color por defecto
     }

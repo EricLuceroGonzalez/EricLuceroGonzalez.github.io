@@ -47,7 +47,7 @@ const AboutThisPage = () => {
     <Layout>
       <MainBg>
         <Article>
-          <ShowPath />
+          <ShowPath title={"this page"} />
           <MdHead>Acerca de esta pagina</MdHead>
           <p>Esta pagina esta en proceso de construcción y diseño.</p>
           <LogosBox>

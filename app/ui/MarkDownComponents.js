@@ -78,9 +78,19 @@ export const MdHead = styled.h1`
   margin: 1em 0;
 `;
 export const MdSubHeadA = styled.h2`
+  padding-top: 1rem;
   margin-top: 2rem;
   color: var(--accent);
   font-size: x-large;
+  a {
+    color: var(--bg);
+  }
+  &:hover {
+    a {
+      color: var(--accent);
+      opacity: 0.7;
+    }
+  }
 `;
 export const MdSubHeadB = styled.h3`
   color: var(--emphasis-fg);
@@ -93,6 +103,12 @@ export const MdSubHeadC = styled.h4`
   font-size: medium;
 `;
 
+export const MdHeadAnchor = styled.a`
+  color: var(--bg);
+  &:hover {
+    color: var(--accent);
+  }
+`;
 export const MdLink = styled.a`
   background-color: var(--link-bg);
   color: var(--link-fg);

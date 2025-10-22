@@ -2,13 +2,7 @@
 import React, { lazy, Suspense } from "react";
 import { CitationSup } from "./CitationSup";
 import { ReferenceList } from "./ReferenceList";
-
-// import dynamic from "next/dynamic";
-
-// Importación dinámica con SSR desactivado
-// const PDFViewer = dynamic(() => import("@/components/PDFViewer"), {
-//   ssr: false,
-// });
+import { QuotationAndAuthor } from "./Quotation";
 
 const BarChart = lazy(() => import("./BarChartsMDX"));
 // const PDFViewer = lazy(() => import("../PDFViewer"));
@@ -23,6 +17,7 @@ export const dynamicMdxComponents = {
   ),
   ReferenceList: (props) => <ReferenceList references={props.references} />,
   CitationSup: (props) => <CitationSup id={props.id} />,
+  QuoteAndAuthor: (props) => <QuotationAndAuthor quotation={props.quotation} />,
   // PDFViewer: (props) => (
   //   <Suspense fallback={<div>Cargando PDF...</div>}>
   //     <PDFViewer {...props} />

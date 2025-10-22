@@ -23,10 +23,12 @@ import {
 import CodeBlock from "@/app/components/CodeWrapper";
 import Image from "next/image";
 import { MathJax } from "better-react-mathjax";
+import H2Header from "./H2Header";
+import H3Header from "./H3Header";
 const MdxComponents = {
   h1: (props) => <MdHead {...props}>{props.children}</MdHead>,
-  h2: (props) => <MdSubHeadA {...props}> {props.children}</MdSubHeadA>,
-  h3: (props) => <MdSubHeadB {...props}>{props.children}</MdSubHeadB>,
+  h2: (props) => <H2Header {...props}> {props.children}</H2Header>,
+  h3: (props) => <H3Header {...props}>{props.children}</H3Header>,
   h4: (props) => <MdSubHeadC {...props}>{props.children}</MdSubHeadC>,
   ul: (props) => <MdUnorderedList {...props}>{props.children}</MdUnorderedList>,
   ol: (props) => <MdOrderedList {...props}>{props.children}</MdOrderedList>,

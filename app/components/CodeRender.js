@@ -22,6 +22,7 @@ import {
 
 import CodeBlock from "./CodeWrapper";
 import Image from "next/image";
+import H2Header from "./MdCompos/H2Header";
 
 const RenderCodeBlock = ({ props }) => {
   const P = ({ children }) => <MdParagraph>{children}</MdParagraph>;
@@ -84,7 +85,8 @@ const RenderCodeBlock = ({ props }) => {
             ol: OList,
             blockquote: Bq,
             h1: Head,
-            h2: HeadTwo,
+            h2: H2Header,
+            // h2: HeadTwo,
             h3: HeadThree,
             h4: HeadFour,
             strong: Strong,

@@ -20,5 +20,8 @@
         "terminalCursor.foreground": "#00ffaa"
     },
     "terminal.integrated.cursorBlinking": true,
-    "peacock.color": "#f9e64f"
+    "peacock.color": "#f9e64f",
+    "cSpell.words": [
+        "Rosenblatt"
+    ]
 }

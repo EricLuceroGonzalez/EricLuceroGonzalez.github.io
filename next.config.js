@@ -2,6 +2,7 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export", // <=== enables static exports
   reactStrictMode: true, // Habilita Strict Mode
   transpilePackages: ["next-mdx-remote", "react-pdf"],
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
@@ -16,7 +17,10 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+    // 2. Desactivar optimización de imágenes
+    unoptimized: true,
   },
+
   webpack: (config) => {
     config.resolve.fallback = { fs: false }; // Evita errores con fs en el navegador
     config.resolve.alias.canvas = false;
