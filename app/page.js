@@ -27,7 +27,7 @@ function Home() {
         <HomePageCover>
           <HomePageCoverText>
             <TitlePage>Hola! 👋🏼</TitlePage>
-            <CoverTitle>Eric Lucero González </CoverTitle>
+            {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>
           {/* <TitlePage>Soy</TitlePage> */}
           {/* TODO: Check p5 Compo */}

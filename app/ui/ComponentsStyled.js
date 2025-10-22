@@ -42,10 +42,15 @@ export const MainPageBg = styled.div`
     max-width: 70%;
     margin: 0 auto;
   }
+  @media (min-width: 1300px) {
+    font-size: large;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  /* border: 1px solid var(--accent); */
 `;
 
 export const HomePageCover = styled.div`
-  /* border: 1px solid var(--accent); */
   height: 45vh;
   display: flex;
   flex-direction: row;
