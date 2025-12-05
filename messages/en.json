@@ -1,0 +1,46 @@
+{
+    "HomePage": {
+        "title": "Welcome to my AI Research Blog",
+        "about": "PhD Student based in Spain"
+    },
+    "Navigation": {
+        "about": "About",
+        "home": "Home",
+        "blog": "Blog",
+        "papers": "Papers"
+    },
+    "Footer": {
+        "made_with": "Made by Eric Lucero González",
+        "contact": "Contact",
+        "about_page": "About this page and its content",
+        "licenses": "Licenses"
+    },
+    "About": {
+        "title": "About Me",
+        "content": "I am Eric Lucero González, a PhD student specializing in Artificial Intelligence. This blog serves as a platform to share my research, insights, and developments in the field of AI.",
+        "license_title": "Content License",
+        "license_terms": "All content on this blog is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). You are free to share and adapt the material as long as you provide appropriate credit, do not use it for commercial purposes, and indicate if changes were made.",
+        "page_content_title": "About this Page",
+        "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research."
+    },
+    "Blog": {
+        "readingTime": "Reading time",
+        "minutes": "minutes",
+        "minute": "minute"
+    },
+    "sorteo": {
+        "title": "World Cup 2026 Draw",
+        "subtitle": "Genetic Algorithm with geographic and itinerary constraints",
+        "buttonGenerate": "Generate Draw",
+        "buttonExecuting": "Running...",
+        "generation": "Generation",
+        "cost": "Cost",
+        "validDraw": "VALID DRAW - Generations",
+        "approximation": "Best approximation - Cost",
+        "executionTime": "Execution time",
+        "itinerary": "BRACKET",
+        "group": "GROUP",
+        "emptyState": "Click \"Generate Draw\" to run the algorithm",
+        "seconds": "seconds"
+    }
+}

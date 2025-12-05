@@ -1,0 +1,74 @@
+---
+slug: 'instalacion_de_latex'
+id: 'latex-002'
+date: "2024-06-20"
+order: 1
+title: "Instalación de LaTeX"
+shortTitle: "Instalación"
+author: "Eric Lucero"
+coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1741389125/elCronopio/cover_test-2_dnehhh.jpg
+coverImageAlt: 'Imagen de cover del con el logo de latex y unas paginas'
+excerpt: 'LaTeX es una herramienta poderosa para crear documentos de alta calidad, especialmente en el ámbito académico y técnico. Aprende a crear tu primer documento y descubre las ventajas de usar LaTeX para el control preciso del formato, las fórmulas'
+doctype: ["latex","curso"]
+isPublic: true
+---
+
+## Actualizacion de TexLive
+
+Si ya tienes instalado una version de TexLive, entonces quizás debas (no necesariamente) actualizar.
+Esto no es muy necesario si solo utilizas latex para generar documentos con símbolos matemáticos. Actualizar realmente puede ser un dolor de cabeza si ya estas
+acostubmbrado a un sistema. En [este enlace](https://tug.org/texlive/upgrade.html)....
+
+Para verificar la version que tienes puedes usar
+
+```bash
+tlmgr --version
+cd /usr/local/texlive
+```
+
+## Instalación preferida
+
+- Según [la página oficial de TUG](https://www.tug.org/texlive/), existen tres opciones. La preferida (independientemente del sistema operativo) que tengo es la que se detalla bajo el nombre de 
+[install on Unix/GNU/Linux](https://www.tug.org/texlive/quickinstall.html), valido para sistemas Linux y MacOS.
+
+## Instalación en Windows
+
+Para instalar LaTeX en Windows, sigue estos pasos:
+
+1. **Descarga MikTeX**:
+   - MikTeX es una distribución de LaTeX para Windows.
+   - Ve al sitio oficial [MikTeX](https://miktex.org/download) y selecciona la opción adecuada para tu sistema.
+   
+2. **Instala MikTeX**:
+   - Ejecuta el archivo descargado y sigue las instrucciones del asistente de instalación.
+   - Durante la instalación, selecciona la opción para descargar paquetes adicionales cuando sea necesario.
+
+3. **Editor recomendado**:
+   - Puedes usar un editor dedicado a LaTeX como **TeXworks**, que viene incluido con MikTeX.
+   - Otra opción popular es **TeXstudio**. Puedes descargarlo desde [aquí](https://www.texstudio.org/).
+
+## Instalación en macOS
+
+En macOS, la distribución más popular de LaTeX es **MacTeX**. Sigue estos pasos para instalarla:
+
+1. **Descarga MacTeX**:
+   - Ve al sitio oficial de [MacTeX](https://www.tug.org/mactex/) y descarga el paquete de instalación completo.
+
+2. **Instala MacTeX**:
+   - Abre el archivo `.pkg` descargado y sigue las instrucciones en pantalla.
+
+3. **Editor recomendado**:
+   - MacTeX incluye el editor **TeXShop**, pero también puedes usar **TeXstudio** o **Overleaf** para trabajar en la nube.
+
+## Instalación en Linux
+
+En la mayoría de las distribuciones de Linux, puedes instalar LaTeX usando el gestor de paquetes de tu sistema. A continuación, te muestro cómo hacerlo en **Ubuntu/Debian** y **Fedora**.
+
+### En Ubuntu o Debian
+
+1. Abre una terminal y ejecuta el siguiente comando para instalar **TeX Live**, una distribución popular de LaTeX:
+
+   ```bash
+   sudo apt update
+   sudo apt install texlive-full
+   ```
