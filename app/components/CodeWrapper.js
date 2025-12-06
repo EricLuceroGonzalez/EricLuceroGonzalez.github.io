@@ -8,7 +8,7 @@ import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 // import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import SyntaxHighlighter from "react-syntax-highlighter";
 
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 import styled from "styled-components";
 import { LuCopy, LuCopyCheck } from "react-icons/lu";
 import { github } from "react-syntax-highlighter/dist/cjs/styles/hljs";
@@ -68,11 +68,11 @@ const CodeBlock = ({ language, value }) => {
     <CodeBlockWrapper>
       <Toolbar>
         <LanguageBadge>{language}</LanguageBadge>
-        <CopyToClipboard text={value} onCopy={handleCopy}>
-          <CopyButton $isCopy={copied}>
-            {copied ? <LuCopyCheck /> : <LuCopy />}
-          </CopyButton>
-        </CopyToClipboard>
+        {/* <CopyToClipboard text={value} onCopy={handleCopy}> */}
+        <CopyButton $isCopy={copied}>
+          {copied ? <LuCopyCheck /> : <LuCopy />}
+        </CopyButton>
+        {/* </CopyToClipboard> */}
       </Toolbar>
       <SyntaxHighlighter
         language={language}
