@@ -69,7 +69,7 @@ const BlogPost = async ({ params }) => {
           <ShowPath title={post.title} />
           <MdHead>{post.title}</MdHead>
           {/* No Thumbnail for now...too much */}
-          {/* {post.imageThumbnail && (
+          {/* {post.socialThumbnail && (
             <CoverImageContainer
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -79,7 +79,7 @@ const BlogPost = async ({ params }) => {
               }}
             >
               <img
-                src={post.imageThumbnail}
+                src={post.socialThumbnail}
                 alt={post.coverImageAlt || `Cover image for ${post.title}`}
                 style={{
                   width: "100%",
@@ -167,28 +167,10 @@ export default BlogPost;
 
 export async function generateStaticParams({ params }) {
   const { locale } = await params;
-  const postsDirectory = path.join(process.cwd(), "/app/_posts/");
-  const filenames = fs.readdirSync(postsDirectory);
-
-  // const allSlugs = filenames.map((filename) => {
-  //   const slug = filename.replace(/\.mdx$/, "");
-  //   console.log("Generated slug:", slug);
-  //   return { slug };
-  // });
-
-  // const blogSlugs = allSlugs
-  //   .map((slug) => getPostBySlug(slug.slug))
-  //   .filter((post) => post.doctype.includes("blog"))
-  //   .map((post) => post.slug)
-  //   .map((slug) => ({ slug }));
-  // return blogSlugs;
-  // En Next.js, params aquí ya contiene el { locale: 'es' } o { locale: 'en' }
-  // que generó el layout padre.
-
-  // 1. Pedimos SOLO los posts de este idioma específico
+  // Pedimos SOLO los posts de este idioma específico
   const posts = getAllPosts(["slug", "doctype"], locale);
 
-  // 2. Filtramos y mapeamos
+  // Filtramos y mapeamos
   // Ya no hace falta devolver "locale" en el objeto, porque Next.js ya sabe
   // que estamos dentro de ese locale. Solo devolvemos el slug.
   return posts
@@ -217,7 +199,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
       url: `https://ericlucerogonzalez.github.io/blog/${locale}/${post.slug}`,
       images: [
         {
-          url: post.imageThumbnail,
+          url: post.socialThumbnail,
           width: 1200,
           height: 630,
           alt: "Vista previa del sitio web de Eric",

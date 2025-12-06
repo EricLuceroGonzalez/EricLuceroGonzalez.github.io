@@ -28,7 +28,7 @@ export default async function Home({ params }) {
       <MainPageBg>
         <HomePageCover>
           <HomePageCoverText>
-            <TitlePage>Hola! 👋🏼</TitlePage>
+            {/* <TitlePage>Hola! 👋🏼</TitlePage> */}
             {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>
           {/* <TitlePage>Soy</TitlePage> */}

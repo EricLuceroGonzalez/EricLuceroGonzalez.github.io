@@ -25,7 +25,7 @@ const HomeBoxes = ({ props, locale }) => {
             author,
             excerpt,
             doctype,
-            imageThumbnail,
+            webThumbnail,
             coverImageAlt = "excerpt",
           }) => (
             <AllPosts
@@ -36,7 +36,7 @@ const HomeBoxes = ({ props, locale }) => {
               excerpt={excerpt}
               author={author}
               doctype={doctype}
-              coverImage={imageThumbnail}
+              coverImage={webThumbnail}
               coverImageAlt={coverImageAlt}
               locale={locale}
             />

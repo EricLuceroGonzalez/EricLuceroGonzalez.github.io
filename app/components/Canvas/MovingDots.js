@@ -21,7 +21,7 @@ const MovingDots = ({ numDots = 50, width = 450, height = 400, speed = 1 }) => {
       x: Math.random() * width,
       y: Math.random() * height,
       opacity: 0, // Comienzan invisibles
-      life: Math.random() * 400 + 50, // Duración de vida
+      life: Math.random() * 400 + 150, // Duración de vida
       vx: (Math.random() - 0.5) * speed * 2, // Velocidad en x
       vy: (Math.random() - 0.5) * speed * 2, // Velocidad en y
     });
@@ -40,8 +40,8 @@ const MovingDots = ({ numDots = 50, width = 450, height = 400, speed = 1 }) => {
               y += vy;
 
               // Rebote en los bordes
-              if (x <= 0 || x >= width) vx *= -1;
-              if (y <= 0 || y >= height) vy *= -1;
+              if (x <= 2.95 || x >= width * 0.9) vx *= -1;
+              if (y <= 2.1 || y >= height * 0.9) vy *= -1;
 
               return {
                 x,
@@ -54,7 +54,7 @@ const MovingDots = ({ numDots = 50, width = 450, height = 400, speed = 1 }) => {
             })
             .filter((dot) => dot.life > 0) // Eliminar puntos cuando terminan su vida
       );
-    }, 50); // Se actualizan cada 50ms
+    }, 40); // Se actualizan cada X miliseconds
 
     return () => clearInterval(interval);
   }, [numDots, width, height, speed]);

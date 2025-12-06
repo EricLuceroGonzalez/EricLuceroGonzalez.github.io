@@ -95,7 +95,7 @@ export const TitleContainer = styled.h2`
   margin-bottom: 1rem;
   line-height: 1.2;
   font-size: large;
-  margin: 1rem 0;
+  margin: 2rem 0;
   @media (min-width: 660px) {
     font-size: x-large;
   }
@@ -114,21 +114,19 @@ export const TitleContainer = styled.h2`
 export const MetaInfo = styled.div`
   margin-bottom: 0.5rem;
   font-size: small;
-  color: gray;
+  color: var(--gray-light);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   @media (min-width: 668px) {
-    width: 70%;
+    width: 80%;
     flex-direction: row;
-  }
-  @media (min-width: 1200px) {
-    width: 45%;
   }
   @media (max-width: 667px) {
     margin-bottom: 2.75rem;
     width: 95%;
   }
+  padding-top: 3px;
 `;
 // Contenedor para el avatar y el nombre del autor
 export const AuthorInfo = styled.div`

@@ -106,4 +106,6 @@ export const CardTitle = styled.h1`
   }
   color: var(--accent);
   text-align: left;
+  padding: 12px 0;
+  /* border: 1px solid wheat; */
 `;

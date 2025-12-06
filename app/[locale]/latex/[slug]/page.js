@@ -29,6 +29,7 @@ import rehypeHighlight from "rehype-highlight";
 import supersub from "remark-supersub";
 import remarkGfm from "remark-gfm";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+
 // import ShowPath from "@/app/components/showPath";
 const LatexPost = async ({ params }) => {
   const { locale, slug } = await params;
@@ -152,31 +153,16 @@ const LatexPost = async ({ params }) => {
   );
 };
 export default LatexPost;
-
 export async function generateStaticParams({ params }) {
   const { locale } = await params;
-  const postsDirectory = path.join(process.cwd(), "/app/_posts");
-  const filenames = fs.readdirSync(postsDirectory);
-
-  // const allSlugs = filenames.map((filename) => {
-  //   const slug = filename.replace(/\.mdx$/, "");
-  //   return { slug };
-  // });
-
-  // const latexSlugs = allSlugs
-  //   .map((slug) => getPostBySlug(slug.slug))
-  //   .filter((post) => post.doctype.includes("latex"))
-  //   .map((post) => post.slug)
-  //   .map((slug) => ({ slug }));
-
-  // return latexSlugs;
+  // Pedimos SOLO los posts de este idioma específico
   const posts = getAllPosts(["slug", "doctype"], locale);
 
-  // 2. Filtramos y mapeamos
+  // Filtramos y mapeamos
   // Ya no hace falta devolver "locale" en el objeto, porque Next.js ya sabe
   // que estamos dentro de ese locale. Solo devolvemos el slug.
   return posts
-    .filter((post) => post.doctype && post.doctype.includes("latex"))
+    .filter((post) => post.doctype && post.doctype.includes("blog"))
     .map((post) => ({
       slug: post.slug,
     }));
@@ -198,10 +184,10 @@ export async function generateMetadata({ params, searchParams }, parent) {
     openGraph: {
       title: `${post.title} | LaTeX`,
       description: post.excerpt,
-      url: `https://elcronopio.com/latex/${post.slug}`,
+      url: `https://ericlucerogonzalez.github.io/blog/${locale}/${post.slug}`,
       images: [
         {
-          url: post.imageThumbnail, // Ruta de la imagen para el home
+          url: post.socialThumbnail, // Ruta de la imagen para el home
           width: 1200,
           height: 630,
           alt: "Vista previa del sitio web de Eric",
