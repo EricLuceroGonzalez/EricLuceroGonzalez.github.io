@@ -17,6 +17,7 @@ import ScrollDiv from "../components/navigation/ScrollDiv";
 import { getAllPosts } from "../lib/api";
 import MovingDots from "../components/Canvas/MovingDots";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import BackgroundDots from "../components/BgMovingDots";
 export default async function Home({ params }) {
   // 1. Obtener idioma
   const { locale } = await params;
@@ -25,6 +26,7 @@ export default async function Home({ params }) {
   return (
     <PageContainer>
       <ScrollDiv />
+      <BackgroundDots numDots={60} />
       <MainPageBg>
         <HomePageCover>
           <HomePageCoverText>
@@ -36,11 +38,12 @@ export default async function Home({ params }) {
           {/* <P5Sketch width={600} height={600} /> */}
           {/* <RandomPointCloud /> */}
           {/* <RandomDots numDots={200} width={800} height={400} /> */}
-          <HomePageCoverImage>
-            {/* <MovingDots numDots={100} width={100} height={150} speed={2} /> */}
-            <MovingDots numDots={100} speed={2} />
-            {/* <CircleBounce /> */}
-          </HomePageCoverImage>
+          {/* <HomePageCoverImage> */}
+          <BackgroundDots numDots={40} />
+          {/* <MovingDots numDots={100} width={100} height={150} speed={2} /> */}
+          {/* <MovingDots numDots={100} speed={2} /> */}
+          {/* <CircleBounce /> */}
+          {/* </HomePageCoverImage> */}
         </HomePageCover>
         <MdParagraph>
           Este sitio web está en construcción, pero pronto será un lugar donde
