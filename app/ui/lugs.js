@@ -197,9 +197,9 @@ export const LinkList = styled.div`
   margin: 5rem auto 1rem auto;
   padding: 1px 10%;
   @media (min-width: 660px) {
-    font-size: x-large;
-    /* border: 1px solid red; */
+    font-size: large;
   }
+  /* border: 1px solid red; */
   justify-content: space-around;
 `;
 

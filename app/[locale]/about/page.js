@@ -11,7 +11,10 @@ import {
 } from "../../ui/lugs";
 import Image from "next/image";
 import ShowPath from "../../components/showPath";
+import { FaSquareXTwitter } from "react-icons/fa6";
+
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import BackgroundDots from "@/app/components/BgMovingDots";
 
 export default async function About({ params }) {
   const { locale } = await params;
@@ -21,6 +24,7 @@ export default async function About({ params }) {
   return (
     <Layout>
       <MainBg>
+        <BackgroundDots numDots={90} />
         <AboutWrapper>
           <ShowPath title={""} />
           <AboutMePanel>
@@ -34,7 +38,8 @@ export default async function About({ params }) {
             >
               <Image
                 src={
-                  "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/owsftbzp6mn5iuvkogrl.jpg"
+                  "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765059827/elCronopio/pots-12_h4swi6.jpg"
+                  //   "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/owsftbzp6mn5iuvkogrl.jpg"
                 }
                 alt={"A portrait photos of Eric Lucero"} // Texto alternativo
                 width={150} // Ancho de la imagen
@@ -101,6 +106,14 @@ export default async function About({ params }) {
               </svg>{" "}
               Email
             </IconLink>
+            <IconLink
+              href="https://x.com/EricLuceroG"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaSquareXTwitter />
+              Twitter / X
+            </IconLink>
           </LinkList>
         </AboutWrapper>
       </MainBg>
@@ -108,25 +121,47 @@ export default async function About({ params }) {
   );
 }
 
-// export const metadata = {
-//   title: "Acerca de mi",
-//   openGraph: {
-//     title: "Acerca de mi...",
-//     description: "Explora temas de IA, programación y documentos en LaTeX.",
-//     images: [
-//       {
-//         url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png", // Imagen temática de LaTeX
-//         width: 1200,
-//         height: 630,
-//         alt: "IA, Tutoriales y tips de LaTeX",
-//       },
-//     ],
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "ElCronopio.com: Inteligencia Artificial, LaTeX y más",
-//     description: "Explora temas de IA, programación y documentos en LaTeX.",
-//     image:
-//       "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
-//   },
-// };
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+
+  // Obtenemos las traducciones del servidor para la sección "Metadata"
+  const t = await getTranslations({ locale, namespace: "About" });
+  const URLbase = "https://ericlucerogonzalez.github.io";
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords"),
+    // Configuración vital para SEO Multilingüe
+    alternates: {
+      canonical: `${URLbase}/${locale}`,
+      languages: {
+        es: `${URLbase}/es`,
+        en: `${URLbase}/en`,
+      },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      siteName: "Eric Lucero González",
+      images: [
+        {
+          url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+          width: 1200,
+          height: 630,
+          alt: t("description"), // Texto alternativo traducido
+        },
+      ],
+      locale: locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      image:
+        "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+    },
+  };
+}

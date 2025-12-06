@@ -15,7 +15,6 @@ import {
 } from "../ui/MarkDownComponents";
 import ScrollDiv from "../components/navigation/ScrollDiv";
 import { getAllPosts } from "../lib/api";
-import MovingDots from "../components/Canvas/MovingDots";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "../components/BgMovingDots";
 export default async function Home({ params }) {
@@ -26,7 +25,7 @@ export default async function Home({ params }) {
   return (
     <PageContainer>
       <ScrollDiv />
-      <BackgroundDots numDots={60} />
+      <BackgroundDots numDots={90} />
       <MainPageBg>
         <HomePageCover>
           <HomePageCoverText>

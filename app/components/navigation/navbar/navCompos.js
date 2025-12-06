@@ -9,6 +9,7 @@ export const NavigationBar = styled.div`
 export const Bar = styled.nav`
   font-size: 14px;
   background-color: var(--bg);
+  z-index: 1000;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 5px 20px;
   display: flex;
@@ -28,6 +29,8 @@ export const MainNav = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
+  background-color: var(--bg);
+  z-index: 1000;
 `;
 
 export const MainNavLogo = styled.div`
@@ -41,6 +44,8 @@ export const MainNavLogo = styled.div`
   @media (max-width: 768px) {
     display: none;
   }
+  background-color: var(--bg);
+  z-index: 1000;
 `;
 export const NavLogo = styled.h1`
   align-items: center;

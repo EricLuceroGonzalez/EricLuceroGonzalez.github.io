@@ -24,6 +24,8 @@
     "About": {
         "title": "About Me",
         "content": "I am Eric Lucero González, a PhD student specializing in Artificial Intelligence. This blog serves as a platform to share my research, insights, and developments in the field of AI.",
+        "description": "Personal blog on AI, optimization and LaTeX.",
+        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España",
         "license_title": "Content License",
         "license_terms": "All content on this blog is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). You are free to share and adapt the material as long as you provide appropriate credit, do not use it for commercial purposes, and indicate if changes were made.",
         "page_content_title": "About this Page",

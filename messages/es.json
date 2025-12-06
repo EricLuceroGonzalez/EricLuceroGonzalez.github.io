@@ -26,6 +26,8 @@
     "About": {
         "title": "Acerca de mí",
         "content": "Soy Eric Lucero González, un estudiante de doctorado especializado en Inteligencia Artificial. Este blog sirve como una plataforma para compartir mi investigación, ideas y desarrollos en el campo de la IA. Actualmente estoy realizando un doctorado en Inteligencia Artificial en la Universidad Politécnica de Madrid. Mis intereses incluyen algoritmos de optimización, meta-heurísticas y LaTeX. Disfruto compartiendo conocimiento y aprendiendo a través de la escritura.",
+        "description": "Blog personal sobre Inteligencia Artificial, Algoritmos y LaTeX.",
+        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España",
         "license_title": "Licencia de Contenido",
         "license_terms": "Todo el contenido de este blog está licenciado bajo una Licencia Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0). Eres libre de compartir y adaptar el material siempre que proporciones el crédito adecuado, no lo uses con fines comerciales e indiques si se realizaron cambios.",
         "page_content_title": "Acerca de esta Página",
