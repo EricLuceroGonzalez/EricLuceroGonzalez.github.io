@@ -23,13 +23,13 @@ const NaviBar = () => {
         <StyledLink actualPath={primaryPath} pathName={"/blog"} href={"/blog"}>
           Blog
         </StyledLink>
-        <StyledLink
+        {/* <StyledLink
           actualPath={primaryPath}
           pathName={"/latex"}
           href={"/latex"}
         >
           LaTeX
-        </StyledLink>
+        </StyledLink> */}
         <StyledLink
           actualPath={primaryPath}
           pathName={"/about"}

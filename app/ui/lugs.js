@@ -22,23 +22,27 @@ export const Layout = styled.div`
 
 // Define los estilos para cada parte del artículo
 export const Article = styled.article`
-  max-width: 90%;
+  width: 90%;
   margin: 0 auto;
   background-color: var(--bg);
   color: var(--fg);
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  min-width: 70%;
+  width: 70%;
 
+  @media (min-width: 880px) {
+    width: 70%;
+    /* border: 2px dashed red; */
+  }
   @media (min-width: 1080px) {
-    max-width: 60%;
+    width: 50%;
   }
   @media (max-width: 728px) {
     min-width: 100%;
     padding: 5px;
     box-shadow: none;
     font-size: small;
+    /* border: 2px solid orange; */
   }
-  /* border: 2px solid yellow; */
 `;
 
 export const Title = styled.h1`
@@ -115,7 +119,7 @@ export const MetaInfo = styled.div`
   flex-direction: row;
   justify-content: space-between;
   @media (min-width: 668px) {
-    width: 50%;
+    width: 70%;
     flex-direction: row;
   }
   @media (min-width: 1200px) {
@@ -125,7 +129,6 @@ export const MetaInfo = styled.div`
     margin-bottom: 2.75rem;
     width: 95%;
   }
-  /* border: 1px solid red; */
 `;
 // Contenedor para el avatar y el nombre del autor
 export const AuthorInfo = styled.div`

@@ -138,26 +138,28 @@ export const MdEmph = styled.em`
 `;
 
 export const MdImage = styled.div`
-  /* border: 2px solid blue; */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.71);
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 1rem auto;
-  width: 50%;
+  width: 95%;
   height: auto;
   position: relative;
-  @media (max-width: 660px) {
-    width: 100%;
+  /* border: 2px solid blue; */
+  @media (min-width: 860px) {
+    width: 90%;
+    /* border: 2px solid red; */
   }
+  background-color: var(--fg);
 `;
 export const MdImageCaption = styled.p`
-  color: var(--accent);
+  color: var(--bg);
   margin: 5px 0;
   text-align: justify;
-  max-width: 60%;
-  @media (max-width: 660px) {
+  max-width: 98%;
+  @media (min-width: 860px) {
     max-width: 80%;
   }
 `;

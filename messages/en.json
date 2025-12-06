@@ -1,4 +1,10 @@
 {
+    "Metadata": {
+        "defaultTitle": "Eric Lucero | AI | Optimization",
+        "templateTitle": "%s | Eric Lucero",
+        "description": "Blog personal sobre Inteligencia Artificial, Algoritmos y LaTeX.",
+        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España"
+    },
     "HomePage": {
         "title": "Welcome to my AI Research Blog",
         "about": "PhD Student based in Spain"

@@ -1,7 +1,15 @@
 {
+    "Metadata": {
+        "defaultTitle": "Eric Lucero | IA | Optimización",
+        "templateTitle": "%s | Eric Lucero",
+        "description": "Blog personal sobre Inteligencia Artificial, Algoritmos y LaTeX.",
+        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España"
+    },
     "HomePage": {
         "title": "Bienvenido a mi Blog de Investigación en IA",
-        "about": "Estudiante de doctorado en España"
+        "about": "Estudiante de doctorado en España",
+        "metaTitle": "Inicio: Mi viaje en la IA",
+        "metaDescription": "Bienvenido a mi espacio personal donde comparto mis investigaciones."
     },
     "Navigation": {
         "about": "Acerca de",
@@ -21,7 +29,9 @@
         "license_title": "Licencia de Contenido",
         "license_terms": "Todo el contenido de este blog está licenciado bajo una Licencia Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0). Eres libre de compartir y adaptar el material siempre que proporciones el crédito adecuado, no lo uses con fines comerciales e indiques si se realizaron cambios.",
         "page_content_title": "Acerca de esta Página",
-        "page_content": "Este blog está construido utilizando Next.js y Next-Intl para la internacionalización. Presenta publicaciones escritas tanto en inglés como en español, atendiendo a una audiencia diversa interesada en la investigación en IA."
+        "page_content": "Este blog está construido utilizando Next.js y Next-Intl para la internacionalización. Presenta publicaciones escritas tanto en inglés como en español, atendiendo a una audiencia diversa interesada en la investigación en IA.",
+        "metaTitle": "Sobre Mí",
+        "metaDescription": "Conoce más sobre mi trayectoria académica y profesional."
     },
     "Blog": {
         "readingTime": "Tiempo de lectura",

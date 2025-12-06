@@ -16,7 +16,7 @@ import {
 import ScrollDiv from "../components/navigation/ScrollDiv";
 import { getAllPosts } from "../lib/api";
 import MovingDots from "../components/Canvas/MovingDots";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 export default async function Home({ params }) {
   // 1. Obtener idioma
   const { locale } = await params;
@@ -72,29 +72,47 @@ export default async function Home({ params }) {
   );
 }
 
-export const metadata = {
-  title: "Inicio | Eric Lucero González",
-  description:
-    "Explora el espacio personal de Eric, donde combina su experiencia en Inteligencia Artificial, LaTeX y programación. Descubre su trayectoria, tutoriales y blog.",
-  openGraph: {
-    title: "Bienvenido a mi página personal",
-    description:
-      "Una mezcla de blog, tutoriales y un vistazo a mi trayectoria en Inteligencia Artificial, LaTeX y programación. Construyendo y compartiendo conocimientos.",
-    images: [
-      {
-        url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png", // Ruta de la imagen para el home
-        width: 1200,
-        height: 630,
-        alt: "Vista previa del sitio web de Eric",
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+
+  // Obtenemos las traducciones del servidor para la sección "Metadata"
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const URLbase = "https://ericlucerogonzalez.github.io";
+
+  return {
+    title: t("defaultTitle"),
+    description: t("description"),
+    keywords: t("keywords"),
+    // Configuración vital para SEO Multilingüe
+    alternates: {
+      canonical: `${URLbase}/${locale}`,
+      languages: {
+        es: `${URLbase}/es`,
+        en: `${URLbase}/en`,
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Bienvenido a mi página personal",
-    description:
-      "Una mezcla de blog, tutoriales y un vistazo a mi trayectoria en Inteligencia Artificial, LaTeX y programación.",
-    image:
-      "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
-  },
-};
+    },
+    openGraph: {
+      title: t("templateTitle"),
+      description: t("description"),
+      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      siteName: "Eric Lucero González",
+      images: [
+        {
+          url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+          width: 1200,
+          height: 630,
+          alt: t("templateTitle"), // Texto alternativo traducido
+        },
+      ],
+      locale: locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("templateTitle"),
+      description: t("description"),
+      image:
+        "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+    },
+  };
+}

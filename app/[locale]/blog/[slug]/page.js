@@ -200,7 +200,7 @@ export async function generateStaticParams({ params }) {
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const { locale, slug } = await params;
-  const post = getPostBySlug(slug, [], locale);
+  const post = getPostBySlug(slug, ["title", "excerpt", "coverImage"], locale);
   if (!post) {
     return {
       title: "Post not found",
@@ -214,7 +214,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     openGraph: {
       title: `${post.title} | Blog`,
       description: post.excerpt,
-      url: `https://elcronopio.com/blog/${post.slug}`,
+      url: `https://ericlucerogonzalez.github.io/blog/${locale}/${post.slug}`,
       images: [
         {
           url: post.imageThumbnail,

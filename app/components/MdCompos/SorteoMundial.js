@@ -325,10 +325,10 @@ function generarDatosEquipos() {
     ["Nueva Zelanda", "OFC", 4],
     ["Repesca IC-A", "MIX", 4],
     ["Repesca IC-B", "MIX", 4],
-    ["Repesca UEFA-A", "MIX", 4],
-    ["Repesca UEFA-B", "MIX", 4],
-    ["Repesca UEFA-C", "MIX", 4],
-    ["Repesca UEFA-D", "MIX", 4],
+    ["Repesca UEFA-A", "UEFA", 4],
+    ["Repesca UEFA-B", "UEFA", 4],
+    ["Repesca UEFA-C", "UEFA", 4],
+    ["Repesca UEFA-D", "UEFA", 4],
   ];
 
   configRestante.forEach(([nombre, conf, bombo]) =>

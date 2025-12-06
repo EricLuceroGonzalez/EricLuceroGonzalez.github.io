@@ -4,7 +4,7 @@ id: "ai-001"
 date: "2025-12-01"
 order: 0
 author: "Eric Lucero"
-imageThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1740425837/elCronopio/IMG_0038_hsy3i9.jpg
+imageThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/individuo-6_s8wgyw.jpg
 title: "Un Algoritmo Genético para generar el Sorteo de Grupos de la Copa Mundial de la FIFA"
 shortTitle: "Grupos del mundial con Algoritmos Genéticos"
 entryType: "blog"
@@ -118,7 +118,7 @@ Ya hemos dicho que cada individuo del algoritmo genético representa una soluci�
 _un sorteo de grupos_ con los 12 grupos completos, sin importar si son válidos o no. Como cada sorteo está compuesto por grupos, cada grupo representa lo que 
 llamamos un _gen_ dentro del individuo.
 
-![Imagen de ejemplo caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1740425837/elCronopio/IMG_0038_hsy3i9.jpg)
+![Imagen de ejemplo caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/individuo-6_s8wgyw.jpg)
 
 
 Para nuestro código, cada _gen_ está formado por elementos de la clase `Equipo` que contiene la información relevante de cada selección nacional:
@@ -185,7 +185,7 @@ aplicamos una penalización masiva (+500).
             penalizacion += 500  # ¡Fallo Grave!
 ```
 
-![Imagen de ejemplo caption=Evaluación de un individuo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1740425837/elCronopio/IMG_0038_hsy3i9.jpg)
+![Imagen de ejemplo caption=Evaluación de dos individuos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/fitness-11_y0fggo.jpg)
 
 El algoritmo busca minimizar este número. Un fitness de 500 es un desastre; un fitness de 0 es un sorteo válido.
 
@@ -316,8 +316,6 @@ En el operador de torneo se van tomando pares de individuos y se compara su valo
 El operador de ruleta simula el comportamiento de una ruleta, sin embargo los espacios o las divisiones de esta ruleta no son iguales. La probabilidad de selección de un individuo es proporcional a su valor de fitness.
 A mayor fitness, mayor probabilidad de ser seleccionado. Los individuos seleccionados forman parte de los padres de los cuales surgirá la nueva población de individuos con los otros operadores genéticos.
 
-![Imagen de ejemplo caption=Representación del operador de ruleta proporcional al fitness.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1740425837/elCronopio/IMG_0038_hsy3i9.jpg)
-
 ### Selección
 No dejamos que cualquiera se reproduzca. Se utiliza el operador de ruleta, aunque también aparece en el código el operador de torneo.
 Este operador toma todos los individuos de una generación y crea un arreglo llamado `pesos` que contiene el inverso del valor del fitness de cada uno de estos, luego selecciona uno aleatoriamente
@@ -347,7 +345,8 @@ def seleccion_ruleta(evaluados):
 
 ### Cruce
 
-![Imagen de ejemplo caption=Ejemplo del operador de cruce.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1740425837/elCronopio/IMG_0038_hsy3i9.jpg)
+![Imagen de ejemplo caption=Ejemplo del operador de cruce.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/FIFA-cruce-6_mkwaqe.jpg)
+
 El cruce es el operador más importante, ya que es el responsable de crear diversidad y explorar el espacio de búsqueda. El cruce toma dos padres y crea un hijo.
 Lo que da lugar al reemplazo de la población actual por una nueva generación. En nuestro caso debemos tener mucho cuidado ya que no podemos hacer un cruce en cualquier punto del individuo (cromosoma)
 Ya que si hacemos esto y cortamos un sorteo por la mitad y lo intercambiamos por otro, romperíamos la estructura de los bombos.
@@ -399,6 +398,8 @@ def cruzar(padre1, padre2):
 
 ### Mutación
 Si solo cruzamos padres, eventualmente todos los hijos se parecerán y nos estancaremos en un "Mínimo Local" (una solución que parece buena pero no es la mejor).
+
+![Imagen de ejemplo caption=Ejemplo del operador de mutación.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Fifa-mutar-7_grtdqh.jpg)
 
 La función mutar(individuo) introduce caos controlado. Con una probabilidad del 20%, tomamos un sorteo, elegimos dos grupos al azar e intercambiamos dos equipos del mismo bombo.
 

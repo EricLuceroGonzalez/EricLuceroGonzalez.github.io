@@ -21,14 +21,13 @@ export const Main = styled.main`
 
 export const MainBg = styled.div`
   flex: 1;
-  padding: 0 1.5rem;
+  padding: 0 2.5rem;
   background-color: var(--bg);
   min-height: 100vh;
   @media (max-width: 728px) {
     text-align: justify;
     padding: 1rem 5px;
   }
-  /* border: 1px dashed var(--accent); */
 `;
 export const MainPageBg = styled.div`
   flex: 1;
@@ -42,13 +41,14 @@ export const MainPageBg = styled.div`
     font-size: large;
     max-width: 70%;
     margin: 0 auto;
+    /* border: 1px solid orange; */
   }
   @media (min-width: 1300px) {
     font-size: large;
-    max-width: 90%;
+    width: 50%;
     margin: 0 auto;
+    /* border: 1px solid var(--accent); */
   }
-  /* border: 1px solid var(--accent); */
 `;
 
 export const HomePageCover = styled.div`

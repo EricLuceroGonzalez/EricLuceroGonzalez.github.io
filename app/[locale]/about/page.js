@@ -32,10 +32,10 @@ export default async function About({ params }) {
                 scale: { type: "spring", visualDuration: 0.3, bounce: 0.5 },
               }}
             >
-              {/* <Image
+              <Image
                 src={
                   "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/owsftbzp6mn5iuvkogrl.jpg"
-                } 
+                }
                 alt={"A portrait photos of Eric Lucero"} // Texto alternativo
                 width={150} // Ancho de la imagen
                 height={150} // Alto de la imagen
@@ -44,7 +44,7 @@ export default async function About({ params }) {
                   width: "100%",
                   height: "auto",
                 }}
-              /> */}
+              />
             </PhotoAvatar>
 
             <AboutMeParaph

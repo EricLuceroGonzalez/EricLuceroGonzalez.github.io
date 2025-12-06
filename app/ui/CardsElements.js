@@ -33,9 +33,10 @@ export const GridHeroImage = styled.div`
   position: relative;
   @media (max-width: 660px) {
     width: 40%;
+    display: none;
   }
   @media (min-width: 1280px) {
-    width: 50%;
+    width: 90%;
   }
 `;
 
