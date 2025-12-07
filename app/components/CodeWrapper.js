@@ -69,9 +69,10 @@ const CodeBlock = ({ language, value }) => {
       <Toolbar>
         <LanguageBadge>{language}</LanguageBadge>
         {/* <CopyToClipboard text={value} onCopy={handleCopy}> */}
-        <CopyButton $isCopy={copied}>
+        {/* TODO: Encontrar librería que funcione con Next 19 */}
+        {/* <CopyButton $isCopy={copied}>
           {copied ? <LuCopyCheck /> : <LuCopy />}
-        </CopyButton>
+        </CopyButton> */}
         {/* </CopyToClipboard> */}
       </Toolbar>
       <SyntaxHighlighter

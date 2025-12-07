@@ -46,7 +46,7 @@ a {
     /* Citas y Bloques de Código */
     --quote-bg: #FFF3CD; /* Amarillo pálido para fondo de citas */
     --quote-fg: #6C757D; /* Gris oscuro para texto de citas */
-    --code-fg: #00FFE7; /* Rojo suave para palabras reservadas en código */
+    --code-fg: #FF3366; /* Rojo suave para palabras reservadas en código */
     --code-bg: #282C34; /* Fondo para bloques de código */
     /* Bordes */
     --primary-border: #0077FF; /* Azul para bordes */

@@ -67,6 +67,12 @@ const NaviBar = nextDynamic(() =>
 export function generateStaticParams() {
   return [{ locale: "es" }, { locale: "en" }];
 }
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0077FF" }, // Blanco o gris claro
+    { media: "(prefers-color-scheme: dark)", color: "#FF3366" }, // Negro o tu gris oscuro
+  ],
+};
 
 export default async function LocaleLayout({ children, params }) {
   // Siempre en primera línea dentro de la función

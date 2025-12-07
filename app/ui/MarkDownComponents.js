@@ -159,6 +159,7 @@ export const MdImageCaption = styled.p`
   margin: 5px 0;
   text-align: justify;
   max-width: 98%;
+  font-size: smaller;
   @media (min-width: 860px) {
     max-width: 80%;
   }

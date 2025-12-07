@@ -3,21 +3,9 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MainPageBg, PageContainer, TitlePage } from "../ui/ComponentsStyled";
-import styled from "styled-components";
 import SpinnerLoad from "../components/SpinnerLoad";
+import BackgroundDots from "../components/BgMovingDots";
 
-const Spinner = styled.svg`
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`;
 export default function RootPage() {
   const router = useRouter();
 
@@ -30,6 +18,7 @@ export default function RootPage() {
 
   return (
     <PageContainer>
+      <BackgroundDots numDots={90} />
       <MainPageBg>
         <div
           style={{

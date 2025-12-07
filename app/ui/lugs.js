@@ -33,15 +33,20 @@ export const Article = styled.article`
     width: 70%;
     /* border: 2px dashed red; */
   }
-  @media (min-width: 1080px) {
-    width: 50%;
-  }
   @media (max-width: 728px) {
     min-width: 100%;
     padding: 5px;
     box-shadow: none;
     font-size: small;
     /* border: 2px solid orange; */
+  }
+  @media (min-width: 1080px) {
+    width: 60%;
+    border: 2px solid cyan;
+  }
+  @media (min-width: 1380px) {
+    width: 70%;
+    border: 2px solid cyan;
   }
 `;
 

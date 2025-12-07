@@ -13,7 +13,11 @@ excerpt: "Hackeando el Mundial 2026: Cómo los Algoritmos Genéticos resuelven l
 doctype: ["blog", "python"]
 isPublic: true
 ---
-La Copa Mundial de la FIFA es uno de los eventos deportivos más grandes del mundo, y el sorteo de grupos es un proceso crucial que determina cómo se enfrentarán los equipos en la fase inicial. 
+La Copa Mundial de la FIFA 2026 será la primera en disputarse entre 48 selecciones nacionales de todo el mundo.
+Estos 48 equipos deben distribuirse en 12 grupos y se reparten de forma particular a través de un sorteo que pone algunas restricciones interesante en la formación de estos grupos, gracias a estas
+el sorteo se puede llevar a cabo de forma rápida y sin problemas.
+Una vez hecho el sorteo queda determinado cómo se enfrentarán los equipos en la fase inicial. 
+
 En la edición de 2026, con 48 equipos participantes, el sorteo se vuelve aún más complejo debido a las múltiples restricciones que deben cumplirse<CitationSup id="1" />.
 
 El problema al que nos enfrentamos al generar el sorteo de grupos es un problema de optimización combinatoria con restricciones.
@@ -22,18 +26,19 @@ _soluciones factibles_.
 
 ### Solución factible
 Una solución factible es aquella que satisface la función objetivo y no viola ninguna de las restricciones del problema o al menos aquellas son consideradas obligatorias.
-En el caso de los grupos del mundial solución factible es una configuración del sorteo que cumple con todas las restricciones impuestas, como la distribución geográfica y el ranking de los equipos.
+
+En el caso de los grupos del mundial, la solución factible es una configuración del sorteo que cumple con todas las restricciones impuestas, como la distribución de confederaciones y el ranking de los equipos.
 La mayoría de las combinaciones posibles que se pueden hacer con 48 equipos, 4 bombos y 12 grupos no serán soluciones factibles. 
 Aquí radica la dificultad del problema, en encontrar un sorteo que sea válido para todas las restricciones del sorteo.
 
-Este espacio de soluciones puede ser extremadamente grande y complejo, especialmente cuando se consideran todas las restricciones geográficas y de ranking de equipos.
+Este espacio de soluciones puede ser extremadamente grande y complejo, especialmente cuando se consideran todas las restricciones de confederaciones y de ranking de equipos.
 Por ejemplo, en el Mundial de 2026, con 48 equipos y múltiples restricciones, el número de configuraciones posibles del sorteo es astronómico. Vamos a calcularlo.
 
 ### Combinaciones posibles
 En el sorteo hay 42 equipos distribuidos en 4 bombos (recipientes) que van a ser distribuidos en 12 grupos (del A al L). De cada bombo se irán sacando los equipos de forma aleatoria hasta vaciar el bombo, de tal manera que cada grupo tendrá un equipo de cada bombo.
 Los anfitriones (Canadá, México y Estados Unidos) ya tienen asignado su grupo, y en cada bombo hay 12 equipos. 
 
-Ahora calculemos todas las __combinaciones posibles__ sin considerar las restricciones.
+Ahora calculemos todas las __combinaciones posibles__ sin considerar las restricciones y usando factoriales ($n!$).
 - Bombo 1: $9!$,
 - Bombos 2, 3, y 4: $12!$
 - Esto es en total: $9! \times  12! \times 12! \times12! = 3.9881 \times 10^{31}$ combinaciones posibles.
@@ -52,37 +57,50 @@ En el caso del sorteo de grupos de la Copa Mundial de la FIFA, usaremos un algor
 Las restricciones del sorteo definen lo que debe suceder al ir sacando los equipos de los bombos para asignarlos a los grupos. La FIFA ha 
 redefinido las restricciones para este mundial de 2026 ya que es el primero con 42 selecciones y 12 grupos.
 
-Las restricciones son las siguientes <CitationSup id="2" />:
+Primero hay que aclarar que en el sorteo los nombres de las 42 selecciones están divididas en cuatro recipientes (bombos) ordenadas según aparecen en el Ranking FIFA <CitationSup id="2" />.
+
+Las restricciones son las siguientes <CitationSup id="3" />:
 - _Anfitriones:_ México se le asignará la posición A1 (primero del grupo A), a Canadá, la posición B1, y a Estados Unidos, la posición D1.
 - _Bombo 1:_ Las otras nueve selecciones del bombo 1 se identificarán mediante nueve bolas del mismo color y se asignarán automáticamente a la posición 1 del grupo en el que resulten encuadradas.
 - _Distribución uniforme:_ En cada grupo debe haber un equipo de cada bombo. 
 - _Confederaciones por grupo:_ Ningún grupo puede tener más de una selección de la misma confederación, excepto las de la UEFA, que pueden tener hasta dos selecciones en un mismo grupo.
-- _Top 4 del ranking:_ Por último, las selecciones de España y Francia, Argentina e Inglaterra no podrán enfrentarse hasta la semifinal, por ser los cuatro primeros 
-del ranking masculino de la FIFA a la fecha<CitationSup id="3" />. Esto restringe que se agreguen a cualquier grupo.
+- _Top 4 del ranking:_ Por último, las selecciones de España y Argentina por un lado, y Francia e Inglaterra por otro, no podrán enfrentarse hasta la semifinal, por ser los cuatro primeros 
+del ranking masculino de la FIFA a la fecha<CitationSup id="2" />. Esto restringe que se agreguen a cualquier grupo.
 
 Esto es lo que llamamos *restricciones* del problema.
 Intentar generar todas las combinaciones posibles y luego filtrar las que cumplen con las restricciones sería computacionalmente inviable como ya hemos visto.
 
 ## ¿Qué es un Algoritmo Genético?
 Sin entrar en muchos detalles un algoritmos genético (GA en inglés) es un algoritmo de optimización inspirado en la reproducción de poblaciones de generación en 
-generación y en los procesos biológicos de evolución. Están enmarcados dentro de los llamados _algoritmos evolutivos_. Las bases teóricas y primeras ideas de los algoritmos genéticos
+generación y en los procesos biológicos de evolución. Están enmarcados dentro de los llamados _algoritmos evolutivos_. 
+
+Las bases teóricas y primeras ideas de los algoritmos genéticos
 pertenecen a los trabajos de John Holland y Lawrence Fogel en los años 60s<CitationSup id='4'/><CitationSup id='5'/>.
 
 Un algoritmo genético se compone de un poblaciones de individuos que representan las soluciones candidatas al problema que se quiere resolver.
-Cada una de estas soluciones es evaluada mediante una función de aptitud o _fitness function_ que mide qué tan buena es la solución.
+Cada una de estas soluciones se evalúa mediante una función de costo, aptitud o _fitness_ que mide qué tan buena es la solución.
 Luego, se seleccionan las mejores soluciones para reproducirse y generar nuevas soluciones mediante operaciones de _cruce_ y _mutación_.
+
 Este proceso se repite durante varias generaciones hasta que se alcance un criterio de terminación, como un número máximo de generaciones o una solución suficientemente buena.
 
 ## Población inicial
 
-Los A algoritmos genéticos forman parte del conjunto de holísticas llamadas o clasificadas como poblacionales. En este tipo de algoritmos se evalúa un conjunto de soluciones en cada alteración el cual llamamos población. Cada población está conformada por individuos y cada uno de estos debe ser evaluado por la función de costo.
+Los algoritmos genéticos forman parte del conjunto de __metaheurísticas__ llamadas o clasificadas como poblacionales. 
+En este tipo de algoritmos se evalúa un conjunto de soluciones en cada alteración el cual llamamos población. Cada población está conformada por individuos y cada uno de estos debe ser evaluado por la función de costo.
 En el mejor de los casos se llegará una solución cuando se encuentre un individuo que tenga el óptimo Fitness y no incurra en ninguna violación a ninguna de las restricciones.
+
 En nuestro caso, para este problema cada individuo es un sorteo, como ya hemos dicho. Este individuo puede contener esquemas que violen las reglas y las restricciones del sorteo,
-Y es la función de Fitness quién va a castigar asignándole valores que cada vez lo alejen del óptimo a este individuo. Antes de definir la población es importante definir primero los individuos que conforman población
+Y es la función de Fitness quién va a castigar asignándole valores que cada vez lo alejen del óptimo a este individuo. 
+
+Antes de definir la población es importante definir primero los individuos que conforman población
 A esto le llamamos codificación del individuo.
 Cada individuo de la población es un sorteo, como ya hemos dicho, el cual debemos encontrar una forma de representarlo en algoritmo y crearlo (codificación).
+
+
+
 En el siguiente código se ve el proceso de creación de un individuo en un procedimiento parecido al sorteo, es decir se van asignando los equipos bombo por bombo, desde el primero hasta el cuarto.
-Ignorando la restricciones, los individuos pueden ser individuos válidos o no, según violen o o las restricciones. Es el algoritmo que debe determinar quién es el mejor o el óptimo de todos los individuos.
+Ignorando la restricciones, los individuos pueden ser individuos válidos o no, según violen o no las restricciones. 
+_Es el algoritmo que debe determinar quién es el mejor o el óptimo de todos los individuos._
 
 ```python
 def crear_individuo(lista_equipos):
@@ -119,8 +137,7 @@ Ya hemos dicho que cada individuo del algoritmo genético representa una soluci�
 _un sorteo de grupos_ con los 12 grupos completos, sin importar si son válidos o no. Como cada sorteo está compuesto por grupos, cada grupo representa lo que 
 llamamos un _gen_ dentro del individuo.
 
-![Imagen de ejemplo caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/individuo-6_s8wgyw.jpg)
-
+![caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/individuo-6_s8wgyw.jpg)
 
 Para nuestro código, cada _gen_ está formado por elementos de la clase `Equipo` que contiene la información relevante de cada selección nacional:
 ```python
@@ -159,11 +176,17 @@ Equipo("Panamá", "CONCACAF", 3)
 
 ## Fitness Function o Función de costo
 
-La forma más sencilla de evaluar un individuo de estas características, es creando una función objetivo que cuente las veces que se violan la restricciones, y en cada una de estas le adjudique una penalización a ese individuo,
-Es decir una valoración desfavorable de tal manera que en el ciclo debido al algoritmo este individuo quede rezagado o no pueda reproducirse y se extinga.
+La forma más sencilla de evaluar un individuo de estas características, es creando una función objetivo que cuente las veces que se violan la restricciones, 
+y en cada una de estas le adjudique una penalización a ese individuo,
+es decir una valoración desfavorable de tal manera que en el _ciclo de vida_ del algoritmo este individuo quede rezagado o no pueda reproducirse y se extinga.
+
+![caption=Evaluación de dos individuos. El individuo A tiene un fitness de 900, ya que viola la repetición de confederaciones en los grupos C,D,E. Además de no separar los itinerarios de España y Argentina.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/fitness-11_y0fggo.jpg)
+
+El algoritmo busca minimizar este número. Un fitness de 1400 es un desastre; un fitness de 0 es un sorteo válido.
 
 La función `calcularFitness(sorteo)` es el motor del algoritmo. Su objetivo es llegar a cero, esto significa que ha encontrado un individuo cuya evaluación no viola ninguna de las restricciones,
-Al encontrar uno de estos el algoritmo ha encontrado el óptimo, es decir un sorteo válido. Aquí es donde entran en el juego las restricciones mencionadas anteriormente
+
+Al encontrar uno de estos el algoritmo ha encontrado el óptimo, es decir un sorteo válido. Aquí es donde entran en el juego las restricciones mencionadas anteriormente.
 
 Aquí aplicamos Restricciones Duras (Hard Constraints):
 - Confederaciones: Ningún grupo puede tener más de un equipo de la misma confederación (salvo Europa, que permite dos).
@@ -185,11 +208,7 @@ aplicamos una penalización masiva (+500).
         if it_1 == it_2:
             penalizacion += 500  # ¡Fallo Grave!
 ```
-
-![Imagen de ejemplo caption=Evaluación de dos individuos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/fitness-11_y0fggo.jpg)
-
-El algoritmo busca minimizar este número. Un fitness de 500 es un desastre; un fitness de 0 es un sorteo válido.
-
+Veamos la función de costo completa. Su objetivo es evaluar cada grupo y contar las veces que se viola alguna restricción y penalizarla. 
 ```python
 def calcular_fitness(sorteo):
     penalizacion = 0
@@ -239,13 +258,15 @@ def calcular_fitness(sorteo):
 ```
 
 ## Ciclo de vida del Algoritmo Genético
-Un algoritmo poblacional tiene un procedimiento donde se crea la población de individuos, y se recorre esta población evaluando el costo de cada uno de estos en busca del óptimo,
-De no encontrar ninguno se deben recurrir a operadores genéticos, que son los encargados de hacer variaciones en la población para generar nuevos individuos,
-Estos operadores son los de mutación y cruce, simulando los aspectos de la genética. La mutación equivale a tomar un individuo (cromosoma) y cambiarle un elemento (gen) de forma aleatoria.
+En un algoritmo poblacional se crea la población de individuos, y se recorre esta población evaluando el costo de cada uno de estos en busca del óptimo,
+de no encontrar ninguno se deben recurrir a __operadores genéticos__, que son los encargados de hacer variaciones en la población para generar nuevos individuos.
+
+Estos operadores son los de _mutación_ y _cruce_, simulando los aspectos de la genética. La mutación equivale a tomar un individuo (cromosoma) y cambiarle un elemento (gen) de forma aleatoria.
 El cruce simula la reproducción de dos individuos. Consiste en tomar dos individuos e intercambiar material genético (secciones del individuo) entre uno y otro. Tanto el cruce como la mutación
 tienen muchas variantes<CitationSup id="6"/>, en este caso aplicamos las más sencillas que son las que hemos definido anteriormente.
 
-En el caso concreto del sorteo, el cruce se hace tomando dos individuos por el mecanismo de ruleta, estos los van a hacer el rol de Padre y madre que van a reproducirse para generar hijo, este hijo va a ser el nuevo individuo generado.
+En el caso concreto del sorteo, el cruce se hace tomando dos individuos por el mecanismo de ruleta, estos dos van a hacer el rol de padre y madre que van a reproducirse para generar un hijo, este hijo va a ser el nuevo individuo generado.
+
 La función `cruzar` toma dos padres y de forma aleatoria decide cuál va a ser el donante y receptor (aunque realmente los dos donan), cada uno de estos donantes va a intercambiar todos los grupos que ha recibido de un bombo con el otro padre.
 
 ```python
@@ -310,10 +331,11 @@ def ejecutar_ga_completo():
 
 ## Operadores Genéticos
 
-El primer operador en ser aplicado es llamado _selección_. El objetivo de la selección es simular la ley de Darwininana de la supervivencia del más apto. 
+El primer operador en ser aplicado es llamado _selección_. El objetivo de la selección es simular la ley de Darwiniana de la supervivencia del más apto. 
 Como los demás operadores, hay muchas formas de hacer el operador de selección y entre los más usados están los operadores de _ruleta_ y _torneo_. 
 
-En el operador de torneo se van tomando pares de individuos y se compara su valor de fitness, en cada par o el ganador "clasifica" y se enfrenta con nosotros ganadores hasta obtener un ganador del torneo. Este es el seleccionado para el cruce.
+En el operador de torneo se van tomando pares de individuos y se compara su valor de fitness, en cada par o el ganador "clasifica" y se enfrenta con los otros ganadores hasta obtener un ganador del torneo. Este es el seleccionado para el cruce.
+
 El operador de ruleta simula el comportamiento de una ruleta, sin embargo los espacios o las divisiones de esta ruleta no son iguales. La probabilidad de selección de un individuo es proporcional a su valor de fitness.
 A mayor fitness, mayor probabilidad de ser seleccionado. Los individuos seleccionados forman parte de los padres de los cuales surgirá la nueva población de individuos con los otros operadores genéticos.
 
@@ -346,11 +368,11 @@ def seleccion_ruleta(evaluados):
 
 ### Cruce
 
-![Imagen de ejemplo caption=Ejemplo del operador de cruce.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/FIFA-cruce-6_mkwaqe.jpg)
+![caption=Ejemplo del operador de cruce. En la imagen vemos que el Padre A dona todos los equipos que pertenecen a los bombos 1 y 4 al hijo A, y los equipos del bombo 2 y 3 al hijo B.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/FIFA-cruce-6_mkwaqe.jpg)
 
 El cruce es el operador más importante, ya que es el responsable de crear diversidad y explorar el espacio de búsqueda. El cruce toma dos padres y crea un hijo.
 Lo que da lugar al reemplazo de la población actual por una nueva generación. En nuestro caso debemos tener mucho cuidado ya que no podemos hacer un cruce en cualquier punto del individuo (cromosoma)
-Ya que si hacemos esto y cortamos un sorteo por la mitad y lo intercambiamos por otro, romperíamos la estructura de los bombos.
+ si hacemos esto y cortamos un sorteo por la mitad y lo intercambiamos por otro, romperíamos la estructura de los bombos.
 
 El operador de cruce definido en la función `cruzar()` opera bombo por bombo. Para el Bombo 1 (Cabezas de serie), lanza una moneda: ¿Hereda la distribución del Padre A o del B?
 Repite para los Bombos 2, 3 y 4.
@@ -400,9 +422,9 @@ def cruzar(padre1, padre2):
 ### Mutación
 Si solo cruzamos padres, eventualmente todos los hijos se parecerán y nos estancaremos en un "Mínimo Local" (una solución que parece buena pero no es la mejor).
 
-![Imagen de ejemplo caption=Ejemplo del operador de mutación.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Fifa-mutar-7_grtdqh.jpg)
+![caption=Ejemplo del operador de mutación.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Fifa-mutar-7_grtdqh.jpg)
 
-La función mutar(individuo) introduce caos controlado. Con una probabilidad del 20%, tomamos un sorteo, elegimos dos grupos al azar e intercambiamos dos equipos del mismo bombo.
+La función `mutar(individuo)` introduce caos controlado. Con una probabilidad del 20%, tomamos un sorteo, elegimos dos grupos al azar e intercambiamos dos equipos del mismo bombo.
 
 Si muta:
   1. Elige 2 grupos al azar
@@ -436,21 +458,29 @@ def mutar(individuo, prob_mutacion):
 ```
 
 ### Reemplazo
-La nueva generación reemplaza completamente a la anterior
+La nueva generación reemplaza completamente a la anterior (esto es debatible).
 
 ## Criterio de terminación
 Para terminar el ciclo de vida el valor no debe tener un criterio de terminación. Uno de ellos terminar algoritmo si se alcanza la cantidad máxima de generaciones previamente estipuladas. El otro, si detecta que un individuo tiene un Fitness igual a cero, también termina el algoritmo y toma este medio individuo como la solución óptima.
 
 _Criterios de terminación:_
-- Si encuentra un sorteo con penalización = 0 → ¡Éxito!
-- Si llega a generación 1000 → devuelve el mejor encontrado
+- Si encuentra un sorteo con penalización = 0 -> ¡Éxito!
+- Si llega a generación 1000 -> devuelve el mejor encontrado.
 
+Afortunadamente, la estructura de bombos permite encontrar soluciones rápidamente con los algoritmos genéticos y no hay que recurrir al critero de generación de terminación.
+
+## Para finalizar (P.D.)
+No es difícil (tomando en cuenta las cifras astronómicas de antes) encontrar algunas soluciones que coincidan con el sorteo llevado a cabo el 5 de diciembre de 2025. 
+Por ejemplo en la imagen de abajo podemos ver en el grupo C, lo que resultó ser el grupo L del mundial.
+![caption=Es normal ver casos que coinciden con los grupos reales del mundial 2026.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765065317/elCronopio/Screenshot_2025-12-05_at_21.25.01_dck9wj.png)
 
 <ReferenceList references={[
 {id:"1", text:"Restricciones del sorteo de la FIFA", url:"https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/sorteo-copa-mundial-2026-procedimiento-sorteo-final"},
-    {id: "2", text:"Procedimiento del sorteo final de la Copa Mundial de la FIFA 2026™", url:"https://digitalhub.fifa.com/m/3fd60e2399fe26ff/original/Procedimiento-del-sorteo-de-la-Copa-Mundial" },
-    {id: "3", text:"Clasificación Mundial Masculina FIFA/Coca-Cola.", url: "https://inside.fifa.com/es/fifa-world-ranking/men"},
+    {id: "2", text:"Clasificación Mundial Masculina FIFA/Coca-Cola.", url: "https://inside.fifa.com/es/fifa-world-ranking/men"},
+    {id: "3", text:"Procedimiento del sorteo final de la Copa Mundial de la FIFA 2026™", url:"https://digitalhub.fifa.com/m/3fd60e2399fe26ff/original/Procedimiento-del-sorteo-de-la-Copa-Mundial" },
     {id: "4", text:"John Holland, Adaptation in Natural and Artificial Systems, 1975", url: "https://mitpress.mit.edu/books/adaptation-natural-and-artificial-systems"},
     {id: "5", text:"Lawrence Fogel, Intelligent decision making through a simulation of evolution, 1966", url: "https://doi.org/10.1002/bs.3830110403"},
     {id: "6", text:"Larrañaga et al, Genetic Algorithms for the Travelling Salesman Problem: A Review of Representations and Operators", url:"https://doi.org/10.1023/A:1006529012972"}
 ]}/>
+
+

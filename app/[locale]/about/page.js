@@ -38,8 +38,7 @@ export default async function About({ params }) {
             >
               <Image
                 src={
-                  "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765059827/elCronopio/pots-12_h4swi6.jpg"
-                  //   "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/owsftbzp6mn5iuvkogrl.jpg"
+                  "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/owsftbzp6mn5iuvkogrl.jpg"
                 }
                 alt={"A portrait photos of Eric Lucero"} // Texto alternativo
                 width={150} // Ancho de la imagen
@@ -48,6 +47,7 @@ export default async function About({ params }) {
                 style={{
                   width: "100%",
                   height: "auto",
+                  zIndex: 1000,
                 }}
               />
             </PhotoAvatar>

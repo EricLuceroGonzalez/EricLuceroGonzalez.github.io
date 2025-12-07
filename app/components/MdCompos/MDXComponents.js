@@ -89,7 +89,6 @@ const MdxComponents = {
     const captionSeparation = metastring.match(/caption=(.*)/);
     const caption = captionSeparation ? captionSeparation[1].trim() : null;
     const hasCaption = metastring.toLowerCase().includes("caption=");
-
     return (
       <MdImage>
         <Image
@@ -98,7 +97,7 @@ const MdxComponents = {
           height={0}
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
-          alt={alt.replace(/ *\{[^)]*\} */g, "")}
+          alt={caption}
           // objectFit="cover"
         />
         {hasCaption && <MdImageCaption>{caption}</MdImageCaption>}

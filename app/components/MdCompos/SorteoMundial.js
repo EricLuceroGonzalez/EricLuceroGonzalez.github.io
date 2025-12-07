@@ -11,7 +11,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; */
 `;
 
@@ -93,10 +93,11 @@ const GruposContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-
+  width: 100%;
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
+  border: 1px solid red;
 `;
 
 const ItinerarioSection = styled.div`
