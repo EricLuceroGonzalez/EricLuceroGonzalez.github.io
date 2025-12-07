@@ -94,16 +94,16 @@ export async function generateMetadata({ params }) {
       },
     },
     openGraph: {
-      title: t("templateTitle"),
+      title: t("defaultTitle"),
       description: t("description"),
       url: `${URLbase}/${locale}`, // URL canónica para compartir
       siteName: "Eric Lucero González",
       images: [
         {
-          url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+          url: t("thumbnailImage"),
           width: 1200,
           height: 630,
-          alt: t("templateTitle"), // Texto alternativo traducido
+          alt: t("defaultTitle"), // Texto alternativo traducido
         },
       ],
       locale: locale,
@@ -111,10 +111,9 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: t("templateTitle"),
+      title: t("defaultTitle"),
       description: t("description"),
-      image:
-        "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+      image: t("thumbnailImage"),
     },
   };
 }

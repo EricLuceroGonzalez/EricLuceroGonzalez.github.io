@@ -9,7 +9,7 @@ const LicensePage = () => {
   return (
     <Layout>
       <MainBg>
-        <ShowPath title={"licence"} />
+        <ShowPath title={"license"} />
         <h1>{t("license_title")}</h1>
         <p>{t("license_terms")}</p>
       </MainBg>

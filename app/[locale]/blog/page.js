@@ -15,7 +15,7 @@ import {
 } from "../../ui/MarkDownComponents";
 import ShowPath from "../../components/showPath";
 import ScrollDiv from "../../components/navigation/ScrollDiv";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "@/app/components/BgMovingDots";
 
 const BlogPage = async ({ params }) => {
@@ -70,29 +70,46 @@ const BlogPage = async ({ params }) => {
 
 export default BlogPage;
 
-export const metadata = {
-  title: "Blog | Eric Lucero González",
-  description:
-    "Explora artículos sobre Inteligencia Artificial, programación, algoritmos metaheurísticos y más. Comparte mi viaje académico y profesional.",
-  openGraph: {
-    title: "Eric's Blog - Inteligencia Artificial y más",
-    description:
-      "Artículos y reflexiones sobre IA, optimización, programación y mi proceso de aprendizaje durante el doctorado.",
-    images: [
-      {
-        url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png", // Imagen relacionada con el blog
-        width: 1200,
-        height: 630,
-        alt: "Blog sobre Inteligencia Artificial y programación",
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+
+  // Obtenemos las traducciones del servidor para la sección "Metadata"
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const URLbase = "https://ericlucerogonzalez.github.io";
+
+  return {
+    title: t("defaultTitle"),
+    description: t("description"),
+    keywords: t("keywords"),
+    // Configuración vital para SEO Multilingüe
+    alternates: {
+      canonical: `${URLbase}/${locale}`,
+      languages: {
+        es: `${URLbase}/es`,
+        en: `${URLbase}/en`,
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Eric's Blog - Inteligencia Artificial y más",
-    description:
-      "Artículos y reflexiones sobre IA, optimización y programación.",
-    image:
-      "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
-  },
-};
+    },
+    openGraph: {
+      title: t("defaultTitle"),
+      description: t("description"),
+      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      siteName: "Eric Lucero González",
+      images: [
+        {
+          url: t("thumbnailImage"),
+          width: 1200,
+          height: 630,
+          alt: t("defaultTitle"), // Texto alternativo traducido
+        },
+      ],
+      locale: locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("defaultTitle"),
+      description: t("description"),
+      image: t("thumbnailImage"),
+    },
+  };
+}

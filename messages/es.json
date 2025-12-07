@@ -1,9 +1,9 @@
 {
     "Metadata": {
         "defaultTitle": "Eric Lucero | IA | Optimización",
-        "templateTitle": "%s | Eric Lucero",
-        "description": "Blog personal sobre Inteligencia Artificial, Algoritmos y LaTeX.",
-        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España"
+        "description": "Blog personal sobre Inteligencia Artificial, Algoritmos, Optimización y LaTeX. Además de hablar de artículos científicos fundamentales.",
+        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España, PhD, AI, optimización, metaheurísticas, heuristics, latex, academic",
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png"
     },
     "HomePage": {
         "title": "Bienvenido a mi Blog de Investigación en IA",
@@ -18,7 +18,7 @@
         "papers": "Papers"
     },
     "Footer": {
-        "made_with": "Hecho por Eric Lucero González",
+        "made_with": "Hecho desde cero con:",
         "contact": "Contacto",
         "about_page": "Acerca de esta página y su contenido",
         "licenses": "Licencias"
@@ -33,7 +33,8 @@
         "page_content_title": "Acerca de esta Página",
         "page_content": "Este blog está construido utilizando Next.js y Next-Intl para la internacionalización. Presenta publicaciones escritas tanto en inglés como en español, atendiendo a una audiencia diversa interesada en la investigación en IA.",
         "metaTitle": "Sobre Mí",
-        "metaDescription": "Conoce más sobre mi trayectoria académica y profesional."
+        "metaDescription": "Conoce más sobre mi trayectoria académica y profesional.",
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png"
     },
     "Blog": {
         "readingTime": "Tiempo de lectura",
@@ -54,5 +55,10 @@
         "group": "GRUPO",
         "emptyState": "Haz clic en \"Generar Sorteo\" para ejecutar el algoritmo",
         "seconds": "segundos"
+    },
+    "NotFound": {
+        "title": "Página no encontrada",
+        "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
+        "backHome": "Volver al Inicio"
     }
 }

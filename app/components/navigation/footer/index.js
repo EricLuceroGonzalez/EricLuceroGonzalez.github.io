@@ -4,8 +4,10 @@ import { useTranslations } from "next-intl";
 // import Link from "next/link";
 import React from "react";
 import { Link } from "@/i18n/navigation";
-import { FaCreativeCommons, FaInfoCircle } from "react-icons/fa";
+import { FaCreativeCommons, FaInfoCircle, FaReact } from "react-icons/fa";
 import styled from "styled-components";
+import { SiI18Next, SiNextdotjs } from "react-icons/si";
+import { IoLogoJavascript } from "react-icons/io5";
 
 const FooterContainer = styled.footer`
   /* width: 100%; */
@@ -39,7 +41,7 @@ const FooterTextBox = styled.div`
   flex-direction: column;
 `;
 const FooterText = styled.p`
-  font-size: 1rem;
+  font-size: smaller;
   /* border: 1px solid red; */
 `;
 const FoooterLink = styled.a`
@@ -126,8 +128,10 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Eric Lucero González.
           </FooterText>
           {/* <FooterText>All Rights Reserved</FooterText> */}
-          <FooterText>
-            {t("made_with")}
+          <FooterText style={{ marginTop: "1rem" }}>
+            {t("made_with")}{" "}
+          </FooterText>
+          <FooterText style={{ fontSize: "large" }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -136,7 +140,8 @@ const Footer = () => {
               fill="var(--accent)"
             >
               <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z" />
-            </svg>
+            </svg>{" "}
+            <IoLogoJavascript /> <FaReact /> <SiNextdotjs /> <SiI18Next />
           </FooterText>
         </FooterTextBox>
         <FooterTextBox>

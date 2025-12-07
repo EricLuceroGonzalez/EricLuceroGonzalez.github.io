@@ -1,9 +1,10 @@
 {
     "Metadata": {
         "defaultTitle": "Eric Lucero | AI | Optimization",
-        "templateTitle": "%s | Eric Lucero",
+        "defaultTitle": "%s | Eric Lucero",
         "description": "Blog personal sobre Inteligencia Artificial, Algoritmos y LaTeX.",
-        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España"
+        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España",
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-en_bxq6qz.png"
     },
     "HomePage": {
         "title": "Welcome to my AI Research Blog",
@@ -16,7 +17,7 @@
         "papers": "Papers"
     },
     "Footer": {
-        "made_with": "Made by Eric Lucero González",
+        "made_with": "Build from scratch with:",
         "contact": "Contact",
         "about_page": "About this page and its content",
         "licenses": "Licenses"
@@ -29,7 +30,10 @@
         "license_title": "Content License",
         "license_terms": "All content on this blog is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). You are free to share and adapt the material as long as you provide appropriate credit, do not use it for commercial purposes, and indicate if changes were made.",
         "page_content_title": "About this Page",
-        "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research."
+        "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research.",
+        "metaTitle": "Sobre Mí",
+        "metaDescription": "Conoce más sobre mi trayectoria académica y profesional.",
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png"
     },
     "Blog": {
         "readingTime": "Reading time",
@@ -50,5 +54,10 @@
         "group": "GROUP",
         "emptyState": "Click \"Generate Draw\" to run the algorithm",
         "seconds": "seconds"
+    },
+    "NotFound": {
+        "title": "Page Not Found",
+        "description": "Sorry, the page you are looking for does not exist.",
+        "backHome": "Back to Home"
     }
 }

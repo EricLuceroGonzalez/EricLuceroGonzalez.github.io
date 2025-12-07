@@ -147,7 +147,7 @@ export async function generateMetadata({ params }) {
       siteName: "Eric Lucero González",
       images: [
         {
-          url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+          url: t("thumbnailImage"),
           width: 1200,
           height: 630,
           alt: t("description"), // Texto alternativo traducido
@@ -160,8 +160,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      image:
-        "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+      image: t("thumbnailImage"),
     },
   };
 }

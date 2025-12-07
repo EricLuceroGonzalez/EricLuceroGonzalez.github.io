@@ -28,6 +28,7 @@ import rehypeMathjax from "rehype-mathjax";
 import supersub from "remark-supersub";
 import rehypeHighlight from "rehype-highlight";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 const BlogPost = async ({ params }) => {
   const { locale, slug } = await params;
