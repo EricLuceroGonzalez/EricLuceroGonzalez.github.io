@@ -27,25 +27,25 @@ const RefNumbers = styled.ol`
       text-align: right;
     }
   }
+  font-size: small;
 `;
 
 const RefTex = styled.a`
   :hover {
-    color: var(--fg);
+    color: var(--emphasis-bg);
   }
 
+  color: var(--link-fg);
+  font-size: smaller;
   svg {
-    color: var(--link-fg);
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: bolder;
   }
 `;
 const RefUrl = styled.a`
-  color: var(--link-fg);
-  font-size: 0.5rem;
-  font-size: medium;
+  color: var(--emphasis-bg);
   :hover {
-    color: var(--strong-fg);
+    color: var(--link-fg);
     cursor: pointer;
   }
 `;
@@ -67,6 +67,7 @@ export const ReferenceList = ({ references }) => {
             )}{" "}
             <RefTex href={`#cite-${id}`}>
               <IoReturnDownBack />
+              (volver)
             </RefTex>
           </li>
         ))}

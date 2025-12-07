@@ -97,14 +97,12 @@ const GruposContainer = styled.div`
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
-  border: 1px solid red;
 `;
 
 const ItinerarioSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border-color: 2px solid red;
 `;
 
 const ItinerarioHeader = styled.h2`

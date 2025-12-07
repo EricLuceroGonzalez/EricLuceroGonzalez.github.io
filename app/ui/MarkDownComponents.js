@@ -61,8 +61,8 @@ export const MdOrderedList = styled.ol`
 export const MdBlockQuote = styled.blockquote`
   background-color: var(--quote-bg);
   color: var(--quote-fg);
-  padding: 2px 8px;
-  margin: 3px auto;
+  padding: 6px 12px;
+  margin: 12px auto;
   border-radius: 12px;
   min-width: 85%;
 `;
@@ -93,7 +93,7 @@ export const MdSubHeadA = styled.h2`
   }
 `;
 export const MdSubHeadB = styled.h3`
-  color: var(--emphasis-bg);
+  color: var(--quote-fg);
   margin-top: 2rem;
   font-size: larger;
   a {
