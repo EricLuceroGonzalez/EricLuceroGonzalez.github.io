@@ -93,9 +93,18 @@ export const MdSubHeadA = styled.h2`
   }
 `;
 export const MdSubHeadB = styled.h3`
-  color: var(--emphasis-fg);
+  color: var(--emphasis-bg);
   margin-top: 2rem;
   font-size: larger;
+  a {
+    color: var(--bg);
+  }
+  &:hover {
+    a {
+      color: var(--accent);
+      opacity: 0.7;
+    }
+  }
 `;
 export const MdSubHeadC = styled.h4`
   color: var(--heading);
@@ -132,7 +141,8 @@ export const MdEmph = styled.em`
   color: var(--emphasis-fg);
   background-color: var(--emphasis-bg);
   /* var(--emphasis-bg); */
-  /* padding: 0 1px; */
+  padding: 0 3px;
+  border-radius: 5px;
   /* font-style: normal; */
   font-weight: 500;
 `;

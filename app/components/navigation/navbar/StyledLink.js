@@ -7,12 +7,11 @@ import { useEffect, useState } from "react";
 
 // Define the styled component for the anchor tag
 const StyledAnchor = styled.div`
-  color: var(--fg);
   text-decoration: none;
+  color: var(--fg);
   transition: background-color 0.3s ease;
   padding: 8px 6px;
   margin: 2px 2px;
-  font-size: large;
   font-weight: bold;
 
   font-size: medium;
@@ -27,8 +26,6 @@ const StyledAnchor = styled.div`
   background-color: ${(props) =>
     props.$activePath ? "var(--accent)" : "var(--bg)"};
   border-radius: 8px;
-  /* border-bottom: 2px solid
-    ${(props) => (props.$activePath ? "var(--accent)" : "var(--bg)")}; */
 `;
 
 const StyledLink = ({ actualPath, pathName, href, children }) => {

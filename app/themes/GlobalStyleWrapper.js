@@ -1,8 +1,9 @@
-"use client"; // Ensure it's a client component
+"use client";
 import { createGlobalStyle } from "styled-components";
 import { useEffect, useState } from "react";
-const GlobalStyle = createGlobalStyle`
 
+const GlobalStyle = createGlobalStyle`
+  
 *{
   box-sizing: border-box;
   padding: 0;
@@ -17,106 +18,101 @@ a {
   text-decoration: none;
   color: inherit;
 }
-:root{
-    /* Fondos y Textos */
-    --bg: #F8F9FA; /* Fondo principal blanco suave */
-    --fg: #222222; /* Texto oscuro principal */
-    --accent:#0077FF  ; /* Rojo vibrante para acentos */
-    /* #B2A5FF */
-    /* Títulos y Encabezados */
-    --heading: #D18B00; /* Dorado oscuro para títulos */
-    --subheading: #E0A800; /* Amarillo más claro para subtítulos */
+  :root {
+    /* =========================================
+       TEMA CLARO
+       ========================================= */
+       
+    /* BASE */
+    --bg: #F8F9FA;
+    --fg: #1A1A1A;
+    --accent: #0077FF;
 
-    /* Botones */
-    --primary-btn-bg: #D72638; /* Rojo para botones principales */
-    --primary-btn-fg: white; /* Texto en botones principales */
-    --primary-btn-hover: #F1C40F; /* Amarillo brillante para hover */
-    --secondary-btn-bg: #0077FF; /* Azul fuerte para botones secundarios */
-    --secondary-btn-fg: white; /* Texto en botones secundarios */
-    --secondary-btn-hover: #0077FF; /* Azul más oscuro para hover */
+    /* TIPOGRAFÍA */
+  
+    --heading: #111111; 
+    --subheading: #444444;
 
-    /* Enlaces y Énfasis */
-    --link-fg: #FFA500; /* Azul morado para enlaces */
-    --link-bg: transparent; /* Fondo transparente para enlaces */
-    --strong-fg: #0077FF; /* Azul fuerte para negritas */
-    --strong-bg: transparent; /* Azul fuerte para negritas */
-    --emphasis-fg: #222222; /* Naranja semitransparente para énfasis */
-    --emphasis-bg:  #FFFA75; /* Naranja semitransparente para énfasis */
+    /* INTERACCIÓN*/
+    --primary-btn-bg: #0077FF; 
+    --primary-btn-fg: white;
+    --primary-btn-hover: #0056b3;
+    
+    --secondary-btn-bg: #E2E6EA; 
+    --secondary-btn-fg: #0077FF;
+    --secondary-btn-hover: #D1D5DB;
 
-    /* Citas y Bloques de Código */
-    --quote-bg: #FFF3CD; /* Amarillo pálido para fondo de citas */
-    --quote-fg: #6C757D; /* Gris oscuro para texto de citas */
-    --code-fg: #FF3366; /* Rojo suave para palabras reservadas en código */
-    --code-bg: #282C34; /* Fondo para bloques de código */
-    /* Bordes */
-    --primary-border: #0077FF; /* Azul para bordes */
-    --border-stroke: #D72638; /* Rojo brillante para bordes */
+    /* ENLACES */
+    --link-fg: #0077FF; 
+    --link-bg: transparent;
+    
+    /* ÉNFASIS Y CÓDIGO */
+    --strong-fg: #0077FF;
+    --emphasis-bg: #FFF3CD; /* Amarillo muy suave */
+    --emphasis-fg: #1A1A1A;
+    
+    --quote-bg: #E9ECEF; /* Gris azulado muy suave */
+    --quote-fg: #495057;
+    
+    --code-fg: #D72638; 
+    --code-bg: #E2E6EA; 
+    
+    --primary-border: #DEE2E6;
+    --box-border-hover: #0077FF;
+  }
 
-    /* Colores Adicionales */
-    --gray-dark: #4A4A4A; /* Gris medio-oscuro */
-    --gray-medium: #B0B0B0; /* Gris medio */
-    --gray-light:#B0B0B0;
-    --accent-yellow: #FFD700; /* Amarillo dorado */
-    --accent-orange: #FFA500; /* Naranja */
-    --box-border-hover:#0077FF;
-    /* #FF3366 #FFE381 #00FFE7 */
-}
-[data-theme='dark'] {
-    /* Fondos y Textos */
-    --bg: #002332; /* Fondo oscuro principal */
-    --fg: #EAEAEA; /* Texto principal */
+  [data-theme='dark'] {
+    /* =========================================
+       TEMA OSCURO (Estilo: Cyberpunk, Deep Ocean)
+       ========================================= */
+       
+    /* BASE */
+    --bg: #002332; 
+    --fg: #E0E6ED; 
     --accent: #FF3366;
-    
-    /* Títulos y Encabezados */
-    --heading: #FFE381; /* Amarillo claro para títulos principales */
-    --subheading: #FFF4B7; /* Amarillo más claro para subtítulos */
-    
-    /* Botones */
-    --primary-btn-bg: #FF3366; /* Rosa brillante para botones principales */
-    --primary-btn-fg: white; /* Texto en botones principales */
-    --primary-btn-hover: #FFF4B7; /* Naranja para hover */
-    --secondary-btn-bg: #38D9A9; /* Verde claro para botones secundarios */
-    --secondary-btn-fg: #343434; /* Texto en botones secundarios */
-    --secondary-btn-hover: #2B8A6E; /* Verd e oscuro para hover */
-    
-    /* Enlaces y Énfasis */
-    --link-fg: #0077FF; /* Lila claro para enlaces */
-    --link-bg: transparent; /* Fondo transparente para enlaces */
-    --strong-fg: #FF3366; /* Cyan para negritas */
-    --strong-bg: transparent; /* Fondo para negritas */
-    --emphasis-fg: #00FFE7; /* Fondo para elementos destacados */
-    --emphasis-bg: transparent; /* Amarillo semitransparente para énfasis */
-    
-    /* Citas y Bloques de Código */
-    --quote-bg: #FFE381; /* Amarillo claro para fondo de citas */
-    --quote-fg: #002332; /* Azul oscuro para texto de citas */ 
-    --code-fg: #4A4A4A; /* Rojo suave para palabras reservadas en código */
-    --code-bg: #00FFE7; /* Fondo para bloques de código */
-    
-    /* Bordes */
-    --primary-border: #0077FF; /* Azul para bordes */
-    --border-stroke: #FF3366; /* Rosa brillante para bordes (unificado con botones primarios) */
 
-    /* Colores Adicionales */
-    --gray-dark: #1E1E1E; /* Gris muy oscuro */
-    --gray-medium: #4A4A4A; /* Gris medio */
-    --gray-light:#DEDEDE;
-    --accent-yellow: #FFD700; /* Amarillo dorado */
-    --accent-orange: #FFA500; /* Naranja */
-    --box-border-hover:#FF3366;
-}
+    /* TIPOGRAFÍA */
+    --heading: #FFFFFF; 
+    --subheading: #B0BEC5;
 
-[data-theme='dark'] [data-hide-on-theme='dark'],
-[data-theme='light'] [data-hide-on-theme='light'] {
-  display: none;
-}`;
+    /* INTERACCIÓN */
+    --primary-btn-bg: #FF3366; /* Rosa */
+    --primary-btn-fg: white;
+    --primary-btn-hover: #E62E5C; /* Rosa un poco más oscuro */
+
+    --secondary-btn-bg: #00364D; /* Un tono más claro que el fondo */
+    --secondary-btn-fg: #FF3366;
+    --secondary-btn-hover: #004966;
+
+    /* ENLACES - CORRECCIÓN CRÍTICA */
+    --link-fg: #FF3366; 
+    --link-bg: transparent;
+
+    /* ÉNFASIS Y CÓDIGO */
+    --strong-fg: #FF3366;
+    --emphasis-bg: #FFF3CD; /* Rosa con transparencia */
+    --emphasis-fg: #00364D;
+
+    --quote-bg: #00364D; /* Ligeramente más claro que el fondo */
+    --quote-fg: #B0BEC5;
+    
+    /* CORRECCIÓN DE CÓDIGO */
+    --code-fg: #00FFE7; /* Cyan neón para el texto */
+    --code-bg: #001520; /* Casi negro (más oscuro que el fondo principal) */
+
+    --primary-border: #004966;
+    --box-border-hover: #FF3366;
+  }
+
+  /* Utilidades */
+  [data-theme='dark'] [data-hide-on-theme='dark'],
+  [data-theme='light'] [data-hide-on-theme='light'] {
+    display: none;
+  }
+`;
 
 export default function GlobalStyleWrapper() {
   const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true); // Ensure styles apply only after mount
-  }, []);
-
+  useEffect(() => setMounted(true), []);
   return mounted ? <GlobalStyle /> : null;
 }

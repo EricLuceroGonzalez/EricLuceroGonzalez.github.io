@@ -13,7 +13,7 @@ const SunIcon = styled(TbSunFilled)`
 const MoonIcon = styled(TbMoonFilled)`
   cursor: pointer;
   color: ${(props) =>
-    props.theme === "light" ? "var(--subheading)" : "var(--fg)"};
+    props.theme === "light" ? "var(--emphasis-bg)" : "var(--fg)"};
   transition: color 0.35s;
 `;
 const ThemeToggle = styled.div`

@@ -42,11 +42,9 @@ export const Article = styled.article`
   }
   @media (min-width: 1080px) {
     width: 60%;
-    border: 2px solid cyan;
   }
   @media (min-width: 1380px) {
     width: 70%;
-    border: 2px solid cyan;
   }
 `;
 
