@@ -1,13 +1,13 @@
 "use client";
-
-import { useTranslations } from "next-intl";
 // import Link from "next/link";
 import React from "react";
-import { Link } from "@/i18n/navigation";
 import { FaCreativeCommons, FaInfoCircle, FaReact } from "react-icons/fa";
 import styled from "styled-components";
 import { SiI18Next, SiNextdotjs } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { setRequestLocale } from "next-intl/server";
 
 const FooterContainer = styled.footer`
   /* width: 100%; */
@@ -73,6 +73,10 @@ const FooterLink = styled(Link)`
   }
 `;
 const Footer = () => {
+  // setRequestLocale(locale);
+  // const { locale } = await params;
+  // console.log(`locale: ${locale}`);
+
   const t = useTranslations("Footer");
   return (
     <FooterContainer>
@@ -149,7 +153,7 @@ const Footer = () => {
             <FaInfoCircle />
             {t("about_page")}
           </FooterLink>
-          <FooterLink href={"/about/license"}>
+          <FooterLink href={"/about/terminos-legales"}>
             <FaCreativeCommons /> {t("licenses")}
           </FooterLink>
         </FooterTextBox>

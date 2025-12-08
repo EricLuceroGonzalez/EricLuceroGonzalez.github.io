@@ -341,8 +341,9 @@ A mayor fitness, mayor probabilidad de ser seleccionado. Los individuos seleccio
 
 ### Selección
 No dejamos que cualquiera se reproduzca. Se utiliza el operador de ruleta, aunque también aparece en el código el operador de torneo.
-Este operador toma todos los individuos de una generación y crea un arreglo llamado `pesos` que contiene el inverso del valor del fitness de cada uno de estos, luego selecciona uno aleatoriamente
-Con la función `random.choices()` qué asigna un individuo de forma aleatoria, pero con una probabilidad proporcional a su valor de fitness, lo que en el código designamos con la variable `pesos`.
+Este operador toma todos los individuos de una generación y crea un arreglo llamado `pesos` que contiene el inverso del valor del fitness de cada uno de estos, 
+luego selecciona uno aleatoriamente con la función `random.choices()` que asigna un individuo de forma aleatoria, pero con una probabilidad proporcional a su valor de fitness, lo que en el código designamos con la variable `pesos`.
+
 Este proceso se repite para generar cada Padre, para cada individuo en cada generación. Lo que genera suficientes individuos para reemplazar totalmente (en igual número) a todos los individuos de una generación.
 
 ```python

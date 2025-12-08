@@ -1,6 +1,7 @@
 "use client";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import Link from "next/link";
 // import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 // Contenedor principal para manejar diseño responsivo
@@ -31,14 +32,12 @@ export const Article = styled.article`
 
   @media (min-width: 880px) {
     width: 70%;
-    /* border: 2px dashed red; */
   }
   @media (max-width: 728px) {
     min-width: 100%;
     padding: 5px;
     box-shadow: none;
     font-size: small;
-    /* border: 2px solid orange; */
   }
   @media (min-width: 1080px) {
     width: 60%;
@@ -46,6 +45,7 @@ export const Article = styled.article`
   @media (min-width: 1380px) {
     width: 70%;
   }
+  padding: 1rem 0 33vh 0;
 `;
 
 export const Title = styled.h1`
@@ -359,5 +359,79 @@ export const ButtonContainer = styled.div`
   }
   @media (min-width: 1200px) {
     width: 40%;
+  }
+`;
+// LEGAL page items
+const LogosContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+
+  justify-content: space-around;
+  /* @media (min-width: 2080px) {
+    flex-direction: column;
+  } */
+`;
+
+const LogosBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* max-width: 90%; */
+  margin: 1rem auto;
+  flex-wrap: wrap;
+  /* @media (min-width: 1080px) {
+    width: 60%;
+    border: 1px dashed var(--accent);
+    }
+    @media (max-width: 880px) {
+      max-width: 80%;
+      border: 1px dashed red;
+      } */
+
+  font-size: small;
+  color: var(--accent);
+  background-color: var(--quote-bg);
+  width: 32%;
+  @media (max-width: 729px) {
+    width: 45%;
+  }
+  @media (min-width: 730px) {
+    width: 43%;
+  }
+  @media (min-width: 900px) {
+    width: 32%;
+  }
+`;
+
+const LogosText = styled.div`
+  width: 99%;
+  padding: 3px 8px;
+  /* border: 1px solid red; */
+`;
+
+const LogosTitle = styled.h3`
+  font-size: larger;
+`;
+const LogosHead = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1px 5%;
+`;
+
+const ReactIcon = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  margin: 5px;
+  svg {
+    color: var(--accent);
+  }
+  svg:hover {
+    color: var(--fg);
   }
 `;

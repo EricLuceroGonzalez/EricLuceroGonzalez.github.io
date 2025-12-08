@@ -19,6 +19,7 @@ export const MdListItem = styled.li`
   @media (min-width: 660px) {
     font-size: large;
   }
+  margin: 1rem auto;
 `;
 export const MdUnorderedList = styled.ul`
   /* list-style-position: inside;

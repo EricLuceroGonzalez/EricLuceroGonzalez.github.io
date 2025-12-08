@@ -21,7 +21,7 @@
         "made_with": "Hecho desde cero con:",
         "contact": "Contacto",
         "about_page": "Acerca de esta página y su contenido",
-        "licenses": "Licencias"
+        "licenses": "Términos legales y política de privacidad"
     },
     "About": {
         "title": "Acerca de mí",
@@ -34,7 +34,17 @@
         "page_content": "Este blog está construido utilizando Next.js y Next-Intl para la internacionalización. Presenta publicaciones escritas tanto en inglés como en español, atendiendo a una audiencia diversa interesada en la investigación en IA.",
         "metaTitle": "Sobre Mí",
         "metaDescription": "Conoce más sobre mi trayectoria académica y profesional.",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png"
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png",
+        "stack_title": "Stack de desarrollo",
+        "stack_Next": "El motor principal del sitio. Aprovecho su capacidad de Static Site Generation (SSG) para compilar todo el blog en archivos HTML estáticos. Esto garantiza una velocidad de carga casi instantánea, máxima seguridad y un despliegue fluido en GitHub Pages sin necesidad de servidores complejos.",
+        "stack_React": "La librería de interfaz. Me permite pensar en la web como piezas de LEGO (componentes) reutilizables. Desde la barra de navegación hasta las tarjetas de los posts, todo es un componente modular que gestiona su propio estado y lógica.",
+        "stack_javascript": "El lenguaje que conecta todo. Lo utilizo tanto para la lógica de interfaz como para las simulaciones interactivas (como los algoritmos genéticos) que corren directamente en tu navegador.",
+        "stack_styled": "CSS en esteroides. Me permite escribir estilos CSS reales dentro de mis componentes de JavaScript. Es la herramienta clave que gestiona el sistema de temas (modo Dark/Light) y asegura que los estilos de un componente no rompan los de otro.",
+        "stack_i18n": "La capa de internacionalización. Gestiona el enrutamiento dinámico (/es, /en) y la carga optimizada de diccionarios JSON compatible con Server Components. Es lo que permite que este blog sea nativamente bilingüe sin sacrificar el rendimiento estático.",
+        "stack_fontawesome": "Provee la iconografía vectorial del sitio (redes sociales, indicadores de UI). Al ser SVGs, se ven nítidos en cualquier resolución y tamaño de pantalla sin afectar el rendimiento.",
+        "stack_MDX": "Mucho más que texto plano. MDX me permite escribir los artículos en Markdown estándar, pero incrustando componentes de React interactivos (gráficas, simuladores) directamente entre los párrafos. Es lo que hace que este blog sea 'vivo' y no solo texto estático.",
+        "stack_remark": "El cerebro detrás del texto. Es el procesador que lee mis archivos Markdown y construye un 'Árbol de Sintaxis Abstracta' (AST). Básicamente, entiende la estructura de mis apuntes y permite transformarlos en HTML seguro.",
+        "stack_latex": "El estándar de oro en la escritura académica. Gracias a la integración con Remark, puedo escribir ecuaciones complejas y notación científica (como $\\Sigma$) directamente en el Markdown. El sistema las renderiza como vectores matemáticos perfectos, esenciales para explicar papers y algoritmos."
     },
     "Blog": {
         "readingTime": "Tiempo de lectura",
@@ -60,5 +70,39 @@
         "title": "Página no encontrada",
         "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
         "backHome": "Volver al Inicio"
+    },
+    "Legal": {
+        "title": "Aviso Legal y Privacidad",
+        "lastUpdated": "Última actualización: Diciembre 2025",
+        "sections": {
+            "intro": "Este sitio web es un portafolio personal y académico sin fines comerciales directos. Mi filosofía respecto a tu privacidad es simple: no recopilo información personal innecesaria, no te rastreo por Internet y no vendo tus datos. A continuación se detalla la información legal requerida por la normativa española y europea.",
+            "owner": {
+                "title": "1. Responsable del Sitio",
+                "content": "El responsable de este sitio web es **Eric Lucero González** (en adelante, 'el Titular'). Puedes contactarme para cualquier cuestión relacionada con este sitio en: **ericlucerogonzalez@gmail.com**."
+            },
+            "data": {
+                "title": "2. Protección de Datos (RGPD)",
+                "content": "Este sitio web **no recopila datos personales** de sus visitantes. No hay formularios de registro, ni comentarios, ni rastreadores de análisis (como Google Analytics). Tu navegación es completamente anónima."
+            },
+            "hosting": {
+                "title": "3. Alojamiento y Terceros",
+                "content": "Para el funcionamiento técnico, este sitio utiliza servicios de terceros que pueden procesar datos técnicos (como direcciones IP) para servir el contenido:",
+                "github": "**GitHub Pages:** Alojamiento del sitio web. Recoge logs de servidor estándar (dirección IP, navegador) para seguridad y mantenimiento. Este sitio está alojado en GitHub Pages, un servicio de GitHub, Inc. (EE. UU.). Cuando visitas mi página, los servidores de GitHub reciben tu Dirección IP y datos técnicos de tu navegador (User-Agent). GitHub utiliza estos datos con fines estrictamente de seguridad (prevención de ataques DDoS) y fiabilidad del servicio. No utilizo estos logs para identificarte personalmente. Puedes consultar la Política de Privacidad de GitHub para más detalles técnicos en https://docs.github.com/site-policy/privacy-policies/github-privacy-statement.",
+                "cloudinary": "**Cloudinary:** Las imágenes y videos de este sitio se sirven a través de Cloudinary Ltd., una red de distribución de contenido (CDN). Al cargar estos recursos visuales, tu navegador realiza peticiones técnicas a los servidores de Cloudinary. Estos datos de tráfico son procesados para optimizar la entrega de imágenes (por ejemplo, enviarte el formato más ligero para tu móvil) y garantizar la seguridad. Cloudinary cumple con el RGPD y no utiliza estos datos para crear perfiles publicitarios de mis visitantes. Consulta su política en: https://cloudinary.com/privacy",
+                "base_legal": "El tratamiento de estos datos técnicos se basa en el Interés Legítimo (Art. 6.1.f RGPD) de garantizar la seguridad de la red y la correcta entrega técnica del contenido solicitado."
+            },
+            "cookies": {
+                "title": "4. Política de Cookies",
+                "content": "Este sitio **no utiliza cookies de rastreo ni publicitarias**. Únicamente utilizamos almacenamiento local (LocalStorage) o cookies técnicas esenciales para recordar tus preferencias de:",
+                "list": [
+                    "Idioma seleccionado (Español/Inglés)",
+                    "Tema visual (Claro/Oscuro)"
+                ]
+            },
+            "license": {
+                "title": "5. Propiedad Intelectual",
+                "content": "Salvo que se indique lo contrario, el contenido de este blog (artículos, código y tutoriales) está bajo una licencia **Creative Commons Atribución-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)**. Eres libre de usar y adaptar mi código citando la fuente."
+            }
+        }
     }
 }
