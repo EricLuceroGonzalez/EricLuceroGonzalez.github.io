@@ -59,6 +59,7 @@ a {
     
     --primary-border: #DEE2E6;
     --box-border-hover: #0077FF;
+    --gray-light: #919ca2ff;
   }
 
   [data-theme='dark'] {
@@ -102,6 +103,7 @@ a {
 
     --primary-border: #004966;
     --box-border-hover: #FF3366;
+    --gray-light: #919ca2ff;
   }
 
   /* Utilidades */

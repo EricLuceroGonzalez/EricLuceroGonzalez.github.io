@@ -7,7 +7,8 @@ export const MdParagraph = styled.div`
   @media (min-width: 660px) {
     font-size: large;
   }
-  /* border: 1px solid red; */
+  z-index: 1000;
+  background-color: var(--bg);
 `;
 
 export const MdListItem = styled.li`

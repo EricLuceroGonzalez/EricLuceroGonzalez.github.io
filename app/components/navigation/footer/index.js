@@ -23,10 +23,13 @@ const FooterIcons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @media (max-width: 660px) {
+
+  @media (0 <=width <= 390px) {
     flex-direction: column;
     margin-top: 2rem;
+    font-size: xx-small;
   }
+  /* border: 1px solid blue; */
 `;
 
 const FooterLinks = styled.div`
@@ -39,10 +42,14 @@ const FooterTextBox = styled.div`
   margin: 0;
   display: flex;
   flex-direction: column;
+
+  width: 50%;
+  @media (min-width: 400px) {
+    width: auto;
+  }
 `;
 const FooterText = styled.p`
   font-size: smaller;
-  /* border: 1px solid red; */
 `;
 const FoooterLink = styled.a`
   padding: 2px 5px;

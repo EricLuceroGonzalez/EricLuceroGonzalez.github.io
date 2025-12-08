@@ -53,8 +53,8 @@
         "minute": "minuto"
     },
     "sorteo": {
-        "title": "Sorteo Mundial 2026",
-        "subtitle": "Algoritmo Genético con restricciones geográficas y de itinerarios",
+        "title": "Sorteo de Mundial 2026",
+        "subtitle": "Algoritmo Genético con restricciones de confederaciones, anfitriones y de itinerarios.",
         "buttonGenerate": "Generar Sorteo",
         "buttonExecuting": "Ejecutando...",
         "generation": "Generación",

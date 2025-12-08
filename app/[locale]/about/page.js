@@ -112,7 +112,7 @@ export default async function About({ params }) {
               rel="noopener noreferrer"
             >
               <FaSquareXTwitter />
-              Twitter / X
+              Twitter
             </IconLink>
           </LinkList>
         </AboutWrapper>

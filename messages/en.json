@@ -54,7 +54,7 @@
     },
     "sorteo": {
         "title": "World Cup 2026 Draw",
-        "subtitle": "Genetic Algorithm with geographic and itinerary constraints",
+        "subtitle": "Genetic Algorithm with confederations, host teams and itinerary constraints.",
         "buttonGenerate": "Generate Draw",
         "buttonExecuting": "Running...",
         "generation": "Generation",

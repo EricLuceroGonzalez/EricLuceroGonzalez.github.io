@@ -30,19 +30,26 @@ export const Article = styled.article`
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   width: 70%;
 
-  @media (min-width: 880px) {
-    width: 70%;
+  @media (0px <= width < 390px) {
+    width: 99%;
   }
-  @media (max-width: 728px) {
-    min-width: 100%;
+  @media (min-width: 390px) {
+    width: 95%;
+  }
+
+  @media (600px <= width < 780px) {
+    min-width: 80%;
     padding: 5px;
     box-shadow: none;
     font-size: small;
   }
   @media (min-width: 1080px) {
-    width: 60%;
+    width: 85%;
   }
-  @media (min-width: 1380px) {
+  @media (min-width: 1280px) {
+    width: 75%;
+  }
+  @media (min-width: 1440px) {
     width: 70%;
   }
   padding: 1rem 0 33vh 0;
@@ -51,13 +58,6 @@ export const Article = styled.article`
 export const Title = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 1rem;
-`;
-
-export const Date = styled.p`
-  font-size: 0.65rem;
-  /* margin-bottom: 2rem; */
-  color: var(--gray-light);
-  font-family: monospace;
 `;
 
 export const Author = styled.p`
@@ -114,6 +114,16 @@ export const TitleContainer = styled.h2`
   text-align: left;
 `;
 
+export const Date = styled.div`
+  font-size: smaller;
+  /* margin-bottom: 2rem; */
+  color: var(--gray-light);
+  font-family: monospace;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border: 2px solid blue; */
+`;
+
 export const MetaInfo = styled.div`
   margin-bottom: 0.5rem;
   font-size: small;
@@ -121,14 +131,18 @@ export const MetaInfo = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @media (min-width: 668px) {
+
+  @media (0px <= width <=398px) {
     width: 80%;
     flex-direction: row;
+    font-size: medium;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--quote-bg);
   }
-  @media (max-width: 667px) {
+  /* @media (max-width: 667px) {
     margin-bottom: 2.75rem;
     width: 95%;
-  }
+  } */
   padding-top: 3px;
 `;
 // Contenedor para el avatar y el nombre del autor
@@ -211,6 +225,9 @@ export const SideInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media (0px <= width <= 396px) {
+    display: none;
+  }
 `;
 
 export const LinkList = styled.div`

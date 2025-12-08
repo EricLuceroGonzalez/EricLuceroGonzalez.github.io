@@ -1,13 +1,14 @@
+"use client";
 import React from "react";
 import styled from "styled-components";
 
 const SpinnerLoad = () => (
-  <StyledSpinner viewBox="0 0 50 50">
+  <StyledSpinner viewBox="0 0 100 100">
     <circle
       className="path"
-      cx="25"
-      cy="25"
-      r="20"
+      cx="50"
+      cy="50"
+      r="30"
       fill="none"
       strokeWidth="4"
     />
@@ -15,10 +16,11 @@ const SpinnerLoad = () => (
 );
 
 const StyledSpinner = styled.svg`
+  z-index: 1000;
   animation: rotate 2s linear infinite;
   margin: -25px 0 0 -25px;
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  height: 150px;
 
   & .path {
     stroke: var(--accent);

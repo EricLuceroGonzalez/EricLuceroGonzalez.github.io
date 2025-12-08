@@ -37,18 +37,31 @@ export const MainPageBg = styled.div`
   max-width: 100%;
   text-align: justify;
   padding: 1rem 1rem;
-  @media (min-width: 660px) {
-    font-size: large;
-    max-width: 70%;
-    margin: 0 auto;
-    /* border: 1px solid orange; */
+  margin: 0 auto;
+
+  @media (0px <= width < 390px) {
+    width: 99%;
   }
-  @media (min-width: 1300px) {
-    font-size: large;
-    width: 50%;
-    margin: 0 auto;
-    /* border: 1px solid var(--accent); */
+  @media (min-width: 390px) {
+    width: 95%;
   }
+
+  @media (600px <= width < 780px) {
+    min-width: 80%;
+    padding: 5px;
+    box-shadow: none;
+    font-size: small;
+  }
+  @media (min-width: 1080px) {
+    width: 65%;
+  }
+  @media (min-width: 1280px) {
+    width: 65%;
+  }
+  @media (min-width: 1440px) {
+    width: 60%;
+  }
+  /* border: 2px solid orange; */
 `;
 
 export const HomePageCover = styled.div`
@@ -56,7 +69,7 @@ export const HomePageCover = styled.div`
   display: flex;
   flex-direction: row;
   @media (max-width: 660px) {
-    height: 65vh;
+    height: 5vh;
   }
 `;
 export const HomePageCoverText = styled.div`
@@ -78,11 +91,13 @@ export const CoverTitle = styled.h1`
 `;
 export const TitlePage = styled.h1`
   color: var(--fg);
+  font-size: x-large;
+
   @media (max-width: 728px) {
     text-align: justify;
     /* padding: 1rem 1rem; */
   }
-  font-size: x-large;
+
   @media (min-width: 660px) {
     font-size: xx-large;
   }

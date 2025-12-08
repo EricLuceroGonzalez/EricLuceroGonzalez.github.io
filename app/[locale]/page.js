@@ -17,6 +17,7 @@ import ScrollDiv from "../components/navigation/ScrollDiv";
 import { getAllPosts } from "../lib/api";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "../components/BgMovingDots";
+import SpinnerLoad from "../components/SpinnerLoad";
 export default async function Home({ params }) {
   // 1. Obtener idioma
   const { locale } = await params;

@@ -29,8 +29,8 @@ export default function RootPage() {
             gap: "20px",
           }}
         >
-          <TitlePage>Redirecting to home...</TitlePage>
           <SpinnerLoad />
+          <TitlePage>Redirecting to home...</TitlePage>
           {/* Opcional: Enlaces manuales por si falla JS */}
           <a href="/es">Español</a>
           <a href="/en">English</a>

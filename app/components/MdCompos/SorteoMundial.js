@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import SpinnerLoad from "../SpinnerLoad";
+import { SiFifa } from "react-icons/si";
 
 // ==========================================
 // STYLED COMPONENTS
@@ -21,10 +22,11 @@ const Header = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: x-large;
   font-weight: bold;
   color: var(--accent);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -618,9 +620,8 @@ export default function SorteoMundialGA(props) {
     <Container>
       <Header>
         <Title>
-          <TrophyIcon />
           {t.title}
-          <TrophyIcon />
+          <SiFifa style={{ fontSize: "65px" }} />
         </Title>
         <Subtitle>{t.subtitle}</Subtitle>
       </Header>

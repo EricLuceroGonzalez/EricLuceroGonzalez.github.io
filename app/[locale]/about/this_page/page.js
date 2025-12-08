@@ -18,7 +18,6 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { FaFontAwesome } from "react-icons/fa";
 import H2Header from "@/app/components/MdCompos/H2Header";
-import H3Header from "@/app/components/MdCompos/H3Header";
 
 const LogosContainer = styled.div`
   display: flex;
@@ -27,37 +26,25 @@ const LogosContainer = styled.div`
   flex-flow: row wrap;
 
   justify-content: space-around;
-  /* @media (min-width: 2080px) {
-    flex-direction: column;
-  } */
 `;
 
 const LogosBox = styled.div`
   display: flex;
   flex-direction: row;
-  /* max-width: 90%; */
   margin: 1rem auto;
   flex-wrap: wrap;
-  /* @media (min-width: 1080px) {
-    width: 60%;
-    border: 1px dashed var(--accent);
-    }
-    @media (max-width: 880px) {
-      max-width: 80%;
-      border: 1px dashed red;
-      } */
-
   font-size: small;
   color: var(--accent);
   background-color: var(--quote-bg);
-  width: 32%;
-  @media (max-width: 729px) {
+
+  @media (max-width: 390px) {
     width: 45%;
   }
-  @media (min-width: 730px) {
-    width: 43%;
+
+  @media (600px <= width < 1080px) {
+    width: 49%;
   }
-  @media (min-width: 900px) {
+  @media (min-width: 1080px) {
     width: 32%;
   }
 `;
