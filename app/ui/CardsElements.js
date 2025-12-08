@@ -68,7 +68,6 @@ export const GridContainer = styled(motion.div)`
   width: 100%;
   z-index: 1;
   @media (min-width: 660px) {
-    /* TODO: Style of blog posts and inner post */
     width: 100%;
   }
   &:hover {

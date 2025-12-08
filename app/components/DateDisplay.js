@@ -8,9 +8,6 @@ const DateDisplay = ({ isoDate, defaultFormatted, locale }) => {
   useEffect(() => {
     const updateDate = () => {
       try {
-        // TODO: Habilitar en internacionalización
-        // const userLocale = navigator.language || "es";
-        // setRequestLocale(locale);
         const userLocale = locale || "es";
         const formatter = new Intl.DateTimeFormat(userLocale, {
           day: "numeric",

@@ -21,6 +21,7 @@ export default async function Home({ params }) {
   // 1. Obtener idioma
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "HomePage" });
   const allPostsData = getAllPosts([], locale);
   return (
     <PageContainer>
@@ -29,7 +30,7 @@ export default async function Home({ params }) {
       <MainPageBg>
         <HomePageCover>
           <HomePageCoverText>
-            {/* <TitlePage>Hola! 👋🏼</TitlePage> */}
+            <TitlePage>{t("title")} 👋🏼</TitlePage>
             {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>
           {/* <TitlePage>Soy</TitlePage> */}
@@ -44,30 +45,7 @@ export default async function Home({ params }) {
           {/* <CircleBounce /> */}
           {/* </HomePageCoverImage> */}
         </HomePageCover>
-        <MdParagraph>
-          Este sitio web está en construcción, pero pronto será un lugar donde
-          compartiré mi trabajo y aprendizaje en áreas como inteligencia
-          artificial, LaTeX, y algoritmos de optimización. Aquí encontrarás:
-        </MdParagraph>
-        <MdUnorderedList>
-          {/* TODO: Nuevo endpoint /licencias, sin ruta fija o desde footer */}
-          <MdListItem>
-            Un blog con reflexiones, tutoriales, y temas técnicos relacionados
-            con la IA.
-          </MdListItem>
-          <MdListItem>
-            Recursos sobre LaTeX para quienes deseen perfeccionar sus
-            habilidades en la escritura científica.
-          </MdListItem>
-          <MdListItem>
-            Un portafolio donde documentaré proyectos e ideas relacionadas con
-            programación y matemáticas aplicadas.
-          </MdListItem>
-        </MdUnorderedList>
-        <MdParagraph>
-          Gracias por visitar. Te invito a explorar las secciones disponibles y
-          volver pronto para más contenido. ¡Esto es solo el comienzo!
-        </MdParagraph>
+        <MdParagraph>{t("copy_text")}</MdParagraph>
         <HomeBoxes props={allPostsData} />
       </MainPageBg>
     </PageContainer>

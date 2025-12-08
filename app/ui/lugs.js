@@ -175,7 +175,28 @@ export const SectionType = styled.div`
       case "curso":
         return "var(--emphasis-fg)";
       case "python":
-        return "var(--link-fg)";
+        return "var(--emphasis-bg)";
+      case "ia":
+        return "var(--primary-border)";
+      case "IA":
+        return "var(--primary-border)";
+      default:
+        return "var(--subheading)"; // Color por defecto
+    }
+  }};
+  color: ${(props) => {
+    // Retorna el color basado en la prop "tag"
+    switch (props.tag) {
+      case "blog":
+        return "var(--bg)";
+      case "javascript":
+        return "var(--bg)";
+      case "latex":
+        return "var(--fg)";
+      case "curso":
+        return "var(--accent)";
+      case "python":
+        return "var(--fg)";
       case "ia":
         return "var(--primary-border)";
       case "IA":

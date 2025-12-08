@@ -52,7 +52,7 @@ export const MainPageBg = styled.div`
 `;
 
 export const HomePageCover = styled.div`
-  height: 45vh;
+  height: 15vh;
   display: flex;
   flex-direction: row;
   @media (max-width: 660px) {

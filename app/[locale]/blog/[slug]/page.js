@@ -107,8 +107,7 @@ const BlogPost = async ({ params }) => {
             </Date>
             <SideInfo>
               {/* TODO: Renderizar post del mismo tag al hacer click */}
-              {/* El enlace usa el primer elemento del array */}
-              <Link href={`/${post.doctype[0]}`}>
+              <Link href={`/${locale}/${post.doctype[0]}`}>
                 {/* Renderiza todos los elementos del array como categorías */}
                 {post.doctype.map((type, index) => (
                   <SectionType key={index} tag={type}>
@@ -130,7 +129,6 @@ const BlogPost = async ({ params }) => {
               },
             }}
           />
-          {/* TODO: Hero Image */}
           {!nextPost ||
             (!prevPost && (
               <div

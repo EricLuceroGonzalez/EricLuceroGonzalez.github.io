@@ -22,6 +22,7 @@ const BlogPage = async ({ params }) => {
   // 1. Obtener idioma
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "HomePage" });
   // const blogPosts = getBlogPosts();
   const blogPosts = getPostsByType(["blog"], 0, locale);
   if (!blogPosts.posts) {
@@ -34,33 +35,8 @@ const BlogPage = async ({ params }) => {
         <BackgroundDots numDots={90} />
         <MainPageBg>
           <ShowPath title={""} />
-          <TitlePage>¡Bienvenido al Blog!</TitlePage>
-          {/* TODO: Create the contact functionality (Mail, Form, database, chat gpt) */}
-          <MdParagraph>
-            En esta sección encontrarás artículos y reflexiones sobre temas que
-            me apasionan:
-          </MdParagraph>
-          <MdUnorderedList>
-            <MdListItem>
-              Inteligencia Artificial: avances, algoritmos y mi experiencia en
-              el doctorado.
-            </MdListItem>
-            <MdListItem>
-              Matemáticas aplicadas: soluciones a problemas reales y enfoques
-              innovadores.
-            </MdListItem>
-            <MdListItem>
-              Programación: guías, proyectos y recursos para aprender y mejorar.
-            </MdListItem>
-          </MdUnorderedList>
-
-          <MdParagraph>
-            Estoy construyendo este blog poco a poco, así que vuelve pronto para
-            explorar nuevas publicaciones.
-          </MdParagraph>
-          <MdParagraph>
-            ¡Espero que encuentres algo útil e interesante aquí!
-          </MdParagraph>
+          <TitlePage>{t("title")}</TitlePage>
+          <MdParagraph>{t("copy_text")}</MdParagraph>
           <HomeBoxes props={blogPosts.posts} locale={locale} />
         </MainPageBg>
       </PageContainer>

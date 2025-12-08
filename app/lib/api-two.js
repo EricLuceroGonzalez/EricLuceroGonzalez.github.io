@@ -153,7 +153,6 @@ function getPostsByType(types, orderNum = 0) {
 
   return { posts: filteredPosts, previousPost, nextPost };
 }
-// TODO: Make just una getPost type function with params
 module.exports = {
   getPostSlugs,
   getPostBySlug,

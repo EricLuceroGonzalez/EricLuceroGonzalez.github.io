@@ -1,13 +1,16 @@
 {
     "Metadata": {
-        "defaultTitle": "Eric Lucero | AI | Optimization",
-        "description": "Blog personal sobre Inteligencia Artificial, Algoritmos y LaTeX.",
-        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España",
+        "defaultTitle": "Eric Lucero | AI Research & Optimization",
+        "description": "Personal research blog by Eric Lucero regarding Artificial Intelligence, Genetic Algorithms, Optimization, and LaTeX tutorials.",
+        "keywords": "AI, PhD, LaTeX, Algorithms, Optimization, Metaheuristics, Spain, Research, Computer Science, Next.js",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-en_bxq6qz.png"
     },
     "HomePage": {
         "title": "Welcome to my AI Research Blog",
-        "about": "PhD Student based in Spain"
+        "copy_text": "This site is under construction. Soon will be a place where I share my work and learning path in AI and optimization.",
+        "about": "PhD Student based in Spain",
+        "metaTitle": "Home: My Journey in AI",
+        "metaDescription": "Welcome to my personal space where I share my research, algorithms, and code."
     },
     "Navigation": {
         "about": "About",
@@ -16,33 +19,33 @@
         "papers": "Papers"
     },
     "Footer": {
-        "made_with": "Build from scratch with:",
+        "made_with": "Built from scratch with:",
         "contact": "Contact",
         "about_page": "About this page and its content",
-        "licenses": "Licenses"
+        "licenses": "Legal Terms & Privacy Policy"
     },
     "About": {
         "title": "About Me",
-        "content": "I am Eric Lucero González, a PhD student specializing in Artificial Intelligence. This blog serves as a platform to share my research, insights, and developments in the field of AI.",
-        "description": "Personal blog on AI, optimization and LaTeX.",
-        "keywords": "IA, Doctorado, LaTeX, Algoritmos, España",
+        "content": "I am Eric Lucero González, a PhD student specializing in Artificial Intelligence. This blog serves as a platform to share my research, insights, and developments in the field of AI. I am currently pursuing a PhD in Artificial Intelligence at the Technical University of Madrid (UPM). My interests include optimization algorithms, metaheuristics, and LaTeX. I enjoy sharing knowledge and learning through writing.",
+        "description": "Personal blog on AI, optimization, and LaTeX.",
+        "keywords": "AI, PhD, LaTeX, Algorithms, Spain, Research",
         "license_title": "Content License",
         "license_terms": "All content on this blog is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). You are free to share and adapt the material as long as you provide appropriate credit, do not use it for commercial purposes, and indicate if changes were made.",
         "page_content_title": "About this Page",
         "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research.",
-        "metaTitle": "Sobre Mí",
-        "metaDescription": "Conoce más sobre mi trayectoria académica y profesional.",
+        "metaTitle": "About Me | Eric Lucero",
+        "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png",
         "stack_title": "Tech stack",
-        "stack_Next": "El motor principal del sitio. Aprovecho su capacidad de Static Site Generation (SSG) para compilar todo el blog en archivos HTML estáticos. Esto garantiza una velocidad de carga casi instantánea, máxima seguridad y un despliegue fluido en GitHub Pages sin necesidad de servidores complejos.",
-        "stack_React": "La librería de interfaz. Me permite pensar en la web como piezas de LEGO (componentes) reutilizables. Desde la barra de navegación hasta las tarjetas de los posts, todo es un componente modular que gestiona su propio estado y lógica.",
-        "stack_javascript": "El lenguaje que conecta todo. Lo utilizo tanto para la lógica de interfaz como para las simulaciones interactivas (como los algoritmos genéticos) que corren directamente en tu navegador.",
-        "stack_styled": "CSS en esteroides. Me permite escribir estilos CSS reales dentro de mis componentes de JavaScript. Es la herramienta clave que gestiona el sistema de temas (modo Dark/Light) y asegura que los estilos de un componente no rompan los de otro.",
-        "stack_i18n": "La capa de internacionalización. Gestiona el enrutamiento dinámico (/es, /en) y la carga optimizada de diccionarios JSON compatible con Server Components. Es lo que permite que este blog sea nativamente bilingüe sin sacrificar el rendimiento estático.",
-        "stack_fontawesome": "Provee la iconografía vectorial del sitio (redes sociales, indicadores de UI). Al ser SVGs, se ven nítidos en cualquier resolución y tamaño de pantalla sin afectar el rendimiento.",
-        "stack_MDX": "Mucho más que texto plano. MDX me permite escribir los artículos en Markdown estándar, pero incrustando componentes de React interactivos (gráficas, simuladores) directamente entre los párrafos. Es lo que hace que este blog sea 'vivo' y no solo texto estático.",
-        "stack_remark": "El cerebro detrás del texto. Es el procesador que lee mis archivos Markdown y construye un 'Árbol de Sintaxis Abstracta' (AST). Básicamente, entiende la estructura de mis apuntes y permite transformarlos en HTML seguro.",
-        "stack_latex": "El estándar de oro en la escritura académica. Gracias a la integración con Remark, puedo escribir ecuaciones complejas y notación científica (como $\\Sigma$) directamente en el Markdown. El sistema las renderiza como vectores matemáticos perfectos, esenciales para explicar papers y algoritmos."
+        "stack_Next": "The site's main engine. I leverage its Static Site Generation (SSG) capabilities to compile the entire blog into static HTML files. This guarantees near-instant load speeds, maximum security, and seamless deployment on GitHub Pages without the need for complex servers.",
+        "stack_React": "The interface library. It allows me to think of the web as reusable LEGO pieces (components). From the navigation bar to the post cards, everything is a modular component managing its own state and logic.",
+        "stack_javascript": "The language connecting everything. I use it for both interface logic and interactive simulations (like genetic algorithms) that run directly in your browser.",
+        "stack_styled": "CSS on steroids. It allows me to write real CSS styles inside my JavaScript components. It is the key tool managing the theme system (Dark/Light mode) and ensures that one component's styles do not break another's.",
+        "stack_i18n": "The internationalization layer. It manages dynamic routing (/es, /en) and optimized JSON dictionary loading compatible with Server Components. It enables this blog to be natively bilingual without sacrificing static performance.",
+        "stack_fontawesome": "Provides the site's vector iconography (social media, UI indicators). Being SVGs, they look crisp at any resolution and screen size without affecting performance.",
+        "stack_MDX": "Much more than plain text. MDX allows me to write articles in standard Markdown while embedding interactive React components (charts, simulators) directly between paragraphs. This is what makes this blog 'alive' and not just static text.",
+        "stack_remark": "The brain behind the text. It is the processor that reads my Markdown files and builds an 'Abstract Syntax Tree' (AST). Basically, it understands the structure of my notes and transforms them into secure HTML.",
+        "stack_latex": "The gold standard in academic writing. Thanks to the integration with Remark, I can write complex equations and scientific notation (like $\\Sigma$) directly in Markdown. The system renders them as perfect mathematical vectors, essential for explaining papers and algorithms."
     },
     "Blog": {
         "readingTime": "Reading time",
@@ -66,17 +69,17 @@
     },
     "NotFound": {
         "title": "Page Not Found",
-        "description": "Sorry, the page you are looking for does not exist.",
+        "description": "Sorry, the page you are looking for does not exist or has been moved.",
         "backHome": "Back to Home"
     },
     "Legal": {
         "title": "Legal Notice & Privacy",
         "lastUpdated": "Last updated: December 2025",
         "sections": {
-            "intro": "This website is a personal and academic portfolio with no direct commercial purpose. Below is the legal information required by Spanish and European regulations.",
+            "intro": "This website is a personal and academic portfolio with no direct commercial purpose. My philosophy regarding your privacy is simple: I do not collect unnecessary personal information, I do not track you across the Internet, and I do not sell your data. Below is the legal information required by Spanish and European regulations.",
             "owner": {
                 "title": "1. Site Owner",
-                "content": "The owner of this website is **Eric Lucero González**. You can contact me regarding this site at: **ericlucerogonzalez@gmail.com**."
+                "content": "The owner of this website is **Eric Lucero González** (hereinafter, 'the Owner'). You can contact me regarding this site at: **ericlucerogonzalez@gmail.com**."
             },
             "data": {
                 "title": "2. Data Protection (GDPR)",
@@ -85,8 +88,9 @@
             "hosting": {
                 "title": "3. Hosting & Third Parties",
                 "content": "For technical operation, this site uses third-party services that may process technical data (such as IP addresses) to serve content:",
-                "github": "**GitHub Pages:** Website hosting. Collects standard server logs (IP address, browser) for security and maintenance.",
-                "cloudinary": "**Cloudinary:** Image optimization and delivery."
+                "github": "**GitHub Pages:** Website hosting service provided by GitHub, Inc. (USA). When you visit my page, GitHub servers receive your IP address and technical browser data (User-Agent). GitHub uses this data strictly for security purposes (DDoS attack prevention) and service reliability. I do not use these logs to identify you personally. You can consult GitHub's Privacy Policy for more technical details at https://docs.github.com/site-policy/privacy-policies/github-privacy-statement.",
+                "cloudinary": "**Cloudinary:** Images and videos on this site are served via Cloudinary Ltd., a Content Delivery Network (CDN). When loading these visual resources, your browser makes technical requests to Cloudinary servers. This traffic data is processed to optimize image delivery (e.g., serving the lightest format for your mobile) and ensure security. Cloudinary complies with GDPR and does not use this data to create advertising profiles of my visitors. See their policy at: https://cloudinary.com/privacy",
+                "base_legal": "The processing of this technical data is based on Legitimate Interest (Art. 6.1.f GDPR) to guarantee network security and the correct technical delivery of the requested content."
             },
             "cookies": {
                 "title": "4. Cookie Policy",
