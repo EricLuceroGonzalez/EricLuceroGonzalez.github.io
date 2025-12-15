@@ -155,6 +155,7 @@ export async function generateMetadata({ params }) {
       ],
       locale: locale,
       type: "website",
+      logo: t("metaLogo"),
     },
     twitter: {
       card: "summary_large_image",

@@ -3,7 +3,8 @@
         "defaultTitle": "Eric Lucero | AI Research & Optimization",
         "description": "Personal research blog by Eric Lucero regarding Artificial Intelligence, Genetic Algorithms, Optimization, and LaTeX tutorials.",
         "keywords": "AI, PhD, LaTeX, Algorithms, Optimization, Metaheuristics, Spain, Research, Computer Science, Next.js",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839288/elCronopio/Thumbnails/URL-base-en_z11bcn.png"
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839288/elCronopio/Thumbnails/URL-base-en_z11bcn.png",
+        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
     },
     "HomePage": {
         "title": "Welcome to my AI Research Blog",

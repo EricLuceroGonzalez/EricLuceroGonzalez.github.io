@@ -3,7 +3,8 @@
         "defaultTitle": "Eric Lucero | IA | Optimización",
         "description": "Blog personal sobre Inteligencia Artificial, Algoritmos, Optimización y LaTeX. Además de hablar de artículos científicos fundamentales.",
         "keywords": "IA, Doctorado, LaTeX, Algoritmos, España, PhD, AI, optimización, metaheurísticas, heuristics, latex, academic",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839290/elCronopio/Thumbnails/URL-base-es_vpsnir.png"
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839290/elCronopio/Thumbnails/URL-base-es_vpsnir.png",
+        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
     },
     "HomePage": {
         "title": "Bienvenido",
