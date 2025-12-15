@@ -88,7 +88,7 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
       });
 
       // --- DIBUJAR LÍNEAS ---
-      if (Math.random() < 0.03 && dotsRef.current.length > 2) {
+      if (Math.random() < 0.05 && dotsRef.current.length > 2) {
         const idx1 = Math.floor(Math.random() * dotsRef.current.length);
         let idx2 = Math.floor(Math.random() * dotsRef.current.length);
         while (idx1 === idx2) {
@@ -97,8 +97,8 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
         linesRef.current.push({
           dot1: dotsRef.current[idx1],
           dot2: dotsRef.current[idx2],
-          life: 80,
-          maxLife: 90,
+          life: 120,
+          maxLife: 220,
         });
       }
 
@@ -118,7 +118,7 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
           const g = isDark ? 51 : 119;
           const b = isDark ? 102 : 255;
           ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
-          ctx.lineWidth = 1;
+          ctx.lineWidth = 2;
           ctx.stroke();
         }
 

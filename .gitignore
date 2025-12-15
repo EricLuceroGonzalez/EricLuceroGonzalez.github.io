@@ -9,6 +9,7 @@
 # testing
 /coverage
 
+/_Not_public_posts
 # next.js
 /.next/
 /out/

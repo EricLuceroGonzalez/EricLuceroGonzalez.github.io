@@ -45,6 +45,11 @@ const LegalPage = async ({ params }) => {
           <MdUnorderedList>
             <MdListItem
               dangerouslySetInnerHTML={{
+                __html: parseText(t("sections.hosting.vercel")),
+              }}
+            />
+            <MdListItem
+              dangerouslySetInnerHTML={{
                 __html: parseText(t("sections.hosting.github")),
               }}
             />

@@ -6,7 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // Mantenemos tu export estático
+  // output: "export", // No necesario al usar Vercel
   reactStrictMode: true,
   transpilePackages: ["next-mdx-remote", "react-pdf"],
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
@@ -21,7 +21,7 @@ const nextConfig = {
         pathname: "**",
       },
     ],
-    unoptimized: true,
+    // unoptimized: true,
   },
   // Configuración de Webpack para evitar errores de librerías de nodo
   webpack: (config) => {

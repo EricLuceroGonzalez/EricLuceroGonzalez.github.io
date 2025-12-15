@@ -37,7 +37,7 @@
         "metaDescription": "Conoce más sobre mi trayectoria académica y profesional.",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png",
         "stack_title": "Stack de desarrollo",
-        "stack_Next": "El motor principal del sitio. Aprovecho su capacidad de Static Site Generation (SSG) para compilar todo el blog en archivos HTML estáticos. Esto garantiza una velocidad de carga casi instantánea, máxima seguridad y un despliegue fluido en GitHub Pages sin necesidad de servidores complejos.",
+        "stack_Next": "El núcleo del proyecto. Utilizo Next.js desplegado en **Vercel**, lo que me permite superar las limitaciones de los sitios estáticos tradicionales. Aprovecho el renderizado híbrido (Server Components + Static Generation) y su Edge Network para ofrecer una web instantánea, segura y escalable globalmente.",
         "stack_React": "La librería de interfaz. Me permite pensar en la web como piezas de LEGO (componentes) reutilizables. Desde la barra de navegación hasta las tarjetas de los posts, todo es un componente modular que gestiona su propio estado y lógica.",
         "stack_javascript": "El lenguaje que conecta todo. Lo utilizo tanto para la lógica de interfaz como para las simulaciones interactivas (como los algoritmos genéticos) que corren directamente en tu navegador.",
         "stack_styled": "CSS en esteroides. Me permite escribir estilos CSS reales dentro de mis componentes de JavaScript. Es la herramienta clave que gestiona el sistema de temas (modo Dark/Light) y asegura que los estilos de un componente no rompan los de otro.",
@@ -87,10 +87,11 @@
             },
             "hosting": {
                 "title": "3. Alojamiento y Terceros",
-                "content": "Para el funcionamiento técnico, este sitio utiliza servicios de terceros que pueden procesar datos técnicos (como direcciones IP) para servir el contenido:",
-                "github": "**GitHub Pages:** Alojamiento del sitio web. Recoge logs de servidor estándar (dirección IP, navegador) para seguridad y mantenimiento. Este sitio está alojado en GitHub Pages, un servicio de GitHub, Inc. (EE. UU.). Cuando visitas mi página, los servidores de GitHub reciben tu Dirección IP y datos técnicos de tu navegador (User-Agent). GitHub utiliza estos datos con fines estrictamente de seguridad (prevención de ataques DDoS) y fiabilidad del servicio. No utilizo estos logs para identificarte personalmente. Puedes consultar la Política de Privacidad de GitHub para más detalles técnicos en https://docs.github.com/site-policy/privacy-policies/github-privacy-statement.",
-                "cloudinary": "**Cloudinary:** Las imágenes y videos de este sitio se sirven a través de Cloudinary Ltd., una red de distribución de contenido (CDN). Al cargar estos recursos visuales, tu navegador realiza peticiones técnicas a los servidores de Cloudinary. Estos datos de tráfico son procesados para optimizar la entrega de imágenes (por ejemplo, enviarte el formato más ligero para tu móvil) y garantizar la seguridad. Cloudinary cumple con el RGPD y no utiliza estos datos para crear perfiles publicitarios de mis visitantes. Consulta su política en: https://cloudinary.com/privacy",
-                "base_legal": "El tratamiento de estos datos técnicos se basa en el Interés Legítimo (Art. 6.1.f RGPD) de garantizar la seguridad de la red y la correcta entrega técnica del contenido solicitado."
+                "content": "Para el funcionamiento técnico, este sitio utiliza servicios de terceros que procesan datos técnicos necesarios (logs, dirección IP) para servir el contenido:",
+                "vercel": "**Vercel:** Alojamiento y despliegue (Hosting). Este sitio web es servido a través de la infraestructura global de Vercel Inc. (EE. UU.). Vercel procesa las solicitudes de tu navegador y registra direcciones IP con fines estrictamente técnicos (seguridad, prevención de ataques DDoS y rendimiento). Vercel cumple con los estándares de privacidad internacionales.",
+                "github": "**GitHub:** Repositorio de Código. El código fuente de este proyecto es Open Source y está alojado en los servidores de GitHub Inc. (Microsoft). Aunque no sirve la web directamente a los usuarios, actúa como la fuente de verdad para el despliegue continuo.",
+                "cloudinary": "**Cloudinary:** Optimización de medios. Las imágenes y videos se sirven a través de la CDN de Cloudinary Ltd., procesando datos de tráfico para optimizar la entrega visual.",
+                "base_legal": "El tratamiento de estos datos técnicos se basa en el Interés Legítimo (Art. 6.1.f RGPD) de garantizar la seguridad de la red y la entrega del contenido."
             },
             "cookies": {
                 "title": "4. Política de Cookies",

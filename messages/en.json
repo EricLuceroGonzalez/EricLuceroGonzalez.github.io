@@ -37,7 +37,7 @@
         "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png",
         "stack_title": "Tech stack",
-        "stack_Next": "The site's main engine. I leverage its Static Site Generation (SSG) capabilities to compile the entire blog into static HTML files. This guarantees near-instant load speeds, maximum security, and seamless deployment on GitHub Pages without the need for complex servers.",
+        "stack_Next": "The project's core. I use Next.js deployed on **Vercel**, allowing me to go beyond traditional static site limitations. I leverage hybrid rendering (Server Components + Static Generation) and their Edge Network to deliver an instant, secure, and globally scalable website.",
         "stack_React": "The interface library. It allows me to think of the web as reusable LEGO pieces (components). From the navigation bar to the post cards, everything is a modular component managing its own state and logic.",
         "stack_javascript": "The language connecting everything. I use it for both interface logic and interactive simulations (like genetic algorithms) that run directly in your browser.",
         "stack_styled": "CSS on steroids. It allows me to write real CSS styles inside my JavaScript components. It is the key tool managing the theme system (Dark/Light mode) and ensures that one component's styles do not break another's.",
@@ -87,9 +87,10 @@
             },
             "hosting": {
                 "title": "3. Hosting & Third Parties",
-                "content": "For technical operation, this site uses third-party services that may process technical data (such as IP addresses) to serve content:",
-                "github": "**GitHub Pages:** Website hosting service provided by GitHub, Inc. (USA). When you visit my page, GitHub servers receive your IP address and technical browser data (User-Agent). GitHub uses this data strictly for security purposes (DDoS attack prevention) and service reliability. I do not use these logs to identify you personally. You can consult GitHub's Privacy Policy for more technical details at https://docs.github.com/site-policy/privacy-policies/github-privacy-statement.",
-                "cloudinary": "**Cloudinary:** Images and videos on this site are served via Cloudinary Ltd., a Content Delivery Network (CDN). When loading these visual resources, your browser makes technical requests to Cloudinary servers. This traffic data is processed to optimize image delivery (e.g., serving the lightest format for your mobile) and ensure security. Cloudinary complies with GDPR and does not use this data to create advertising profiles of my visitors. See their policy at: https://cloudinary.com/privacy",
+                "content": "For technical operation, this site uses third-party services that process necessary technical data (logs, IP addresses) to serve content:",
+                "vercel": "**Vercel:** Hosting and Deployment. This website is served via the global infrastructure of Vercel Inc. (USA). Vercel processes browser requests and logs IP addresses strictly for technical purposes (security, DDoS protection, and performance).",
+                "github": "**GitHub:** Code Repository. The source code of this project is Open Source and hosted on GitHub Inc. (Microsoft) servers. While it does not serve the website directly to users, it acts as the source of truth for continuous deployment.",
+                "cloudinary": "**Cloudinary:** Media Optimization. Images and videos are served through the Cloudinary Ltd. CDN, processing traffic data to optimize visual delivery.",
                 "base_legal": "The processing of this technical data is based on Legitimate Interest (Art. 6.1.f GDPR) to guarantee network security and the correct technical delivery of the requested content."
             },
             "cookies": {
