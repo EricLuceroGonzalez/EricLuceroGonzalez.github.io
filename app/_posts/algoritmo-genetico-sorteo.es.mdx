@@ -4,8 +4,8 @@ id: "blog-001"
 date: "2025-12-04"
 order: 0
 author: "Eric Lucero"
-socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765057574/elCronopio/Thumbnails/sorteo_es_gr5u4w.png
-webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/individuo-6_s8wgyw.jpg
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839285/elCronopio/Thumbnails/GA-blog-es_swpqiq.png
+webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg
 title: "Un Algoritmo Genético para generar el Sorteo de Grupos de la Copa Mundial de la FIFA"
 shortTitle: "Grupos del mundial con Algoritmos Genéticos"
 entryType: "blog"
@@ -137,7 +137,8 @@ Ya hemos dicho que cada individuo del algoritmo genético representa una soluci�
 _un sorteo de grupos_ con los 12 grupos completos, sin importar si son válidos o no. Como cada sorteo está compuesto por grupos, cada grupo representa lo que 
 llamamos un _gen_ dentro del individuo.
 
-![caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/individuo-6_s8wgyw.jpg)
+![caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg)
+
 
 Para nuestro código, cada _gen_ está formado por elementos de la clase `Equipo` que contiene la información relevante de cada selección nacional:
 ```python
@@ -180,7 +181,7 @@ La forma más sencilla de evaluar un individuo de estas características, es cre
 y en cada una de estas le adjudique una penalización a ese individuo,
 es decir una valoración desfavorable de tal manera que en el _ciclo de vida_ del algoritmo este individuo quede rezagado o no pueda reproducirse y se extinga.
 
-![caption=Evaluación de dos individuos. El individuo A tiene un fitness de 900, ya que viola la repetición de confederaciones en los grupos C,D,E. Además de no separar los itinerarios de España y Argentina.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/fitness-11_y0fggo.jpg)
+![caption=Evaluación de dos individuos. El individuo A tiene un fitness de 900, ya que viola la repetición de confederaciones en los grupos C,D,E. Además de no separar los itinerarios de España y Argentina.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/Blog-posts/fitness-11_y0fggo.jpg)
 
 El algoritmo busca minimizar este número. Un fitness de 1400 es un desastre; un fitness de 0 es un sorteo válido.
 
@@ -369,7 +370,7 @@ def seleccion_ruleta(evaluados):
 
 ### Cruce
 
-![caption=Ejemplo del operador de cruce. En la imagen vemos que el Padre A dona todos los equipos que pertenecen a los bombos 1 y 4 al hijo A, y los equipos del bombo 2 y 3 al hijo B.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/FIFA-cruce-6_mkwaqe.jpg)
+![caption=Ejemplo del operador de cruce. En la imagen vemos que el Padre A dona todos los equipos que pertenecen a los bombos 1 y 4 al hijo A, y los equipos del bombo 2 y 3 al hijo B.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/FIFA-cruce-6_mkwaqe.jpg)
 
 El cruce es el operador más importante, ya que es el responsable de crear diversidad y explorar el espacio de búsqueda. El cruce toma dos padres y crea un hijo.
 Lo que da lugar al reemplazo de la población actual por una nueva generación. En nuestro caso debemos tener mucho cuidado ya que no podemos hacer un cruce en cualquier punto del individuo (cromosoma)
@@ -423,7 +424,7 @@ def cruzar(padre1, padre2):
 ### Mutación
 Si solo cruzamos padres, eventualmente todos los hijos se parecerán y nos estancaremos en un "Mínimo Local" (una solución que parece buena pero no es la mejor).
 
-![caption=Ejemplo del operador de mutación.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Fifa-mutar-7_grtdqh.jpg)
+![caption=Ejemplo del operador de mutación.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/Fifa-mutar-7_grtdqh.jpg)
 
 La función `mutar(individuo)` introduce caos controlado. Con una probabilidad del 20%, tomamos un sorteo, elegimos dos grupos al azar e intercambiamos dos equipos del mismo bombo.
 
@@ -473,7 +474,7 @@ Afortunadamente, la estructura de bombos permite encontrar soluciones rápidamen
 ## Para finalizar (P.D.)
 No es difícil (tomando en cuenta las cifras astronómicas de antes) encontrar algunas soluciones que coincidan con el sorteo llevado a cabo el 5 de diciembre de 2025. 
 Por ejemplo en la imagen de abajo podemos ver en el grupo C, lo que resultó ser el grupo L del mundial.
-![caption=Es normal ver casos que coinciden con los grupos reales del mundial 2026.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765065317/elCronopio/Screenshot_2025-12-05_at_21.25.01_dck9wj.png)
+![caption=Es normal ver casos que coinciden con los grupos reales del mundial 2026.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765065317/elCronopio/Blog-posts/Screenshot_2025-12-05_at_21.25.01_dck9wj.png)
 
 <ReferenceList references={[
 {id:"1", text:"Restricciones del sorteo de la FIFA", url:"https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/sorteo-copa-mundial-2026-procedimiento-sorteo-final"},

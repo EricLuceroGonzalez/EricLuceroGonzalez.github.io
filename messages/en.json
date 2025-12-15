@@ -3,7 +3,7 @@
         "defaultTitle": "Eric Lucero | AI Research & Optimization",
         "description": "Personal research blog by Eric Lucero regarding Artificial Intelligence, Genetic Algorithms, Optimization, and LaTeX tutorials.",
         "keywords": "AI, PhD, LaTeX, Algorithms, Optimization, Metaheuristics, Spain, Research, Computer Science, Next.js",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-en_bxq6qz.png"
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839288/elCronopio/Thumbnails/URL-base-en_z11bcn.png"
     },
     "HomePage": {
         "title": "Welcome to my AI Research Blog",
@@ -35,7 +35,7 @@
         "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research.",
         "metaTitle": "About Me | Eric Lucero",
         "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png",
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839288/elCronopio/Thumbnails/URL-base-en_z11bcn.png",
         "stack_title": "Tech stack",
         "stack_Next": "The project's core. I use Next.js deployed on **Vercel**, allowing me to go beyond traditional static site limitations. I leverage hybrid rendering (Server Components + Static Generation) and their Edge Network to deliver an instant, secure, and globally scalable website.",
         "stack_React": "The interface library. It allows me to think of the web as reusable LEGO pieces (components). From the navigation bar to the post cards, everything is a modular component managing its own state and logic.",

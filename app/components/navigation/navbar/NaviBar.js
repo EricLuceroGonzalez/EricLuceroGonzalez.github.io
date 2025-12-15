@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
 import StyledLink from "./StyledLink";
+import Image from "next/image";
+import { hover } from "motion";
 
 const NaviBar = () => {
   const path = usePathname();
@@ -16,7 +18,30 @@ const NaviBar = () => {
     <Bar>
       <MainNavLogo>
         <StyledLink actualPath={primaryPath} pathName={"/"} href={"/"}>
-          Eric Lucero
+          <Image
+            src={
+              "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
+            }
+            alt={"A portrait photos of Eric Lucero"} // Texto alternativo
+            width={25} // Ancho de la imagen
+            height={25} // Alto de la imagen
+            priority
+            style={{
+              width: "100%",
+              height: "auto",
+              zIndex: 1000,
+            }}
+          />{" "}
+          <div
+            style={{
+              paddingLeft: "2px",
+              fontFamily: "monospace",
+              fontWeight: 100,
+              fontSize: "small",
+            }}
+          >
+            /home
+          </div>
         </StyledLink>
       </MainNavLogo>
       <MainNav display={"flex"}>

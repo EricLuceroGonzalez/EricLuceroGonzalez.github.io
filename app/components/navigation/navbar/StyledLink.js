@@ -7,21 +7,25 @@ import { useEffect, useState } from "react";
 
 // Define the styled component for the anchor tag
 const StyledAnchor = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   text-decoration: none;
   color: var(--fg);
   transition: background-color 0.3s ease;
   padding: 8px 6px;
   margin: 2px 2px;
   font-weight: bold;
+  /* border: 1px solid red; */
 
   font-size: medium;
   @media (min-width: 660px) {
-    /* border: 1px solid red; */
     font-size: large;
   }
   &:hover {
     background-color: var(--fg);
     color: var(--bg);
+    cursor: pointer;
   }
   background-color: ${(props) =>
     props.$activePath ? "var(--accent)" : "var(--bg)"};

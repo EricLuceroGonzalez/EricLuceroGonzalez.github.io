@@ -3,7 +3,7 @@
         "defaultTitle": "Eric Lucero | IA | Optimización",
         "description": "Blog personal sobre Inteligencia Artificial, Algoritmos, Optimización y LaTeX. Además de hablar de artículos científicos fundamentales.",
         "keywords": "IA, Doctorado, LaTeX, Algoritmos, España, PhD, AI, optimización, metaheurísticas, heuristics, latex, academic",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png"
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839290/elCronopio/Thumbnails/URL-base-es_vpsnir.png"
     },
     "HomePage": {
         "title": "Bienvenido",
@@ -35,7 +35,7 @@
         "page_content": "Este blog está construido utilizando Next.js y Next-Intl para la internacionalización. Presenta publicaciones escritas tanto en inglés como en español, atendiendo a una audiencia diversa interesada en la investigación en IA.",
         "metaTitle": "Sobre Mí",
         "metaDescription": "Conoce más sobre mi trayectoria académica y profesional.",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765116599/elCronopio/Thumbnails/portada-es_thhyg5.png",
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839290/elCronopio/Thumbnails/URL-base-es_vpsnir.png",
         "stack_title": "Stack de desarrollo",
         "stack_Next": "El núcleo del proyecto. Utilizo Next.js desplegado en **Vercel**, lo que me permite superar las limitaciones de los sitios estáticos tradicionales. Aprovecho el renderizado híbrido (Server Components + Static Generation) y su Edge Network para ofrecer una web instantánea, segura y escalable globalmente.",
         "stack_React": "La librería de interfaz. Me permite pensar en la web como piezas de LEGO (componentes) reutilizables. Desde la barra de navegación hasta las tarjetas de los posts, todo es un componente modular que gestiona su propio estado y lógica.",
