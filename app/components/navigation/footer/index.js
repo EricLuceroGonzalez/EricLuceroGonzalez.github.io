@@ -156,7 +156,7 @@ const Footer = () => {
           </FooterText>
         </FooterTextBox>
         <FooterTextBox>
-          <FooterLink href={`/about/this_page`}>
+          <FooterLink href={`/about/this-page`}>
             <FaInfoCircle />
             {t("about_page")}
           </FooterLink>

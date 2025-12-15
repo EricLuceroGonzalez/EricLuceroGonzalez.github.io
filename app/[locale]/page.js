@@ -47,6 +47,7 @@ export default async function Home({ params }) {
           {/* </HomePageCoverImage> */}
         </HomePageCover>
         <MdParagraph>{t("copy_text")}</MdParagraph>
+
         <HomeBoxes props={allPostsData} />
       </MainPageBg>
     </PageContainer>
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }) {
 
   // Obtenemos las traducciones del servidor para la sección "Metadata"
   const t = await getTranslations({ locale, namespace: "Metadata" });
-  const URLbase = "https://ericlucerogonzalez.github.io";
+  const URLbase = "https://eric-lucero-gonzalez.vercel.app";
 
   return {
     title: t("defaultTitle"),

@@ -23,7 +23,6 @@ import {
 } from "@/app/ui/MarkDownComponents";
 import CodeBlock from "@/app/components/CodeWrapper";
 import Image from "next/image";
-import { MathJax } from "better-react-mathjax";
 import H2Header from "./H2Header";
 import H3Header from "./H3Header";
 const MdxComponents = {

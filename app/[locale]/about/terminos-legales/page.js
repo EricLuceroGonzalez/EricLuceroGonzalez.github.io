@@ -95,7 +95,7 @@ export async function generateMetadata({ params }) {
   // Obtenemos las traducciones del servidor para la sección "Metadata"
   const t = await getTranslations({ locale, namespace: "Legal" });
   const meta = await getTranslations({ locale, namespace: "Metadata" });
-  const URLbase = "https://ericlucerogonzalez.github.io";
+  const URLbase = "https://eric-lucero-gonzalez.vercel.app";
 
   return {
     title: t("title"),
