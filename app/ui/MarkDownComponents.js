@@ -8,7 +8,7 @@ export const MdParagraph = styled.div`
     font-size: large;
   }
   z-index: 1000;
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
 `;
 
 export const MdListItem = styled.li`

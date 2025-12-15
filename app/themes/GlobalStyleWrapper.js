@@ -27,12 +27,13 @@ a {
     --bg: #F8F9FA;
     --fg: #1A1A1A;
     --accent: #0077FF;
+    --primary: #FF3366;
 
     /* TIPOGRAFÍA */
   
     --heading: #111111; 
     --subheading: #444444;
-
+    
     /* INTERACCIÓN*/
     --primary-btn-bg: #0077FF; 
     --primary-btn-fg: white;
@@ -56,7 +57,6 @@ a {
     
     --code-fg: #D72638; 
     --code-bg: #E2E6EA; 
-    
     --primary-border: #DEE2E6;
     --box-border-hover: #0077FF;
     --gray-light: #919ca2ff;
@@ -71,7 +71,7 @@ a {
     --bg: #002332; 
     --fg: #E0E6ED; 
     --accent: #FF3366;
-
+--primary: #0077FF;
     /* TIPOGRAFÍA */
     --heading: #FFFFFF; 
     --subheading: #B0BEC5;

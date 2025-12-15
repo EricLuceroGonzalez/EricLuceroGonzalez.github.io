@@ -124,7 +124,7 @@ const GrupoCard = styled.div`
   border-radius: 0.5rem;
   padding: 1rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  color: var(--gray-dark);
+  color: var(--accent);
 `;
 
 const GrupoHeader = styled.h3`
@@ -682,13 +682,13 @@ export default function SorteoMundialGA(props) {
             ))}
           </ItinerarioSection>
           <ItinerarioSection>
-            <ItinerarioHeader color="var(--link-fg)">
+            <ItinerarioHeader color="var(--primary)">
               🌍 {t.itinerary} 2
             </ItinerarioHeader>
             {gruposItin2.map(({ idx, grupo }) => (
-              <GrupoCard key={idx} borderColor="var(--link-fg)">
+              <GrupoCard key={idx} borderColor="var(--primary)">
                 <GrupoHeader>
-                  <GrupoLetra color="var(--link-fg)">{letras[idx]}</GrupoLetra>
+                  <GrupoLetra color="var(--primary)">{letras[idx]}</GrupoLetra>
                   {t.group} {letras[idx]}
                 </GrupoHeader>
                 <EquiposList>

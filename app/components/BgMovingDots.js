@@ -114,6 +114,9 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
           ctx.moveTo(line.dot1.x, line.dot1.y);
           ctx.lineTo(line.dot2.x, line.dot2.y);
           // Usamos las mismas variables r, g, b para las líneas
+          const r = isDark ? 255 : 0;
+          const g = isDark ? 51 : 119;
+          const b = isDark ? 102 : 255;
           ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
           ctx.lineWidth = 1;
           ctx.stroke();
