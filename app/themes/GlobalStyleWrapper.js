@@ -57,6 +57,7 @@ a {
     
     --code-fg: #D72638; 
     --code-bg: #E2E6EA; 
+    --code-box-bg:#002332;
     --primary-border: #DEE2E6;
     --box-border-hover: #0077FF;
     --gray-light: #919ca2ff;
@@ -71,7 +72,7 @@ a {
     --bg: #002332; 
     --fg: #E0E6ED; 
     --accent: #FF3366;
---primary: #0077FF;
+    --primary: #0077FF;
     /* TIPOGRAFÍA */
     --heading: #FFFFFF; 
     --subheading: #B0BEC5;
@@ -99,8 +100,8 @@ a {
     
     /* CORRECCIÓN DE CÓDIGO */
     --code-fg: #00FFE7; /* Cyan neón para el texto */
-    --code-bg: #001520; /* Casi negro (más oscuro que el fondo principal) */
-
+    --code-bg: #002332; /* Casi negro (más oscuro que el fondo principal) */
+    --code-box-bg:#002332;
     --primary-border: #004966;
     --box-border-hover: #FF3366;
     --gray-light: #919ca2ff;
