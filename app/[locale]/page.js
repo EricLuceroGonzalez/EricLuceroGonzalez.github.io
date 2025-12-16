@@ -1,23 +1,17 @@
 import {
-  CoverTitle,
   HomePageCover,
-  HomePageCoverImage,
   HomePageCoverText,
   MainPageBg,
   PageContainer,
   TitlePage,
 } from "../ui/ComponentsStyled";
 import HomeBoxes from "../components/HomeBoxes";
-import {
-  MdListItem,
-  MdParagraph,
-  MdUnorderedList,
-} from "../ui/MarkDownComponents";
+import { MdParagraph } from "../ui/MarkDownComponents";
 import ScrollDiv from "../components/navigation/ScrollDiv";
 import { getAllPosts } from "../lib/api";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "../components/BgMovingDots";
-import SpinnerLoad from "../components/SpinnerLoad";
+
 export default async function Home({ params }) {
   // 1. Obtener idioma
   const { locale } = await params;
@@ -34,17 +28,7 @@ export default async function Home({ params }) {
             <TitlePage>{t("title")} 👋🏼</TitlePage>
             {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>
-          {/* <TitlePage>Soy</TitlePage> */}
-          {/* TODO: Check p5 Compo */}
-          {/* <P5Sketch width={600} height={600} /> */}
-          {/* <RandomPointCloud /> */}
-          {/* <RandomDots numDots={200} width={800} height={400} /> */}
-          {/* <HomePageCoverImage> */}
           <BackgroundDots numDots={40} />
-          {/* <MovingDots numDots={100} width={100} height={150} speed={2} /> */}
-          {/* <MovingDots numDots={100} speed={2} /> */}
-          {/* <CircleBounce /> */}
-          {/* </HomePageCoverImage> */}
         </HomePageCover>
         <MdParagraph>{t("copy_text")}</MdParagraph>
 

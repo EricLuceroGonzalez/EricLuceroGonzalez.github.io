@@ -7,7 +7,7 @@
         "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
     },
     "HomePage": {
-        "title": "Welcome to my AI Research Blog",
+        "title": "Welcome",
         "copy_text": "This site is under construction. Soon will be a place where I share my work and learning path in AI and optimization.",
         "about": "PhD Student based in Spain",
         "metaTitle": "Home: My Journey in AI",
@@ -38,6 +38,11 @@
         "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839288/elCronopio/Thumbnails/URL-base-en_z11bcn.png",
         "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
+        "metadata": {
+            "title": "Tech Stack & Architecture | Eric Lucero",
+            "description": "Explore the self-made architecture behind this research blog: Next.js, Vercel, React, MDX, and LaTeX integration for scientific communication.",
+            "keywords": "Next.js, Vercel, React, MDX, LaTeX, Web Architecture, Open Source, Tech Stack, Web Development, Chart.js"
+        },
         "stack_title": "Tech stack",
         "stack_Next": "The project's core. I use Next.js deployed on **Vercel**, allowing me to go beyond traditional static site limitations. I leverage hybrid rendering (Server Components + Static Generation) and their Edge Network to deliver an instant, secure, and globally scalable website.",
         "stack_React": "The interface library. It allows me to think of the web as reusable LEGO pieces (components). From the navigation bar to the post cards, everything is a modular component managing its own state and logic.",
@@ -80,7 +85,13 @@
     "Legal": {
         "title": "Legal Notice & Privacy",
         "lastUpdated": "Last updated: December 2025",
-        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
+        "metadata": {
+            "title": "Legal Notice & Privacy Policy | Eric Lucero",
+            "description": "Legal terms, GDPR compliance, privacy policy, and details regarding the Creative Commons and MIT licenses of this website.",
+            "keywords": "Legal Notice, Privacy Policy, GDPR, Copyright, Creative Commons, MIT License, Terms of Use, Data Protection",
+            "logo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
+            "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839290/elCronopio/Thumbnails/URL-base-es_vpsnir.png"
+        },
         "sections": {
             "intro": "This website is a personal and academic portfolio with no direct commercial purpose. My philosophy regarding your privacy is simple: I do not collect unnecessary personal information, I do not track you across the Internet, and I do not sell your data. Below is the legal information required by Spanish and European regulations.",
             "owner": {

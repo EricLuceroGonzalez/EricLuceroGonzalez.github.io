@@ -143,13 +143,12 @@ export async function generateMetadata({ params }) {
 
   // Obtenemos las traducciones del servidor para la sección "Metadata"
   const t = await getTranslations({ locale, namespace: "Legal" });
-  const meta = await getTranslations({ locale, namespace: "Metadata" });
   const URLbase = "https://eric-lucero-gonzalez.vercel.app";
 
   return {
-    title: t("title"),
-    description: meta("description"),
-    keywords: meta("keywords"),
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+    keywords: t("metadata.keywords"),
     // Configuración vital para SEO Multilingüe
     alternates: {
       canonical: `${URLbase}/${locale}`,
@@ -159,27 +158,27 @@ export async function generateMetadata({ params }) {
       },
     },
     openGraph: {
-      title: t("title"),
-      description: meta("description"),
+      title: t("metadata.title"),
+      description: t("metadata.description"),
       url: `${URLbase}/${locale}`, // URL canónica para compartir
       siteName: "Eric Lucero González",
       images: [
         {
-          url: meta("thumbnailImage"),
+          url: t("metadata.thumbnailImage"),
           width: 1200,
           height: 630,
-          alt: meta("description"), // Texto alternativo traducido
+          alt: t("metadata.description"), // Texto alternativo traducido
         },
       ],
       locale: locale,
       type: "website",
-      logo: t("metaLogo"),
+      logo: t("metadata.logo"),
     },
     twitter: {
       card: "summary_large_image",
-      title: t("title"),
-      description: meta("description"),
-      image: meta("thumbnailImage"),
+      title: t("metadata.title"),
+      description: t("metadata.description"),
+      image: t("metadata.thumbnailImage"),
     },
   };
 }

@@ -38,6 +38,11 @@
         "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
         "metaDescription": "Conoce más sobre mi trayectoria académica y profesional.",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839290/elCronopio/Thumbnails/URL-base-es_vpsnir.png",
+        "metadata": {
+            "title": "Stack Tecnológico y Arquitectura | Eric Lucero",
+            "description": "Descubre la arquitectura 'self-made' de este blog de investigación: integración de Next.js, Vercel, React, MDX y LaTeX para la divulgación científica.",
+            "keywords": "Next.js, Vercel, React, MDX, LaTeX, Arquitectura Web, Open Source, Stack Tecnológico, Desarrollo Web, Chart.js"
+        },
         "stack_title": "Stack de desarrollo",
         "stack_Next": "El núcleo del proyecto. Utilizo Next.js desplegado en **Vercel**, lo que me permite superar las limitaciones de los sitios estáticos tradicionales. Aprovecho el renderizado híbrido (Server Components + Static Generation) y su Edge Network para ofrecer una web instantánea, segura y escalable globalmente.",
         "stack_React": "La librería de interfaz. Me permite pensar en la web como piezas de LEGO (componentes) reutilizables. Desde la barra de navegación hasta las tarjetas de los posts, todo es un componente modular que gestiona su propio estado y lógica.",
@@ -80,7 +85,13 @@
     "Legal": {
         "title": "Aviso Legal y Privacidad",
         "lastUpdated": "Última actualización: Diciembre 2025",
-        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
+        "metadata": {
+            "title": "Aviso Legal y Política de Privacidad | Eric Lucero",
+            "description": "Información legal, cumplimiento del RGPD, política de privacidad y detalles sobre las licencias Creative Commons y MIT de este sitio.",
+            "keywords": "Aviso Legal, Privacidad, RGPD, Copyright, Creative Commons, Licencia MIT, Términos de Uso, Protección de Datos",
+            "logo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
+            "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839290/elCronopio/Thumbnails/URL-base-es_vpsnir.png"
+        },
         "sections": {
             "intro": "Este sitio web es un portafolio personal y académico sin fines comerciales directos. Mi filosofía respecto a tu privacidad es simple: no recopilo información personal innecesaria, no te rastreo por Internet y no vendo tus datos. A continuación se detalla la información legal requerida por la normativa española y europea.",
             "owner": {

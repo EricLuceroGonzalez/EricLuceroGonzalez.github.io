@@ -1,4 +1,3 @@
-"use client";
 import { MainBg } from "@/app/ui/ComponentsStyled";
 import { RiNextjsFill } from "react-icons/ri";
 import { RiReactjsLine } from "react-icons/ri";
@@ -12,76 +11,23 @@ import {
   SiStyledcomponents,
   SiVercel,
 } from "react-icons/si";
-import styled from "styled-components";
+// import styled from "styled-components";
+// import Link from "next/link";
 import ShowPath from "@/app/components/showPath";
 import { Article, Layout } from "@/app/ui/lugs";
 import { MdHead } from "@/app/ui/MarkDownComponents";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { FaFontAwesome, FaGithub } from "react-icons/fa";
 import H2Header from "@/app/components/MdCompos/H2Header";
-
-const LogosContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-flow: row wrap;
-
-  justify-content: space-around;
-`;
-
-const LogosBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 1rem auto;
-  flex-wrap: wrap;
-  font-size: small;
-  color: var(--accent);
-  background-color: var(--quote-bg);
-
-  @media (max-width: 390px) {
-    width: 45%;
-  }
-
-  @media (600px <= width < 1080px) {
-    width: 49%;
-  }
-  @media (min-width: 1080px) {
-    width: 32%;
-  }
-`;
-
-const LogosText = styled.div`
-  width: 99%;
-  padding: 3px 8px;
-  /* border: 1px solid red; */
-`;
-
-const LogosTitle = styled.h3`
-  font-size: larger;
-`;
-const LogosHead = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  padding: 1px 5%;
-`;
-
-const ReactIcon = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 4rem;
-  margin: 5px;
-  svg {
-    color: var(--accent);
-  }
-  svg:hover {
-    color: var(--fg);
-  }
-`;
+import {
+  LogosBox,
+  LogosContainer,
+  LogosHead,
+  LogosText,
+  LogosTitle,
+  ReactIcon,
+} from "@/app/components/about/AboutStyled";
+import { getTranslations } from "next-intl/server";
 
 const AboutThisPage = () => {
   const t = useTranslations("About");
@@ -220,3 +166,47 @@ const AboutThisPage = () => {
 };
 
 export default AboutThisPage;
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+
+  // Obtenemos las traducciones del servidor para la sección "Metadata"
+  const t = await getTranslations({ locale, namespace: "About" });
+  const URLbase = "https://eric-lucero-gonzalez.vercel.app";
+
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+    keywords: t("metadata.keywords"),
+    // Configuración vital para SEO Multilingüe
+    alternates: {
+      canonical: `${URLbase}/${locale}`,
+      languages: {
+        es: `${URLbase}/es`,
+        en: `${URLbase}/en`,
+      },
+    },
+    openGraph: {
+      title: t("metadata.title"),
+      description: t("metadata.description"),
+      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      siteName: "Eric Lucero González",
+      images: [
+        {
+          url: t("thumbnailImage"),
+          width: 1200,
+          height: 630,
+          alt: t("metadata.description"), // Texto alternativo traducido
+        },
+      ],
+      locale: locale,
+      type: "website",
+      logo: t("metaLogo"),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      image: t("thumbnailImage"),
+    },
+  };
+}

@@ -13,8 +13,6 @@ import {
   MdOrderedList,
   MdParagraph,
   MdStrong,
-  MdSubHeadA,
-  MdSubHeadB,
   MdSubHeadC,
   MdTable,
   MdTableD,
