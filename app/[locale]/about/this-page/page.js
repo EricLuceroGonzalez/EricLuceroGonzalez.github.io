@@ -185,6 +185,10 @@ export async function generateMetadata({ params }) {
         en: `${URLbase}/en`,
       },
     },
+    robots: {
+      index: false,
+      follow: true,
+    },
     openGraph: {
       title: t("metadata.title"),
       description: t("metadata.description"),

@@ -1,6 +1,6 @@
 # 🌐 EricLuceroGonzalez.github.io: Portafolio Personal y CV Digital
 
-[![Estado del Proyecto](https://img.shields.io/badge/Estado-Producci%C3%B3n%20y%20Mantenimiento-brightgreen)](https://ericlucerogonzalez.github.io/)
+[![Estado del Proyecto](https://img.shields.io/badge/Estado-Producci%C3%B3n%20y%20Mantenimiento-brightgreen)](https://eric-lucero-gonzalez.vercel.app/)
 [![Licencia](https://img.shields.io/badge/Licencia-MIT-blue)](LICENSE)
 [![Autor](https://img.shields.io/badge/Autor-Eric%20Lucero%20Gonz%C3%A1lez-informational)](https://github.com/EricLuceroGonzalez)
 
@@ -16,7 +16,7 @@ El sitio actúa como una **tarjeta de presentación digital**, exponiendo mi exp
 
 El sitio web está disponible y desplegado a través de GitHub Pages:
 
-**URL:** [https://ericlucerogonzalez.github.io/](https://ericlucerogonzalez.github.io/)
+**URL:** [https://eric-lucero-gonzalez.vercel.app/](https://eric-lucero-gonzalez.vercel.app/)
 
 ---
 

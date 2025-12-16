@@ -192,10 +192,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
     description: post.excerpt,
     slug: post.slug,
     shortTitle: post.shortTitle,
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title: `${post.title} | Blog`,
       description: post.excerpt,
-      url: `https://ericlucerogonzalez.github.io/blog/${locale}/${post.slug}`,
+      url: `https://eric-lucero-gonzalez.vercel.app/blog/${locale}/${post.slug}`,
       images: [
         {
           url: post.socialThumbnail,

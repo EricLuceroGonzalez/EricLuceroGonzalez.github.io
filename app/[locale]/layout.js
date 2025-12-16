@@ -23,6 +23,7 @@ export async function generateMetadata({ params }) {
   const URLbase = "https://eric-lucero-gonzalez.vercel.app";
 
   return {
+    metadataBase: new URL("https://eric-lucero-gonzalez.vercel.app"), // IMPORTANTE para SEO
     title: t("defaultTitle"),
     description: t("description"),
     keywords: t("keywords"),
@@ -56,6 +57,9 @@ export async function generateMetadata({ params }) {
       title: t("defaultTitle"),
       description: t("description"),
       image: t("thumbnailImage"),
+    },
+    verification: {
+      google: "eVlOcpMqZW3--b3rPPmcJRQ4FHLq6o0flgliTMuWNsk",
     },
   };
 }
