@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { Bar, MainNav, MainNavLogo, NavLogo } from "./navCompos";
+import { Bar, DivLogo, MainNav, MainNavLogo, NavLogo } from "./navCompos";
 import ThemeSwitcher from "../../../themes/ThemeSwitcher.js";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -32,16 +32,7 @@ const NaviBar = () => {
               zIndex: 1000,
             }}
           />{" "}
-          <div
-            style={{
-              paddingLeft: "2px",
-              fontFamily: "monospace",
-              fontWeight: 100,
-              fontSize: "small",
-            }}
-          >
-            /home
-          </div>
+          <DivLogo>/home</DivLogo>
         </StyledLink>
       </MainNavLogo>
       <MainNav display={"flex"}>

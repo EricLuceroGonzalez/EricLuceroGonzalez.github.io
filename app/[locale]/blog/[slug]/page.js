@@ -67,7 +67,7 @@ const BlogPost = async ({ params }) => {
       <MainBg>
         <ScrollDiv />
         <Article>
-          <ShowPath title={post.title} />
+          <ShowPath title={post.slug} />
           <MdHead>{post.title}</MdHead>
           {/* No Thumbnail for now...too much */}
           {/* {post.socialThumbnail && (

@@ -34,7 +34,7 @@ const BlogPage = async ({ params }) => {
         <ScrollDiv />
         <BackgroundDots numDots={90} />
         <MainPageBg>
-          <ShowPath title={""} />
+          <ShowPath />
           <TitlePage>{t("title")}</TitlePage>
           <MdParagraph>{t("copy_text")}</MdParagraph>
           <HomeBoxes props={blogPosts.posts} locale={locale} />
@@ -50,13 +50,13 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
 
   // Obtenemos las traducciones del servidor para la sección "Metadata"
-  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const metadata = await getTranslations({ locale, namespace: "Metadata" });
   const URLbase = "https://eric-lucero-gonzalez.vercel.app";
 
   return {
-    title: t("defaultTitle"),
-    description: t("description"),
-    keywords: t("keywords"),
+    title: metadata("defaultTitle"),
+    description: metadata("description"),
+    keywords: metadata("keywords"),
     // Configuración vital para SEO Multilingüe
     alternates: {
       canonical: `${URLbase}/${locale}`,
@@ -66,27 +66,27 @@ export async function generateMetadata({ params }) {
       },
     },
     openGraph: {
-      title: t("defaultTitle"),
-      description: t("description"),
+      title: metadata("defaultTitle"),
+      description: metadata("description"),
       url: `${URLbase}/${locale}`, // URL canónica para compartir
       siteName: "Eric Lucero González",
       images: [
         {
-          url: t("thumbnailImage"),
+          url: metadata("thumbnailImage"),
           width: 1200,
           height: 630,
-          alt: t("defaultTitle"), // Texto alternativo traducido
+          alt: metadata("defaultTitle"), // Texto alternativo traducido
         },
       ],
       locale: locale,
       type: "website",
-      logo: t("metaLogo"),
+      logo: metadata("metaLogo"),
     },
     twitter: {
       card: "summary_large_image",
-      title: t("defaultTitle"),
-      description: t("description"),
-      image: t("thumbnailImage"),
+      title: metadata("defaultTitle"),
+      description: metadata("description"),
+      image: metadata("thumbnailImage"),
     },
   };
 }

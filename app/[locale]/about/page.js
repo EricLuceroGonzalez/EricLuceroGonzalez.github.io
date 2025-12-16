@@ -19,6 +19,7 @@ import BackgroundDots from "@/app/components/BgMovingDots";
 export default async function About({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
+
   // const t = useTranslations("About");
   const t = await getTranslations({ locale, namespace: "About" });
   return (

@@ -1,8 +1,7 @@
 "use client";
-
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styled from "styled-components";
-const { usePathname } = require("next/navigation");
+import { usePathname } from "next/navigation";
 
 const PathBlock = styled.div`
   display: flex;
@@ -18,18 +17,47 @@ const PathSlash = styled.div`
 const PathLink = styled(Link)`
   color: var(--accent);
 `;
-
-const ShowPath = (params) => {
+const CurrentPage = styled.span`
+  color: var(--accent);
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px; /* Evita que un título largo rompa el diseño en móvil */
+`;
+const ShowPath = ({ title }) => {
   const thisPath = usePathname();
-  const pathSplit = thisPath.split("/");
+  const pathSegments = thisPath.split("/").filter(Boolean);
+  const category = pathSegments[1];
+  console.log(`pathSegments: ${pathSegments}`);
+  console.log(`cat: ${category}`);
+  // Si estamos en el home, no mostramos nada o solo home
+  if (thisPath === "/" || thisPath === "/es" || thisPath === "/en") {
+    return null;
+  }
   return (
     <>
       <PathBlock>
         <PathLink href={"/"}>home</PathLink>
+        {/* 2. Link a la Categoría (Blog, Papers, etc.) */}
+        {category && (
+          <>
+            <PathSlash>/</PathSlash>
+            {/* El Link de i18n maneja el prefijo de idioma automáticamente */}
+            <PathLink href={`/${category}`}>{category}</PathLink>
+          </>
+        )}
+
+        {/* 3. Título Actual */}
+        {title && (
+          <>
+            <PathSlash>/</PathSlash>
+            <CurrentPage>{title}</CurrentPage>
+          </>
+        )}
+        {/* <PathLink href={`/${pathSplit[1]}`}>{pathSplit[1]}</PathLink>
         <PathSlash>/</PathSlash>
-        <PathLink href={`/${pathSplit[1]}`}>{pathSplit[1]}</PathLink>
-        <PathSlash>/</PathSlash>
-        {params.title ? params.title : ""}
+        {params.title ? params.title : ""} */}
       </PathBlock>
     </>
   );

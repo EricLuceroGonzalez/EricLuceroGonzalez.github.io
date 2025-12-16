@@ -2,6 +2,7 @@ import { MainBg } from "@/app/ui/ComponentsStyled";
 import ShowPath from "@/app/components/showPath";
 import { Article, Layout, MetaInfo } from "@/app/ui/lugs";
 import {
+  ContainerDiv,
   MdHead,
   MdListItem,
   MdParagraph,
@@ -10,6 +11,13 @@ import {
 import { useTranslations } from "next-intl";
 import H2Header from "@/app/components/MdCompos/H2Header";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import {
+  FaCreativeCommons,
+  FaCreativeCommonsBy,
+  FaCreativeCommonsNc,
+  FaCreativeCommonsNcEu,
+  FaCreativeCommonsSa,
+} from "react-icons/fa";
 
 const LegalPage = async ({ params }) => {
   const { locale } = await params;
@@ -24,7 +32,7 @@ const LegalPage = async ({ params }) => {
     <Layout>
       <MainBg>
         <Article>
-          <ShowPath title={"legal"} />
+          <ShowPath title={"terminos-legales"} />
           <MdHead>{t("title")}</MdHead>
           <MetaInfo>{t("lastUpdated")}</MetaInfo>
           <MdParagraph>{t("sections.intro")}</MdParagraph>
@@ -40,6 +48,40 @@ const LegalPage = async ({ params }) => {
               __html: parseText(t("sections.data.content")),
             }}
           />
+
+          <H2Header>{t("sections.copyright.title")}</H2Header>
+          <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(t("sections.copyright.intro")),
+            }}
+          />
+          <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(t("sections.copyright.content_license")),
+            }}
+          />
+          <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(t("sections.copyright.code_license")),
+            }}
+          />
+
+          <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(t("sections.copyright.third_party")),
+            }}
+          />
+          <H2Header>{t("sections.disclaimer.title")}</H2Header>
+          <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(t("sections.disclaimer.content")),
+            }}
+          />
+          {/* <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(t("title")),
+            }}
+          /> */}
           <H2Header>{t("sections.hosting.title")}</H2Header>
           <MdParagraph>{t("sections.hosting.content")}</MdParagraph>
           <MdUnorderedList>
@@ -81,6 +123,13 @@ const LegalPage = async ({ params }) => {
               __html: parseText(t("sections.license.content")),
             }}
           />
+          <ContainerDiv>
+            <FaCreativeCommons />
+            <FaCreativeCommonsBy />
+            <FaCreativeCommonsNc />
+            <FaCreativeCommonsNcEu />
+            <FaCreativeCommonsSa />
+          </ContainerDiv>
         </Article>
       </MainBg>
     </Layout>

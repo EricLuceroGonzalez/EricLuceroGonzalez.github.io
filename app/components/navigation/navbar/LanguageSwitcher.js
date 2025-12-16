@@ -1,61 +1,60 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "../../../../i18n/navigation"; // Importa desde TU archivo creado en Paso 1
+import { usePathname, useRouter } from "../../../../i18n/navigation";
+import styled from "styled-components";
 
+const LocaleButton = styled.button`
+  font-weight: ${(props) => (props.lang == "es" ? "bold" : "normal")};
+  background-color: ${(props) =>
+    props.lang === "es" ? "var(--accent)" : "var(--gray-medium)"};
+  font-size: 11px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: "8px";
+  border: "none";
+  color: ${(props) => (props.lang === "en" ? "var(--fg)" : "var(--bg)")};
+`;
+const SwitchButton = styled.button`
+  background-color: transparent;
+  color: var(--fg);
+  border: 1px solid var(--fg); /* Borde fino del color del texto */
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace; /* Le da un toque técnico/dev */
+
+  &:hover {
+    background-color: var(--accent); /* Se llena con tu color acento */
+    border-color: var(--accent);
+    color: white; /* Texto blanco para contraste */
+    transform: translateY(-1px); /* Pequeña elevación */
+  }
+`;
 export default function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-
-  const handleChange = (newLocale) => {
+  const nextLocale = locale === "es" ? "en" : "es";
+  const handleChange = () => {
     // Reemplaza la URL actual con el nuevo idioma
-    router.replace(pathname, { locale: newLocale });
+    router.replace(pathname, { locale: nextLocale });
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "20px",
-        padding: "5px",
-      }}
-    >
-      <button
-        disabled={locale === "es"}
-        onClick={() => handleChange("es")}
-        style={{
-          fontWeight: locale === "es" ? "bold" : "normal",
-          cursor: "pointer",
-          padding: "8px",
-          fontSize: "11px",
-          backgroundColor:
-            locale === "es" ? "var(--accent)" : "var(--gray-medium)",
-          color: locale === "en" ? "var(--fg)" : "var(--bg)",
-          borderRadius: "8px",
-          borderColor: "none",
-        }}
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <SwitchButton
+        onClick={handleChange}
+        title={`Switch to ${nextLocale.toUpperCase()}`}
       >
-        ES
-      </button>
-      {/* <span style={{ fontSize: "17px" }}>|</span> */}
-      <button
-        disabled={locale === "en"}
-        onClick={() => handleChange("en")}
-        style={{
-          fontWeight: locale === "en" ? "bold" : "normal",
-          cursor: "pointer",
-          padding: "8px",
-          fontSize: locale === "en" ? "10px" : "11px",
-          backgroundColor:
-            locale === "en" ? "var(--accent)" : "var(--gray-medium)",
-          color: locale === "en" ? "var(--bg)" : "var(--fg)",
-          borderRadius: "8px",
-          borderColor: "none",
-        }}
-      >
-        EN
-      </button>
+        {nextLocale.toUpperCase()}
+      </SwitchButton>
     </div>
   );
 }

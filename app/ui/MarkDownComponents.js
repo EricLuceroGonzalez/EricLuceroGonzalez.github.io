@@ -226,3 +226,21 @@ export const MdCode = styled.code`
   border-radius: 8px;
   font-family: "Courier New", Courier, monospace;
 `;
+export const ContainerDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 43px;
+  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px auto;
+  @media (0 <= width <= 660px) {
+    font-size: 26px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  @media (660px < width <= 960px) {
+    width: 100%;
+  }
+`;

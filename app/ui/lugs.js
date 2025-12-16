@@ -121,10 +121,10 @@ export const Date = styled.div`
   font-family: monospace;
   flex-direction: row;
   justify-content: space-between;
-  /* border: 2px solid blue; */
 `;
 
 export const MetaInfo = styled.div`
+  /* border: 2px solid blue; */
   margin-bottom: 0.5rem;
   font-size: small;
   color: var(--gray-light);
@@ -132,6 +132,7 @@ export const MetaInfo = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
+  width: 75%;
   @media (0px <= width <=398px) {
     width: 80%;
     flex-direction: row;
@@ -141,7 +142,6 @@ export const MetaInfo = styled.div`
   }
   /* @media (max-width: 667px) {
     margin-bottom: 2.75rem;
-    width: 95%;
   } */
   padding-top: 3px;
 `;
@@ -210,7 +210,7 @@ export const SectionType = styled.div`
       case "curso":
         return "var(--accent)";
       case "python":
-        return "var(--fg)";
+        return "var(--accent)";
       case "ia":
         return "var(--primary-border)";
       case "IA":

@@ -76,6 +76,7 @@
     "Legal": {
         "title": "Aviso Legal y Privacidad",
         "lastUpdated": "Última actualización: Diciembre 2025",
+        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
         "sections": {
             "intro": "Este sitio web es un portafolio personal y académico sin fines comerciales directos. Mi filosofía respecto a tu privacidad es simple: no recopilo información personal innecesaria, no te rastreo por Internet y no vendo tus datos. A continuación se detalla la información legal requerida por la normativa española y europea.",
             "owner": {
@@ -86,8 +87,19 @@
                 "title": "2. Protección de Datos (RGPD)",
                 "content": "Este sitio web **no recopila datos personales** de sus visitantes. No hay formularios de registro, ni comentarios, ni rastreadores de análisis (como Google Analytics). Tu navegación es completamente anónima."
             },
+            "copyright": {
+                "title": "3. Copyright y Licencias",
+                "intro": "Este sitio adopta un enfoque de 'Cultura Libre', pero distingue entre el contenido editorial y el código fuente:",
+                "content_license": "**Contenido Editorial:** Salvo que se indique lo contrario, todos los artículos, textos, imágenes propias y material didáctico de este blog están licenciados bajo **Creative Commons Atribución-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)**. Esto significa que puedes compartir y adaptar el contenido siempre que me cites, no lo uses para fines comerciales y mantengas la misma licencia.",
+                "code_license": "**Código Fuente:** Los fragmentos de código (snippets), scripts y software publicados en este blog, salvo nota específica en el repositorio correspondiente, se liberan bajo la **Licencia MIT**. Eres libre de usar este código en tus propios proyectos (incluidos los comerciales) sin restricciones, más allá de la atribución estándar.",
+                "third_party": "**Terceros:** Los logotipos, marcas y librerías mencionadas (Next.js, React, Vercel) son propiedad de sus respectivos dueños."
+            },
+            "disclaimer": {
+                "title": "4. Exención de Responsabilidad",
+                "content": "Todo el contenido y código de este sitio se proporciona **'tal cual'**, sin garantías de ningún tipo. Aunque me esfuerzo por mantener la precisión técnica y científica, no me hago responsable de errores, omisiones o daños derivados del uso de la información o el código aquí presentados. Como investigador, los artículos pueden reflejar estados parciales del conocimiento o experimentos en curso."
+            },
             "hosting": {
-                "title": "3. Alojamiento y Terceros",
+                "title": "5. Alojamiento y Terceros",
                 "content": "Para el funcionamiento técnico, este sitio utiliza servicios de terceros que procesan datos técnicos necesarios (logs, dirección IP) para servir el contenido:",
                 "vercel": "**Vercel:** Alojamiento y despliegue (Hosting). Este sitio web es servido a través de la infraestructura global de Vercel Inc. (EE. UU.). Vercel procesa las solicitudes de tu navegador y registra direcciones IP con fines estrictamente técnicos (seguridad, prevención de ataques DDoS y rendimiento). Vercel cumple con los estándares de privacidad internacionales.",
                 "github": "**GitHub:** Repositorio de Código. El código fuente de este proyecto es Open Source y está alojado en los servidores de GitHub Inc. (Microsoft). Aunque no sirve la web directamente a los usuarios, actúa como la fuente de verdad para el despliegue continuo.",
@@ -95,7 +107,7 @@
                 "base_legal": "El tratamiento de estos datos técnicos se basa en el Interés Legítimo (Art. 6.1.f RGPD) de garantizar la seguridad de la red y la entrega del contenido."
             },
             "cookies": {
-                "title": "4. Política de Cookies",
+                "title": "6. Política de Cookies",
                 "content": "Este sitio **no utiliza cookies de rastreo ni publicitarias**. Únicamente utilizamos almacenamiento local (LocalStorage) o cookies técnicas esenciales para recordar tus preferencias de:",
                 "list": [
                     "Idioma seleccionado (Español/Inglés)",
@@ -103,7 +115,7 @@
                 ]
             },
             "license": {
-                "title": "5. Propiedad Intelectual",
+                "title": "7. Propiedad Intelectual",
                 "content": "Salvo que se indique lo contrario, el contenido de este blog (artículos, código y tutoriales) está bajo una licencia **Creative Commons Atribución-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)**. Eres libre de usar y adaptar mi código citando la fuente."
             }
         }

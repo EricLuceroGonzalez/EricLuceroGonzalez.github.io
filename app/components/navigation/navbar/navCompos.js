@@ -42,10 +42,21 @@ export const MainNavLogo = styled.div`
   justify-content: space-around;
 
   @media (max-width: 768px) {
-    display: none;
+    /* display: none; */
+    width: 45%;
   }
   background-color: var(--bg);
   z-index: 1000;
+  /* border: 1px solid red; */
+`;
+export const DivLogo = styled.div`
+  padding-left: 2px;
+  font-family: monospace;
+  font-weight: 100;
+  font-size: small;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 export const NavLogo = styled.h1`
   align-items: center;

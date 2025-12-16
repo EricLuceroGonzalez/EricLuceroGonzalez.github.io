@@ -37,6 +37,7 @@
         "metaTitle": "About Me | Eric Lucero",
         "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839288/elCronopio/Thumbnails/URL-base-en_z11bcn.png",
+        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
         "stack_title": "Tech stack",
         "stack_Next": "The project's core. I use Next.js deployed on **Vercel**, allowing me to go beyond traditional static site limitations. I leverage hybrid rendering (Server Components + Static Generation) and their Edge Network to deliver an instant, secure, and globally scalable website.",
         "stack_React": "The interface library. It allows me to think of the web as reusable LEGO pieces (components). From the navigation bar to the post cards, everything is a modular component managing its own state and logic.",
@@ -86,8 +87,19 @@
                 "title": "2. Data Protection (GDPR)",
                 "content": "This website **does not collect personal data** from its visitors. There are no registration forms, comments, or analytics trackers (like Google Analytics). Your browsing is completely anonymous."
             },
+            "copyright": {
+                "title": "3. Copyright & Licensing",
+                "intro": "This site adopts a 'Free Culture' approach but distinguishes between editorial content and source code:",
+                "content_license": "**Editorial Content:** Unless otherwise stated, all articles, text, original images, and educational material on this blog are licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)**. You are free to share and adapt the content as long as you credit me, use it for non-commercial purposes, and keep the same license.",
+                "code_license": "**Source Code:** Code snippets, scripts, and software published on this blog, unless otherwise noted in the specific repository, are released under the **MIT License**. You are free to use this code in your own projects (including commercial ones) without restriction, beyond standard attribution.",
+                "third_party": "**Third Parties:** Logos, trademarks, and libraries mentioned (Next.js, React, Vercel) are the property of their respective owners."
+            },
+            "disclaimer": {
+                "title": "4. Disclaimer",
+                "content": "All content and code on this site are provided **'as is'**, without warranty of any kind. While I strive for technical and scientific accuracy, I am not liable for errors, omissions, or damages resulting from the use of the information or code presented here. As a researcher, articles may reflect partial states of knowledge or ongoing experiments."
+            },
             "hosting": {
-                "title": "3. Hosting & Third Parties",
+                "title": "5. Hosting & Third Parties",
                 "content": "For technical operation, this site uses third-party services that process necessary technical data (logs, IP addresses) to serve content:",
                 "vercel": "**Vercel:** Hosting and Deployment. This website is served via the global infrastructure of Vercel Inc. (USA). Vercel processes browser requests and logs IP addresses strictly for technical purposes (security, DDoS protection, and performance).",
                 "github": "**GitHub:** Code Repository. The source code of this project is Open Source and hosted on GitHub Inc. (Microsoft) servers. While it does not serve the website directly to users, it acts as the source of truth for continuous deployment.",
@@ -95,7 +107,7 @@
                 "base_legal": "The processing of this technical data is based on Legitimate Interest (Art. 6.1.f GDPR) to guarantee network security and the correct technical delivery of the requested content."
             },
             "cookies": {
-                "title": "4. Cookie Policy",
+                "title": "6. Cookie Policy",
                 "content": "This site **does not use tracking or advertising cookies**. We only use local storage (LocalStorage) or essential technical cookies to remember your preferences for:",
                 "list": [
                     "Selected language (Spanish/English)",
@@ -103,7 +115,7 @@
                 ]
             },
             "license": {
-                "title": "5. Intellectual Property",
+                "title": "7. Intellectual Property",
                 "content": "Unless otherwise stated, the content of this blog (articles, code, and tutorials) is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)**. You are free to use and adapt my code by citing the source."
             }
         }
