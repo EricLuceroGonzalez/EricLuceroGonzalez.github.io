@@ -100,7 +100,7 @@ a {
     
     /* CORRECCIÓN DE CÓDIGO */
     --code-fg: #00FFE7; /* Cyan neón para el texto */
-    --code-bg: #002332; /* Casi negro (más oscuro que el fondo principal) */
+    --code-bg: #00364D; /* Casi negro (más oscuro que el fondo principal) */
     --code-box-bg:#002332;
     --primary-border: #004966;
     --box-border-hover: #FF3366;

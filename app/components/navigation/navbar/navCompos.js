@@ -10,7 +10,7 @@ export const Bar = styled.nav`
   font-size: 14px;
   background-color: var(--bg);
   z-index: 1000;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(150, 150, 150, 0.2);
   padding: 5px 20px;
   display: flex;
   flex-direction: row;
@@ -54,6 +54,7 @@ export const DivLogo = styled.div`
   font-family: monospace;
   font-weight: 100;
   font-size: small;
+  color: var(--quote-fg);
   @media (max-width: 768px) {
     display: none;
   }

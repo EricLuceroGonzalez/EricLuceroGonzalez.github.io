@@ -4,11 +4,13 @@ import { RiNextjsFill } from "react-icons/ri";
 import { RiReactjsLine } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io5";
 import {
+  SiChartdotjs,
   SiI18Next,
   SiLatex,
   SiMdx,
   SiRemark,
   SiStyledcomponents,
+  SiVercel,
 } from "react-icons/si";
 import styled from "styled-components";
 import ShowPath from "@/app/components/showPath";
@@ -16,7 +18,7 @@ import { Article, Layout } from "@/app/ui/lugs";
 import { MdHead } from "@/app/ui/MarkDownComponents";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { FaFontAwesome } from "react-icons/fa";
+import { FaFontAwesome, FaGithub } from "react-icons/fa";
 import H2Header from "@/app/components/MdCompos/H2Header";
 
 const LogosContainer = styled.div`
@@ -143,6 +145,7 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_styled")}</LogosText>
             </LogosBox>
+
             <LogosBox>
               <LogosHead>
                 <ReactIcon href={"https://github.com/remarkjs/remark"}>
@@ -178,6 +181,36 @@ const AboutThisPage = () => {
                 <LogosTitle>LaTeX (vía KaTeX/MathJax)</LogosTitle>
               </LogosHead>
               <LogosText>{t("stack_latex")}</LogosText>
+            </LogosBox>
+
+            <LogosBox>
+              <LogosHead>
+                <ReactIcon href={"https://www.github.com"}>
+                  <FaGithub />
+                </ReactIcon>
+                <LogosTitle>Github</LogosTitle>
+              </LogosHead>
+              <LogosText>{t("stack_github")}</LogosText>
+            </LogosBox>
+
+            <LogosBox>
+              <LogosHead>
+                <ReactIcon href={"https://vercel.com/"}>
+                  <SiVercel />
+                </ReactIcon>
+                <LogosTitle>Vercel</LogosTitle>
+              </LogosHead>
+              <LogosText>{t("stack_vercel")}</LogosText>
+            </LogosBox>
+
+            <LogosBox>
+              <LogosHead>
+                <ReactIcon href={"https://www.chartjs.org/docs/latest/"}>
+                  <SiChartdotjs />
+                </ReactIcon>
+                <LogosTitle>Chart.js</LogosTitle>
+              </LogosHead>
+              <LogosText>{t("stack_chartjs")}</LogosText>
             </LogosBox>
           </LogosContainer>
         </Article>

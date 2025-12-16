@@ -38,7 +38,7 @@ const ThemeSwitcher = () => {
   if (!mounted) return null;
 
   return (
-    <ThemeToggle>
+    <ThemeToggle title={`Set ${theme == "dark" ? "light" : "dark"} theme`}>
       <SunIcon
         onClick={() => setTheme("light")}
         theme={theme}

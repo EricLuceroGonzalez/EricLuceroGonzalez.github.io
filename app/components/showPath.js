@@ -6,9 +6,12 @@ import { usePathname } from "next/navigation";
 const PathBlock = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: small;
   margin: 0.5rem auto 3rem auto;
   text-align: left;
+  font-size: small;
+  @media (0 <= width <= 410px) {
+    font-size: x-small;
+  }
 `;
 const PathSlash = styled.div`
   color: var(--fg);

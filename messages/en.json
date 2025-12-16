@@ -47,7 +47,10 @@
         "stack_fontawesome": "Provides the site's vector iconography (social media, UI indicators). Being SVGs, they look crisp at any resolution and screen size without affecting performance.",
         "stack_MDX": "Much more than plain text. MDX allows me to write articles in standard Markdown while embedding interactive React components (charts, simulators) directly between paragraphs. This is what makes this blog 'alive' and not just static text.",
         "stack_remark": "The brain behind the text. It is the processor that reads my Markdown files and builds an 'Abstract Syntax Tree' (AST). Basically, it understands the structure of my notes and transforms them into secure HTML.",
-        "stack_latex": "The gold standard in academic writing. Thanks to the integration with Remark, I can write complex equations and scientific notation (like $\\Sigma$) directly in Markdown. The system renders them as perfect mathematical vectors, essential for explaining papers and algorithms."
+        "stack_latex": "The gold standard in academic writing. Thanks to the integration with Remark, I can write complex equations and scientific notation (like $\\Sigma$) directly in Markdown. The system renders them as perfect mathematical vectors, essential for explaining papers and algorithms.",
+        "stack_chartjs": "The visualization engine. It renders interactive and responsive data graphics via HTML5 Canvas. I use it to plot the convergence of genetic algorithms and statistical results in real-time.",
+        "stack_github": "The code repository. It serves as the project's 'source of truth' for version control. Hosting the code here ensures transparency and allows the community to audit, fork, or learn from the source, aligning with Open Science principles.",
+        "stack_vercel": "The infrastructure platform. It connects directly to GitHub to build and deploy the site. It provides the Global Edge Network required for high-performance content delivery and supports the dynamic server-side features of Next.js."
     },
     "Blog": {
         "readingTime": "Reading time",
