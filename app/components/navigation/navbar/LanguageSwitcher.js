@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "../../../../i18n/navigation";
 import styled from "styled-components";
+import { useTransition } from "react";
 
 const LocaleButton = styled.button`
   font-weight: ${(props) => (props.lang == "es" ? "bold" : "normal")};
@@ -36,24 +37,38 @@ const SwitchButton = styled.button`
     color: white; /* Texto blanco para contraste */
     transform: translateY(-1px); /* Pequeña elevación */
   }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    background-color: transparent;
+    border-color: var(--gray-medium);
+    color: var(--gray-medium);
+  }
 `;
 export default function LanguageSwitcher() {
+  const [isPending, startTransition] = useTransition();
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const nextLocale = locale === "es" ? "en" : "es";
   const handleChange = () => {
     // Reemplaza la URL actual con el nuevo idioma
-    router.replace(pathname, { locale: nextLocale });
+    console.log(`pathname: ${pathname}`);
+    if (isPending) return;
+    startTransition(() => {
+      router.replace(pathname, { locale: nextLocale });
+    });
   };
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
       <SwitchButton
         onClick={handleChange}
+        disabled={isPending}
         title={`Switch to ${nextLocale.toUpperCase()}`}
       >
-        {nextLocale.toUpperCase()}
+        {isPending ? "..." : nextLocale.toUpperCase()}
       </SwitchButton>
     </div>
   );
