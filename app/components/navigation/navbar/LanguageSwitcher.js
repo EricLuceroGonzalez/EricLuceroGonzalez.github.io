@@ -2,8 +2,9 @@
 
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "../../../../i18n/navigation";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { useTransition } from "react";
+import { FaGlobe } from "react-icons/fa";
 
 const LocaleButton = styled.button`
   font-weight: ${(props) => (props.lang == "es" ? "bold" : "normal")};
@@ -46,6 +47,20 @@ const SwitchButton = styled.button`
     color: var(--gray-medium);
   }
 `;
+const spin = keyframes`
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+`;
+const IconWrapper = styled.span`
+  display: inline-flex;
+  margin-right: 6px;
+  ${(props) =>
+    props.$isPending &&
+    css`
+      animation: ${spin} 1s linear infinite;
+    `}
+  display: ${(props) => (props.$isPending ? "flex" : "none")}
+`;
 export default function LanguageSwitcher() {
   const [isPending, startTransition] = useTransition();
   const locale = useLocale();
@@ -68,6 +83,9 @@ export default function LanguageSwitcher() {
         disabled={isPending}
         title={`Switch to ${nextLocale.toUpperCase()}`}
       >
+        <IconWrapper $isPending={isPending}>
+          <FaGlobe />
+        </IconWrapper>
         {isPending ? "..." : nextLocale.toUpperCase()}
       </SwitchButton>
     </div>
