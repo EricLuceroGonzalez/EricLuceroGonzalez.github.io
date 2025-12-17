@@ -27,14 +27,15 @@ const getAnchor = (text) => {
     .replace(/[^a-z0-9]/g, "-") // Recomiendo usar guiones en lugar de nada para separar palabras
     .replace(/^-+|-+$/g, ""); // Elimina guiones al inicio o final
 };
-const H2Header = ({ children }) => {
-  const anchorText = extractText(children);
-  const anchor = getAnchor(anchorText);
+const H2Header = ({ children, id, ...props }) => {
+  // const anchorText = extractText(children);
+  // const anchor = getAnchor(anchorText);
   // const anchor = getAnchor(children[1]);
-  const link = `#${anchor}`;
+  // const link = `#${anchor}`;
+  const link = `#${id}`;
 
   return (
-    <MdSubHeadA id={anchor}>
+    <MdSubHeadA id={id} {...props}>
       {children}
       <a href={link}>
         {" "}

@@ -9,12 +9,13 @@ const getAnchor = (anchorText) => {
     .replace(/\s*[^a-zA-Z0-9]+\s*/g, "")
     .replace(/[]/g, "-");
 };
-const H3Header = ({ children }) => {
-  const anchor = getAnchor(children[1]);
-  const link = `#${anchor}`;
+const H3Header = ({ children, id, ...props }) => {
+  // const anchor = getAnchor(children[1]);
+  // const link = `#${anchor}`;
+  const link = `#${id}`;
 
   return (
-    <MdSubHeadB id={anchor}>
+    <MdSubHeadB id={id} {...props}>
       {children}
       <a href={link}>
         {" "}

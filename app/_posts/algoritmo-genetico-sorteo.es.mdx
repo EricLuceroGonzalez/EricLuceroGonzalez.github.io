@@ -14,6 +14,8 @@ doctype: ["blog", "python"]
 isPublic: true
 ---
 
+## Contenido
+
 La Copa Mundial de la FIFA 2026 será la primera en disputarse entre 48 selecciones nacionales de todo el mundo.
 Estos 48 equipos deben distribuirse en 12 grupos y se reparten de forma particular a través de un sorteo que pone algunas restricciones interesante en la formación de estos grupos, gracias a estas
 el sorteo se puede llevar a cabo de forma rápida y sin problemas.
@@ -28,6 +30,7 @@ Solo hay un número limitado de combinaciones posibles que cumplen con todas las
 _soluciones factibles_. 
 
 ### Solución factible
+
 Una solución factible es aquella que satisface la función objetivo y no viola ninguna de las restricciones del problema o al menos aquellas son consideradas obligatorias.
 
 En el caso de los grupos del mundial, la solución factible es una configuración del sorteo que cumple con todas las restricciones impuestas, como la distribución de confederaciones y el ranking de los equipos.
@@ -38,6 +41,7 @@ Este espacio de soluciones puede ser extremadamente grande y complejo, especialm
 Por ejemplo, en el Mundial de 2026, con 48 equipos y múltiples restricciones, el número de configuraciones posibles del sorteo es astronómico. Vamos a calcularlo.
 
 ### Combinaciones posibles
+
 En el sorteo hay 42 equipos distribuidos en 4 bombos (recipientes) que van a ser distribuidos en 12 grupos (del A al L). De cada bombo se irán sacando los equipos de forma aleatoria hasta vaciar el bombo, de tal manera que cada grupo tendrá un equipo de cada bombo.
 Los anfitriones (Canadá, México y Estados Unidos) ya tienen asignado su grupo, y en cada bombo hay 12 equipos. 
 
@@ -59,6 +63,7 @@ Por suerte existen algoritmos de optimización cuya búsqueda es mucho más efic
 En el caso del sorteo de grupos de la Copa Mundial de la FIFA, usaremos un algoritmo genético.
 
 ### Restricciones del sorteo
+
 Las restricciones del sorteo definen lo que debe suceder al ir sacando los equipos de los bombos para asignarlos a los grupos. La FIFA ha 
 redefinido las restricciones para este mundial de 2026 ya que es el primero con 42 selecciones y 12 grupos.
 
@@ -139,6 +144,7 @@ def crear_individuo(lista_equipos):
 ```
 
 ### Estructura del individuo
+
 Ya hemos dicho que cada individuo del algoritmo genético representa una solución candidata al problema. Esto es 
 _un sorteo de grupos_ con los 12 grupos completos, sin importar si son válidos o no. Como cada sorteo está compuesto por grupos, cada grupo representa lo que 
 llamamos un _gen_ dentro del individuo.
@@ -347,6 +353,7 @@ El operador de ruleta simula el comportamiento de una ruleta, sin embargo los es
 A mayor fitness, mayor probabilidad de ser seleccionado. Los individuos seleccionados forman parte de los padres de los cuales surgirá la nueva población de individuos con los otros operadores genéticos.
 
 ### Selección
+
 No dejamos que cualquiera se reproduzca. Se utiliza el operador de ruleta, aunque también aparece en el código el operador de torneo.
 Este operador toma todos los individuos de una generación y crea un arreglo llamado `pesos` que contiene el inverso del valor del fitness de cada uno de estos, 
 luego selecciona uno aleatoriamente con la función `random.choices()` que asigna un individuo de forma aleatoria, pero con una probabilidad proporcional a su valor de fitness, lo que en el código designamos con la variable `pesos`.

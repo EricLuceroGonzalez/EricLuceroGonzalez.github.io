@@ -25,8 +25,8 @@ import H2Header from "./H2Header";
 import H3Header from "./H3Header";
 const MdxComponents = {
   h1: (props) => <MdHead {...props}>{props.children}</MdHead>,
-  h2: (props) => <H2Header {...props}> {props.children}</H2Header>,
-  h3: (props) => <H3Header {...props}>{props.children}</H3Header>,
+  h2: (props) => <H2Header {...props} />,
+  h3: (props) => <H3Header {...props} />,
   h4: (props) => <MdSubHeadC {...props}>{props.children}</MdSubHeadC>,
   ul: (props) => <MdUnorderedList {...props}>{props.children}</MdUnorderedList>,
   ol: (props) => <MdOrderedList {...props}>{props.children}</MdOrderedList>,
@@ -65,6 +65,24 @@ const MdxComponents = {
     );
   },
   a: (props) => {
+    // 1. Detectamos si es un ancla (índice) o enlace interno
+    const isAnchor = props.href && props.href.startsWith("#");
+    const isInternal = props.href && props.href.startsWith("/");
+
+    // props.children
+    // .normalize("NFD")
+    // .replace(/[\u0300-\u036f]/g, "")
+    // .toLowerCase()
+    // .replace(/[^a-z0-9]/g, "-") // Recomiendo usar guiones en lugar de nada para separar palabras
+    // .replace(/^-+|-+$/g, ""); // Elimina guiones al inicio o final
+    if (isAnchor || isInternal) {
+      // Retornamos un link limpio para que el scroll funcione
+      return (
+        <a {...props} style={{ textDecoration: "none", color: "inherit" }}>
+          {props.children}
+        </a>
+      );
+    }
     return (
       <MdLink target="_blank" href={props.href}>
         {props.children}{" "}

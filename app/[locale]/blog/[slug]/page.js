@@ -30,6 +30,8 @@ import rehypeHighlight from "rehype-highlight";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import ViewportSize from "@/app/components/viewPortViewer";
+import rehypeSlug from "rehype-slug";
+import remarkToc from "remark-toc";
 
 const BlogPost = async ({ params }) => {
   const { locale, slug } = await params;
@@ -126,8 +128,21 @@ const BlogPost = async ({ params }) => {
             components={{ ...MdxComponents, ...dynamicMdxComponents }}
             options={{
               mdxOptions: {
-                remarkPlugins: [remarkGfm, remarkMath, supersub],
-                rehypePlugins: [rehypeMathjax, rehypeHighlight],
+                remarkPlugins: [
+                  remarkGfm,
+                  remarkMath,
+                  supersub,
+                  [
+                    remarkToc,
+                    {
+                      heading:
+                        "Índice|Contenido|Tabla de contenidos|Table of Contents",
+                      tight: true,
+                      maxDepth: 3,
+                    },
+                  ],
+                ],
+                rehypePlugins: [rehypeMathjax, rehypeHighlight, rehypeSlug],
               },
             }}
           />

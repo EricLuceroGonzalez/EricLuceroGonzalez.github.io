@@ -8,6 +8,8 @@ import { serialize } from "next-mdx-remote/serialize";
 // Latex
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import rehypeSlug from "rehype-slug";
+import remarkToc from "remark-toc";
 
 export async function MDXContent({ posts }) {
   const compos = {
@@ -24,8 +26,18 @@ export async function MDXContent({ posts }) {
       // MDX's available options, see the MDX docs for more info.
       // https://mdxjs.com/packages/mdx/#compilefile-options
       mdxOptions: {
-        remarkPlugins: [remarkMath],
-        rehypePlugins: [rehypeKatex],
+        remarkPlugins: [
+          remarkMath,
+          [
+            remarkToc,
+            {
+              heading: "Índice|Contenido|Tabla de contenidos|Table of Contents",
+              tight: true,
+              maxDepth: 3,
+            },
+          ],
+        ],
+        rehypePlugins: [rehypeKatex, rehypeSlug],
         format: "mdx",
       },
       // Indicates whether or not to parse the frontmatter from the MDX source

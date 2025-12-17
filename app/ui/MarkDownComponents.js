@@ -42,7 +42,7 @@ export const MdUnorderedList = styled.ul`
   li {
     position: relative;
     padding-left: 1.5em; /* Ajusta el espaciado para el nuevo bullet */
-
+    list-style-type: none; /* O 'circle' para diferenciar */
     &::before {
       content: "●"; /* Puedes cambiar esto a cualquier símbolo o emoji */
       color: var(--accent);
@@ -51,6 +51,10 @@ export const MdUnorderedList = styled.ul`
       left: 0;
       top: 0.1em; /* Ajusta para alinear con el texto */
     }
+  }
+  ul {
+    padding-left: 1.5em; /* Ajusta el espaciado para el nuevo bullet */
+    list-style-type: disc; /* O 'circle' para diferenciar */
   }
 `;
 
@@ -123,7 +127,7 @@ export const MdHeadAnchor = styled.a`
 export const MdLink = styled.a`
   background-color: var(--link-bg);
   color: var(--link-fg);
-  font-weight: bold;
+  font-weight: 500;
   padding: 2px 5px;
   &:hover {
     color: var(--emphasis-fg);
