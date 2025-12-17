@@ -47,10 +47,10 @@ export const Article = styled.article`
     width: 85%;
   }
   @media (min-width: 1280px) {
-    width: 75%;
+    width: 65%;
   }
   @media (min-width: 1440px) {
-    width: 70%;
+    width: 50%;
   }
   padding: 1rem 0 33vh 0;
 `;
@@ -219,15 +219,16 @@ export const SectionType = styled.div`
         return "var(--subheading)"; // Color por defecto
     }
   }};
+
+  @media (0px <= width <= 396px) {
+    display: none;
+  }
 `;
 // TODO: Agregar tags: python, ia, other?
 export const SideInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  @media (0px <= width <= 396px) {
-    display: none;
-  }
 `;
 
 export const LinkList = styled.div`

@@ -82,6 +82,11 @@
         "description": "Sorry, the page you are looking for does not exist or has been moved.",
         "backHome": "Back to Home"
     },
+    "SmallComponents": {
+        "source": "Source",
+        "instructions": "View code",
+        "secondary_mssg": "See algorithm in Github"
+    },
     "Legal": {
         "title": "Legal Notice & Privacy",
         "lastUpdated": "Last updated: December 2025",

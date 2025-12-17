@@ -1,7 +1,20 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
-    }
-  }
+      "@/*": [
+        "./*"
+      ]
+    },
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "preserve" // Importante para Next.js
+  },
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "build",
+    "dist"
+  ]
 }

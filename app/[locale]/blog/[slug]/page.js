@@ -29,6 +29,7 @@ import supersub from "remark-supersub";
 import rehypeHighlight from "rehype-highlight";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import ViewportSize from "@/app/components/viewPortViewer";
 
 const BlogPost = async ({ params }) => {
   const { locale, slug } = await params;
@@ -66,6 +67,7 @@ const BlogPost = async ({ params }) => {
     <Layout>
       <MainBg>
         <ScrollDiv />
+        {/* <ViewportSize /> */}
         <Article>
           <ShowPath title={post.slug} />
           <MdHead>{post.title}</MdHead>

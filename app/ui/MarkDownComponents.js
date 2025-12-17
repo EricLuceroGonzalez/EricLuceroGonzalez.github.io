@@ -95,7 +95,7 @@ export const MdSubHeadA = styled.h2`
   }
 `;
 export const MdSubHeadB = styled.h3`
-  color: var(--quote-fg);
+  color: var(--heading-3);
   margin-top: 2rem;
   font-size: larger;
   a {
@@ -156,13 +156,19 @@ export const MdImage = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 1rem auto;
-  width: 95%;
+  width: 98%;
   height: auto;
   position: relative;
   /* border: 2px solid blue; */
   @media (min-width: 860px) {
     width: 90%;
-    /* border: 2px solid red; */
+  }
+
+  @media (min-width: 1080px) {
+    width: 70%;
+  }
+  @media (min-width: 1680px) {
+    width: 50%;
   }
   background-color: var(--fg);
 `;

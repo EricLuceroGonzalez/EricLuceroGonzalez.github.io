@@ -49,8 +49,11 @@ a {
     
     /* ÉNFASIS Y CÓDIGO */
     --strong-fg: #0077FF;
-    --emphasis-bg: #FFF3CD; /* Amarillo muy suave */
+    --emphasis-bg: #FFF3CD;
     --emphasis-fg: #1A1A1A;
+    /* HEADERS */
+    --heading-3: #004966;
+
     
     --quote-bg: #E9ECEF; /* Gris azulado muy suave */
     --quote-fg: #495057;
@@ -97,6 +100,8 @@ a {
 
     --quote-bg: #00364D; /* Ligeramente más claro que el fondo */
     --quote-fg: #B0BEC5;
+    /* HEADERS */
+    --heading-3: #FFF3CD;
     
     /* CORRECCIÓN DE CÓDIGO */
     --code-fg: #00FFE7; /* Cyan neón para el texto */

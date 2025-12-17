@@ -275,61 +275,61 @@ class Equipo {
 function generarDatosEquipos() {
   const equipos = [];
 
-  equipos.push(new Equipo("México", "CONCACAF", 1, "A"));
-  equipos.push(new Equipo("Canadá", "CONCACAF", 1, "B"));
-  equipos.push(new Equipo("USA", "CONCACAF", 1, "D"));
+  equipos.push(new Equipo("México", ["CONCACAF"], 1, "A"));
+  equipos.push(new Equipo("Canadá", ["CONCACAF"], 1, "B"));
+  equipos.push(new Equipo("USA", ["CONCACAF"], 1, "D"));
 
-  equipos.push(new Equipo("España", "UEFA", 1, null, 1));
-  equipos.push(new Equipo("Argentina", "CONMEBOL", 1, null, 2));
-  equipos.push(new Equipo("Francia", "UEFA", 1, null, 3));
-  equipos.push(new Equipo("Inglaterra", "UEFA", 1, null, 4));
+  equipos.push(new Equipo("España", ["UEFA"], 1, null, 1));
+  equipos.push(new Equipo("Argentina", ["CONMEBOL"], 1, null, 2));
+  equipos.push(new Equipo("Francia", ["UEFA"], 1, null, 3));
+  equipos.push(new Equipo("Inglaterra", ["UEFA"], 1, null, 4));
 
   const extrasB1 = [
-    ["Brasil", "CONMEBOL"],
-    ["Bélgica", "UEFA"],
-    ["Portugal", "UEFA"],
-    ["Países Bajos", "UEFA"],
-    ["Alemania", "UEFA"],
+    ["Brasil", ["CONMEBOL"]],
+    ["Bélgica", ["UEFA"]],
+    ["Portugal", ["UEFA"]],
+    ["Países Bajos", ["UEFA"]],
+    ["Alemania", ["UEFA"]],
   ];
   extrasB1.forEach(([nom, conf]) => equipos.push(new Equipo(nom, conf, 1)));
 
   const configRestante = [
-    ["Uruguay", "CONMEBOL", 2],
-    ["Colombia", "CONMEBOL", 2],
-    ["Croacia", "UEFA", 2],
-    ["Marruecos", "CAF", 2],
-    ["Japón", "AFC", 2],
-    ["Suiza", "UEFA", 2],
-    ["Senegal", "CAF", 2],
-    ["Irán", "CAF", 2],
-    ["Corea del Sur", "AFC", 2],
-    ["Ecuador", "CONMEBOL", 2],
-    ["Austria", "UEFA", 2],
-    ["Australia", "OFC", 2],
-    ["Noruega", "UEFA", 3],
-    ["Panamá", "CONCACAF", 3],
-    ["Egipto", "CAF", 3],
-    ["Argelia", "CAF", 3],
-    ["Escocia", "UEFA", 3],
-    ["Paraguay", "CONMEBOL", 3],
-    ["Túnez", "CAF", 3],
-    ["Costa de Marfil", "CAF", 3],
-    ["Uzbekistán", "AFC", 3],
-    ["Catar", "AFC", 3],
-    ["Arabia Saudita", "AFC", 3],
-    ["Sudáfrica", "CAF", 3],
-    ["Jordania", "AFC", 4],
-    ["Cabo Verde", "CAF", 4],
-    ["Ghana", "CAF", 4],
-    ["Curazao", "CONCACAF", 4],
-    ["Haití", "CONCACAF", 4],
-    ["Nueva Zelanda", "OFC", 4],
-    ["Repesca IC-A", "MIX", 4],
-    ["Repesca IC-B", "MIX", 4],
-    ["Repesca UEFA-A", "UEFA", 4],
-    ["Repesca UEFA-B", "UEFA", 4],
-    ["Repesca UEFA-C", "UEFA", 4],
-    ["Repesca UEFA-D", "UEFA", 4],
+    ["Uruguay", ["CONMEBOL"], 2],
+    ["Colombia", ["CONMEBOL"], 2],
+    ["Croacia", ["UEFA"], 2],
+    ["Marruecos", ["CAF"], 2],
+    ["Japón", ["AFC"], 2],
+    ["Suiza", ["UEFA"], 2],
+    ["Senegal", ["CAF"], 2],
+    ["Irán", ["AFC"], 2],
+    ["Corea del Sur", ["AFC"], 2],
+    ["Ecuador", ["CONMEBOL"], 2],
+    ["Austria", ["UEFA"], 2],
+    ["Australia", ["AFC"], 2],
+    ["Noruega", ["UEFA"], 3],
+    ["Panamá", ["CONCACAF"], 3],
+    ["Egipto", ["CAF"], 3],
+    ["Argelia", ["CAF"], 3],
+    ["Escocia", ["UEFA"], 3],
+    ["Paraguay", ["CONMEBOL"], 3],
+    ["Túnez", ["CAF"], 3],
+    ["Costa de Marfil", ["CAF"], 3],
+    ["Uzbekistán", ["AFC"], 3],
+    ["Catar", ["AFC"], 3],
+    ["Arabia Saudita", ["AFC"], 3],
+    ["Sudáfrica", ["CAF"], 3],
+    ["Jordania", ["AFC"], 4],
+    ["Cabo Verde", ["CAF"], 4],
+    ["Ghana", ["CAF"], 4],
+    ["Curazao", ["CONCACAF"], 4],
+    ["Haití", ["CONCACAF"], 4],
+    ["Nueva Zelanda", ["OFC"], 4],
+    ["Repesca IC-A", ["CAF", "CONCACAF", "OFC"], 4],
+    ["Repesca IC-B", ["CONMEBOL", "CONCACAF", "AFC"], 4],
+    ["Repesca UEFA-A", ["UEFA"], 4],
+    ["Repesca UEFA-B", ["UEFA"], 4],
+    ["Repesca UEFA-C", ["UEFA"], 4],
+    ["Repesca UEFA-D", ["UEFA"], 4],
   ];
 
   configRestante.forEach(([nombre, conf, bombo]) =>
@@ -352,24 +352,39 @@ function calcularFitness(sorteo) {
   let penalizacion = 0;
   const ubicacionTops = {};
 
+  // Función auxiliar para determinar lado del cuadro (A-F vs G-L)
+  const obtenerItinerario = (idx) => (idx < 6 ? 0 : 1);
+
   for (let i = 0; i < sorteo.length; i++) {
     const grupo = sorteo[i];
     const conteoConfs = {};
 
     for (const equipo of grupo) {
+      // 1. Rastrear Tops (Igual que antes)
       if (equipo.rankingTop) ubicacionTops[equipo.rankingTop] = i;
-      const conf = equipo.confederacion;
-      conteoConfs[conf] = (conteoConfs[conf] || 0) + 1;
+
+      // 2. Contar Confederaciones (ADAPTADO)
+      // Como 'equipo.confederacion' es un array, recorremos cada una.
+      // Si es una Repesca con 3 opciones, sumará +1 a las 3 opciones.
+      equipo.confederacion.forEach((conf) => {
+        conteoConfs[conf] = (conteoConfs[conf] || 0) + 1;
+      });
     }
 
+    // 3. Evaluar Penalizaciones (Exactamente igual que tu código)
     for (const [conf, cant] of Object.entries(conteoConfs)) {
       if (conf === "UEFA") {
         if (cant > 2) penalizacion += 100;
       } else {
+        // Aquí atrapamos el error:
+        // Si hay un equipo de CONCACAF y entra una Repesca con opción CONCACAF,
+        // el contador será 2 -> Penalización.
         if (cant > 1) penalizacion += 100;
       }
     }
   }
+
+  // --- Lógica de Itinerario (Exactamente igual que tu código) ---
 
   if (ubicacionTops[1] !== undefined && ubicacionTops[2] !== undefined) {
     if (
@@ -438,25 +453,32 @@ function seleccion_torneo(evaluados, k = 4) {
   candidatos.sort((a, b) => a[0] - b[0]);
   return candidatos[0][1];
 }
+function seleccionarPorRuleta(evaluados) {
+  // 1. Calculamos la suma total de las "inversas" de los puntajes
+  // Sumamos 1 al score para evitar división por cero si el score es 0 (perfecto)
+  let totalWeight = 0;
+  const weights = evaluados.map((item) => {
+    const score = item[0];
+    // Usamos 1/(score+1). Si score es 0, peso es 1. Si score es 1000, peso es 0.0009
+    const weight = 1 / (score + 1);
+    totalWeight += weight;
+    return weight;
+  });
 
-function seleccion_ruleta(evaluados) {
-  const totalFitness = evaluados.reduce(
-    (sum, [fit, _]) => sum + 1 / (fit + 1),
-    0
-  );
-  const rand = Math.random() * totalFitness;
-  let acumulado = 0;
+  // 2. Tiramos la bolita en la ruleta
+  let random = Math.random() * totalWeight;
 
-  for (const [fit, ind] of evaluados) {
-    acumulado += 1 / (fit + 1);
-    if (acumulado >= rand) {
-      return ind;
+  // 3. Buscamos dónde cayó
+  for (let i = 0; i < evaluados.length; i++) {
+    random -= weights[i];
+    if (random <= 0) {
+      return evaluados[i]; // Retornamos [score, individuo]
     }
   }
 
-  return evaluados[evaluados.length - 1][1];
+  // Fallback por errores de redondeo (retorna el último o el mejor)
+  return evaluados[evaluados.length - 1];
 }
-
 function cruzar(padre1, padre2) {
   const hijo1 = Array.from({ length: 12 }, () => []);
   const hijo2 = Array.from({ length: 12 }, () => []);
@@ -518,25 +540,18 @@ function ejecutarGA(onProgress) {
     if (bestScore === 0) {
       return { sorteo: evaluados[0][1], generacion: gen, costo: bestScore };
     }
-
-    const nuevaPoblacion = [evaluados[0][1]];
-
+    // Elitismo
+    // const nuevaPoblacion = [evaluados[0][1]];
+    const nuevaPoblacion = [];
     while (nuevaPoblacion.length < POBLACION_TAM) {
-      const candidatos = [];
-      for (let i = 0; i < 4; i++) {
-        candidatos.push(
-          evaluados[Math.floor(Math.random() * evaluados.length)]
-        );
-      }
-      candidatos.sort((a, b) => a[0] - b[0]);
+      // Seleccionamos dos padres independientemente
+      const padreA = seleccionarPorRuleta(evaluados);
+      const padreB = seleccionarPorRuleta(evaluados);
 
       let [hijo1, hijo2] =
         Math.random() < PROB_CROSSOVER
-          ? cruzar(candidatos[0][1], candidatos[1][1])
-          : [
-              candidatos[0][1].map((g) => [...g]),
-              candidatos[1][1].map((g) => [...g]),
-            ];
+          ? cruzar(padreA[1], padreB[1])
+          : [padreA[1].map((g) => [...g]), padreB[1].map((g) => [...g])];
 
       hijo1 = mutar(hijo1, PROB_MUTACION);
       hijo2 = mutar(hijo2, PROB_MUTACION);
@@ -667,9 +682,30 @@ export default function SorteoMundialGA(props) {
                       <EquipoRow key={eIdx}>
                         <BomboTag>B{equipo.bombo}</BomboTag>
                         <EquipoNombre>{equipo.nombre}</EquipoNombre>
-                        <ConfTag bg={colors.bg} color={colors.color}>
-                          {equipo.confederacion}
-                        </ConfTag>
+
+                        <div style={{ display: "flex", gap: "4px" }}>
+                          {equipo.confederacion.map((confName, cIdx) => {
+                            // Obtenemos el color individual para CADA confederación
+                            const colors = getConfColors(confName);
+
+                            return (
+                              <ConfTag
+                                key={cIdx}
+                                bg={colors.bg}
+                                color={colors.color}
+                                // Si es repesca, quizás quieras la fuente un pelín más chica
+                                style={{
+                                  fontSize:
+                                    equipo.confederacion.length > 1
+                                      ? "0.7rem"
+                                      : "inherit",
+                                }}
+                              >
+                                {confName}
+                              </ConfTag>
+                            );
+                          })}
+                        </div>
                         {equipo.rankingTop && (
                           <RankTag>★ #{equipo.rankingTop}</RankTag>
                         )}
@@ -698,9 +734,29 @@ export default function SorteoMundialGA(props) {
                       <EquipoRow key={eIdx}>
                         <BomboTag>B{equipo.bombo}</BomboTag>
                         <EquipoNombre>{equipo.nombre}</EquipoNombre>
-                        <ConfTag bg={colors.bg} color={colors.color}>
-                          {equipo.confederacion}
-                        </ConfTag>
+                        <div style={{ display: "flex", gap: "4px" }}>
+                          {equipo.confederacion.map((confName, cIdx) => {
+                            // Obtenemos el color individual para CADA confederación
+                            const colors = getConfColors(confName);
+
+                            return (
+                              <ConfTag
+                                key={cIdx}
+                                bg={colors.bg}
+                                color={colors.color}
+                                // Si es repesca, quizás quieras la fuente un pelín más chica
+                                style={{
+                                  fontSize:
+                                    equipo.confederacion.length > 1
+                                      ? "0.7rem"
+                                      : "inherit",
+                                }}
+                              >
+                                {confName}
+                              </ConfTag>
+                            );
+                          })}
+                        </div>
                         {equipo.rankingTop && (
                           <RankTag>★ #{equipo.rankingTop}</RankTag>
                         )}

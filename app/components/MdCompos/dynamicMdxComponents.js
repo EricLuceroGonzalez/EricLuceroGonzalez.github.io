@@ -4,6 +4,7 @@ import { CitationSup } from "./CitationSup";
 import { ReferenceList } from "./ReferenceList";
 import { QuotationAndAuthor } from "./Quotation";
 import { useTranslations } from "next-intl";
+import { RepoFooter } from "./RepoShare";
 
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
@@ -49,6 +50,7 @@ export const dynamicMdxComponents = {
   ReferenceList: (props) => <ReferenceList references={props.references} />,
   CitationSup: (props) => <CitationSup id={props.id} />,
   QuoteAndAuthor: (props) => <QuotationAndAuthor quotation={props.quotation} />,
+  RepoBadge: (props) => <RepoFooter url={props.url} type={props.type} />,
   // PDFViewer: (props) => (
   //   <Suspense fallback={<div>Cargando PDF...</div>}>
   //     <PDFViewer {...props} />

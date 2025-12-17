@@ -13,12 +13,15 @@ excerpt: "Hackeando el Mundial 2026: Cómo los Algoritmos Genéticos resuelven l
 doctype: ["blog", "python"]
 isPublic: true
 ---
+
 La Copa Mundial de la FIFA 2026 será la primera en disputarse entre 48 selecciones nacionales de todo el mundo.
 Estos 48 equipos deben distribuirse en 12 grupos y se reparten de forma particular a través de un sorteo que pone algunas restricciones interesante en la formación de estos grupos, gracias a estas
 el sorteo se puede llevar a cabo de forma rápida y sin problemas.
 Una vez hecho el sorteo queda determinado cómo se enfrentarán los equipos en la fase inicial. 
 
 En la edición de 2026, con 48 equipos participantes, el sorteo se vuelve aún más complejo debido a las múltiples restricciones que deben cumplirse<CitationSup id="1" />.
+
+![caption=Itinerario de las rondas eliminatorias del mundial según la FIFA. Esta configuración da lugar a la restricción de no enfrentamientos entre España y Argentina, o entre Francia e Inglaterra antes de la final, lo que afecta su asignación de grupo en el sorteo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980604/elCronopio/Blog-posts/IMG_0045_g1dpkv.jpg)
 
 El problema al que nos enfrentamos al generar el sorteo de grupos es un problema de optimización combinatoria con restricciones.
 Solo hay un número limitado de combinaciones posibles que cumplen con todas las restricciones impuestas por la FIFA, a esto se le llama 
@@ -37,6 +40,8 @@ Por ejemplo, en el Mundial de 2026, con 48 equipos y múltiples restricciones, e
 ### Combinaciones posibles
 En el sorteo hay 42 equipos distribuidos en 4 bombos (recipientes) que van a ser distribuidos en 12 grupos (del A al L). De cada bombo se irán sacando los equipos de forma aleatoria hasta vaciar el bombo, de tal manera que cada grupo tendrá un equipo de cada bombo.
 Los anfitriones (Canadá, México y Estados Unidos) ya tienen asignado su grupo, y en cada bombo hay 12 equipos. 
+
+![caption=Orden de los equipos en los bombos. Los equipos anfitriones no participan del sorteo, al tener ya asignados de antemano sus respectivos grupos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980621/elCronopio/Blog-posts/sorteo-6_laha05.jpg)
 
 Ahora calculemos todas las __combinaciones posibles__ sin considerar las restricciones y usando factoriales ($n!$).
 - Bombo 1: $9!$,
@@ -66,6 +71,7 @@ Las restricciones son las siguientes <CitationSup id="3" />:
 - _Confederaciones por grupo:_ Ningún grupo puede tener más de una selección de la misma confederación, excepto las de la UEFA, que pueden tener hasta dos selecciones en un mismo grupo.
 - _Top 4 del ranking:_ Por último, las selecciones de España y Argentina por un lado, y Francia e Inglaterra por otro, no podrán enfrentarse hasta la semifinal, por ser los cuatro primeros 
 del ranking masculino de la FIFA a la fecha<CitationSup id="2" />. Esto restringe que se agreguen a cualquier grupo.
+![caption=España vs Argentina, ni Inglaterra vs Francia podrán enfrentarse hasta la final del mundial. Esto bajo el supuesto que cada una de esas clasifique de primera en su grupo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/Brackets-10_qxhf0p.jpg)
 
 Esto es lo que llamamos *restricciones* del problema.
 Intentar generar todas las combinaciones posibles y luego filtrar las que cumplen con las restricciones sería computacionalmente inviable como ya hemos visto.
@@ -476,6 +482,7 @@ No es difícil (tomando en cuenta las cifras astronómicas de antes) encontrar a
 Por ejemplo en la imagen de abajo podemos ver en el grupo C, lo que resultó ser el grupo L del mundial.
 ![caption=Es normal ver casos que coinciden con los grupos reales del mundial 2026.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765065317/elCronopio/Blog-posts/Screenshot_2025-12-05_at_21.25.01_dck9wj.png)
 
+<RepoBadge url={"https://github.com/EricLuceroGonzalez/algorithms-share/tree/main/Genetic-algorithms"}/>
 <ReferenceList references={[
 {id:"1", text:"Restricciones del sorteo de la FIFA", url:"https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/sorteo-copa-mundial-2026-procedimiento-sorteo-final"},
     {id: "2", text:"Clasificación Mundial Masculina FIFA/Coca-Cola.", url: "https://inside.fifa.com/es/fifa-world-ranking/men"},

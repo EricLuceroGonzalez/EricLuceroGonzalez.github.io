@@ -82,6 +82,11 @@
         "description": "Lo sentimos, la página que buscas o no existe o ha sido movida o se ha quedado atrapada en un mínimo local.",
         "backHome": "Volver al Inicio"
     },
+    "SmallComponents": {
+        "source": "Fuente",
+        "instructions": "Ver en GitHub",
+        "secondary_mssg": "Ver Algoritmo en GitHub"
+    },
     "Legal": {
         "title": "Aviso Legal y Privacidad",
         "lastUpdated": "Última actualización: Diciembre 2025",
