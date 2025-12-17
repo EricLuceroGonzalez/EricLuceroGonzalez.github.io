@@ -1,106 +1,101 @@
+"use client";
+
 import { useTranslations } from "next-intl";
+import styled, { keyframes } from "styled-components";
+import { Link } from "@/i18n/navigation"; // Tu Link inteligente
+import { FaRobot, FaArrowLeft } from "react-icons/fa"; // O el icono que prefieras
+import Image from "next/image";
 
-import { Layout, MainBg } from "../ui/lugs"; // Tus componentes de estilo
-import { Link } from "@/i18n/navigation";
+// --- STYLES ---
 
-// Nota: Este archivo hereda automáticamente el layout de [locale],
-// así que ya tendrá Navbar y Footer.
-export default function NotFound() {
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh; /* Para que quede centrado pero no ocupe toda la pantalla forzosamente */
+  text-align: center;
+  padding: 2rem;
+  color: var(--fg);
+  background-color: var(--bg);
+`;
+
+const float = keyframes`
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+`;
+
+const Title = styled.h1`
+  font-size: 5rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(#ff3366, #0077ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+`;
+
+const Subtitle = styled.h2`
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+`;
+
+const Description = styled.p`
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+  opacity: 0.8;
+  line-height: 1.6;
+`;
+
+const HomeButton = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  background-color: var(--primary-btn-bg);
+  color: var(--primary-btn-fg);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--primary-btn-hover);
+    transform: translateY(-2px);
+  }
+`;
+
+// --- COMPONENT ---
+
+export default function NotFoundPage() {
   const t = useTranslations("NotFound");
 
   return (
-    <Layout>
-      <MainBg>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "60vh",
-            textAlign: "center",
-            gap: "20px",
-          }}
-        >
-          <h1
-            style={{
-              fontSize: "4rem",
-              fontWeight: "bold",
-              color: "var(--accent)",
-            }}
-          >
-            404
-          </h1>
-          <h2 style={{ fontSize: "2rem" }}>{t("title")}</h2>
-          <p>{t("description")}</p>
+    <Container>
+      <Title>404</Title>
+      <Image
+        src={
+          "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1739964163/elCronopio/Web-communication/call_bw_twwfv0.png"
+        }
+        alt={"A portrait photos of Eric Lucero"} // Texto alternativo
+        width={280} // Ancho de la imagen
+        height={280} // Alto de la imagen
+        priority
+        style={{
+          height: "auto",
+          zIndex: 1000,
+        }}
+      />
+      <Subtitle>{t("title")}</Subtitle>
+      <Description>{t("description")}</Description>
 
-          <Link
-            href="/"
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "var(--primary-btn-bg)",
-              color: "white",
-              borderRadius: "5px",
-              textDecoration: "none",
-              marginTop: "20px",
-            }}
-          >
-            {t("backHome")}
-          </Link>
-        </div>
-      </MainBg>
-    </Layout>
+      <HomeButton href="/">
+        <FaArrowLeft />
+        {t("backHome")}
+      </HomeButton>
+    </Container>
   );
 }
-// import Link from "next/link";
-// import { Main, NotFoundText, NotFoundTitle } from "../ui/ComponentsStyled";
-// import Image from "next/image";
-
-// export default function NotFound() {
-//   return (
-//     <Main
-//       style={{
-//         backgroundColor: "white",
-//       }}
-//     >
-//       <div
-//         style={{
-//           display: "flex",
-//           flexDirection: "column",
-//           justifyContent: "space-between",
-//           color: "#6C63FF",
-//           margin: "20px auto",
-//           alignItems: "center",
-//           fontFamily: "monospace",
-//         }}
-//       >
-//         <NotFoundTitle>Error 404:</NotFoundTitle>
-//         <h2>Dirección no encontrada.</h2>
-
-//         <div style={{ maxWidth: "70%" }}>
-//           <Image
-//             src={
-//               "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1739964161/elCronopio/404_bw_cli0yg.png"
-//             } // Ruta de la imagen del autor
-//             alt={"Un ovni llevándose a los usuarios de la pagina no encontrada"} // Texto alternativo
-//             width={180} // Ancho de la imagen
-//             height={180} // Alto de la imagen
-//             // priority
-//             // placeholder="blur"
-//             // Make the image display full width
-//             style={{
-//               width: "100%",
-//               height: "auto",
-//             }}
-//           />
-//         </div>
-//         <NotFoundText>
-//           La dirección que has colocado no ha sido creada todavía. Verifica que
-//           la hayas escrito bien, o vuelve a la página principal.
-//         </NotFoundText>
-//         <Link href="/">Regresar</Link>
-//         {/* https://res.cloudinary.com/dcvnw6hvt/image/upload/v1739809759/elCronopio/xle8npibijpsgk9qkfnd.png */}
-//       </div>
-//     </Main>
-//   );
-// }

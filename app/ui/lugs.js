@@ -136,7 +136,7 @@ export const MetaInfo = styled.div`
   @media (0px <= width <=398px) {
     width: 80%;
     flex-direction: row;
-    font-size: medium;
+    font-size: small;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--quote-bg);
   }
