@@ -79,7 +79,6 @@ export const viewport = {
 };
 
 export default async function LocaleLayout({ children, params }) {
-  // Siempre en primera línea dentro de la función
   const { locale } = await params;
   setRequestLocale(locale);
 

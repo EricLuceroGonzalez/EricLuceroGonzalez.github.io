@@ -53,7 +53,7 @@ Ahora calculemos todas las __combinaciones posibles__ sin considerar las restric
 - Esto es en total: $9! \times  12! \times 12! \times12! = 3.9881 \times 10^{31}$ combinaciones posibles.
 >__¿Qué tan grande es este número?__
 >39, 881, 724, 135, 495, 319, 399, 956, 480, 000, 000 combinaciones posibles de organizar los equipos en los grupos. Ignorando las restricciones.
-
+>
 >Para tener una idea de la magnitud de este número, si pudiéramos evaluar cada sorteo generado por nuestro algoritmo de fuerza bruta en 0.05 segundos, evaluar todas las soluciones posibles tardaría $6.3 \times 10^{22}$ años.
 Si el algoritmo hubiera iniciado en el Big Bang, aún no habría terminado, de hecho llevaría el 0.00000000002% del tiempo total.
 
@@ -171,23 +171,23 @@ class Equipo:
 ```
 Por ejemplo un equipo del top 4 se representaría así:
 ```python
-Equipo("España", "UEFA", 1, ranking_top=1)
-Equipo("Argentina", "CONMEBOL", 1, ranking_top=2)
+Equipo("España", ["UEFA"], 1, ranking_top=1)
+Equipo("Argentina", ["CONMEBOL"], 1, ranking_top=2)
 ```
 Y los equipos anfitriones con grupo fijo:
 ```python
-Equipo("México", "CONCACAF", 1, grupo_fijo="A")
-Equipo("Canadá", "CONCACAF", 1, grupo_fijo="B")
+Equipo("México", ["CONCACAF"], 1, grupo_fijo="A")
+Equipo("Canadá", ["CONCACAF"], 1, grupo_fijo="B")
 ```
 El resto de los equipos se instancia a la clase Equipo de forma más sencilla:
 ```python
-Equipo("Alemania", "UEFA", 1)
-Equipo("Ecuador", "CONMEBOL", 2)
-Equipo("Panamá", "CONCACAF", 3)
+Equipo("Alemania", ["UEFA"], 1)
+Equipo("Ecuador", ["CONMEBOL"], 2)
+Equipo("Panamá", ["CONCACAF"], 3)
 # Y asi hasta completar el resto...
 ```
 
-## Fitness Function o Función de costo
+## Función de costo
 
 La forma más sencilla de evaluar un individuo de estas características, es creando una función objetivo que cuente las veces que se violan la restricciones, 
 y en cada una de estas le adjudique una penalización a ese individuo,
@@ -204,67 +204,113 @@ Al encontrar uno de estos el algoritmo ha encontrado el óptimo, es decir un sor
 Aquí aplicamos Restricciones Duras (Hard Constraints):
 - Confederaciones: Ningún grupo puede tener más de un equipo de la misma confederación (salvo Europa, que permite dos).
 ```python
-        for conf, cant in conteo_confs.items():
-            if conf == "UEFA":
-                if cant > 2:
-                    penalizacion += 100
-            else:
-                if cant > 1:
-                    penalizacion += 100
+        for j in range(len(grupo)):
+            for k in range(j + 1, len(grupo)):
+                equipo_a = grupo[j]
+                equipo_b = grupo[k]
+
+                # Intersección de conjuntos:
+                set_a = set(equipo_a.confederacion)
+                set_b = set(equipo_b.confederacion)
+                interseccion = set_a.intersection(set_b)
+
+                # Si hay intersección y NO es UEFA (porque UEFA permite 2), penalizamos
+                conflicto_real = [c for c in interseccion if c != "UEFA"]
+
+                if conflicto_real:
+                    penalizacion += PENALTY_CONF_LIMIT
 ```
 - Itinerarios: Los cabezas de serie del Top 4 deben estar distribuidos en llaves opuestas para no enfrentarse antes de la semifinal. Si el Top 1 y Top 2 caen en el mismo grupo, 
 aplicamos una penalización masiva (+500).
 ```python
-  if 1 in ubicacion_tops and 2 in ubicacion_tops:
+  # Creamos un diccionario para saber dónde están los Top 4
+  ubicacion_tops = {}
+    # Para cada grupo obtenemos esa ubicación:
+    for equipo in grupo:
+            if equipo.ranking_top:
+                ubicacion_tops[equipo.ranking_top] = i
+
+    # Regla: Top 1 y Top 2 deben ir por lados opuestos del itinerario
+    if 1 in ubicacion_tops and 2 in ubicacion_tops:
         it_1 = obtener_itinerario(ubicacion_tops[1])
         it_2 = obtener_itinerario(ubicacion_tops[2])
-        if it_1 == it_2:
-            penalizacion += 500  # ¡Fallo Grave!
+    # Se penaliza si se encuentran en el mismo lado de la llave
+    if it_1 == it_2:
+        penalizacion += PENALTY_ITINERARY
 ```
 Veamos la función de costo completa. Su objetivo es evaluar cada grupo y contar las veces que se viola alguna restricción y penalizarla. 
 ```python
 def calcular_fitness(sorteo):
+    """
+    Calcula la penalización total de un sorteo (cromosoma).
+    0 = Sorteo válido.
+    return: penalizacion
+    """
     penalizacion = 0
 
-    # Rastrear dónde cayeron los Top 4
+    # Constantes de Penalización (Pesos)
+    PENALTY_CONF_LIMIT = 1000  # Conflicto de confederación (Grave)
+    PENALTY_UEFA_LIMIT = 500  # Más de 2 europeos
+    PENALTY_ITINERARY = 500  # Top seeds chocando antes de la final
+
+    # Rastrear dónde cayeron los Top seeds {ranking: indice_grupo}
     ubicacion_tops = {}
 
-    # --- Bucle por Grupos ---
+    # --- 1. Bucle por Grupos ---
     for i, grupo in enumerate(sorteo):
-        conteo_confs = {}
 
+        # A. Revisar límite de UEFA (Máximo 2)
+        # Contamos cuántos equipos tienen 'UEFA' en su lista de confederaciones
+        uefa_count = sum(1 for equipo in grupo if ["UEFA"] in equipo.confederacion)
+
+        if uefa_count > 2:
+            # Penalizamos para corregirlo
+            penalizacion += PENALTY_UEFA_LIMIT * (uefa_count - 2)
+
+        # B. Revisar choques de Confederaciones (NO UEFA)
+        # Usamos doble for para comparar todos contra todos en el grupo
+        for j in range(len(grupo)):
+            for k in range(j + 1, len(grupo)):
+                equipo_a = grupo[j]
+                equipo_b = grupo[k]
+
+                # Intersección de conjuntos:
+                # Si Equipo A es ['CONMEBOL'] y Equipo B (Repesca) es ['CONMEBOL', 'AFC']
+                # La intersección es {'CONMEBOL'} -> ¡Conflicto!
+                set_a = set(equipo_a.confederacion)
+                set_b = set(equipo_b.confederacion)
+                interseccion = set_a.intersection(set_b)
+
+                # Si hay intersección y NO es UEFA (porque UEFA permite 2), penalizamos
+                # Nota: Si ambos son UEFA, 'UEFA' estará en la intersección,
+                # pero eso ya lo controlamos arriba con uefa_count.
+                conflicto_real = [c for c in interseccion if c != "UEFA"]
+
+                if conflicto_real:
+                    penalizacion += PENALTY_CONF_LIMIT
+
+        # C. Guardar ubicación de Tops para la fase 2
         for equipo in grupo:
-            # A. Guardar ubicación de Tops
             if equipo.ranking_top:
                 ubicacion_tops[equipo.ranking_top] = i
 
-            # B. Contar confederaciones (Simplificado)
-            conf = equipo.confederacion
-            conteo_confs[conf] = conteo_confs.get(conf, 0) + 1
+    # --- 2. Penalizaciones de Itinerario (Bracket) ---
 
-        # C. Penalizaciones de confederación
-        for conf, cant in conteo_confs.items():
-            if conf == "UEFA":
-                if cant > 2:
-                    penalizacion += 100
-            else:
-                if cant > 1:
-                    penalizacion += 100
-
-    # --- Penalizaciones de Itinerario ---
-    # Regla: 1 (España) vs 2 (Argentina) en itinerarios distintos
+    # Regla: Top 1 y Top 2 deben ir por lados opuestos del itinerario
     if 1 in ubicacion_tops and 2 in ubicacion_tops:
         it_1 = obtener_itinerario(ubicacion_tops[1])
         it_2 = obtener_itinerario(ubicacion_tops[2])
-        if it_1 == it_2:
-            penalizacion += 500  # ¡Fallo Grave!
 
-    # Regla: 3 (Francia) vs 4 (Inglaterra) en itinerarios distintos
+        if it_1 == it_2:
+            penalizacion += PENALTY_ITINERARY
+
+    # Regla: Top 3 y Top 4 deben ir por lados opuestos del itinerario
     if 3 in ubicacion_tops and 4 in ubicacion_tops:
         it_3 = obtener_itinerario(ubicacion_tops[3])
         it_4 = obtener_itinerario(ubicacion_tops[4])
+
         if it_3 == it_4:
-            penalizacion += 500  # ¡Fallo Grave!
+            penalizacion += PENALTY_ITINERARY
 
     return penalizacion
 
@@ -483,11 +529,6 @@ _Criterios de terminación:_
 - Si llega a generación 1000 -> devuelve el mejor encontrado.
 
 Afortunadamente, la estructura de bombos permite encontrar soluciones rápidamente con los algoritmos genéticos y no hay que recurrir al critero de generación de terminación.
-
-## Para finalizar (P.D.)
-No es difícil (tomando en cuenta las cifras astronómicas de antes) encontrar algunas soluciones que coincidan con el sorteo llevado a cabo el 5 de diciembre de 2025. 
-Por ejemplo en la imagen de abajo podemos ver en el grupo C, lo que resultó ser el grupo L del mundial.
-![caption=Es normal ver casos que coinciden con los grupos reales del mundial 2026.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765065317/elCronopio/Blog-posts/Screenshot_2025-12-05_at_21.25.01_dck9wj.png)
 
 <RepoBadge url={"https://github.com/EricLuceroGonzalez/algorithms-share/tree/main/Genetic-algorithms"}/>
 <ReferenceList references={[

@@ -20,41 +20,26 @@ export const MdListItem = styled.li`
   @media (min-width: 660px) {
     font-size: large;
   }
-  margin: 1rem auto;
+  margin: 0.25rem auto;
 `;
 export const MdUnorderedList = styled.ul`
-  /* list-style-position: inside;
-  margin: auto;
-  width: 95%;
-  li {
-    &::before {
-      content: "0";
-      color: red;
-    }
-  } */
-
   list-style: none; /* Elimina los bullets predeterminados */
   list-style-position: inside;
-  margin: auto;
+  margin: 0px auto;
   width: 95%;
-  padding: 0;
+  padding: 2px 2px;
 
   li {
     position: relative;
-    padding-left: 1.5em; /* Ajusta el espaciado para el nuevo bullet */
-    list-style-type: none; /* O 'circle' para diferenciar */
+    padding-left: 1.5em;
+    list-style-type: none;
     &::before {
-      content: "●"; /* Puedes cambiar esto a cualquier símbolo o emoji */
+      content: "✅"; /*● */
       color: var(--accent);
       font-size: 1em;
       position: absolute;
       left: 0;
-      top: 0.1em; /* Ajusta para alinear con el texto */
     }
-  }
-  ul {
-    padding-left: 1.5em; /* Ajusta el espaciado para el nuevo bullet */
-    list-style-type: disc; /* O 'circle' para diferenciar */
   }
 `;
 
