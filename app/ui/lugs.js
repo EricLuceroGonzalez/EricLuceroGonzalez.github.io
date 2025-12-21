@@ -76,7 +76,7 @@ export const Author = styled.p`
 export const CoverImageContainer = styled.div`
   margin-bottom: 2rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 660px) {
     margin-bottom: 4rem;
   }
 `;

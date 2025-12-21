@@ -1,7 +1,6 @@
 // app/sitemap.js
 
 export default function sitemap() {
-  // ⚠️ CAMBIA ESTO por tu dominio real de Vercel o tu dominio propio
   const baseUrl = "https://eric-lucero-gonzalez.vercel.app";
 
   // Definimos tus rutas estáticas principales

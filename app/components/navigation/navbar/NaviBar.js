@@ -46,6 +46,10 @@ const NaviBar = () => {
         >
           LaTeX
         </StyledLink> */}
+
+        <StyledLink actualPath={primaryPath} pathName={"/blog"} href={"/blog"}>
+          LaTeX
+        </StyledLink>
         <StyledLink
           actualPath={primaryPath}
           pathName={"/about"}
@@ -55,7 +59,7 @@ const NaviBar = () => {
         </StyledLink>
       </MainNav>
       {/* Contenedor para los switchers */}
-      <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
         <ThemeSwitcher />
         <LanguageSwitcher />
       </div>

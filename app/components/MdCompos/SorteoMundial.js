@@ -96,7 +96,7 @@ const GruposContainer = styled.div`
   grid-template-columns: 1fr;
   gap: 2rem;
   width: 100%;
-  @media (min-width: 768px) {
+  @media (min-width: 660px) {
     grid-template-columns: 1fr 1fr;
   }
 `;

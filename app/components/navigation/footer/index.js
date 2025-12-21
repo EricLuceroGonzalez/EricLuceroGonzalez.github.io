@@ -41,10 +41,14 @@ const FooterTextBox = styled.div`
   margin: 0;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 
   width: 50%;
   @media (min-width: 400px) {
     width: auto;
+  }
+  @media (max-width: 660px) {
+    width: 90%;
   }
 `;
 const FooterText = styled.p`
@@ -71,6 +75,10 @@ const FooterLink = styled.a`
 
   &:hover svg {
     fill: var(--primary-btn-bg); // Color del SVG al hacer hover
+  }
+  @media (max-width: 660px) {
+    width: 100%;
+    justify-content: center;
   }
 `;
 

@@ -6,7 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: "export", // No necesario al usar Vercel
+  // output: "export", // No necesario al usar Vercel y no GithubPages
   reactStrictMode: true,
   transpilePackages: ["next-mdx-remote", "react-pdf"],
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],

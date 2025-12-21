@@ -72,7 +72,7 @@ const CloseButton = styled.button`
   cursor: pointer;
   margin-bottom: 1rem;
   text-align: end;
-  @media (min-width: 768px) {
+  @media (min-width: 660px) {
     display: none;
   }
 `;

@@ -21,6 +21,7 @@ const StyledAnchor = styled.div`
   font-size: medium;
   @media (min-width: 660px) {
     font-size: large;
+    margin: 2px 12px;
   }
   &:hover {
     background-color: var(--fg);
