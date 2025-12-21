@@ -22,13 +22,13 @@ const NaviBar = () => {
             src={
               "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
             }
-            alt={"A portrait photos of Eric Lucero"} // Texto alternativo
+            alt={"A ball with a color gradient, with the colors of this web"} // Texto alternativo
             width={25} // Ancho de la imagen
             height={25} // Alto de la imagen
             priority
             style={{
               width: "100%",
-              height: "auto",
+              height: "100%",
               zIndex: 1000,
             }}
           />{" "}

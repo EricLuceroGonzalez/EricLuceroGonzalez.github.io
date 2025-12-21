@@ -94,7 +94,7 @@ export default async function LocaleLayout({ children, params }) {
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <NaviBar />
-            {children}
+            <main>{children}</main>
             <Footer />
           </Providers>
         </NextIntlClientProvider>

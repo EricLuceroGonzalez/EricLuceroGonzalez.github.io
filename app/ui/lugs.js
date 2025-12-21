@@ -210,7 +210,7 @@ export const SectionType = styled.div`
       case "curso":
         return "var(--accent)";
       case "python":
-        return "var(--accent)";
+        return "var(--emphasis-fg)";
       case "ia":
         return "var(--primary-border)";
       case "IA":
@@ -474,3 +474,11 @@ const ReactIcon = styled(Link)`
     color: var(--fg);
   }
 `;
+
+// Touch targets do not have sufficient size or spacing.
+// Touch targets with sufficient size and spacing help users who may have difficulty targeting small controls to activate the targets
+// https://dequeuniversity.com/rules/axe/4.11/link-name
+
+// Document does not have a main landmark.
+// One main landmark helps screen reader users navigate a web page
+// https://dequeuniversity.com/rules/axe/4.11/landmark-one-main
