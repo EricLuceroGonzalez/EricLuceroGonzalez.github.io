@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 
-// Define tus idiomas soportados
 const locales = ["es", "en"];
 const defaultLocale = "es";
 
-// Función simple para obtener el idioma preferido (puedes mejorarla con librerías)
+// Obtener el idioma preferido
 function getLocale(request) {
-  // Aquí podrías leer headers 'accept-language' si quisieras
   return defaultLocale;
 }
 
@@ -26,17 +24,11 @@ export function middleware(request) {
   // 3. Redireccionamos a la nueva URL (ej: /es/blog)
   request.nextUrl.pathname = `/${locale}${pathname}`;
 
-  // IMPORTANTE: Usamos redirect (cambia la URL en el navegador)
+  // Usamos redirect (cambia la URL en el navegador)
   return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
   // Matcher: Ignora rutas internas de Next.js, estáticos, imágenes, favicon, etc.
-  matcher: [
-    // Skip all internal paths (_next)
-    "/((?!_next).*)",
-    // Optional: only run on root (/) and specific paths, OR run on everything except static files
-    // Regex negativo para excluir archivos con extensión (ej: .svg, .png)
-    "/((?!api|static|.*\\..*|_next).*)",
-  ],
+  matcher: ["/((?!_next).*)", "/((?!api|static|.*\\..*|_next).*)"],
 };

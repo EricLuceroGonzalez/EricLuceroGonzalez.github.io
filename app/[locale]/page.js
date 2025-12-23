@@ -31,7 +31,6 @@ export default async function Home({ params }) {
           <BackgroundDots numDots={40} />
         </HomePageCover>
         <MdParagraph>{t("copy_text")}</MdParagraph>
-
         <HomeBoxes props={allPostsData} />
       </MainPageBg>
     </PageContainer>
