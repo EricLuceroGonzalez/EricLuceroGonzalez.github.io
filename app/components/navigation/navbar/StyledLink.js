@@ -3,7 +3,6 @@
 import { Link } from "@/i18n/navigation";
 import styled from "styled-components";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 // Define the styled component for the anchor tag
 const StyledAnchor = styled.div`
@@ -35,11 +34,16 @@ const StyledAnchor = styled.div`
 
 const StyledLink = ({ actualPath, pathName, href, children }) => {
   const currentPath = usePathname();
-  const thePath = currentPath.split("/");
-
   return (
     <Link href={href} passHref>
-      <StyledAnchor $activePath={actualPath === pathName ? true : false}>
+      <StyledAnchor
+        $activePath={
+          `/${currentPath.split("/")[1]}/${currentPath.split("/")[2]}` ===
+          `${actualPath}${pathName}`
+            ? true
+            : false
+        }
+      >
         {children}
       </StyledAnchor>
     </Link>

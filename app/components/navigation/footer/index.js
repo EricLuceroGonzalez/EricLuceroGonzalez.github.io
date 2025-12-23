@@ -7,7 +7,6 @@ import { SiI18Next, SiNextdotjs } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { setRequestLocale } from "next-intl/server";
 
 const FooterContainer = styled.footer`
   /* width: 100%; */
@@ -82,17 +81,13 @@ const FooterLink = styled.a`
   }
 `;
 
-// const FooterLink = styled(Link)`
-//   font-size: x-small;
-//   &:hover {
-//     color: var(--accent);
-//   }
-// `;
+const LocaleLink = styled(Link)`
+  font-size: x-small;
+  &:hover {
+    color: var(--accent);
+  }
+`;
 const Footer = () => {
-  // setRequestLocale(locale);
-  // const { locale } = await params;
-  // console.log(`locale: ${locale}`);
-
   const t = useTranslations("Footer");
   return (
     <FooterContainer>
@@ -165,13 +160,13 @@ const Footer = () => {
           </FooterText>
         </FooterTextBox>
         <FooterTextBox>
-          <FooterLink href={`/about/this-page`}>
+          <LocaleLink href={`/about/this-page`}>
             <FaInfoCircle style={{ marginRight: "5px" }} />
             {t("about_page")}
-          </FooterLink>
-          <FooterLink href={"/about/terminos-legales"}>
+          </LocaleLink>
+          <LocaleLink href={"/about/terminos-legales"}>
             <FaCreativeCommons style={{ marginRight: "5px" }} /> {t("licenses")}
-          </FooterLink>
+          </LocaleLink>
         </FooterTextBox>
       </FooterIcons>
     </FooterContainer>

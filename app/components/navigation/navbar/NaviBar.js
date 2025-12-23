@@ -47,7 +47,11 @@ const NaviBar = () => {
           LaTeX
         </StyledLink> */}
 
-        <StyledLink actualPath={primaryPath} pathName={"/blog"} href={"/blog"}>
+        <StyledLink
+          actualPath={primaryPath}
+          pathName={"/latex"}
+          href={"/latex"}
+        >
           LaTeX
         </StyledLink>
         <StyledLink
