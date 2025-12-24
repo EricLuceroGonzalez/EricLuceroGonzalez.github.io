@@ -139,5 +139,18 @@
                 "content": "Salvo que se indique lo contrario, el contenido de este blog (artículos, código y tutoriales) está bajo una licencia **Creative Commons Atribución-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)**. Eres libre de usar y adaptar mi código citando la fuente."
             }
         }
+    },
+    "LatexPage": {
+        "title": "La alquimia de la tipografía: Domina LaTeX",
+        "subtitle": "Desde tu primera ecuación hasta el diseño editorial complejo. Deja de pelear con el formato y empieza a estructurar tus ideas.",
+        "copy_text": {
+            "p1": "Aquí comparto tutoriales, ejemplos y consejos para trabajar con LaTeX, la herramienta indispensable para crear documentos científicos y técnicos de alta calidad. Algunos temas que encontrarás: ",
+            "item1": "Instalación y configuración de LaTeX.",
+            "item2": "Ejemplos prácticos para iniciarte en este mundo.",
+            "item3": "Recursos para personalizar y optimizar tus documentos.",
+            "p2": "LaTeX no es solo para matemáticos o científicos; es la herramienta definitiva para quienes aman la precisión."
+        },
+        "donald_text": "Parafraseando a Donald Knuth (creador de TeX), con TeX, si quieres crear algo realmente bello, de la mejor calidad posible y de lo que puedas sentirte plenamente orgulloso, esto es lo que debes usar.",
+        "advanced_text": "Para los usuarios avanzados y curiosos: LaTeX es mucho más que papers académicos. Adéntrate en la creación de pósters científicos de alto impacto, diseña poemarios con tipografías exquisitas o automatiza diagramas complejos. Descubre paquetes que transforman código simple en arte visual y lleva la maquetación profesional al siguiente nivel."
     }
 }

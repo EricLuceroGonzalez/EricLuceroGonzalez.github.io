@@ -139,5 +139,18 @@
                 "content": "Unless otherwise stated, the content of this blog (articles, code, and tutorials) is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)**. You are free to use and adapt my code by citing the source."
             }
         }
+    },
+    "LatexPage": {
+        "title": "The Alchemy of Typesetting: Master LaTeX",
+        "subtitle": "From your first equation to complex editorial design. Stop fighting with formatting and start structuring your ideas.",
+        "copy_text": {
+            "p1": "Here I share tutorials, examples, and tips for working with LaTeX, the indispensable tool for creating high-quality scientific and technical documents. Some topics you will find:",
+            "item1": "LaTeX installation and configuration.",
+            "item2": "Practical examples to get you started.",
+            "item3": "Resources to customize and optimize your documents.",
+            "p2": "LaTeX isn't just for mathematicians or scientists; it is the ultimate tool for those who love precision."
+        },
+        "donald_text": "To paraphrase Donald Knuth (creator of TeX): if you want to create something truly beautiful, of the highest possible quality, and something you can be fully proud of, this is what you should use.",
+        "advanced_text": "For advanced and curious users: LaTeX is much more than academic papers. Dive into creating high-impact scientific posters, design poetry collections with exquisite typefaces, or automate complex diagrams. Discover packages that transform simple code into visual art and take professional typesetting to the next level."
     }
 }

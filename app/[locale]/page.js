@@ -25,7 +25,7 @@ export default async function Home({ params }) {
       <MainPageBg>
         <HomePageCover>
           <HomePageCoverText>
-            <TitlePage>{t("title")} !👋🏼</TitlePage>
+            <TitlePage>{t("title")} 👋🏼</TitlePage>
             {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>
           <BackgroundDots numDots={40} />

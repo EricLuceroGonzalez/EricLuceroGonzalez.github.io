@@ -1,5 +1,10 @@
 import { FaClock, FaPencilAlt } from "react-icons/fa";
-import { getAllPosts, getPostBySlug, getPostsByType } from "@/app/lib/api";
+import {
+  getAllPosts,
+  getPostBySlug,
+  getPostsByType,
+  getSurroundingPosts,
+} from "@/app/lib/api";
 // MDX
 import fs from "fs";
 import path from "path";
@@ -42,10 +47,8 @@ const BlogPost = async ({ params }) => {
   const post = getPostBySlug(slug, [], locale);
   // const blogPosts = getBlogPosts(post.order);
   const blogPosts = getPostsByType(["blog"], post.order);
-
+  const { previous, next } = getSurroundingPosts("blog", post.order, locale);
   // const latexPosts = getPostsByType(["blog"]);
-  const nextPost = blogPosts.nextPost;
-  const prevPost = blogPosts.previousPost;
 
   if (!post) {
     return notFound();
@@ -146,34 +149,31 @@ const BlogPost = async ({ params }) => {
               },
             }}
           />
-          {!nextPost ||
-            (!prevPost && (
-              <div
-                style={{
-                  marginTop: "10rem",
-                }}
-              >
-                <h1>Otros posts:</h1>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {prevPost === 0 ? (
-                    ""
-                  ) : (
-                    <PostNavigationCard type={"prev"} post={prevPost} />
-                  )}
-                  {nextPost === 0 ? (
-                    ""
-                  ) : (
-                    <PostNavigationCard type={"next"} post={nextPost} />
-                  )}
-                </div>
-              </div>
-            ))}
+          <div
+            style={{
+              marginTop: "10rem",
+            }}
+          >
+            <h1>Otros posts:</h1>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              {previous === "null" ? (
+                ""
+              ) : (
+                <PostNavigationCard type={"prev"} post={previous} />
+              )}
+              {next === "null" ? (
+                ""
+              ) : (
+                <PostNavigationCard type={"next"} post={next} />
+              )}
+            </div>
+          </div>
         </Article>
       </MainBg>
     </Layout>

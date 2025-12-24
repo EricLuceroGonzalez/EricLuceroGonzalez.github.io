@@ -49,7 +49,7 @@ a {
     
     /* ÉNFASIS Y CÓDIGO */
     --strong-fg: #0077FF;
-    --emphasis-bg: #FFF3CD;
+    --emphasis-bg: #fceaaeff;
     --emphasis-fg: #1A1A1A;
     /* HEADERS */
     --heading-3: #004966;
@@ -95,13 +95,13 @@ a {
 
     /* ÉNFASIS Y CÓDIGO */
     --strong-fg: #FF3366;
-    --emphasis-bg: #FFF3CD; /* Rosa con transparencia */
+    --emphasis-bg: #fceaaeff; /* Rosa con transparencia */
     --emphasis-fg: #00364D;
 
     --quote-bg: #00364D; /* Ligeramente más claro que el fondo */
     --quote-fg: #B0BEC5;
     /* HEADERS */
-    --heading-3: #FFF3CD;
+    --heading-3: #fceaaeff;
     
     /* CORRECCIÓN DE CÓDIGO */
     --code-fg: #00FFE7; /* Cyan neón para el texto */

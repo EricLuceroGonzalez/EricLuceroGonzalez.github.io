@@ -1,5 +1,10 @@
 import { FaClock, FaPencilAlt } from "react-icons/fa";
-import { getAllPosts, getPostBySlug, getPostsByType } from "@/app/lib/api";
+import {
+  getAllPosts,
+  getPostBySlug,
+  getPostsByType,
+  getSurroundingPosts,
+} from "@/app/lib/api";
 // MDX
 import fs from "fs";
 import path from "path";
@@ -33,8 +38,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 // import ShowPath from "@/app/components/showPath";
 const LatexPost = async ({ params }) => {
   const { locale, slug } = await params;
-  console.log(`Locale in Latex: ${locale}`);
-  console.log(`Slug in Latex: ${slug}`);
   // Importamos los idiomas:
   setRequestLocale(locale);
 
@@ -44,10 +47,16 @@ const LatexPost = async ({ params }) => {
   if (!post) {
     return notFound();
   }
-  const coursePosts = getPostsByType(["latex"], post.order);
+  // const coursePosts = getPostsByType(["latex"], post.order);
+  // const coursePosts = getPostsByType(["latex"], 0, locale);
 
-  const nextPost = coursePosts.nextPost;
-  const prevPost = coursePosts.previousPost;
+  const { previous, next } = getSurroundingPosts("latex", post.order, locale);
+  // const previous = "null";
+  console.log(`previous: ${previous}`);
+  // console.log(`next: ${next}`);
+
+  // const next = coursePosts.next;
+  // const previous = coursePosts.previousPost;
   const readingTime = (post) => {
     const WORDS_PER_MINUTE = 200;
     let result = {};
@@ -136,15 +145,15 @@ const LatexPost = async ({ params }) => {
               justifyContent: "space-between",
             }}
           >
-            {prevPost === 0 ? (
+            {previous === "null" ? (
               ""
             ) : (
-              <PostNavigationCard type={"prev"} post={prevPost} />
+              <PostNavigationCard type={"prev"} post={previous} />
             )}
-            {nextPost === 0 ? (
+            {next === "null" ? (
               ""
             ) : (
-              <PostNavigationCard type={"next"} post={nextPost} />
+              <PostNavigationCard type={"next"} post={next} />
             )}
           </div>
         </Article>

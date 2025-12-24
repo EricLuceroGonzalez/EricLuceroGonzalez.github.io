@@ -206,7 +206,7 @@ export const SectionType = styled.div`
       case "javascript":
         return "var(--bg)";
       case "latex":
-        return "var(--fg)";
+        return "var(--bg)";
       case "curso":
         return "var(--accent)";
       case "python":

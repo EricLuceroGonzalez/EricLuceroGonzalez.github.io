@@ -1,9 +1,14 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 
 import styled from "styled-components";
 
+const Excerpt = styled.p`
+  margin: 5px 0 0;
+  font-size: small;
+  font-weight: 300;
+`;
 const NavCard = styled(Link)`
   display: flex;
   flex-direction: row;
@@ -13,26 +18,37 @@ const NavCard = styled(Link)`
   margin: 12px 0;
   border-radius: 10px;
   background: var(--bg);
+  color: var(--accent);
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
-  &:hover {
-    background: var(--fg);
-    transform: translateY(-2px);
-    color: var(--bg);
+  svg {
+    color: var(--accent);
+    font-size: larger;
+    margin: 2px 5px;
+    padding: 1px 1px;
+    /* width: 14px;
+    height: 14px; */
   }
   border: 1px solid var(--fg);
   width: 35%;
   @media (max-width: 620px) {
-    /* border: 1px solid red; */
     width: 49%;
+  }
+  &:hover {
+    background: var(--fg);
+    transform: translateY(-2px);
+    color: var(--bg);
   }
 `;
 
 const PostInfo = styled.div`
   flex: 1;
   margin: 0 2px;
+  &:hover {
+    color: var(--bg);
+  }
 `;
 
 const Title = styled.h4`
@@ -44,13 +60,6 @@ const Title = styled.h4`
     font-size: large;
     text-align: left;
   }
-  color: var(--emphasis-fg);
-`;
-
-const Excerpt = styled.p`
-  margin: 5px 0 0;
-  font-size: x-small;
-  color: var(--fg);
 `;
 
 const PostNavigationCard = ({ post, type }) => {
@@ -65,16 +74,12 @@ const PostNavigationCard = ({ post, type }) => {
         //   : `/${post.doctype[0]}/${post.slug}`  // Para otros casos
       }
     >
-      {type === "prev" && (
-        <FaArrowAltCircleLeft color="var(--fg)" size={"1rem"} />
-      )}
+      {type === "prev" && <FaArrowAltCircleLeft />}
       <PostInfo>
         <Excerpt>{type == "prev" ? "Anterior" : "Siguiente"}</Excerpt>
         <Title>{post.title}</Title>
       </PostInfo>
-      {type === "next" && (
-        <FaArrowAltCircleRight color="var(--fg)" size={"1rem"} />
-      )}
+      {type === "next" && <FaArrowAltCircleRight />}
     </NavCard>
   );
 };

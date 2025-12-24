@@ -92,7 +92,7 @@ const AllPosts = ({
             <ExcerptContainer>
               {
                 // excerpt.substring(0, 250)
-                excerpt.length > 200
+                excerpt.length > 250
                   ? excerpt.substring(0, excerpt.lastIndexOf(" ", 200)) + "..."
                   : excerpt
               }

@@ -88,7 +88,8 @@ function getPostsByType(types = [], orderNum = 0, locale = "es") {
   // Si esta función se usa para un post individual, entonces sí buscamos el índice.
   let previousPost = null;
   let nextPost = null;
-
+  // console.log(filteredPosts);
+  // console.log(`orderNum: ${orderNum}`);
   if (orderNum > 0) {
     const currentIndex = filteredPosts.findIndex(
       (post) => post.order === orderNum
@@ -117,7 +118,57 @@ function getLatexPosts(orderNum = 0) {
 function getBlogPosts(orderNum = 0) {
   return getPostsByType(["blog"], orderNum);
 }
+function getSurroundingPosts(type, currentOrder, locale = "es") {
+  const allFiles = getPostSlugs();
 
+  const orderedPosts = allFiles
+    // 2. FILTRO VITAL: Nos quedamos solo con los archivos del idioma actual
+    // Ejemplo: Si locale es 'es', solo pasan 'que-es-tex.es.mdx'
+    .filter((filename) => filename.endsWith(`.${locale}.mdx`))
+
+    .map((filename) => {
+      // 3. LIMPIEZA: Quitamos ".es.mdx" para obtener el slug real ("que-es-tex")
+      // Esto es necesario porque getPostBySlug suele esperar el slug limpio
+      const cleanSlug = filename.replace(new RegExp(`\\.${locale}\\.mdx$`), "");
+
+      // 4. Obtenemos los datos (Asegúrate de pasar 'locale' si tu getPostBySlug lo pide)
+      // Solicitamos solo los campos necesarios para no cargar todo el contenido
+      return getPostBySlug(
+        cleanSlug,
+        ["title", "slug", "order", "doctype", "isPublic", "excerpt"],
+        locale
+      );
+    })
+
+    // 5. FILTRO POR TIPO: Nos aseguramos que sea 'latex', público y tenga orden
+    .filter((post) => {
+      return (
+        post.doctype &&
+        post.doctype.includes(type) &&
+        post.isPublic &&
+        typeof post.order === "number"
+      );
+    })
+
+    // 6. ORDENAR: Ascendente (1, 2, 3...)
+    .sort((a, b) => a.order - b.order);
+
+  // 7. ENCONTRAR VECINOS
+  const currentIndex = orderedPosts.findIndex(
+    (post) => post.order === currentOrder
+  );
+
+  if (currentIndex === -1) {
+    return { previous: null, next: null };
+  }
+
+  const previous = currentIndex > 0 ? orderedPosts[currentIndex - 1] : "null";
+  const next =
+    currentIndex < orderedPosts.length - 1
+      ? orderedPosts[currentIndex + 1]
+      : "null";
+  return { previous, next };
+}
 // Exportar funciones
 module.exports = {
   getPostSlugs,
@@ -126,4 +177,5 @@ module.exports = {
   getLatexPosts,
   getBlogPosts,
   getPostsByType,
+  getSurroundingPosts,
 };
