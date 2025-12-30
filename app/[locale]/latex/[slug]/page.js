@@ -52,7 +52,7 @@ const LatexPost = async ({ params }) => {
 
   const { previous, next } = getSurroundingPosts("latex", post.order, locale);
   // const previous = "null";
-  console.log(`previous: ${previous}`);
+  // console.log(`previous: ${previous}`);
   // console.log(`next: ${next}`);
 
   // const next = coursePosts.next;

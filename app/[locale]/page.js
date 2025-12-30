@@ -1,14 +1,16 @@
 import {
   HomePageCover,
   HomePageCoverText,
+  LatexSection,
   MainPageBg,
   PageContainer,
+  SubTitlePage,
   TitlePage,
 } from "../ui/ComponentsStyled";
 import HomeBoxes from "../components/HomeBoxes";
 import { MdParagraph } from "../ui/MarkDownComponents";
 import ScrollDiv from "../components/navigation/ScrollDiv";
-import { getAllPosts } from "../lib/api";
+import { getAllPosts, getPostsByType } from "../lib/api";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "../components/BgMovingDots";
 
@@ -17,7 +19,10 @@ export default async function Home({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "HomePage" });
-  const allPostsData = getAllPosts([], locale);
+  // const allPostsData = getAllPosts([], locale);
+  const allPostsData = getPostsByType(["blog"], 0, locale);
+  const allLatexPosts = getPostsByType(["latex"], 0, locale);
+
   return (
     <PageContainer>
       <ScrollDiv />
@@ -31,7 +36,14 @@ export default async function Home({ params }) {
           <BackgroundDots numDots={40} />
         </HomePageCover>
         <MdParagraph>{t("copy_text")}</MdParagraph>
+
+        <SubTitlePage>Blog</SubTitlePage>
+
         <HomeBoxes props={allPostsData} />
+        <LatexSection>
+          <SubTitlePage>LaTeX</SubTitlePage>
+          <HomeBoxes props={allLatexPosts} />
+        </LatexSection>
       </MainPageBg>
     </PageContainer>
   );

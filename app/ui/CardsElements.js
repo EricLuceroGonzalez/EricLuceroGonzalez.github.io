@@ -8,18 +8,13 @@ export const CardContainer = styled.div`
   @media (max-width: 660px) {
     flex-direction: column;
   }
+  /* border: 2px solid var(--primary); */
 `;
 
 export const ImageContainer = styled.div`
   padding: 0px 3px;
-  flex-grow: 1;
-`;
-export const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 3px;
-  min-width: 60%;
-  flex-grow: 2;
+  /* flex-grow: 1; */
+  width: 30%;
 `;
 
 export const GridHeroImage = styled.div`
@@ -28,16 +23,32 @@ export const GridHeroImage = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 0.3rem auto;
-  max-width: 90%;
+  width: 95%;
   height: auto;
   position: relative;
   @media (max-width: 660px) {
-    width: 40%;
     display: none;
   }
   @media (min-width: 1280px) {
-    width: 90%;
+    width: 95%;
   }
+  /* border: 2px solid var(--accent); */
+`;
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 3px;
+  width: 70%;
+
+  @media (max-width: 1280px) {
+    width: 99%;
+  }
+  @media (1280 < width < 14400px) {
+    width: 80%;
+  }
+  /* flex-grow: 1; */
+
+  /* border: 2px solid var(--accent); */
 `;
 
 // export const AnimatedDiv = styled(motion.div)`
@@ -59,14 +70,14 @@ export const GridHeroImage = styled.div`
 // }
 
 export const GridContainer = styled(motion.div)`
-  margin: 0.55rem auto;
+  margin: 0.33rem auto;
   background-color: var(--bg);
-  padding: 2px 10px;
+  padding: 1px 4px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: 1px solid var(--gray-light);
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   @media (min-width: 660px) {
     width: 100%;
   }
@@ -74,7 +85,7 @@ export const GridContainer = styled(motion.div)`
     border: 2px solid var(--box-border-hover);
     transition: border 0.5s;
   }
-  /* border: 1px solid var(--accent); */
+  /* border: 4px solid var(--accent); */
 `;
 
 export const ExcerptContainer = styled.p`
@@ -90,9 +101,8 @@ export const ExcerptContainer = styled.p`
 `;
 
 export const CardTitle = styled.h1`
-  line-height: 0.9;
-  font-size: x-large;
-  margin: 0.33rem 0;
+  line-height: 0.95;
+  font-size: large;
   @media (min-width: 660px) {
     font-size: x-large;
   }

@@ -103,6 +103,20 @@ export const TitlePage = styled.h1`
   }
 `;
 
+export const SubTitlePage = styled.h2`
+  color: var(--heading-3);
+  font-size: x-large;
+
+  @media (max-width: 728px) {
+    text-align: justify;
+    /* padding: 1rem 1rem; */
+  }
+
+  @media (min-width: 660px) {
+    font-size: xx-large;
+  }
+`;
+
 export const Section = styled.section`
   color: blue;
 `;
@@ -116,4 +130,8 @@ export const NotFoundTitle = styled.h1`
 export const NotFoundText = styled.p`
   padding: 0.5rem 0;
   text-align: justify;
+`;
+
+export const LatexSection = styled.section`
+  margin: 10px auto;
 `;

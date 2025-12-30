@@ -9,14 +9,10 @@ import { BoxGrid } from "../ui/lugs";
 //   flex-wrap: wrap;
 // `;
 const HomeBoxes = ({ props, locale }) => {
-  const theProps = props.map((post) => {
-    return post.metadata;
-  });
-
   return (
     <>
       <BoxGrid>
-        {props.map(
+        {props.posts.map(
           ({
             slug,
             id,
@@ -26,7 +22,7 @@ const HomeBoxes = ({ props, locale }) => {
             excerpt,
             doctype,
             webThumbnail,
-            coverImageAlt = "excerpt",
+            coverImageAlt,
           }) => (
             <AllPosts
               key={id}

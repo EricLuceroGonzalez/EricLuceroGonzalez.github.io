@@ -32,8 +32,6 @@ const ShowPath = ({ title }) => {
   const thisPath = usePathname();
   const pathSegments = thisPath.split("/").filter(Boolean);
   const category = pathSegments[1];
-  console.log(`pathSegments: ${pathSegments}`);
-  console.log(`cat: ${category}`);
   // Si estamos en el home, no mostramos nada o solo home
   if (thisPath === "/" || thisPath === "/es" || thisPath === "/en") {
     return null;

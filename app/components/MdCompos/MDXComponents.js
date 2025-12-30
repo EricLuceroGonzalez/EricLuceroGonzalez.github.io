@@ -23,6 +23,7 @@ import CodeBlock from "@/app/components/CodeWrapper";
 import Image from "next/image";
 import H2Header from "./H2Header";
 import H3Header from "./H3Header";
+import { Link } from "@/i18n/navigation";
 const MdxComponents = {
   h1: (props) => <MdHead {...props}>{props.children}</MdHead>,
   h2: (props) => <H2Header {...props} />,
@@ -65,7 +66,7 @@ const MdxComponents = {
     );
   },
   a: (props) => {
-    // 1. Detectamos si es un ancla (índice) o enlace interno
+    // Detectamos si es un ancla (índice) o enlace interno
     const isAnchor = props.href && props.href.startsWith("#");
     const isInternal = props.href && props.href.startsWith("/");
 
@@ -78,9 +79,9 @@ const MdxComponents = {
     if (isAnchor || isInternal) {
       // Retornamos un link limpio para que el scroll funcione
       return (
-        <a {...props} style={{ textDecoration: "none", color: "inherit" }}>
+        <Link {...props} style={{ textDecoration: "none", color: "inherit" }}>
           {props.children}
-        </a>
+        </Link>
       );
     }
     return (

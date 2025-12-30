@@ -12,7 +12,6 @@ export default function RootPage() {
   useEffect(() => {
     // Detección simple del navegador
     const userLang = navigator.language.startsWith("es") ? "es" : "en";
-    console.log("Redirecting to locale:", userLang);
     router.replace(`/${userLang}`);
   }, [router]);
 

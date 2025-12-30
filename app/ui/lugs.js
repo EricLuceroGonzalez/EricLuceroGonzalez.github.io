@@ -87,7 +87,7 @@ export const BoxGrid = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  margin: 2rem 0 8rem 0;
+  margin: 1rem 0 2rem 0;
   /* border: 3px solid blueviolet; */
   @media (min-width: 660px) {
     /* border: 3px solid greenyellow; */
@@ -237,28 +237,32 @@ export const LinkList = styled.div`
   font-family: monospace;
   font-size: medium;
   margin: 5rem auto 1rem auto;
-  padding: 1px 10%;
+  padding: 1px 5%;
   @media (min-width: 660px) {
-    font-size: large;
+    font-size: x-large;
+    padding: 1px 12%;
   }
-  /* border: 1px solid red; */
   justify-content: space-around;
 `;
 
 export const IconLink = styled.a`
-  color: var(--strong-fg);
+  color: var(--fg);
   text-decoration: none;
   svg {
-    width: 14px;
-    height: 14px;
+    width: 33px;
+    height: 33px;
     fill: var(--fg); // Color inicial del SVG
     transition: fill 0.3s ease;
   }
   &:hover {
     color: var(--accent);
-    font-size: larger;
-    font-weight: bold;
+    border: 1px solid var(--fg);
+    border-radius: 12px;
+    padding: 2px 4px;
   }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const AboutWrapper = styled.div`
@@ -272,41 +276,71 @@ export const AboutWrapper = styled.div`
 
 export const AboutMePanel = styled.div`
   display: flex;
-  flex-direction: column;
-  @media (min-width: 660px) {
-    flex-direction: row;
-    font-size: large;
-  }
-  margin-top: 2rem;
-`;
+  flex-direction: column; /* Móvil: Vertical */
+  align-items: center; /* Móvil: Centra la foto horizontalmente */
+  justify-content: center;
+  gap: 2rem; /* Espacio consistente entre foto y texto */
 
-export const AboutMeParaph = styled(motion.p)`
-  font-size: medium;
-  font-family: monospace;
-  text-align: justify;
-  border: 1px dashed var(--gray-light);
-  padding: 12px;
-  @media (min-width: 660px) {
-    margin-left: 2rem;
-    max-width: 50%;
-    font-size: large;
+  margin-top: 5%;
+  width: 100%;
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    flex-direction: row; /* Desktop: Horizontal */
+    align-items: flex-start; /* Alinea foto y texto al inicio (top) */
+    /* Si prefieres que la foto quede justo al medio verticalmente del texto, usa: align-items: center; */
+    gap: 4rem; /* Aumentamos el espacio en pantallas grandes */
+    text-align: left;
   }
 `;
 
 export const PhotoAvatar = styled(motion.div)`
-  width: 200px; /* Tamaño del círculo */
+  /* Definimos un tamaño base fijo para evitar deformaciones */
+  width: 200px;
   height: 200px;
-  border-radius: 50%; /* Hace que la imagen sea circular */
-  overflow: hidden; /* Asegura que el contenido no se salga del contenedor */
-  border: 2px solid var(--strong-fg); /* Opcional: borde */
-  /* width: 20%; */
-  margin: 0 auto;
-  @media (max-width: 600px) {
-    width: 100px; /* Tamaño del círculo */
-    height: 100px;
+  flex-shrink: 0; /* IMPORTANTE: Evita que la foto se aplaste si hay mucho texto */
+
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--strong-fg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+
+  /* Desktop: Un poco más grande */
+  @media (min-width: 768px) {
+    width: 230px;
+    height: 230px;
   }
+
+  z-index: 10;
 `;
 
+export const AboutMeParaph = styled(motion.p)`
+  font-family: monospace;
+  line-height: 1.6; /* Mejor lectura */
+  font-size: 1rem;
+
+  /* Estilo tipo "tarjeta" o limpio */
+  background-color: var(--bg); /* O usa var(--quote-bg) para resaltarlo */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem; /* Espacio entre párrafos */
+  border-left: 3px solid var(--accent); /* Detalle visual elegante */
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    background-color: var(--bg);
+    border: none;
+  }
+
+  z-index: 10;
+`;
+export const BioTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Toma todo el espacio restante disponible */
+  max-width: 100%;
+`;
 // For the sidebar
 export const Sidebar = styled.aside`
   width: 250px;
@@ -474,11 +508,3 @@ const ReactIcon = styled(Link)`
     color: var(--fg);
   }
 `;
-
-// Touch targets do not have sufficient size or spacing.
-// Touch targets with sufficient size and spacing help users who may have difficulty targeting small controls to activate the targets
-// https://dequeuniversity.com/rules/axe/4.11/link-name
-
-// Document does not have a main landmark.
-// One main landmark helps screen reader users navigate a web page
-// https://dequeuniversity.com/rules/axe/4.11/landmark-one-main

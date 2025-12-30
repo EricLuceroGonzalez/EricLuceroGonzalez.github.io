@@ -69,7 +69,6 @@ export default function LanguageSwitcher() {
   const nextLocale = locale === "es" ? "en" : "es";
   const handleChange = () => {
     // Reemplaza la URL actual con el nuevo idioma
-    console.log(`pathname: ${pathname}`);
     if (isPending) return;
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });

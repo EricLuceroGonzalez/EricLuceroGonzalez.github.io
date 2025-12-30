@@ -578,7 +578,6 @@ function ejecutarGA(onProgress) {
 // ==========================================
 
 export default function SorteoMundialGA(props) {
-  console.log("Rendering SorteoMundialGA component");
   const [sorteo, setSorteo] = useState(null);
   const [ejecutando, setEjecutando] = useState(false);
   const [progreso, setProgreso] = useState({ gen: 0, costo: 0 });

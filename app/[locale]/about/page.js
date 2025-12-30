@@ -4,6 +4,7 @@ import {
   AboutMePanel,
   AboutMeParaph,
   AboutWrapper,
+  BioTextContainer,
   IconLink,
   Layout,
   LinkList,
@@ -30,10 +31,10 @@ export default async function About({ params }) {
           <ShowPath title={""} />
           <AboutMePanel>
             <PhotoAvatar
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0, x: -50 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{
-                duration: 0.3,
+                duration: 0.5,
                 scale: { type: "spring", visualDuration: 0.3, bounce: 0.5 },
               }}
             >
@@ -42,27 +43,51 @@ export default async function About({ params }) {
                   "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/Web-communication/owsftbzp6mn5iuvkogrl.jpg"
                 }
                 alt={"A portrait photos of Eric Lucero"} // Texto alternativo
-                width={150} // Ancho de la imagen
-                height={150} // Alto de la imagen
+                width={280} // Ancho de la imagen
+                height={280} // Alto de la imagen
                 priority
                 style={{
                   width: "100%",
-                  height: "auto",
-                  zIndex: 1000,
+                  height: "100%",
+                  objectFit: "cover",
+                  zIndex: 100,
                 }}
               />
             </PhotoAvatar>
+            <BioTextContainer>
+              <AboutMeParaph
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.8,
+                  scale: { type: "spring", visualDuration: 0.5, bounce: 0.3 },
+                }}
+              >
+                {t("paragraph1")}
+              </AboutMeParaph>
 
-            <AboutMeParaph
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.8,
-                scale: { type: "spring", visualDuration: 0.5, bounce: 0.3 },
-              }}
-            >
-              {t("content")}
-            </AboutMeParaph>
+              <AboutMeParaph
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.8,
+                  scale: { type: "spring", visualDuration: 0.5, bounce: 0.3 },
+                }}
+              >
+                {t("paragraph2")}
+              </AboutMeParaph>
+
+              <AboutMeParaph
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.8,
+                  scale: { type: "spring", visualDuration: 0.5, bounce: 0.3 },
+                }}
+              >
+                {t("paragraph3")}
+              </AboutMeParaph>
+            </BioTextContainer>
           </AboutMePanel>
           <LinkList>
             <IconLink
