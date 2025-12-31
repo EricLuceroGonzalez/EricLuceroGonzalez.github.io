@@ -12,7 +12,7 @@ const HomeBoxes = ({ props, locale }) => {
   return (
     <>
       <BoxGrid>
-        {props.posts.map(
+        {props.map(
           ({
             slug,
             id,

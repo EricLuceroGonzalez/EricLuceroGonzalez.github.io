@@ -39,10 +39,10 @@ export default async function Home({ params }) {
 
         <SubTitlePage>Blog</SubTitlePage>
 
-        <HomeBoxes props={allPostsData} />
+        <HomeBoxes props={allPostsData.posts} />
         <LatexSection>
           <SubTitlePage>LaTeX</SubTitlePage>
-          <HomeBoxes props={allLatexPosts} />
+          <HomeBoxes props={allLatexPosts.posts} />
         </LatexSection>
       </MainPageBg>
     </PageContainer>

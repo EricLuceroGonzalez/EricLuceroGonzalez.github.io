@@ -53,7 +53,7 @@ const MdxComponents = {
       return typeof child === "string" ? child : "";
     };
 
-    if (className.includes("language-mermaid") || match[1] === "mermaid") {
+    if (match && match[1] === "mermaid") {
       // Pasamos el contenido de texto (el código del diagrama) al componente Mermaid
       return <Mermaid chart={children} />;
     }
