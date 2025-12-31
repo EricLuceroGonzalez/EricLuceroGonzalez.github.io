@@ -40,10 +40,12 @@ export default async function Home({ params }) {
         <SubTitlePage>Blog</SubTitlePage>
 
         <HomeBoxes props={allPostsData.posts} />
-        <LatexSection>
-          <SubTitlePage>LaTeX</SubTitlePage>
-          <HomeBoxes props={allLatexPosts.posts} />
-        </LatexSection>
+        {allLatexPosts.posts.length > 0 ? (
+          <LatexSection>
+            <SubTitlePage>LaTeX</SubTitlePage>
+            <HomeBoxes props={allLatexPosts.posts} />
+          </LatexSection>
+        ) : null}
       </MainPageBg>
     </PageContainer>
   );

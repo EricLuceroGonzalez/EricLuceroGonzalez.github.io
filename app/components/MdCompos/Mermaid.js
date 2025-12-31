@@ -8,6 +8,12 @@ mermaid.initialize({
   startOnLoad: false,
   theme: "default", // opciones: 'default', 'dark', 'forest', 'neutral'
   securityLevel: "loose",
+  themeVariables: {
+    fontFamily: "monospace",
+    // primaryColor: "var(--bg)",
+    // primaryTextColor: "var(--fg)",
+    // lineColor: "var(--strong-fg)",
+  },
 });
 
 const Mermaid = ({ chart }) => {

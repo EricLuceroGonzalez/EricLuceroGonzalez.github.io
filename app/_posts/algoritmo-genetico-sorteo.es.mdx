@@ -95,6 +95,33 @@ Luego, se seleccionan las mejores soluciones para reproducirse y generar nuevas 
 
 Este proceso se repite durante varias generaciones hasta que se alcance un criterio de terminación, como un número máximo de generaciones o una solución suficientemente buena.
 
+### Algoritmo Genético básico
+```mermaid
+---
+config:
+  layout: dagre
+  look: classic
+  theme: dark
+---
+graph TD
+    start([Inicio]) --> init[Inicializar Población P<sub>0</sub>]
+    init --> eval["Evaluar Fitness f(x)"]
+    eval --> check{¿Criterio de parada?}
+    
+    check -- Sí --> finish([Fin: Retornar mejor solución])
+    check -- No --> select[Selección de Padres]
+    subgraph Operadores Genéticos
+    select --"`Probabilidad de **80%**`"--> cross[Cruce / Crossover]
+    cross --"`Probabilidad de **20%**`"--> mutate[Mutación]
+    end
+    mutate --> replace[Nueva Población P<sub>t+1</sub>]
+    replace --> eval
+
+    style start fill:#0077FF,stroke:#fff,color:#fff
+    style finish fill:#FF3366,stroke:#fff,color:#fff
+    style check fill:#002332,stroke:#0077FF,stroke-width:2px,color:#fff 
+```
+
 ## Población inicial
 
 Los algoritmos genéticos forman parte del conjunto de __metaheurísticas__ llamadas o clasificadas como poblacionales. 
