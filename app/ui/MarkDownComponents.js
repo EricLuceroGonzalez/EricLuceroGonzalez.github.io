@@ -239,3 +239,9 @@ export const ContainerDiv = styled.div`
     width: 100%;
   }
 `;
+
+export const MermaidContainer = styled.div`
+  width: 100%;
+  margin: 1rem auto;
+  /* background-color: var(--fg); */
+`;

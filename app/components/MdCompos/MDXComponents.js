@@ -24,6 +24,7 @@ import Image from "next/image";
 import H2Header from "./H2Header";
 import H3Header from "./H3Header";
 import { Link } from "@/i18n/navigation";
+import Mermaid from "./Mermaid";
 const MdxComponents = {
   h1: (props) => <MdHead {...props}>{props.children}</MdHead>,
   h2: (props) => <H2Header {...props} />,
@@ -52,6 +53,10 @@ const MdxComponents = {
       return typeof child === "string" ? child : "";
     };
 
+    if (className.includes("language-mermaid") || match[1] === "mermaid") {
+      // Pasamos el contenido de texto (el código del diagrama) al componente Mermaid
+      return <Mermaid chart={children} />;
+    }
     // Si children es un array, lo mapeamos correctamente
     const codeText = Array.isArray(children)
       ? children.map(getText).join("").trim()
