@@ -59,7 +59,6 @@ export const MdBlockQuote = styled.blockquote`
 `;
 
 export const MdHead = styled.h1`
-  /* color: var(--fg); */
   text-align: left;
   font-size: xx-large;
   @media (min-width: 660px) {
@@ -67,12 +66,18 @@ export const MdHead = styled.h1`
   }
   line-height: 0.9;
   margin: 1em 0;
+  @media (max-width: 660px) {
+    font-size: x-large;
+  }
 `;
 export const MdSubHeadA = styled.h2`
   padding-top: 1rem;
   margin-top: 2rem;
   color: var(--accent);
   font-size: x-large;
+  @media (max-width: 660px) {
+    font-size: large;
+  }
   a {
     color: var(--bg);
   }
@@ -163,13 +168,21 @@ export const MdImage = styled.div`
 `;
 export const MdImageCaption = styled.p`
   color: var(--bg);
-  margin: 5px 0;
+  padding: 12px 0;
+  text-align: justify;
+  max-width: 95%;
+  font-size: smaller;
+`;
+export const MdImageCaptionNumber = styled.span`
+  color: var(--accent);
+  font-weight: bold;
+  /* margin: 5px 0;
   text-align: justify;
   max-width: 98%;
   font-size: smaller;
   @media (min-width: 860px) {
     max-width: 80%;
-  }
+  } */
 `;
 
 export const MdCite = styled.sup`

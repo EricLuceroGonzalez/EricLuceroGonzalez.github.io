@@ -5,9 +5,6 @@ import {
   getPostsByType,
   getSurroundingPosts,
 } from "@/app/lib/api";
-// MDX
-import fs from "fs";
-import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import MdxComponents from "@/app/components/MdCompos/MDXComponents";
 import { dynamicMdxComponents } from "@/app/components/MdCompos/dynamicMdxComponents";
@@ -29,7 +26,8 @@ import ScrollDiv from "@/app/components/navigation/ScrollDiv.js";
 import DateDisplay from "@/app/components/DateDisplay.js";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import rehypeMathjax from "rehype-mathjax";
+// import rehypeMathjax from "rehype-mathjax";
+import rehypeKatex from "rehype-katex";
 import supersub from "remark-supersub";
 import rehypeHighlight from "rehype-highlight";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -145,7 +143,7 @@ const BlogPost = async ({ params }) => {
                     },
                   ],
                 ],
-                rehypePlugins: [rehypeMathjax, rehypeHighlight, rehypeSlug],
+                rehypePlugins: [rehypeKatex, rehypeHighlight, rehypeSlug],
               },
             }}
           />
@@ -213,6 +211,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
       index: true,
       follow: true,
     },
+    // Importante que el post.slug coincida con el nombre del archivo MDX
     openGraph: {
       title: `${post.title} | Blog`,
       description: post.excerpt,

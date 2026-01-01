@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
+import "katex/dist/katex.min.css";
 import {
   getMessages,
   setRequestLocale,
@@ -7,8 +8,8 @@ import {
 import React, { Suspense } from "react";
 import Footer from "../components/navigation/footer";
 import Providers from "../Providers.js";
-// import { Alexandria, Parkinsans } from "next/font/google";
-import { parkisans } from "../ui/fonts.js";
+import { Alexandria, Parkinsans } from "next/font/google";
+import { parkinsans } from "../ui/fonts.js";
 // import { MathJaxContext } from "better-react-mathjax";
 // import NaviBar from "./components/navigation/navbar/NaviBar";
 
@@ -87,7 +88,7 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html
       lang={locale}
-      className={`${parkisans.className}`}
+      className={`${parkinsans.className}`}
       suppressHydrationWarning
     >
       <body style={{ width: "100%" }} antialiased="true">

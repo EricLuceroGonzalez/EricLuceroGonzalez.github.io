@@ -1,0 +1,144 @@
+---
+slug: 'que-es-tex-1'
+id: 'latex-001'
+date: "2025-03-20"
+order: 0
+author: "Eric Lucero"
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
+webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
+coverImageAlt: 'Imagen de cover del con el logo de latex y unas paginas'
+title: "TeX: Más que un Software, una Filosofía"
+shortTitle: "TeX"
+entryType: "latex"
+excerpt: "Desde la crisis de la impresión en los años 70 hasta el estándar de oro actual. Descubre por qué Donald Knuth creó TeX y por qué sigue siendo insuperable."
+doctype: ["latex"]
+isPublic: true
+---
+## Contenido
+
+## Cuando las Letras Perdieron su Alma
+
+Para entender **TeX**, primero debemos viajar atrás en el tiempo, a finales de la década de 1970.
+
+Durante siglos, la impresión de libros fue un arte manual de alta precisión. Los artesanos colocaban tipos de plomo físico, asegurando que cada página tuviera un "color" (densidad de tinta) uniforme y hermoso. Pero con la llegada de las nuevas tecnologías de fotocomposición digital en los 70, algo terrible sucedió: la calidad se desplomó.
+
+**Donald Knuth**, un renombrado informático y matemático, recibió las pruebas de impresión para el segundo volumen de su obra maestra, *The Art of Computer Programming*, y quedó horrorizado. Las fórmulas matemáticas se veían torpes, el espaciado era irregular y la belleza de los volúmenes anteriores había desaparecido.
+
+![caption=La extensa obra de Knuth: "The Art of Computer Programming" que hizo posible TeX.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767290081/elCronopio/Blog-posts/2880px-The_Art_of_Computer_Programming__vol._1-4B_-2807_d4lvyt.jpg)
+
+Knuth, siendo un perfeccionista, decidió que no podía tolerar eso. Pensó que le tomaría unos seis meses escribir un programa para solucionar el problema. Le tomó casi una década. El resultado fue **TeX**.
+
+En mayo de 1977, Knuth diría lo siguiente: 
+
+
+<QuoteAndAuthor quotation={{ quote: "TEX is for technical text. Insiders pronounce the X as a Greek Chi (cf. the Scottish `ch' sound in `Loch Ness') since the word `technical' stems from a Greek root meaning art as well as technology. I am preparing the system   primarily for use in publishing my series The Art of Computer Programming-- the initial system will be tuned for my books, but it will not be difficult to extend it for other purposes if anybody wants to do so.", author: "Donald Knuth", source: "Preliminary preliminary description of TEX (1977)"}} />
+
+
+## ¿Qué es TeX realmente?
+
+TeX no es un procesador de textos convencional; es un sistema de **composición tipográfica** (*typesetting*). 
+
+<QuoteAndAuthor quotation={{ quote: "...TEX, a new typesetting system intended for the creation of beautiful books -- and especially for books that contain a lot of mathematics.", author: "Donald Knuth", source: "The TeXbook (1984)"}} />
+
+
+Su objetivo no es simplemente poner letras en una página, sino hacerlo con la misma calidad estética que los antiguos maestros impresores, pero utilizando la precisión de las matemáticas modernas.
+
+
+### El Nombre y el Logo: Una Declaración de Principios
+
+Quizás hayas visto el nombre escrito de una forma peculiar:
+
+<div style={{ fontFamily: 'serif', fontSize: '1.5rem', margin: '1rem 0' }}>
+  T<span style={{ verticalAlign: '-0.25em', marginLeft: '-0.1em', marginRight: '-0.05em' }}>E</span>X
+</div>
+
+* **El Origen Griego:** El nombre proviene de la raíz griega **$\tau\epsilon\chi$** (*tau*, *epsilon*, *chi*), el inicio de la palabra *techne*, que significa "arte" y "tecnología". Por eso, la "X" se pronuncia como una jota suave o el sonido "loch" escocés, no como una "ks".
+* **La 'E' Caída:** El logo con la 'E' desplazada hacia abajo no es un adorno. Es una demostración técnica. En las máquinas de escribir antiguas, las letras estaban atrapadas en una línea fija. TeX demostró desde su propio logo que tenía el control absoluto para mover cualquier elemento a cualquier lugar de la página, rompiendo la rigidez de los sistemas anteriores. Donald Knuth 
+dice que esta "E" fuera de lugar nos recuerda que TeX se trata de composición tipográfica y distingue el nombre TeX de los demás sistemas<CitationSup id={"1"}/>.
+
+Citando a Knuth en The TeXBook<CitationSup id={"1"}/>: Los expertos pronuncian la $X$ de $TeX$ como una _chi griega_, y no como una 'x', por lo que $TeX$ rima 
+con la palabra inglesa _blechhh_. Es el sonido de la 'ch' en palabras escocesas como _loch_ o en palabras alemanas como _ach_; es una 'j' española y una 'kh' rusa.
+Y culmina el párrafo con el humor característico de <CitationSup id={"1"}/> con: "Al hablar correctamente con el ordenador, la terminal podría humedecerse ligeramente."
+
+
+### El ESCAPE como solución a los caracteres limitados
+A finales de los años 70, los sistemas de composición eran primitivos. Normalmente en una máquina de escribir o en un sistema de 
+composición de texto actual, los caracteres disponibles en el teclado son algo parecido a lo siguiente:
+   $$
+    \begin{aligned}
+    & ABCDEFGHIJKLMNOPQRSTUVWXYZ \\
+    & abcdefghijklmnopqrstuvwxyz \\
+    & 0123456789"\#\$\%\&@*+-=,.:;?! \\
+    & ()\lt\gt[]\{\}`'\|/\_\sim\hat{} \,\backslash
+    \end{aligned}
+    $$
+
+Knuth, en The TeXBook<CitationSup id={"1"}/> usa este argumento de los caracteres limitado para introducir una de las claves de 
+TeX (en aquella época previa a las computadoras modernas): el uso del carácter de escape `\` para introducir comandos especiales que van más allá de los caracteres disponibles en el teclado.
+
+La elección del carácter de escape `\` no fue arbitraria. En los sistemas de composición de la época, este carácter no se usaba para nada especial además que esta tecla se ubicaba cerca de la barra espaciadora en teclados de los 70's (actualmente está en una ubicación mucho mas conveniente en los teclados en inglés), por lo que Knuth lo eligió para evitar conflictos con otros caracteres. 
+
+>Después de teclear el carácter de escape `\`, TeX interpreta la siguiente secuencia de caracteres como un __comando especial__. 
+
+Por ejemplo, `\alpha` representa la letra griega $\alpha$, y `\frac{a}{b}` crea una fracción con 'a' en el numerador y 'b' en el denominador:
+$$\frac{a}{b}$$
+
+Los _comandos especiales_ de $TeX$ son el primer paso a la comprensión de su filosofía y su uso: separar el contenido del formato visual.
+
+## Una Filosofía Diferente: WYSIWYM
+
+Programas conocidos como Word, que siguen la filosofía **WYSIWYG** (*What You See Is What You Get* - Lo que ves es lo que obtienes). Si pones algo en negrita, lo ves al instante.
+El paradigma más conocido y "cómodo" de trabajar es sin duda el __WYSIWYG__. Parece útil, pero mezcla dos procesos que deberían estar separados: la **autoría** y la **edición**.
+
+![caption=Paradigma WYSIWYG. Entre el documento de salida y el que modificamos en un editor de texto no hay casi diferencia. Modificamos el documento tal cual lo queremos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767297024/elCronopio/Blog-posts/IMG_0052_wuw4dw.jpg)
+
+TeX propone algo más profundo usando el paradigma **WYSIWYM** (*What You See Is What You Mean* - Lo que ves es lo que quieres decir).
+
+En lugar de distraerte con el diseño visual mientras escribes, en TeX te concentras en la estructura y el significado:
+
+![caption=Paradigma WYSIWYM. Entre el documento de salida y el que editamos hay un proceso de compilación de algún lenguaje (como TeX) y no hay parecido alguno entre estos documentos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767297023/elCronopio/Blog-posts/IMG_0051_eeqkhd.jpg)
+
+En el caso de TeX, usamos los comandos predefinidos (o incluso los definimos nosotros) y nos enfocamos en escribir el contenido y el significado, y TeX se encarga de calcular matemáticamente los saltos de línea, el kerning (espacio entre letras) y la justificación perfecta. Es como tener a un diseñador gráfico experto dentro de tu ordenador.
+
+* **En WYSIWYG:** Pasas el tiempo moviendo márgenes con el ratón, cambiando fuentes manualmente y preocupándote por si la imagen saltó a la página siguiente.
+* **En WYSIWYM (TeX):** Tú escribes el *significado*. Dices: `\chapter{Introducción}` o `\emph{importante}`. No te preocupas por cómo se ve mientras escribes; te concentras en el contenido. Luego, TeX actúa como el diseñador gráfico experto, tomando tus instrucciones semánticas y convirtiéndolas en una página visualmente perfecta.
+
+
+## Más Allá de las Matemáticas: La Versatilidad de TeX
+
+Aunque TeX nació para salvar la impresión de libros de matemáticas (es insuperable componiendo ecuaciones complejas), su motor es tan robusto que hoy se usa para todo tipo de documentos impresos de alta calidad:
+
+1. **Presentaciones:** Con paquetes como `Beamer`, TeX permite crear diapositivas profesionales con un control total sobre el diseño.
+2. **Gráficos y Diagramas:** A través de extensiones como `TikZ`, los usuarios pueden crear gráficos vectoriales complejos directamente dentro de sus documentos TeX.
+3. **Revistas Científicas:** Muchas publicaciones académicas utilizan TeX para garantizar la consistencia y calidad tipográfica en sus artículos.
+4. **Posters Académicos:** TeX es una herramienta popular para diseñar posters científicos y académicos debido a su capacidad para manejar texto y gráficos de manera eficiente.
+5. **CV**: Muchos profesionales utilizan TeX para crear currículums vitae que destacan por su diseño limpio y profesional.
+6.  **Libros y Novelas:** Para lograr esa apariencia profesional donde el texto fluye sin "ríos" de espacio en blanco distractores.
+7. **Exámenes y Material Educativo:** Muchos educadores utilizan TeX para crear exámenes y materiales de estudio debido a su capacidad para manejar fórmulas matemáticas y diagramas complejos.
+8. **Material Promocional:** Cartas, menús de restaurantes o invitaciones que requieren una presentación elegante.
+9.  **Partituras Musicales:** Sistemas como `MusiXTeX` utilizan el motor para colocar notas con precisión milimétrica.
+10. **Cartas y Correspondencia Formal:** TeX permite diseñar cartas con un formato impecable, ideal para comunicaciones profesionales.
+11.  **Documentos Legales:** Donde la estructura y la permanencia del formato son críticas.
+
+La plataforma Overleaf<CitationSup id={2}/> (una plataforma en línea para escribir documentos TeX), tiene una extensa galería con todo tipo de documentos de TeX. Puedes ver todas estas plantillas en línea [haciendo clic aquí.](https://www.overleaf.com/gallery/)
+
+### El Ecosistema Actual, los motores: TeX Live y MiKTeX
+
+Aunque el código fuente original de Knuth es la base inmutable (literalmente "congelada" para evitar cambios que rompan la compatibilidad histórica), hoy en día interactuamos con TeX a través de distribuciones modernas.
+Nadie usa el TeX original "puro" hoy en día sin ayuda. 
+
+Utilizamos (e instalamos en nuestros ordenadores) "distribuciones" que facilitan su uso: **TeX-Live:** y **MiKTeX:**
+
+* **TeX Live:** Es el estándar *de facto* en el mundo Linux y Unix (y Mac a través de MacTeX). Es una distribución completa, robusta y mantenida por una comunidad vibrante (TUG). Si quieres tener "todo" el universo TeX instalado y listo, esta es tu elección.
+* **MiKTeX:** Muy popular entre los usuarios de Windows. Su genialidad radica en su capacidad de "instalación bajo demanda". ¿Tu documento pide un paquete de fuentes exótico que no tienes? MiKTeX lo descarga e instala automáticamente mientras compila.
+
+Ambos son los "chasis" modernos para el motor clásico que Knuth diseñó.
+
+## Conclusión
+
+TeX es la respuesta de un programador a la fealdad. Es la herramienta definitiva para quienes creen que un documento no solo debe leerse, sino admirarse. Al separar el contenido de la forma, TeX garantiza que tus escritos de hoy se podrán imprimir perfectamente dentro de 100 años.
+
+<ReferenceList references={[
+{id: "1", text:"Donald Knuth, The TeXBook (1984)", url:"https://www-cs-faculty.stanford.edu/~knuth/abcde.html#texbk"},
+{id:"2", text: "Overleaf - Online LaTeX Editor", url: "https://www.overleaf.com/"}
+]}/>

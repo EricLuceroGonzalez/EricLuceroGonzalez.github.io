@@ -8,6 +8,7 @@ import {
   MdHead,
   MdImage,
   MdImageCaption,
+  MdImageCaptionNumber,
   MdLink,
   MdListItem,
   MdOrderedList,
@@ -84,7 +85,15 @@ const MdxComponents = {
     if (isAnchor || isInternal) {
       // Retornamos un link limpio para que el scroll funcione
       return (
-        <Link {...props} style={{ textDecoration: "none", color: "inherit" }}>
+        <Link
+          {...props}
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            borderBottom: "2px dotted var(--accent)",
+            cursor: "pointer",
+          }}
+        >
           {props.children}
         </Link>
       );
@@ -107,9 +116,25 @@ const MdxComponents = {
   },
   img: ({ src, alt }) => {
     const metastring = alt || "";
-    const captionSeparation = metastring.match(/caption=(.*)/);
-    const caption = captionSeparation ? captionSeparation[1].trim() : null;
+
     const hasCaption = metastring.toLowerCase().includes("caption=");
+    const hasNumber = metastring.toLowerCase().includes("number=");
+    let captionSeparation;
+    let captionNumber;
+    let caption;
+
+    if (hasCaption && hasNumber) {
+      // Eliminar cualquier texto adicional después del caption
+      captionSeparation = metastring.match(/number=(\d+)\s*caption=(.*)/);
+      captionNumber = captionSeparation ? captionSeparation[1].trim() : null;
+      caption = captionSeparation ? captionSeparation[2].trim() : null;
+    }
+
+    if (hasCaption && !hasNumber) {
+      // Eliminar cualquier texto adicional después del caption
+      captionSeparation = metastring.match(/caption=(.*)/);
+      caption = captionSeparation ? captionSeparation[1].trim() : null;
+    }
     return (
       <MdImage>
         <Image
@@ -121,7 +146,15 @@ const MdxComponents = {
           alt={caption}
           // objectFit="cover"
         />
-        {hasCaption && <MdImageCaption>{caption}</MdImageCaption>}
+        {hasCaption && hasNumber && (
+          <MdImageCaption>
+            <MdImageCaptionNumber>
+              Figura: {captionNumber}.
+            </MdImageCaptionNumber>{" "}
+            {caption}
+          </MdImageCaption>
+        )}
+        {hasCaption && !hasNumber && <MdImageCaption>{caption}</MdImageCaption>}
       </MdImage>
     );
   },

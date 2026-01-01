@@ -19,10 +19,10 @@ const QuoteBack = styled.div`
 `;
 
 const QuoteText = styled.div`
-  font-size: 1.3em;
   line-height: 1.5;
+  font-size: 1.1rem;
   @media (max-width: 660px) {
-    font-size: 0.8em;
+    font-size: normal;
     margin: 5px auto;
   }
 `;
@@ -42,15 +42,15 @@ const QuoteRightIcon = styled.div`
 `;
 
 const AuthorContainer = styled.div`
-  margin-top: 1rem;
+  margin-top: 0%.5;
   text-align: right;
   font-weight: bold;
-  font-size: 1em;
+  font-size: normal;
 `;
 
 const SourceContainer = styled.div`
   text-align: right;
-  font-size: 1em;
+  font-size: small;
 `;
 
 export const QuotationAndAuthor = ({ quotation }) => {

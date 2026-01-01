@@ -1,5 +1,5 @@
 import { MainBg } from "@/app/ui/ComponentsStyled";
-import { RiNextjsFill } from "react-icons/ri";
+import { RiEmotionUnhappyFill, RiNextjsFill } from "react-icons/ri";
 import { RiReactjsLine } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io5";
 import {
@@ -7,9 +7,11 @@ import {
   SiI18Next,
   SiLatex,
   SiMdx,
+  SiMermaid,
   SiRemark,
   SiStyledcomponents,
   SiVercel,
+  SiYaml,
 } from "react-icons/si";
 // import styled from "styled-components";
 // import Link from "next/link";
@@ -72,6 +74,26 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_React")}</LogosText>
             </LogosBox>
+
+            <LogosBox>
+              <LogosHead>
+                <ReactIcon href={"https://www.github.com"}>
+                  <FaGithub />
+                </ReactIcon>
+                <LogosTitle>Github</LogosTitle>
+              </LogosHead>
+              <LogosText>{t("stack_github")}</LogosText>
+            </LogosBox>
+
+            <LogosBox>
+              <LogosHead>
+                <ReactIcon href={"https://vercel.com/"}>
+                  <SiVercel />
+                </ReactIcon>
+                <LogosTitle>Vercel</LogosTitle>
+              </LogosHead>
+              <LogosText>{t("stack_vercel")}</LogosText>
+            </LogosBox>
             <LogosBox>
               <LogosHead>
                 <ReactIcon href={"https://www.i18next.com"}>
@@ -94,22 +116,37 @@ const AboutThisPage = () => {
 
             <LogosBox>
               <LogosHead>
-                <ReactIcon href={"https://github.com/remarkjs/remark"}>
+                <ReactIcon href={"https://remark.js.org"}>
                   <SiRemark />
                 </ReactIcon>
                 <LogosTitle>Remark-js</LogosTitle>
               </LogosHead>
               <LogosText>{t("stack_remark")}</LogosText>
             </LogosBox>
+
             <LogosBox>
               <LogosHead>
-                <ReactIcon href={"https://fontawesome.com"}>
-                  <FaFontAwesome />
+                <ReactIcon
+                  href={"https://unifiedjs.com/explore/package/rehype-raw/"}
+                >
+                  <SiRemark />
                 </ReactIcon>
-                <LogosTitle>Font Awesome</LogosTitle>
+                <LogosTitle>rehype</LogosTitle>
               </LogosHead>
-              <LogosText>{t("stack_fontawesome")}</LogosText>
+              <LogosText>{t("stack_rehype")}</LogosText>
             </LogosBox>
+            <LogosBox>
+              <LogosHead>
+                <ReactIcon
+                  href={"https://github.com/jonschlinkert/gray-matter"}
+                >
+                  <SiMdx />
+                </ReactIcon>
+                <LogosTitle>gray-matter</LogosTitle>
+              </LogosHead>
+              <LogosText>{t("stack_graymatter")}</LogosText>
+            </LogosBox>
+
             <LogosBox>
               <LogosHead>
                 <ReactIcon href={"https://mdxjs.com"}>
@@ -128,25 +165,33 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_latex")}</LogosText>
             </LogosBox>
-
             <LogosBox>
               <LogosHead>
-                <ReactIcon href={"https://www.github.com"}>
-                  <FaGithub />
+                <ReactIcon href={"https://motion.dev"}>
+                  <RiEmotionUnhappyFill />
                 </ReactIcon>
-                <LogosTitle>Github</LogosTitle>
+                <LogosTitle>motion</LogosTitle>
               </LogosHead>
-              <LogosText>{t("stack_github")}</LogosText>
+              <LogosText>{t("stack_motion")}</LogosText>
+            </LogosBox>
+            <LogosBox>
+              <LogosHead>
+                <ReactIcon href={"https://mermaid.js.org"}>
+                  <SiMermaid />
+                </ReactIcon>
+                <LogosTitle>Mermaid JS</LogosTitle>
+              </LogosHead>
+              <LogosText>{t("stack_mermaid")}</LogosText>
             </LogosBox>
 
             <LogosBox>
               <LogosHead>
-                <ReactIcon href={"https://vercel.com/"}>
-                  <SiVercel />
+                <ReactIcon href={"https://fontawesome.com"}>
+                  <FaFontAwesome />
                 </ReactIcon>
-                <LogosTitle>Vercel</LogosTitle>
+                <LogosTitle>Font Awesome</LogosTitle>
               </LogosHead>
-              <LogosText>{t("stack_vercel")}</LogosText>
+              <LogosText>{t("stack_fontawesome")}</LogosText>
             </LogosBox>
 
             <LogosBox>

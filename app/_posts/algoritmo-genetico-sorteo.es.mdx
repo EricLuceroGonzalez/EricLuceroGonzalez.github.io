@@ -14,9 +14,9 @@ excerpt: "Hackeando el Mundial 2026: Cómo los Algoritmos Genéticos resuelven l
 doctype: ["blog", "python"]
 isPublic: true
 ---
-
 ## Contenido
 
+## El sorteo de grupos de la Copa Mundial de la FIFA 2026
 La Copa Mundial de la FIFA 2026 será la primera en disputarse entre 48 selecciones nacionales de todo el mundo.
 Estos 48 equipos deben distribuirse en 12 grupos y se reparten de forma particular a través de un sorteo que pone algunas restricciones interesante en la formación de estos grupos, gracias a estas
 el sorteo se puede llevar a cabo de forma rápida y sin problemas.
@@ -24,7 +24,7 @@ Una vez hecho el sorteo queda determinado cómo se enfrentarán los equipos en l
 
 En la edición de 2026, con 48 equipos participantes, el sorteo se vuelve aún más complejo debido a las múltiples restricciones que deben cumplirse<CitationSup id="1" />.
 
-![caption=Itinerario de las rondas eliminatorias del mundial según la FIFA. Esta configuración da lugar a la restricción de no enfrentamientos entre España y Argentina, o entre Francia e Inglaterra antes de la final, lo que afecta su asignación de grupo en el sorteo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980604/elCronopio/Blog-posts/IMG_0045_g1dpkv.jpg)
+![number=1caption=Itinerario de las rondas eliminatorias del mundial según la FIFA. Esta configuración da lugar a la restricción de no enfrentamientos entre España y Argentina, o entre Francia e Inglaterra antes de la final, lo que afecta su asignación de grupo en el sorteo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980604/elCronopio/Blog-posts/IMG_0045_g1dpkv.jpg)
 
 El problema al que nos enfrentamos al generar el sorteo de grupos es un problema de optimización combinatoria con restricciones.
 Solo hay un número limitado de combinaciones posibles que cumplen con todas las restricciones impuestas por la FIFA, a esto se le llama 
@@ -46,7 +46,7 @@ Por ejemplo, en el Mundial de 2026, con 48 equipos y múltiples restricciones, e
 En el sorteo hay 42 equipos distribuidos en 4 bombos (recipientes) que van a ser distribuidos en 12 grupos (del A al L). De cada bombo se irán sacando los equipos de forma aleatoria hasta vaciar el bombo, de tal manera que cada grupo tendrá un equipo de cada bombo.
 Los anfitriones (Canadá, México y Estados Unidos) ya tienen asignado su grupo, y en cada bombo hay 12 equipos. 
 
-![caption=Orden de los equipos en los bombos. Los equipos anfitriones no participan del sorteo, al tener ya asignados de antemano sus respectivos grupos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980621/elCronopio/Blog-posts/sorteo-6_laha05.jpg)
+![number=2caption=Orden de los equipos en los bombos. Los equipos anfitriones no participan del sorteo, al tener ya asignados de antemano sus respectivos grupos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980621/elCronopio/Blog-posts/sorteo-6_laha05.jpg)
 
 Ahora calculemos todas las __combinaciones posibles__ sin considerar las restricciones y usando factoriales ($n!$).
 - Bombo 1: $9!$,
@@ -77,7 +77,7 @@ Las restricciones son las siguientes <CitationSup id="3" />:
 - _Confederaciones por grupo:_ Ningún grupo puede tener más de una selección de la misma confederación, excepto las de la UEFA, que pueden tener hasta dos selecciones en un mismo grupo.
 - _Top 4 del ranking:_ Por último, las selecciones de España y Argentina por un lado, y Francia e Inglaterra por otro, no podrán enfrentarse hasta la semifinal, por ser los cuatro primeros 
 del ranking masculino de la FIFA a la fecha<CitationSup id="2" />. Esto restringe que se agreguen a cualquier grupo.
-![caption=España vs Argentina, ni Inglaterra vs Francia podrán enfrentarse hasta la final del mundial. Esto bajo el supuesto que cada una de esas clasifique de primera en su grupo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/Brackets-10_qxhf0p.jpg)
+![number=3caption=España vs Argentina, ni Inglaterra vs Francia podrán enfrentarse hasta la final del mundial. Esto bajo el supuesto que cada una de esas clasifique de primera en su grupo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/Brackets-10_qxhf0p.jpg)
 
 Esto es lo que llamamos *restricciones* del problema.
 Intentar generar todas las combinaciones posibles y luego filtrar las que cumplen con las restricciones sería computacionalmente inviable como ya hemos visto.
@@ -96,6 +96,19 @@ Luego, se seleccionan las mejores soluciones para reproducirse y generar nuevas 
 Este proceso se repite durante varias generaciones hasta que se alcance un criterio de terminación, como un número máximo de generaciones o una solución suficientemente buena.
 
 ### Algoritmo Genético básico
+En el ciclo de vida de un algoritmo genético hay valores que no cambian, llamados _hiperparámetros_, y su valor puede determinar
+el éxito o fracaso del algoritmo, ya que algunas __metaheurísticas__ son muy sensibles a estos valores. En nuestro caso estos hiperparámetros son:
+- Tamaño de la población: Cuántos individuos (soluciones candidatas) van a conformar la población en cada generación.
+- Número de generaciones: Cuántas veces se va a repetir el ciclo de vida del algoritmo. 
+- Probabilidad de cruce. Se establece en un 80%, ya que este valor suele ser efectivo para explorar el espacio de búsqueda.
+- Probabilidad de mutación. Establecida en un 20%, ya que este valor suele ser efectivo para mantener la diversidad genética sin alterar demasiado las soluciones existentes.
+```python
+POBLACION_TAM = 10 # Tamaño de la población
+GENERACIONES = 1000 # Número de generaciones
+PROB_CROSSOVER = 0.8  # 80% probabilidad de cruce
+PROB_MUTACION = 0.2  # 20% probabilidad de mutación
+```
+El ciclo de vida de un algoritmo genético básico se puede representar con el siguiente diagrama de flujo:
 ```mermaid
 ---
 config:
@@ -109,17 +122,24 @@ graph TD
     eval --> check{¿Criterio de parada?}
     
     check -- Sí --> finish([Fin: Retornar mejor solución])
-    check -- No --> select[Selección de Padres]
-    subgraph Operadores Genéticos
-    select --"`Probabilidad de **80%**`"--> cross[Cruce / Crossover]
-    cross --"`Probabilidad de **20%**`"--> mutate[Mutación]
+    check -- No --> select[Selección de Padres]:::goldStyle
+    
+    subgraph Operadores_Geneticos [Operadores Genéticos]
+    select --"`Probabilidad de **80%**`"--> cross[Cruce / Crossover]:::goldStyle
+    cross --"`Probabilidad de **20%**`"--> mutate[Mutación]:::goldStyle
     end
     mutate --> replace[Nueva Población P<sub>t+1</sub>]
     replace --> eval
+    
 
-    style start fill:#0077FF,stroke:#fff,color:#fff
-    style finish fill:#FF3366,stroke:#fff,color:#fff
-    style check fill:#002332,stroke:#0077FF,stroke-width:2px,color:#fff 
+    %% Estilos
+    style start fill:#0077FF,stroke:#0077FF,color:#fff
+    style finish fill:#FF3366,stroke:#FF3366,color:#fff
+    style check fill:#0077FF,stroke:#0077FF,stroke-width:2px,color:#fff 
+    style Operadores_Geneticos fill:#fceaaeff,stroke:#FF3366,stroke-width:2px,stroke-dasharray: 5 5,color:#FF3366
+    
+    classDef goldStyle fill:#2c2c00,stroke:#FF3366,stroke-width:2px,color:#fff;
+    classDef floatText fill:none,stroke:none,color:#FF3366,font-style:italic,font-size:11px;
 ```
 
 ## Población inicial
@@ -177,7 +197,7 @@ Ya hemos dicho que cada individuo del algoritmo genético representa una soluci�
 _un sorteo de grupos_ con los 12 grupos completos, sin importar si son válidos o no. Como cada sorteo está compuesto por grupos, cada grupo representa lo que 
 llamamos un _gen_ dentro del individuo.
 
-![caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg)
+![number=4caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg)
 
 
 Para nuestro código, cada _gen_ está formado por elementos de la clase `Equipo` que contiene la información relevante de cada selección nacional:
@@ -221,7 +241,7 @@ La forma más sencilla de evaluar un individuo de estas características, es cre
 y en cada una de estas le adjudique una penalización a ese individuo,
 es decir una valoración desfavorable de tal manera que en el _ciclo de vida_ del algoritmo este individuo quede rezagado o no pueda reproducirse y se extinga.
 
-![caption=Evaluación de dos individuos. El individuo A tiene un fitness de 900, ya que viola la repetición de confederaciones en los grupos C,D,E. Además de no separar los itinerarios de España y Argentina.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/Blog-posts/fitness-11_y0fggo.jpg)
+![number=5caption=Evaluación de dos individuos. El individuo A tiene un fitness de 900, ya que viola la repetición de confederaciones en los grupos C,D,E. Además de no separar los itinerarios de España y Argentina.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/Blog-posts/fitness-11_y0fggo.jpg)
 
 El algoritmo busca minimizar este número. Un fitness de 1400 es un desastre; un fitness de 0 es un sorteo válido.
 
@@ -284,7 +304,7 @@ def calcular_fitness(sorteo):
     # Rastrear dónde cayeron los Top seeds {ranking: indice_grupo}
     ubicacion_tops = {}
 
-    # --- 1. Bucle por Grupos ---
+    # --- 1. Ciclo por Grupos ---
     for i, grupo in enumerate(sorteo):
 
         # A. Revisar límite de UEFA (Máximo 2)
@@ -457,7 +477,7 @@ def seleccion_ruleta(evaluados):
 
 ### Cruce
 
-![caption=Ejemplo del operador de cruce. En la imagen vemos que el Padre A dona todos los equipos que pertenecen a los bombos 1 y 4 al hijo A, y los equipos del bombo 2 y 3 al hijo B.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/FIFA-cruce-6_mkwaqe.jpg)
+![number=6caption=Ejemplo del operador de cruce. En la imagen vemos que el Padre A dona todos los equipos que pertenecen a los bombos 1 y 4 al hijo A, y los equipos del bombo 2 y 3 al hijo B.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/FIFA-cruce-6_mkwaqe.jpg)
 
 El cruce es el operador más importante, ya que es el responsable de crear diversidad y explorar el espacio de búsqueda. El cruce toma dos padres y crea un hijo.
 Lo que da lugar al reemplazo de la población actual por una nueva generación. En nuestro caso debemos tener mucho cuidado ya que no podemos hacer un cruce en cualquier punto del individuo (cromosoma)
@@ -511,7 +531,7 @@ def cruzar(padre1, padre2):
 ### Mutación
 Si solo cruzamos padres, eventualmente todos los hijos se parecerán y nos estancaremos en un "Mínimo Local" (una solución que parece buena pero no es la mejor).
 
-![caption=Ejemplo del operador de mutación.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/Fifa-mutar-7_grtdqh.jpg)
+![number=7caption=Ejemplo del operador de mutación.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/Fifa-mutar-7_grtdqh.jpg)
 
 La función `mutar(individuo)` introduce caos controlado. Con una probabilidad del 20%, tomamos un sorteo, elegimos dos grupos al azar e intercambiamos dos equipos del mismo bombo.
 
