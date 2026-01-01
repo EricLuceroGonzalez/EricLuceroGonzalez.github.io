@@ -76,7 +76,7 @@ const PostNavigationCard = ({ post, type }) => {
     >
       {type === "prev" && <FaArrowAltCircleLeft />}
       <PostInfo>
-        <Excerpt>{type == "prev" ? "Anterior" : "Siguiente"}</Excerpt>
+        {/* <Excerpt>{type == "prev" ? "Anterior" : "Siguiente"}</Excerpt> */}
         <Title>{post.title}</Title>
       </PostInfo>
       {type === "next" && <FaArrowAltCircleRight />}

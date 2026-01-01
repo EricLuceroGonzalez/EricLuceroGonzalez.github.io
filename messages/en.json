@@ -65,7 +65,8 @@
     "Blog": {
         "readingTime": "Reading time",
         "minutes": "minutes",
-        "minute": "minute"
+        "minute": "minute",
+        "other_posts": "Other posts"
     },
     "sorteo": {
         "title": "World Cup 2026 Draw",
@@ -146,6 +147,7 @@
         }
     },
     "LatexPage": {
+        "other_posts": "Other posts",
         "title": "The Alchemy of Typesetting: Master LaTeX",
         "subtitle": "From your first equation to complex editorial design. Stop fighting with formatting and start structuring your ideas.",
         "copy_text": {

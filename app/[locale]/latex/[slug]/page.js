@@ -41,7 +41,7 @@ const LatexPost = async ({ params }) => {
   // Importamos los idiomas:
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "Latex" });
+  const t = await getTranslations({ locale, namespace: "LatexPage" });
 
   const post = getPostBySlug(slug, [], locale);
   if (!post) {
@@ -136,7 +136,7 @@ const LatexPost = async ({ params }) => {
                     remarkToc,
                     {
                       heading:
-                        "Índice|Contenido|Tabla de contenidos|Table of Contents",
+                        "Índice|Contenido|Tabla de contenidos|Table of Contents|Contents|Content",
                       tight: true,
                       maxDepth: 3,
                     },
@@ -146,7 +146,7 @@ const LatexPost = async ({ params }) => {
               },
             }}
           />
-          <h1 style={{ marginTop: "6rem" }}>Otros posts:</h1>
+          <h1 style={{ marginTop: "6rem" }}>{t("other_posts")}:</h1>
           <div
             style={{
               display: "flex",

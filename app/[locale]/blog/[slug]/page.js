@@ -137,7 +137,7 @@ const BlogPost = async ({ params }) => {
                     remarkToc,
                     {
                       heading:
-                        "Índice|Contenido|Tabla de contenidos|Table of Contents",
+                        "Índice|Contenido|Tabla de contenidos|Table of Contents|Contents|Content",
                       tight: true,
                       maxDepth: 3,
                     },
@@ -152,7 +152,7 @@ const BlogPost = async ({ params }) => {
               marginTop: "10rem",
             }}
           >
-            <h1>Otros posts:</h1>
+            <h1>{t("other_posts")}:</h1>
             <div
               style={{
                 display: "flex",

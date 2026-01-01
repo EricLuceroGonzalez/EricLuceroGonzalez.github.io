@@ -66,7 +66,8 @@
     "Blog": {
         "readingTime": "Tiempo de lectura",
         "minutes": "minutos",
-        "minute": "minuto"
+        "minute": "minuto",
+        "other_posts": "Otros posts"
     },
     "sorteo": {
         "title": "Sorteo de Mundial 2026",
@@ -147,6 +148,7 @@
         }
     },
     "LatexPage": {
+        "other_posts": "Otros posts",
         "title": "La alquimia de la tipografía: Domina LaTeX",
         "subtitle": "Desde tu primera ecuación hasta el diseño editorial complejo. Deja de pelear con el formato y empieza a estructurar tus ideas.",
         "copy_text": {
