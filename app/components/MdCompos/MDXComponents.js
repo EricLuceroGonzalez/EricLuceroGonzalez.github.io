@@ -26,6 +26,7 @@ import H2Header from "./H2Header";
 import H3Header from "./H3Header";
 import { Link } from "@/i18n/navigation";
 import Mermaid from "./Mermaid";
+
 const MdxComponents = {
   h1: (props) => <MdHead {...props}>{props.children}</MdHead>,
   h2: (props) => <H2Header {...props} />,
@@ -144,13 +145,10 @@ const MdxComponents = {
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
           alt={caption}
-          // objectFit="cover"
         />
         {hasCaption && hasNumber && (
           <MdImageCaption>
-            <MdImageCaptionNumber>
-              Figura: {captionNumber}.
-            </MdImageCaptionNumber>{" "}
+            <MdImageCaptionNumber>Fig: {captionNumber}.</MdImageCaptionNumber>{" "}
             {caption}
           </MdImageCaption>
         )}

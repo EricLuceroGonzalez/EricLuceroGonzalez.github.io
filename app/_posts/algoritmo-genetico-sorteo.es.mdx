@@ -6,7 +6,7 @@ order: 0
 author: "Eric Lucero"
 socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839285/elCronopio/Thumbnails/GA-blog-es_swpqiq.png
 webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg
-coverImageAlt: ""
+coverImageAlt: "Emojis con banderas de los países participantes en la Copa Mundial de la FIFA 2026, organizados en grupos."
 title: "Un Algoritmo Genético para generar el Sorteo de Grupos de la Copa Mundial de la FIFA"
 shortTitle: "Grupos del mundial con Algoritmos Genéticos"
 entryType: "blog"
@@ -32,10 +32,11 @@ _soluciones factibles_.
 
 ### Solución factible
 
-Una solución factible es aquella que satisface la función objetivo y no viola ninguna de las restricciones del problema o al menos aquellas son consideradas obligatorias.
+Una solución factible es aquella que satisface la función objetivo y no viola ninguna de las restricciones del problema o al menos aquellas que son consideradas obligatorias.
 
 En el caso de los grupos del mundial, la solución factible es una configuración del sorteo que cumple con todas las restricciones impuestas, como la distribución de confederaciones y el ranking de los equipos.
-La mayoría de las combinaciones posibles que se pueden hacer con 48 equipos, 4 bombos y 12 grupos no serán soluciones factibles. 
+_La mayoría de las combinaciones posibles que se pueden hacer con 48 equipos, 4 bombos y 12 grupos no serán soluciones factibles._
+
 Aquí radica la dificultad del problema, en encontrar un sorteo que sea válido para todas las restricciones del sorteo.
 
 Este espacio de soluciones puede ser extremadamente grande y complejo, especialmente cuando se consideran todas las restricciones de confederaciones y de ranking de equipos.
@@ -61,7 +62,7 @@ Si el algoritmo hubiera iniciado en el Big Bang, aún no habría terminado, de h
 De tal manera que un algoritmo de fuerza bruta, aquel que va generando todas las combinaciones posibles hasta dar con alguna que no viole las restricciones, 
 es decir que sea factible, puede tardar mucho tiempo incluso millones de años.
 Por suerte existen algoritmos de optimización cuya búsqueda es mucho más eficiente que los de fuerza bruta y reducen este tiempo a un par de segundos.
-En el caso del sorteo de grupos de la Copa Mundial de la FIFA, usaremos un algoritmo genético.
+En el caso del sorteo de grupos de la Copa Mundial de la FIFA, usaremos un __algoritmo genético__.
 
 ### Restricciones del sorteo
 
@@ -75,9 +76,10 @@ Las restricciones son las siguientes <CitationSup id="3" />:
 - _Bombo 1:_ Las otras nueve selecciones del bombo 1 se identificarán mediante nueve bolas del mismo color y se asignarán automáticamente a la posición 1 del grupo en el que resulten encuadradas.
 - _Distribución uniforme:_ En cada grupo debe haber un equipo de cada bombo. 
 - _Confederaciones por grupo:_ Ningún grupo puede tener más de una selección de la misma confederación, excepto las de la UEFA, que pueden tener hasta dos selecciones en un mismo grupo.
-- _Top 4 del ranking:_ Por último, las selecciones de España y Argentina por un lado, y Francia e Inglaterra por otro, no podrán enfrentarse hasta la semifinal, por ser los cuatro primeros 
+- _Top 4 del ranking:_ Por último, las selecciones de España y Argentina por un lado, y Francia e Inglaterra por otro, no podrán enfrentarse hasta la final, por ser los cuatro primeros 
 del ranking masculino de la FIFA a la fecha<CitationSup id="2" />. Esto restringe que se agreguen a cualquier grupo.
-![number=3caption=España vs Argentina, ni Inglaterra vs Francia podrán enfrentarse hasta la final del mundial. Esto bajo el supuesto que cada una de esas clasifique de primera en su grupo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/Brackets-10_qxhf0p.jpg)
+
+![number=3caption=Distribución de los brackets o itinerarios de los equipos. Los equipos de un bracket que clasifiquen a la siguiente ronda competirán contra los equipos del otro bracket. España vs Argentina, ni Inglaterra vs Francia podrán enfrentarse hasta la final del mundial. Esto bajo el supuesto que cada una de esas selecciones clasifique de primera en su grupo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/Brackets-10_qxhf0p.jpg)
 
 Esto es lo que llamamos *restricciones* del problema.
 Intentar generar todas las combinaciones posibles y luego filtrar las que cumplen con las restricciones sería computacionalmente inviable como ya hemos visto.
@@ -89,14 +91,14 @@ generación y en los procesos biológicos de evolución. Están enmarcados dentr
 Las bases teóricas y primeras ideas de los algoritmos genéticos
 pertenecen a los trabajos de John Holland y Lawrence Fogel en los años 60s<CitationSup id='4'/><CitationSup id='5'/>.
 
-Un algoritmo genético se compone de un poblaciones de individuos que representan las soluciones candidatas al problema que se quiere resolver.
+Un algoritmo genético se compone de poblaciones de individuos que representan las soluciones candidatas al problema que se quiere resolver.
 Cada una de estas soluciones se evalúa mediante una función de costo, aptitud o _fitness_ que mide qué tan buena es la solución.
 Luego, se seleccionan las mejores soluciones para reproducirse y generar nuevas soluciones mediante operaciones de _cruce_ y _mutación_.
 
 Este proceso se repite durante varias generaciones hasta que se alcance un criterio de terminación, como un número máximo de generaciones o una solución suficientemente buena.
 
 ### Algoritmo Genético básico
-En el ciclo de vida de un algoritmo genético hay valores que no cambian, llamados _hiperparámetros_, y su valor puede determinar
+En el ciclo de vida de un algoritmo genético hay valores que generalmente no cambian, llamados _hiperparámetros_, y su valor puede determinar
 el éxito o fracaso del algoritmo, ya que algunas __metaheurísticas__ son muy sensibles a estos valores. En nuestro caso estos hiperparámetros son:
 - Tamaño de la población: Cuántos individuos (soluciones candidatas) van a conformar la población en cada generación.
 - Número de generaciones: Cuántas veces se va a repetir el ciclo de vida del algoritmo. 
@@ -145,16 +147,15 @@ graph TD
 ## Población inicial
 
 Los algoritmos genéticos forman parte del conjunto de __metaheurísticas__ llamadas o clasificadas como poblacionales. 
-En este tipo de algoritmos se evalúa un conjunto de soluciones en cada alteración el cual llamamos población. Cada población está conformada por individuos y cada uno de estos debe ser evaluado por la función de costo.
-En el mejor de los casos se llegará una solución cuando se encuentre un individuo que tenga el óptimo Fitness y no incurra en ninguna violación a ninguna de las restricciones.
+En este tipo de algoritmos se evalúa un conjunto de soluciones en cada iteración el cual llamamos población. Cada población está conformada por individuos y cada uno de estos debe ser evaluado por la función de costo.
+En el mejor de los casos se llegará una solución cuando se encuentre un individuo que tenga el óptimo fitness y no incurra en ninguna violación a ninguna de las restricciones.
 
-En nuestro caso, para este problema cada individuo es un sorteo, como ya hemos dicho. Este individuo puede contener esquemas que violen las reglas y las restricciones del sorteo,
-Y es la función de Fitness quién va a castigar asignándole valores que cada vez lo alejen del óptimo a este individuo. 
+Para este problema cada individuo es un sorteo, como ya hemos dicho. Este individuo puede contener esquemas que violen las reglas y las restricciones del sorteo,
+y es la función de fitness la que castiga a ese individuo asignándole valores que cada vez lo alejen del óptimo (de su posibilidad de reproducirse). 
 
-Antes de definir la población es importante definir primero los individuos que conforman población
-A esto le llamamos codificación del individuo.
-Cada individuo de la población es un sorteo, como ya hemos dicho, el cual debemos encontrar una forma de representarlo en algoritmo y crearlo (codificación).
+Antes de definir la población es importante definir primero los individuos que la conforman. A esto le llamamos _codificación del individuo_.
 
+>Debemos encontrar una forma de representarlo en algoritmo y crearlo (codificación).
 
 
 En el siguiente código se ve el proceso de creación de un individuo en un procedimiento parecido al sorteo, es decir se van asignando los equipos bombo por bombo, desde el primero hasta el cuarto.
@@ -197,8 +198,12 @@ Ya hemos dicho que cada individuo del algoritmo genético representa una soluci�
 _un sorteo de grupos_ con los 12 grupos completos, sin importar si son válidos o no. Como cada sorteo está compuesto por grupos, cada grupo representa lo que 
 llamamos un _gen_ dentro del individuo.
 
-![number=4caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg)
+![number=4caption=Representación de un individuo como un sorteo completo de 12 grupos y 48 equipos. Se observa que este individuo no cumple con algunas restricciones, por ejemplo el grupo que comparten Catar y Jordania. Estas dos selecciones pertenecen a la misma confederación y no está permitido que tengan el mismo grupo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg)
 
+En la __figura 4__ se observa un ejemplo de lo que nuestro algoritmo tratará como un _individuo_, y lo que vemos es un sorteo completo 
+asignando cada equipo a uno de los grupos. Este individuo en particular no es válido, ya que el grupo H tiene a Catar y Jordania, 
+ambas selecciones pertenecen a la misma confederación (AFC) y no está permitido que compartan grupo. Además el grupo de Croacia, Noruega y la repesca europea no pueden 
+compartir grupo ya que las tres selecciones pertenecen a la UEFA. Con las otras repescas no europeas sucede algo similar.
 
 Para nuestro código, cada _gen_ está formado por elementos de la clase `Equipo` que contiene la información relevante de cada selección nacional:
 ```python
@@ -219,19 +224,19 @@ class Equipo:
 ```
 Por ejemplo un equipo del top 4 se representaría así:
 ```python
-Equipo("España", ["UEFA"], 1, ranking_top=1)
-Equipo("Argentina", ["CONMEBOL"], 1, ranking_top=2)
+Equipo("España", ["UEFA"], bombo=1, ranking_top=1)
+Equipo("Argentina", ["CONMEBOL"], bombo=1, ranking_top=2)
 ```
 Y los equipos anfitriones con grupo fijo:
 ```python
-Equipo("México", ["CONCACAF"], 1, grupo_fijo="A")
-Equipo("Canadá", ["CONCACAF"], 1, grupo_fijo="B")
+Equipo("México", ["CONCACAF"], bombo=1, grupo_fijo="A")
+Equipo("Canadá", ["CONCACAF"], bombo=1, grupo_fijo="B")
 ```
 El resto de los equipos se instancia a la clase Equipo de forma más sencilla:
 ```python
-Equipo("Alemania", ["UEFA"], 1)
-Equipo("Ecuador", ["CONMEBOL"], 2)
-Equipo("Panamá", ["CONCACAF"], 3)
+Equipo("Alemania", ["UEFA"], bombo=1)
+Equipo("Ecuador", ["CONMEBOL"], bombo=2)
+Equipo("Panamá", ["CONCACAF"], bombo=3)
 # Y asi hasta completar el resto...
 ```
 
@@ -479,8 +484,11 @@ def seleccion_ruleta(evaluados):
 
 ![number=6caption=Ejemplo del operador de cruce. En la imagen vemos que el Padre A dona todos los equipos que pertenecen a los bombos 1 y 4 al hijo A, y los equipos del bombo 2 y 3 al hijo B.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/FIFA-cruce-6_mkwaqe.jpg)
 
-El cruce es el operador más importante, ya que es el responsable de crear diversidad y explorar el espacio de búsqueda. El cruce toma dos padres y crea un hijo.
-Lo que da lugar al reemplazo de la población actual por una nueva generación. En nuestro caso debemos tener mucho cuidado ya que no podemos hacer un cruce en cualquier punto del individuo (cromosoma)
+El cruce es el operador más importante, ya que es el responsable de crear diversidad y explorar el espacio de búsqueda. 
+
+>El cruce que se utiliza aquí _toma dos padres y crea dos hijos_.
+
+Esto da lugar al reemplazo de la población actual por una nueva generación. En nuestro caso debemos tener mucho cuidado ya que no podemos hacer un cruce en cualquier punto del individuo (cromosoma)
  si hacemos esto y cortamos un sorteo por la mitad y lo intercambiamos por otro, romperíamos la estructura de los bombos.
 
 El operador de cruce definido en la función `cruzar()` opera bombo por bombo. Para el Bombo 1 (Cabezas de serie), lanza una moneda: ¿Hereda la distribución del Padre A o del B?
@@ -536,10 +544,10 @@ Si solo cruzamos padres, eventualmente todos los hijos se parecerán y nos estan
 La función `mutar(individuo)` introduce caos controlado. Con una probabilidad del 20%, tomamos un sorteo, elegimos dos grupos al azar e intercambiamos dos equipos del mismo bombo.
 
 Si muta:
-  1. Elige 2 grupos al azar
-  2. Elige un bombo al azar (1, 2, 3, o 4)
-  3. Intercambia los equipos de ese bombo entre los 2 grupos
-  4. Solo si ninguno tiene grupo fijo
+  - Elige 2 grupos al azar
+  - Elige un bombo al azar (1, 2, 3, o 4)
+  - Intercambia los equipos de ese bombo entre los 2 grupos
+  - Solo si ninguno tiene grupo fijo
 
 ```python
 def mutar(individuo, prob_mutacion):
@@ -570,11 +578,12 @@ def mutar(individuo, prob_mutacion):
 La nueva generación reemplaza completamente a la anterior (esto es debatible).
 
 ## Criterio de terminación
-Para terminar el ciclo de vida el valor no debe tener un criterio de terminación. Uno de ellos terminar algoritmo si se alcanza la cantidad máxima de generaciones previamente estipuladas. El otro, si detecta que un individuo tiene un Fitness igual a cero, también termina el algoritmo y toma este medio individuo como la solución óptima.
+Para terminar el ciclo de vida, se debe tener un _criterio de terminación_. 
+Uno de ellos termina el algoritmo si se alcanza la cantidad máxima de generaciones previamente estipulada. El otro, si detecta que un individuo tiene un fitness igual a cero, y toma este medio individuo como la solución óptima.
 
 _Criterios de terminación:_
-- Si encuentra un sorteo con penalización = 0 -> ¡Éxito!
-- Si llega a generación 1000 -> devuelve el mejor encontrado.
+- Si encuentra un sorteo con $\text{penalización} = 0 \Rightarrow \text{Éxito}$
+- Si llega a generación $1000 \Rightarrow$ devuelve el mejor encontrado.
 
 Afortunadamente, la estructura de bombos permite encontrar soluciones rápidamente con los algoritmos genéticos y no hay que recurrir al critero de generación de terminación.
 

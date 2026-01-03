@@ -179,7 +179,7 @@ export const SectionType = styled.div`
   font-family: monospace;
   background-color: ${(props) => {
     // Retorna el color basado en la prop "tag"
-    switch (props.tag) {
+    switch (props.$tag) {
       case "blog":
         return "var(--accent)";
       case "js":
@@ -200,7 +200,7 @@ export const SectionType = styled.div`
   }};
   color: ${(props) => {
     // Retorna el color basado en la prop "tag"
-    switch (props.tag) {
+    switch (props.$tag) {
       case "blog":
         return "var(--bg)";
       case "javascript":

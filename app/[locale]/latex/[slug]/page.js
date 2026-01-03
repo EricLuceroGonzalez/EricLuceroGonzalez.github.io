@@ -93,7 +93,7 @@ const LatexPost = async ({ params }) => {
             <SideInfo>
               <Link href={`/${post.doctype[0]}`}>
                 {post.doctype.map((type, index) => (
-                  <SectionType key={index} tag={type}>
+                  <SectionType key={index} $tag={type}>
                     {type}
                     {index < post.doctype.length - 1}
                   </SectionType>
@@ -111,13 +111,12 @@ const LatexPost = async ({ params }) => {
                 width={0}
                 height={0}
                 sizes="100vw"
-                style={{ width: "100%", height: "auto" }} // optional
+                style={{ width: "100%", height: "auto", objectFit: "cover" }} // optional
                 alt={
                   post.coverImageAlt
                     ? post.coverImageAlt
                     : "Cover images with a illustration of the title"
                 }
-                objectFit="cover"
               />
             </HeroImage>
           )}
@@ -146,25 +145,28 @@ const LatexPost = async ({ params }) => {
               },
             }}
           />
-          <h1 style={{ marginTop: "6rem" }}>{t("other_posts")}:</h1>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            {previous === "null" ? (
-              ""
-            ) : (
-              <PostNavigationCard type={"prev"} post={previous} />
-            )}
-            {next === "null" ? (
-              ""
-            ) : (
-              <PostNavigationCard type={"next"} post={next} />
-            )}
-          </div>
+
+          {(!next == "null" || !previous == "null") && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <h1 style={{ marginTop: "6rem" }}>{t("other_posts")}:</h1>
+              {previous === "null" ? (
+                ""
+              ) : (
+                <PostNavigationCard type={"prev"} post={previous} />
+              )}
+              {next === "null" ? (
+                ""
+              ) : (
+                <PostNavigationCard type={"next"} post={next} />
+              )}
+            </div>
+          )}
         </Article>
       </MainBg>
     </Layout>

@@ -130,14 +130,14 @@ export const MdStrong = styled.strong`
   background-color: var(--strong-bg);
   /* color: var(--bg); */
   font-weight: bold;
-  padding: 2px 2px;
+  padding: 2px 6px;
   border-radius: 6px;
 `;
 export const MdEmph = styled.em`
   color: var(--emphasis-fg);
   background-color: var(--emphasis-bg);
   /* var(--emphasis-bg); */
-  padding: 0 3px;
+  padding: 0 5px;
   border-radius: 5px;
   /* font-style: normal; */
   font-weight: 500;
@@ -229,8 +229,8 @@ export const MdTableD = styled.td`
 export const MdCode = styled.code`
   background-color: var(--code-bg);
   color: var(--code-fg);
-  padding: 2px 4px;
-  font-weight: bold;
+  padding: 2px 6px;
+  font-weight: 500;
   border-radius: 8px;
   font-family: "Courier New", Courier, monospace;
 `;

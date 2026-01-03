@@ -58,13 +58,12 @@ const AllPosts = ({
                   width={0}
                   height={0}
                   sizes="100vw"
-                  style={{ width: "100%", height: "auto" }} // optional
+                  style={{ width: "100%", height: "auto", objectFit: "cover" }} // optional
                   alt={
                     coverImageAlt
                       ? coverImageAlt
                       : "Cover images with a illustration of the title"
                   }
-                  objectFit="cover"
                 />
               )}
             </GridHeroImage>
@@ -81,7 +80,7 @@ const AllPosts = ({
                   />
                 </Date>
                 {doctype.map((type, index) => (
-                  <SectionType key={index} tag={type}>
+                  <SectionType key={index} $tag={type}>
                     {type}
                     {/* Agrega una coma si no es el último elemento */}
                     {index < doctype.length - 1}

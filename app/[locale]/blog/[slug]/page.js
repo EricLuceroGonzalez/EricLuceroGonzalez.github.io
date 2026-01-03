@@ -115,7 +115,7 @@ const BlogPost = async ({ params }) => {
               <Link href={`/${locale}/${post.doctype[0]}`}>
                 {/* Renderiza todos los elementos del array como categorías */}
                 {post.doctype.map((type, index) => (
-                  <SectionType key={index} tag={type}>
+                  <SectionType key={index} $tag={type}>
                     {type}
                     {/* Agrega una coma si no es el último elemento */}
                     {index < post.doctype.length - 1}
@@ -147,31 +147,33 @@ const BlogPost = async ({ params }) => {
               },
             }}
           />
-          <div
-            style={{
-              marginTop: "10rem",
-            }}
-          >
-            <h1>{t("other_posts")}:</h1>
+          {(!next == "null" || !previous == "null") && (
             <div
               style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
+                marginTop: "10rem",
               }}
             >
-              {previous === "null" ? (
-                ""
-              ) : (
-                <PostNavigationCard type={"prev"} post={previous} />
-              )}
-              {next === "null" ? (
-                ""
-              ) : (
-                <PostNavigationCard type={"next"} post={next} />
-              )}
+              <h1>{t("other_posts")}:</h1>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                {previous === "null" ? (
+                  ""
+                ) : (
+                  <PostNavigationCard type={"prev"} post={previous} />
+                )}
+                {next === "null" ? (
+                  ""
+                ) : (
+                  <PostNavigationCard type={"next"} post={next} />
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </Article>
       </MainBg>
     </Layout>

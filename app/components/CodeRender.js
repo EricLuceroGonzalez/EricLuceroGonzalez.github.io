@@ -68,9 +68,12 @@ const RenderCodeBlock = ({ props }) => {
                       width={0}
                       height={0}
                       sizes="100vw"
-                      style={{ width: "100%", height: "auto" }} // optional
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover",
+                      }} // optional
                       alt={alt}
-                      objectFit="cover"
                     />
                     {hasCaption ? (
                       <MdImageCaption>{caption}</MdImageCaption>
