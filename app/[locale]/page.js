@@ -44,7 +44,8 @@ export default async function Home({ params }) {
           </HomePageCoverText>
           <BackgroundDots numDots={40} />
         </HomePageCover>
-        <MdParagraph>{t("copy_text")}</MdParagraph>
+        <MdParagraph>{t("copy_text.p1")}</MdParagraph>
+        <MdParagraph>{t("copy_text.p2")}</MdParagraph>
 
         <SubTitlePage>Blog</SubTitlePage>
 

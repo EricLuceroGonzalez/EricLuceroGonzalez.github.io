@@ -21,7 +21,7 @@ const BlogPage = async ({ params }) => {
   // 1. Obtener idioma
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "HomePage" });
+  const t = await getTranslations({ locale, namespace: "Blog" });
   // const blogPosts = getBlogPosts();
   const blogPosts = getPostsByType(["blog"], 0, locale);
   if (!blogPosts.posts) {
@@ -43,7 +43,9 @@ const BlogPage = async ({ params }) => {
         >
           <ShowPath />
           <TitlePage>{t("title")}</TitlePage>
-          <MdParagraph>{t("copy_text")}</MdParagraph>
+          <MdParagraph>{t("copy_text.p1")}</MdParagraph>
+
+          <MdParagraph>{t("copy_text.p2")}</MdParagraph>
           <HomeBoxes props={blogPosts.posts} locale={locale} />
         </MainPageBg>
       </PageContainer>
