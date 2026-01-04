@@ -3,9 +3,10 @@
 import { Link } from "@/i18n/navigation";
 import styled from "styled-components";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 // Define the styled component for the anchor tag
-const StyledAnchor = styled.div`
+const StyledAnchor = styled(motion.div)`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -43,6 +44,8 @@ const StyledLink = ({ actualPath, pathName, href, children }) => {
             ? true
             : false
         }
+        whileTap={{ scale: 0.65 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         {children}
       </StyledAnchor>

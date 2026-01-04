@@ -38,7 +38,7 @@ const SwitchContainer = styled.div`
   cursor: pointer;
   position: relative; /* Necesario para el layout */
   width: fit-content;
-  border: 1px solid rgba(150, 150, 150, 0.2);
+  border: 1px solid var(--fg);
 `;
 
 const IconWrapper = styled.button`
@@ -51,7 +51,7 @@ const IconWrapper = styled.button`
   position: relative;
   justify-content: center;
   padding: 4px;
-  color: ${(props) => (props.$isActive ? "var(--accent)" : "")};
+  color: ${(props) => (props.$isActive ? "var(--accent)" : "var(--fg)")};
   transition: color 0.2s;
 
   &:hover {

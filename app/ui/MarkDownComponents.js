@@ -68,7 +68,7 @@ export const MdHead = styled.h1`
   margin: 1em 0;
   @media (max-width: 660px) {
     font-size: x-large;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 `;
 export const MdSubHeadA = styled.h2`

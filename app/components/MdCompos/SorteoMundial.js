@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { SiFifa } from "react-icons/si";
+import { motion } from "framer-motion";
 
 // ==========================================
 // STYLED COMPONENTS
@@ -81,14 +82,14 @@ const ProgressBox = styled.div`
 `;
 
 const ResultBox = styled.div`
-  border: 2px solid ${(props) => (props.valid ? "#9ae6b4" : "#fbd38d")};
-  background: ${(props) => (props.valid ? "#f0fff4" : "#fffaf0")};
+  border: 2px solid ${(props) => (props.$valid ? "#9ae6b4" : "#fbd38d")};
+  background: ${(props) => (props.$valid ? "#f0fff4" : "#fffaf0")};
   border-radius: 0.5rem;
   padding: 1rem;
   text-align: center;
   font-weight: 600;
   margin-bottom: 2rem;
-  color: ${(props) => (props.valid ? "#22543d" : "#744210")};
+  color: ${(props) => (props.$valid ? "#22543d" : "#744210")};
 `;
 
 const GruposContainer = styled.div`
@@ -101,7 +102,7 @@ const GruposContainer = styled.div`
   }
 `;
 
-const ItinerarioSection = styled.div`
+const ItinerarioSection = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -121,7 +122,7 @@ const ItinerarioHeader = styled.h2`
 
 const GrupoCard = styled.div`
   background: white;
-  border: 2px solid ${(props) => props.borderColor};
+  border: 2px solid ${(props) => props.$borderColor};
   border-radius: 0.5rem;
   padding: 1rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -149,7 +150,7 @@ const GrupoLetra = styled.span`
   font-size: 1.125rem;
 `;
 
-const EquiposList = styled.div`
+const EquiposList = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -219,6 +220,40 @@ const Spinner = styled.svg`
     }
   }
 `;
+// animaciones
+
+// Configuración para el contenedor padre
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3, // delay automático entre hijos
+      delayChildren: 0.1, // delay inicial
+    },
+  },
+};
+
+// Configuración para cada ítem (LogosBox)
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50, // Empieza un poco más abajo
+    scale: 0.2, // Empieza un poco más pequeño
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring", // Mantenemos tu efecto rebote
+      stiffness: 100,
+      damping: 10,
+      visualDuration: 0.3,
+      bounce: 0.5,
+    },
+  },
+};
 // ==========================================
 // ICONOS SVG
 // ==========================================
@@ -583,8 +618,8 @@ export default function SorteoMundialGA(props) {
   const [sorteo, setSorteo] = useState(false);
   const [ejecutando, setEjecutando] = useState(false);
   const [progreso, setProgreso] = useState({ gen: 0, costo: 0 });
-  const [resultado, setResultado] = useState(false);
-  const [tiempoTotal, setTiempoTotal] = useState(false);
+  const [resultado, setResultado] = useState(null);
+  const [tiempoTotal, setTiempoTotal] = useState(null);
 
   const letras = "ABCDEFGHIJKL";
   const t = props.translations;
@@ -607,6 +642,13 @@ export default function SorteoMundialGA(props) {
       setTiempoTotal(((tiempoTotal - tiempoInicio) / 1000).toFixed(2));
     }, 100);
   };
+  useEffect(() => {
+    console.log(`resultado: ${resultado}`);
+
+    // return () => {
+    //   setResultado(null);
+    // };
+  }, [sorteo, resultado]);
 
   const getConfColors = (conf) => {
     const colors = {
@@ -641,42 +683,60 @@ export default function SorteoMundialGA(props) {
         </Title>
         <Subtitle>{t.subtitle}</Subtitle>
       </Header>
-
       <Controls>
         <Button onClick={ejecutarSorteo} disabled={ejecutando}>
           {ejecutando ? <RefreshIcon /> : <PlayIcon />}
           {ejecutando ? t.buttonExecuting : t.buttonGenerate}
         </Button>
       </Controls>
-
       {ejecutando && (
         <ProgressBox>
           {t.generation}: <strong>{progreso.gen}</strong> | {t.cost}:{" "}
           <strong>{progreso.costo}</strong>
         </ProgressBox>
       )}
-
       {resultado && (
-        <ResultBox valid={resultado.costo === 0}>
+        <ResultBox $valid={resultado.costo === 0}>
           {resultado.costo === 0
             ? `✅ ${t.validDraw}: ${resultado.generacion}  -  ${t.executionTime}: ${tiempoTotal} ${t.seconds}`
             : `⚠️ Mejor aproximación - Costo: ${resultado.costo}`}
         </ResultBox>
       )}
-
       {sorteo && (
         <GruposContainer>
-          <ItinerarioSection>
+          <ItinerarioSection
+            initial={{ opacity: 0, scale: 0, y: 10, x: 100 }}
+            animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
+            transition={{
+              type: "spring", // Mantenemos tu efecto rebote
+              // stiffness: 20,
+              // damping: 5,
+              visualDuration: 0.5,
+              bounce: 0.4,
+            }}
+          >
             <ItinerarioHeader color="var(--accent)">
               🌎 {t.itinerary} 1
             </ItinerarioHeader>
             {gruposItin1.map(({ idx, grupo }) => (
-              <GrupoCard key={idx} borderColor="var(--accent)">
+              <GrupoCard key={idx} $borderColor="var(--accent)">
                 <GrupoHeader>
                   {t.group}
                   <GrupoLetra color="var(--accent)">{letras[idx]}</GrupoLetra>
                 </GrupoHeader>
-                <EquiposList>
+                <EquiposList
+                  // 1. Estado inicial: Desplazado a la izquierda (-50px) e invisible
+                  initial={{ x: -40, opacity: 0 }}
+                  // 2. Estado final: En su sitio (0) y visible
+                  animate={{ x: 0, opacity: 1 }}
+                  // 3. La magia del rebote
+                  transition={{
+                    type: "spring",
+                    stiffness: 300, // Qué tan "tenso" es el resorte (más alto = más rápido)
+                    damping: 15, // Qué tanta fricción tiene (más bajo = más rebota/se pasa)
+                    delay: idx * 0.1, // ⚡️ Extra: Hace que salgan en cascada (uno tras otro)
+                  }}
+                >
                   {grupo.map((equipo, eIdx) => {
                     const colors = getConfColors(equipo.confederacion);
                     return (
@@ -726,17 +786,39 @@ export default function SorteoMundialGA(props) {
               </GrupoCard>
             ))}
           </ItinerarioSection>
-          <ItinerarioSection>
+          <ItinerarioSection
+            initial={{ opacity: 0, scale: 0, y: -10, x: 100 }}
+            animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
+            transition={{
+              type: "spring", // Mantenemos tu efecto rebote
+              // stiffness: 20,
+              // damping: 5,
+              visualDuration: 0.35,
+              bounce: 0.24,
+            }}
+          >
             <ItinerarioHeader color="var(--primary)">
               🌍 {t.itinerary} 2
             </ItinerarioHeader>
             {gruposItin2.map(({ idx, grupo }) => (
-              <GrupoCard key={idx} borderColor="var(--primary)">
+              <GrupoCard key={idx} $borderColor="var(--primary)">
                 <GrupoHeader>
                   <GrupoLetra color="var(--primary)">{letras[idx]}</GrupoLetra>
                   {t.group} {letras[idx]}
                 </GrupoHeader>
-                <EquiposList>
+                <EquiposList
+                  // 1. Estado inicial: Desplazado a la izquierda (-50px) e invisible
+                  initial={{ x: -60, opacity: 0 }}
+                  // 2. Estado final: En su sitio (0) y visible
+                  animate={{ x: 0, opacity: 1 }}
+                  // 3. La magia del rebote
+                  transition={{
+                    type: "spring",
+                    stiffness: 400, // Qué tan "tenso" es el resorte (más alto = más rápido)
+                    damping: 15, // Qué tanta fricción tiene (más bajo = más rebota/se pasa)
+                    delay: idx * 0.25, // ⚡️ Extra: Hace que salgan en cascada (uno tras otro)
+                  }}
+                >
                   {grupo.map((equipo, eIdx) => {
                     const colors = getConfColors(equipo.confederacion);
                     return (
@@ -781,7 +863,6 @@ export default function SorteoMundialGA(props) {
           </ItinerarioSection>
         </GruposContainer>
       )}
-
       {!sorteo && !ejecutando && (
         <EmptyState>
           <TrophyIcon />

@@ -1,8 +1,9 @@
 "use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import styled from "styled-components";
 
-export const LogosContainer = styled.div`
+export const LogosContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -11,7 +12,7 @@ export const LogosContainer = styled.div`
   justify-content: space-around;
 `;
 
-export const LogosBox = styled.div`
+export const LogosBox = styled(motion.div)`
   display: flex;
   flex-direction: row;
   margin: 1rem auto;

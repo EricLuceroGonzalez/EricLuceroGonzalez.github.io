@@ -33,8 +33,9 @@ export const MainBg = styled.div`
     text-align: justify;
     padding: 1rem 5px;
   }
+  /* border: 2px solid red; */
 `;
-export const MainPageBg = styled.div`
+export const MainPageBg = styled(motion.div)`
   flex: 1;
   padding: 0 1.5rem;
   background-color: var(--bg);

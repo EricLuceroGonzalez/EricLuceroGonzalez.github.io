@@ -30,20 +30,59 @@ import {
   ReactIcon,
 } from "@/app/components/about/AboutStyled";
 import { getTranslations } from "next-intl/server";
+import ScrollDiv from "@/app/components/navigation/ScrollDiv";
 
+// Configuración para el contenedor padre
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3, // delay automático entre hijos
+      delayChildren: 0.1, // delay inicial
+    },
+  },
+};
+
+// Configuración para cada ítem (LogosBox)
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50, // Empieza un poco más abajo
+    scale: 0.2, // Empieza un poco más pequeño
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring", // Mantenemos tu efecto rebote
+      stiffness: 100,
+      damping: 10,
+      visualDuration: 0.3,
+      bounce: 0.5,
+    },
+  },
+};
 const AboutThisPage = () => {
   const t = useTranslations("About");
 
   return (
     <Layout>
       <MainBg>
+        <ScrollDiv />
         <Article>
           <ShowPath title={"this-page"} />
           <MdHead>{t("page_content_title")}</MdHead>
           <p>{t("page_content")}</p>
           <H2Header>{t("stack_title")}</H2Header>
-          <LogosContainer>
-            <LogosBox>
+          <LogosContainer
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }} // Para que no se repita al hacer scroll arriba/abajo
+          >
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://nextjs.org"}>
                   <RiNextjsFill />
@@ -52,7 +91,7 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_Next")}</LogosText>
             </LogosBox>
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon
                   href={"https://simple.wikipedia.org/wiki/JavaScript"}
@@ -63,7 +102,7 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_javascript")}</LogosText>
             </LogosBox>
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon
                   href={"https://en.wikipedia.org/wiki/React_(software)"}
@@ -75,7 +114,7 @@ const AboutThisPage = () => {
               <LogosText>{t("stack_React")}</LogosText>
             </LogosBox>
 
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://www.github.com"}>
                   <FaGithub />
@@ -85,7 +124,7 @@ const AboutThisPage = () => {
               <LogosText>{t("stack_github")}</LogosText>
             </LogosBox>
 
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://vercel.com/"}>
                   <SiVercel />
@@ -94,7 +133,7 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_vercel")}</LogosText>
             </LogosBox>
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://www.i18next.com"}>
                   <SiI18Next />
@@ -104,7 +143,7 @@ const AboutThisPage = () => {
               <LogosText>{t("stack_i18n")}</LogosText>
             </LogosBox>
 
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://styled-components.com"}>
                   <SiStyledcomponents />
@@ -114,7 +153,7 @@ const AboutThisPage = () => {
               <LogosText>{t("stack_styled")}</LogosText>
             </LogosBox>
 
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://remark.js.org"}>
                   <SiRemark />
@@ -124,7 +163,7 @@ const AboutThisPage = () => {
               <LogosText>{t("stack_remark")}</LogosText>
             </LogosBox>
 
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon
                   href={"https://unifiedjs.com/explore/package/rehype-raw/"}
@@ -135,7 +174,7 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_rehype")}</LogosText>
             </LogosBox>
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon
                   href={"https://github.com/jonschlinkert/gray-matter"}
@@ -147,7 +186,7 @@ const AboutThisPage = () => {
               <LogosText>{t("stack_graymatter")}</LogosText>
             </LogosBox>
 
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://mdxjs.com"}>
                   <SiMdx />
@@ -156,7 +195,7 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_MDX")}</LogosText>
             </LogosBox>
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://www.latex-project.org"}>
                   <SiLatex />
@@ -165,7 +204,7 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_latex")}</LogosText>
             </LogosBox>
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://motion.dev"}>
                   <RiEmotionUnhappyFill />
@@ -174,7 +213,7 @@ const AboutThisPage = () => {
               </LogosHead>
               <LogosText>{t("stack_motion")}</LogosText>
             </LogosBox>
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://mermaid.js.org"}>
                   <SiMermaid />
@@ -184,7 +223,7 @@ const AboutThisPage = () => {
               <LogosText>{t("stack_mermaid")}</LogosText>
             </LogosBox>
 
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://fontawesome.com"}>
                   <FaFontAwesome />
@@ -194,7 +233,7 @@ const AboutThisPage = () => {
               <LogosText>{t("stack_fontawesome")}</LogosText>
             </LogosBox>
 
-            <LogosBox>
+            <LogosBox variants={itemVariants}>
               <LogosHead>
                 <ReactIcon href={"https://www.chartjs.org/docs/latest/"}>
                   <SiChartdotjs />

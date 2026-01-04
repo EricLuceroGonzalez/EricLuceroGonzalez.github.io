@@ -8,7 +8,7 @@ function getLocale(request) {
   return defaultLocale;
 }
 
-export function middleware(request) {
+export function proxy(request) {
   const { pathname } = request.nextUrl;
 
   // 1. Verificar si la URL ya tiene el locale (ej: /es/blog)

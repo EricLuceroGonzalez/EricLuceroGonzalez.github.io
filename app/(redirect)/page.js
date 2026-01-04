@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MainPageBg, PageContainer, TitlePage } from "../ui/ComponentsStyled";
-import SpinnerLoad from "../components/SpinnerLoad";
 import BackgroundDots from "../components/BgMovingDots";
+import LoadingThreeDotsJumping from "../remotion/LoadingThreeDotsJumping";
 
 export default function RootPage() {
   const router = useRouter();
@@ -28,7 +28,7 @@ export default function RootPage() {
             gap: "20px",
           }}
         >
-          <SpinnerLoad />
+          <LoadingThreeDotsJumping />
           <TitlePage>Redirecting to home...</TitlePage>
           {/* Opcional: Enlaces manuales por si falla JS */}
           <a href="/es">Español</a>
