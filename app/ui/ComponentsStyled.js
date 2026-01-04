@@ -1,6 +1,11 @@
 "use client";
+import { motion } from "framer-motion";
 import styled from "styled-components";
-
+export const EmojiContainer = styled(motion.div)`
+  font-size: larger;
+  width: 50px;
+  /* background-color: var(--fg); */
+`;
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -61,20 +66,19 @@ export const MainPageBg = styled.div`
   @media (min-width: 1440px) {
     width: 60%;
   }
-  /* border: 2px solid orange; */
 `;
 
 export const HomePageCover = styled.div`
-  height: 15vh;
+  /* height: 15vh; */
   display: flex;
   flex-direction: row;
-  @media (max-width: 660px) {
-    height: 5vh;
-  }
+  color: var(--fg);
+  padding: 1rem 0;
 `;
 export const HomePageCoverText = styled.div`
+  width: 100%;
+  padding: 0.6rem 0;
   /* border: 1px dashed var(--accent); */
-  width: 50%;
 `;
 export const HomePageCoverImage = styled.div`
   border-left: 1px solid var(--strong-fg);
@@ -86,16 +90,16 @@ export const CoverTitle = styled.h1`
   font-size: 2rem;
   @media (max-width: 728px) {
     text-align: justify;
-    /* padding: 1rem 1rem; */
   }
+  border: 1px dashed var(--accent);
 `;
 export const TitlePage = styled.h1`
-  color: var(--fg);
+  display: flex;
+  flex-direction: row;
   font-size: x-large;
 
   @media (max-width: 728px) {
     text-align: justify;
-    /* padding: 1rem 1rem; */
   }
 
   @media (min-width: 660px) {
@@ -115,6 +119,12 @@ export const SubTitlePage = styled.h2`
   @media (min-width: 660px) {
     font-size: xx-large;
   }
+
+  /* border: 2px dashed orange; */
+  /* background-color: var(--emphasis-bg); */
+  color: var(--fg);
+  margin-top: 3rem;
+  padding-left: 1rem;
 `;
 
 export const Section = styled.section`

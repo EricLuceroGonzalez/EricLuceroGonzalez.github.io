@@ -22,7 +22,8 @@ $\TeX$ is a typesetting system created by Donald Knuth in the 1970s to produce h
 
 To understand **TeX**, we must first travel back to the late 1960s. It all starts with Stanford professor **Donald Knuth** and his ambitious work *The Art of Computer Programming*.
 The first volume was published in 1978 and the second five years later.
-It was born at the Stanford Artificial Intelligence Laboratory (SAIL) as a response to the typographic crisis facing scientific and mathematical book printing at that time. A crisis that Donald Knuth and his healthy obsession with typographic quality could not tolerate.
+
+It could be said that $\TeX$ was born at the _Stanford Artificial Intelligence Laboratory (SAIL)_, Knuth's workplace, as a response to the typographic crisis facing the printing of scientific and mathematical books at that time, a problem that Knuth took _very personally_. A crisis that Donald Knuth, with his healthy obsession for typographic quality, could not tolerate.
 
 >It was a monumental work, filled with complex mathematical formulas and intricate diagrams. Knuth, a perfectionist obsessed with typographic quality, was delighted with the book's printing.
 
@@ -32,7 +33,7 @@ The **Monotype** machine<CitationSup id={1}/> (machines that cast individual cha
 Unfortunately for Knuth and fortunately for $\TeX$, in the 1970s, this technology became obsolete for economic reasons and was replaced by phototypesetting.
 >This drop in visual quality (beauty, according to Knuth) was what "horrified" Knuth when he saw the proofs for Volume 2 of *The Art of Computer Programming*, driving him to create TeX to digitally restore the quality of the old master craftsmen.
 
-Knuth himself recounts this in a speech titled *Digital Typography* <CitationSup id={2}/>.
+Knuth himself recounts this in a speech titled *Digital Typography* <CitationSup id={2}/> at the Kyoto Prize lecture in 1996.
 
 ![caption=Knuth's extensive work: "The Art of Computer Programming" which made TeX possible.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767290081/elCronopio/Blog-posts/2880px-The_Art_of_Computer_Programming__vol._1-4B_-2807_d4lvyt.jpg)
 
@@ -51,7 +52,7 @@ Another anecdote told in his Kyoto Prize speech <CitationSup id={2}/> speaks of 
 
 ### Knuth Decides to Solve the (Typographic) Problem Himself
 After the disappointment of receiving the galleys typeset with the new technologies of the era, he began looking for an editorial solution, finding some people in Poland who still used the old typographic technology, but this proved almost impossible.
-<QuoteAndAuthor quotation={{ quote: "My whole book had been completely retypeset with a different technology. The new fonts looked terrible! The subscripts were in a different style from the large letters, for example, and the spacing was very bad. You can look at books printed in the early 70s and it turns out that if it wasn't simple -- well, almost everything looked atrocious in those days.  I couldn't stand to see my books so ugly.", author:"Donald Knuth", source: "https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf"}} />
+<QuoteAndAuthor quotation={{ quote: "My whole book had been completely retypeset with a different technology. The new fonts looked terrible! The subscripts were in a different style from the large letters, for example, and the spacing was very bad. You can look at books printed in the early 70s and it turns out that if it wasn't simple -- well, almost everything looked atrocious in those days.  I couldn't stand to see my books so ugly.", author:"Donald Knuth", source: "An Interview with Donald Knuth (2007)"}} />
 At that time, Knuth was already working at the *Stanford Artificial Intelligence Laboratory* (SAIL), led by none other than John McCarthy. There, they had a Xerox XGP printer<CitationSup id={4}/> capable of printing with a density of *120 dots per inch*, much better than the common dot matrix printers of that era, though not sufficient to produce the typefaces Knuth wanted.
 In the midst of this search, in February 1977, he stumbled upon the proofs of the first edition of Patrick Winston's *Artificial Intelligence* book<CitationSup id={5}/>, which had been composed with a high-resolution matrix printer at the company Information International, Inc. (III), with a density of 1000 dots per inch.
 Knuth was impressed by the print quality, and above all by the technique. The method of composition used was based on pixels; it was totally digital, using dots of ink. Instead of photographic images, the printer used algorithms to calculate the exact position of each dot of ink on the page. Bits, as Knuth says in <CitationSup id={6}/>.
@@ -79,7 +80,7 @@ Today, $\TeX$ is used by major publishers like Addison-Wesley (the publisher of 
 ## But How Can TeX Print?
 First, METAFONT defined equations for the curves (cubic Bézier curves) and the stroke width. This created an "ideal letter" that was resolution-independent; it existed only as pure mathematics (coordinates).
 To print, TeX used a process called "rasterization" that converted these mathematical definitions into a matrix of dots (pixels) that the printer could understand.
-The output of the compilation process consisted of several files, among them the DVI (DeVice Independent) file containing the instructions to place each character on the page, and the font files generated by METAFONT.
+The output of the compilation process consisted of several files, among them the DVI (Device Independent) file containing the instructions to place each character on the page, and the font files generated by METAFONT.
 
 This is why $\TeX$ composes high-quality documents even without the existence of PDF. It was conceived for the printing press.
 It is also important to mention that TeX was designed to be independent of the output device (printer or screen), so a document written in TeX in 1990 can be printed today (or in a hundred years) without problems on a modern printer, maintaining the same typographic quality.
@@ -89,7 +90,7 @@ $\TeX$ is one of the longest-lived pieces of software in existence, and its deve
 
 It predates several important technologies like PostScript (1984) and PDF (1993), as well as the HTTP protocol, the World Wide Web, and HTML. It has evolved to adapt to new times, including support for Unicode and native PDF.
 
-“codeHere”mermaid
+```mermaid
 ---
 config:
   layout: dagre
@@ -103,9 +104,9 @@ timeline TB
         1978 : Original TeX implemented
         1979 : Publication of "Mathematical Typography"
         1982 : "Final" versions of TeX and METAFONT in Pascal (TeX82)
-“codeHere”
+```
 
-“codeHere”mermaid
+```mermaid
 ---
 config:
   layout: dagre
@@ -121,9 +122,9 @@ timeline TB
         1986 : grap (J. Bentley and B. W. Kernighan)
         1989 : "New" TeX and METAFONT (8-bit support)
         1990 : METAPOST (John Hobby)
-“codeHere”
+```
 
-“codeHere”mermaid
+```mermaid
 ---
 config:
   layout: dagre
@@ -140,7 +141,7 @@ timeline TB
              : Omega Project (Unicode)
         1996 : pdfTeX (Hàn Thế Thành)
         1997 : e-TeX (P. Breitenlohner et al.)
-“codeHere”
+```
 
 ## The Last Version, Numbers $\pi$ and $e$
 In 1990, Knuth announced that TeX and METAFONT would not change anymore, but only small bug fixes would be made. As such, their new versions would be numbered with the decimals of $\pi$ and $e$ respectively, until the date of his death. At this moment, the versions would be frozen, marking the end of updates to the source code of $\TeX$ and METAFONT.

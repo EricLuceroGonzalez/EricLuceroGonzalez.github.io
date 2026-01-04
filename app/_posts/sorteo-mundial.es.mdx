@@ -21,6 +21,10 @@ poder apreciarlo la lógica está hecha en JavaScript en lugar de Python.
 ## Generador del sorteo de la Copa Mundial de la FIFA
 <SorteoMundial />
 
+## Itinerarios
+Recordemos que la FIFA ha dividido en dos itinerarios opuestos los equipos que clasifiquen, de tal manera que los equipos que queden en uno de estos dos itinerarios no se encontrarán con los de el itinerario opuesto, solamente en la final.
+![number=1caption=Itinerario de las rondas eliminatorias del mundial según la FIFA. Esta configuración da lugar a la restricción de no enfrentamientos entre España y Argentina, o entre Francia e Inglaterra antes de la final, lo que afecta su asignación de grupo en el sorteo.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980604/elCronopio/Blog-posts/IMG_0045_g1dpkv.jpg)
+
 ## Flujo del algoritmo genético para el sorteo de la FIFA:
 ```mermaid
 graph TD
@@ -32,12 +36,12 @@ graph TD
     InitPop -.-> Eval
     Eval[calcularFitness<br/>Evalúa cada sorteo]
 
-    Eval --> CheckSuccess
     %% Bucle Principal del GA
     subgraph Ciclo_Genetico ["Bucle Generacional (Max 1000)"]
         direction TB
         
         Sort[Ordenar Población por Costo Ascendente]
+        Eval --> CheckSuccess
         
         CheckSuccess{¿Costo == 0?}
         
@@ -67,5 +71,6 @@ graph TD
     style StopMax fill:#FF3366,stroke:#fff,color:#fff
     style Eval fill:#2c2c00,stroke:#FF3366,color:#fff
     style Reproduction fill:#1a1a1a,stroke:#666,stroke-dasharray: 5 5
+    style Ciclo_Genetico fill:#fceaaeff
 ```
 <RepoBadge url={"https://github.com/EricLuceroGonzalez/algorithms-share/tree/main/Genetic-algorithms"}/>

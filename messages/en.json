@@ -17,7 +17,9 @@
         "about": "About",
         "home": "Home",
         "blog": "Blog",
-        "papers": "Papers"
+        "papers": "Papers",
+        "theme_switch_toggle": "Switch theme dark/white",
+        "language_switch_toggle": "Switch language to"
     },
     "Footer": {
         "made_with": "Built from scratch with:",

@@ -15,10 +15,14 @@ doctype: ["blog", "python", "javascript"]
 isPublic: true
 ---
 The following application generates World Cup group stages using Genetic Algorithms.
-The hyperparameters utilized are the same ones discussed [(in this post)](/blog/sorteo-mundial). However, to render this simulation directly in your browser, the logic has been ported from Python to JavaScript.
+The hyperparameters utilized are the same ones discussed [(in this post)](/blog/algoritmo-genetico-sorteo). However, to render this simulation directly in your browser, the logic has been ported from Python to JavaScript.
 
 ## FIFA World Cup Draw Generator
 <SorteoMundial />
+
+## Itinerary
+Let us remember that FIFA has divided the qualifying teams into two opposite paths, so that the teams that end up on one of these two paths will not meet those on the opposite path, only in the final.
+![number=1caption=Knockout round itinerary according to FIFA. This configuration enforces the restriction that Spain and Argentina, or France and England, cannot face each other before the final, affecting their group assignment in the draw.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980604/elCronopio/Blog-posts/IMG_0045_g1dpkv.jpg)
 
 ## Genetic Algorithm Flowchart for the FIFA Draw:
 ```mermaid
@@ -31,9 +35,9 @@ graph TD
     InitPop -.-> Eval
     Eval[calcFitness<br/>Evaluates each draw]
 
-    Eval --> CheckSuccess
     %% Main GA Loop
     subgraph Ciclo_Genetico ["Generational Loop (Max 1000)"]
+        Eval --> CheckSuccess
         direction TB
         
         Sort[Sort Population by Ascending Cost]
@@ -66,5 +70,6 @@ graph TD
     style StopMax fill:#FF3366,stroke:#fff,color:#fff
     style Eval fill:#2c2c00,stroke:#FF3366,color:#fff
     style Reproduction fill:#1a1a1a,stroke:#666,stroke-dasharray: 5 5
+    style Ciclo_Genetico fill:#fceaaeff
 ```
 <RepoBadge url={"https://github.com/EricLuceroGonzalez/algorithms-share/tree/main/Genetic-algorithms"}/>

@@ -22,7 +22,8 @@ $\TeX$ es un sistema de composición tipográfica creado por Donald Knuth en la 
 
 Para entender **TeX**, primero debemos viajar a finales de la década de 1960. Todo empieza con el profesor de Stanford **Donald Knuth** y su ambiciosa obra *The Art of Computer Programming*.
 El primer volumen se publicó en 1978 y el segundo cinco años después. 
-Nació en el Stanford Artificial Intelligence Laboratory (SAIL) como respuesta a la crisis tipográfica que enfrentaba la impresión de libros científicos y matemáticos en esa época. Crisis que Donald Knuth 
+
+Se puede decir que $\TeX$ nació en el _Stanford Artificial Intelligence Laboratory (SAIL)_, lugar de trabajo de Knuth, como respuesta a la crisis tipográfica que enfrentaba la impresión de libros científicos y matemáticos en esa época, un problema que Knuth se tomó _muy personal_. Crisis que Donald Knuth 
 y su sana obsesión por la calidad tipográfica no podían tolerar.
 
 >Era una obra monumental, repleta de fórmulas matemáticas complejas y diagramas intrincados. Knuth, un perfeccionista obsesionado con la calidad tipográfica, estaba encantado con la impresión del libro.
@@ -31,9 +32,9 @@ Hasta aquellos años la creación de documentos matemáticos de alta calidad dep
 La máquina de composición **Monotype:**<CitationSup id={1}/> (Máquinas que fundían caracteres individuales, permitiendo una mayor flexibilidad para la notación matemática) era la que producía los textos matemáticos de mejor calidad hasta entonces.
 
 Lamentablemente para Knuth y afortunadamente para $\TeX$, en la década de 1970, esta tecnología se volvió obsoleta por razones económicas y fue reemplazada por la fotocomposición.
->Esta caída de calidad visual (belleza según Knuth) fue lo que "horrorizó" a Knuth al ver las pruebas del volumen 2 de The Art of Computer Programming, impulsándolo a crear TeX para restaurar digitalmente la calidad de los antiguos maestros artesanos
+>Esta caída de calidad visual (belleza según Knuth) fue lo que "horrorizó" a Knuth al ver las pruebas del volumen 2 de The Art of Computer Programming, impulsándolo a crear TeX para restaurar digitalmente la calidad de los antiguos maestros artesanos.
 
-Lo anterior lo cuenta el mismo Knuth cuenta en un discurso llamado _Digital Typography_ <CitationSup id={2}/>.
+Lo anterior lo cuenta el mismo Knuth en un discurso llamado _Digital Typography_ <CitationSup id={2}/>, al recibir el premio Kyoto en 1996.
 
 ![caption=La extensa obra de Knuth: "The Art of Computer Programming" que hizo posible TeX.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767290081/elCronopio/Blog-posts/2880px-The_Art_of_Computer_Programming__vol._1-4B_-2807_d4lvyt.jpg)
 
@@ -48,13 +49,13 @@ Mientras los jueces esperaban unas pocas docenas, el joven Knuth de 13 años, fi
 encontró metódicamente más de 4,700 palabras, demostrando su temprana obsesión por la combinatoria, las listas y el procesamiento sistemático de datos (incluso antes de tener una computadora).
 
 Otra anécdota contada en el discurso del premio Kyoto <CitationSup id={2}/> habla de su interés por las letras y la tipografía desde muy niño.
-<QuoteAndAuthor quotation={{ quote: "De hecho, no solo siempre me han encantado los libros, sino que también me fascinan las letras individuales. Aquí les dejo una página del primer libro del abecedario que tuve de pequeña. Curiosamente, marqué cada serifa con una pequeña x y las conté: la letra K tiene 7 serifas. La letra P tiene 4; la letra O no tiene ninguna.", author: "Donald Knuth", source: ""}} />
+<QuoteAndAuthor quotation={{ quote: "De hecho, no solo siempre me han encantado los libros, sino que también me fascinan las letras individuales. Aquí les dejo una página del primer libro del abecedario que tuve de pequeño. Curiosamente, marqué cada serifa con una pequeña x y las conté: la letra K tiene 7 serifas. La letra P tiene 4; la letra O no tiene ninguna.", author: "Donald Knuth", source: ""}} />
 
 ![caption=Anotaciones de Knuth sobre sus libros infantiles, señalando las serifas de la tipografía. Apuntes de la Conferencia del Premio Kyoto de Donald Knuth (1996)](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767468485/elCronopio/Blog-posts/knuth_kid-serif_iyt0mp.png)
 
 ### Knuth decide resolver el problema (tipográfico) él mismo
-Luego de la decepción al recibir las copias de su libro tipografía hadas con las nuevas tecnologías de la época, empieza a buscar una solución editorial, encontrando en Polonia algunas personas que aún usan la tecnología tipográfica antigua, pero esto resulta casi imposible.
-<QuoteAndAuthor quotation={{ quote: "My whole book had been completely retypeset with a different technology. The new fonts looked terrible! The subscripts were in a different style from the large letters, for example, and the spacing was very bad. You can look at books printed in the early 70s and it turns out that if it wasn't simple -- well, almost everything looked atrocious in those days.  I couldn't stand to see my books so ugly.", author:"Donald Knuth", source: "https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf"}} /> 
+Luego de la decepción al recibir las copias de su libro con las tipografías nuevas tecnologías de la época, empieza a buscar una solución editorial, encontrando en Polonia algunas personas que aún usan la tecnología tipográfica antigua, pero esto resulta casi imposible.
+<QuoteAndAuthor quotation={{ quote: "My whole book had been completely retypeset with a different technology. The new fonts looked terrible! The subscripts were in a different style from the large letters, for example, and the spacing was very bad. You can look at books printed in the early 70s and it turns out that if it wasn't simple -- well, almost everything looked atrocious in those days.  I couldn't stand to see my books so ugly.", author:"Donald Knuth", source: "An Interview with Donald Knuth (2007)"}} /> 
 En aquel entonces Knuth ya trabajaba en el _Laboratorio de Inteligencia Artificial de Stanford_ (SAIL), liderado por nada menos que John McCarthy. Allí tenían una impresora Xerox XPG <CitationSup id={4}/>
 que era capaz de imprimir con una _densidad de 120 puntos por pulgada_, mucho mejor que las impresoras de matriz de puntos comunes en esa época aunque no suficientes para producir
 las tipografías que quería Knuth.
@@ -72,7 +73,7 @@ no se podía pensar en el sistema tipográfico de impresión sin tener las fuent
 Trató de buscar ayuda en Xerox, pero la condición era que los derechos de uso de las fuentes que desarrollara fueran de Xerox. 
 Knuth no estaba de acuerdo con esto pensando que una fórmula matemática no podía ser propiedad de nadie<CitationSup id={6}/>.
 
-Intenta trabajar con las tecnologías disponibles en SAIL, pero no eran suficientes. Se trataba de capturar la imagen de las fuentes tipográficas con la mayor precisión posible utilizando cámaras de televisión.
+Intenta trabajar con las tecnologías disponibles en SAIL, pero no eran suficientes. Se trataba de capturar la imagen de las fuentes tipográficas con la mejor precisión posible utilizando cámaras de televisión.
 Esto para poder trazar las fuentes y caracteres con la mayor precisión posible. También lo intentó con la ayuda de su esposa,  
 fotografiando letras impresas con una cámara de alta resolución y proyectándolas en una pared para poder trazar las curvas a mano alzada, sin embargo no eran lo suficientemente claras.
 En este intento se da cuenta de algo sencillo: que _las fuentes eran diseñadas por personas_
@@ -92,7 +93,7 @@ usando este sistema y miles de artículos científicos en todo el mundo. Incluso
 ## ¿Pero cómo TeX puede imprimir?
 Primero METAFONT definía ecuaciones para las curvas (curvas de Bézier cúbicas) y el grosor del trazo. Esto creaba una "letra ideal" que era independiente de la resolución; existía solo como pura matemática (coordenadas).
 Para poder imprimir, TeX usaba un proceso llamado "rasterización" que convertía estas definiciones matemáticas en una matriz de puntos (pixeles) que la impresora podía entender. 
-La salida del proceso de compilación consistía de varios archivos, entre esos el archivo DVI (DeVice Independent) que contenía las instrucciones para colocar cada carácter en la página, y los archivos de fuentes generados por METAFONT.
+La salida del proceso de compilación consistía de varios archivos, entre esos el archivo DVI (Device Independent) que contenía las instrucciones para colocar cada carácter en la página, y los archivos de fuentes generados por METAFONT.
 
 Es por esto que $\TeX$ compone documentos de alta calidad aún sin la existencia del PDF. Fue concebido para la imprenta.
 También es importante mencionar que TeX fue diseñado para ser independiente del dispositivo de salida (impresora o pantalla), por lo que 

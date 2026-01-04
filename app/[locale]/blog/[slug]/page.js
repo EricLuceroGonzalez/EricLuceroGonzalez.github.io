@@ -15,7 +15,6 @@ import {
   SideInfo,
   SectionType,
   Layout,
-  CoverImageContainer,
 } from "@/app/ui/lugs.js";
 import { MainBg } from "@/app/ui/ComponentsStyled.js";
 import Link from "next/link.js";

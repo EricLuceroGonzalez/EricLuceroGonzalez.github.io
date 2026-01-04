@@ -35,7 +35,7 @@ export default async function About({ params }) {
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{
                 duration: 0.5,
-                scale: { type: "spring", visualDuration: 0.3, bounce: 0.5 },
+                scale: { type: "spring", visualDuration: 0.3, bounce: 0.35 },
               }}
             >
               <Image
@@ -94,6 +94,12 @@ export default async function About({ params }) {
               href="https://github.com/EricLuceroGonzalez"
               target="_blank"
               rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                scale: { type: "spring", visualDuration: 0.4, bounce: 0.65 },
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -110,6 +116,12 @@ export default async function About({ params }) {
               href="https://www.linkedin.com/in/ericlucerog/"
               target="_blank"
               rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                scale: { type: "spring", visualDuration: 0.4, bounce: 0.65 },
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +133,15 @@ export default async function About({ params }) {
               </svg>{" "}
               LinkedIn
             </IconLink>
-            <IconLink href="mailto:ericlucerogonzalez@gmail.com">
+            <IconLink
+              href="mailto:ericlucerogonzalez@gmail.com"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                scale: { type: "spring", visualDuration: 0.4, bounce: 0.65 },
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -136,6 +156,12 @@ export default async function About({ params }) {
               href="https://x.com/EricLuceroG"
               target="_blank"
               rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                scale: { type: "spring", visualDuration: 0.4, bounce: 0.65 },
+              }}
             >
               <FaSquareXTwitter /> Twitter
             </IconLink>

@@ -27,7 +27,7 @@ export const Article = styled.article`
   margin: 0 auto;
   background-color: var(--bg);
   color: var(--fg);
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  /* box-shadow: 0 4px 8px rgb  a(0, 0, 0, 0.1); */
   width: 70%;
 
   @media (0px <= width < 390px) {
@@ -239,7 +239,7 @@ export const LinkList = styled.div`
   justify-content: space-around;
 `;
 
-export const IconLink = styled.a`
+export const IconLink = styled(motion.a)`
   color: var(--fg);
   text-decoration: none;
   svg {

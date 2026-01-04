@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "../../../../i18n/navigation";
 import styled, { keyframes, css } from "styled-components";
 import { useTransition } from "react";
@@ -67,6 +67,7 @@ export default function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const nextLocale = locale === "es" ? "en" : "es";
+  const t = useTranslations("Navigation");
   const handleChange = () => {
     // Reemplaza la URL actual con el nuevo idioma
     if (isPending) return;
@@ -80,7 +81,9 @@ export default function LanguageSwitcher() {
       <SwitchButton
         onClick={handleChange}
         disabled={isPending}
-        title={`Switch to ${nextLocale.toUpperCase()}`}
+        title={`${t("language_switch_toggle")} ${
+          nextLocale.toUpperCase() == "ES" ? "Español" : "English"
+        }`}
       >
         <IconWrapper $isPending={isPending}>
           <FaGlobe />

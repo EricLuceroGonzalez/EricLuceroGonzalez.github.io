@@ -1,4 +1,5 @@
 import {
+  EmojiContainer,
   HomePageCover,
   HomePageCoverText,
   LatexSection,
@@ -30,7 +31,15 @@ export default async function Home({ params }) {
       <MainPageBg>
         <HomePageCover>
           <HomePageCoverText>
-            <TitlePage>{t("title")} 👋🏼</TitlePage>
+            <TitlePage>
+              {t("title")}{" "}
+              <EmojiContainer
+                animate={{ rotate: [0, 30, -20, 30, 0] }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+              >
+                👋🏼
+              </EmojiContainer>
+            </TitlePage>
             {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>
           <BackgroundDots numDots={40} />

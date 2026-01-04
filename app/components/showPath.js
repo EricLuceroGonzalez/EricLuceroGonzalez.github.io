@@ -2,8 +2,9 @@
 import { Link } from "@/i18n/navigation";
 import styled from "styled-components";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
-const PathBlock = styled.div`
+const PathBlock = styled(motion.div)`
   display: flex;
   flex-direction: row;
   margin: 0.5rem auto 3rem auto;
@@ -38,13 +39,20 @@ const ShowPath = ({ title }) => {
   }
   return (
     <>
-      <PathBlock>
+      <PathBlock
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.3,
+          scale: { type: "spring", visualDuration: 0.3, bounce: 0.5 },
+        }}
+      >
         <PathLink href={"/"}>home</PathLink>
         {/* 2. Link a la Categoría (Blog, Papers, etc.) */}
         {category && (
           <>
             <PathSlash>/</PathSlash>
-            {/* El Link de i18n maneja el prefijo de idioma automáticamente */}
+            {/* El Link d e i18n maneja el prefijo de idioma automáticamente */}
             <PathLink href={`/${category}`}>{category}</PathLink>
           </>
         )}

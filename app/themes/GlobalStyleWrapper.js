@@ -89,7 +89,7 @@ a {
 
     --secondary-btn-bg: #00364D; /* Un tono más claro que el fondo */
     --secondary-btn-fg: #FF3366;
-    --secondary-btn-hover: #004966;
+    --secondary-btn-hover: #005b80ff;
 
     /* ENLACES - CORRECCIÓN CRÍTICA */
     --link-fg: #FF3366; 

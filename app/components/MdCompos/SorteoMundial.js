@@ -11,7 +11,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 1400px;
   margin: 2rem auto;
-  padding: 2rem 1rem;
+  padding: 2rem 5%;
   border-top: 1px dotted var(--gray-light);
   border-bottom: 1px dotted var(--gray-light);
   background-color: var(--emphasis-bg);
@@ -105,6 +105,7 @@ const ItinerarioSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* width: 90%; */
 `;
 
 const ItinerarioHeader = styled.h2`
@@ -161,6 +162,7 @@ const EquipoRow = styled.div`
   padding: 0.5rem;
   background: #f7fafc;
   border-radius: 0.375rem;
+  font-size: small;
 `;
 
 const BomboTag = styled.span`
@@ -177,7 +179,7 @@ const EquipoNombre = styled.span`
 `;
 
 const ConfTag = styled.span`
-  font-size: 0.75rem;
+  font-size: xx-small;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   background: ${(props) => props.bg};
@@ -578,11 +580,11 @@ function ejecutarGA(onProgress) {
 // ==========================================
 
 export default function SorteoMundialGA(props) {
-  const [sorteo, setSorteo] = useState(null);
+  const [sorteo, setSorteo] = useState(false);
   const [ejecutando, setEjecutando] = useState(false);
   const [progreso, setProgreso] = useState({ gen: 0, costo: 0 });
-  const [resultado, setResultado] = useState(null);
-  const [tiempoTotal, setTiempoTotal] = useState(null);
+  const [resultado, setResultado] = useState(false);
+  const [tiempoTotal, setTiempoTotal] = useState(false);
 
   const letras = "ABCDEFGHIJKL";
   const t = props.translations;
@@ -671,18 +673,27 @@ export default function SorteoMundialGA(props) {
             {gruposItin1.map(({ idx, grupo }) => (
               <GrupoCard key={idx} borderColor="var(--accent)">
                 <GrupoHeader>
+                  {t.group}
                   <GrupoLetra color="var(--accent)">{letras[idx]}</GrupoLetra>
-                  {t.group} {letras[idx]}
                 </GrupoHeader>
                 <EquiposList>
                   {grupo.map((equipo, eIdx) => {
                     const colors = getConfColors(equipo.confederacion);
                     return (
                       <EquipoRow key={eIdx}>
-                        <BomboTag>B{equipo.bombo}</BomboTag>
+                        <BomboTag>
+                          {letras[idx]}
+                          {equipo.bombo}
+                        </BomboTag>
                         <EquipoNombre>{equipo.nombre}</EquipoNombre>
 
-                        <div style={{ display: "flex", gap: "4px" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "4px",
+                            flexWrap: "wrap",
+                          }}
+                        >
                           {equipo.confederacion.map((confName, cIdx) => {
                             // Obtenemos el color individual para CADA confederación
                             const colors = getConfColors(confName);
@@ -692,11 +703,10 @@ export default function SorteoMundialGA(props) {
                                 key={cIdx}
                                 bg={colors.bg}
                                 color={colors.color}
-                                // Si es repesca, quizás quieras la fuente un pelín más chica
                                 style={{
                                   fontSize:
                                     equipo.confederacion.length > 1
-                                      ? "0.7rem"
+                                      ? "x-small"
                                       : "inherit",
                                 }}
                               >
@@ -731,7 +741,10 @@ export default function SorteoMundialGA(props) {
                     const colors = getConfColors(equipo.confederacion);
                     return (
                       <EquipoRow key={eIdx}>
-                        <BomboTag>B{equipo.bombo}</BomboTag>
+                        <BomboTag>
+                          {letras[idx]}
+                          {equipo.bombo}
+                        </BomboTag>
                         <EquipoNombre>{equipo.nombre}</EquipoNombre>
                         <div style={{ display: "flex", gap: "4px" }}>
                           {equipo.confederacion.map((confName, cIdx) => {
@@ -743,11 +756,10 @@ export default function SorteoMundialGA(props) {
                                 key={cIdx}
                                 bg={colors.bg}
                                 color={colors.color}
-                                // Si es repesca, quizás quieras la fuente un pelín más chica
                                 style={{
                                   fontSize:
                                     equipo.confederacion.length > 1
-                                      ? "0.7rem"
+                                      ? "x-small"
                                       : "inherit",
                                 }}
                               >
