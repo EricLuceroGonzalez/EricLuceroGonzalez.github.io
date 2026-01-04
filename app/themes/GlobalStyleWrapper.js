@@ -42,7 +42,7 @@ a {
     
     --secondary-btn-bg: #E2E6EA; 
     --secondary-btn-fg: #0077FF;
-    --secondary-btn-hover: #D1D5DB;
+    --secondary-btn-hover: #c3c7cdff;
 
     /* ENLACES */
     --link-fg: #0077FF; 
@@ -65,6 +65,7 @@ a {
     --primary-border: #DEE2E6;
     --box-border-hover: #0077FF;
     --gray-light: #919ca2ff;
+    --green-go: #00cc66;
   }
 
   [data-theme='dark'] {
@@ -111,6 +112,7 @@ a {
     --primary-border: #004966;
     --box-border-hover: #FF3366;
     --gray-light: #919ca2ff;
+    --green-go: #00cc66;
   }
 
   /* Utilidades */

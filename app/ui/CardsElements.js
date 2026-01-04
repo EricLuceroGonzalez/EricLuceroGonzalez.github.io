@@ -89,11 +89,10 @@ export const GridContainer = styled(motion.div)`
 `;
 
 export const ExcerptContainer = styled.p`
-  font-family: monospace;
-  margin-bottom: 0.5rem;
+  font-weight: 100;
+  margin: 0.5rem 0 0.5rem 0;
   color: var(--fg);
   font-size: medium;
-  /* color: blue; */
   @media (min-width: 660px) {
     font-size: medium;
     /* color: red; */

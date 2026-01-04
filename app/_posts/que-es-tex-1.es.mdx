@@ -7,138 +7,170 @@ author: "Eric Lucero"
 socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
 webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
 coverImageAlt: 'Imagen de cover con el logo de TeX en su tipografía clásica, con un efecto hecho a mano.'
-title: "TeX: Más que un Software, una Filosofía"
+title: "TeX: Más que un Software, una Filosofía (Parte I)"
 shortTitle: "TeX"
 entryType: "latex"
-excerpt: "Desde la crisis de la impresión en los años 70 hasta el estándar de oro actual. Descubre por qué Donald Knuth creó TeX y por qué sigue siendo insuperable."
+excerpt: "TeX es un sistema de composición tipográfica creado por Donald Knuth en la década de 1970 para producir documentos de alta calidad, previo a la existencia del PDF,  el internet, el HTML y la impresión digital moderna."
 doctype: ["latex"]
 isPublic: true
 ---
+$\TeX$ es un sistema de composición tipográfica creado por Donald Knuth en la década de 1970 para producir documentos de alta calidad, previo a la existencia del PDF,  el internet, el HTML y la impresión digital moderna.
+
 ## Contenido
 
-## Cuando las Letras Perdieron su Alma
+## EL surgimiento de TeX: Una respuesta a la crisis tipográfica
 
-Para entender **TeX**, primero debemos viajar atrás en el tiempo, a finales de la década de 1970.
+Para entender **TeX**, primero debemos viajar a finales de la década de 1960. Todo empieza con el profesor de Stanford **Donald Knuth** y su ambiciosa obra *The Art of Computer Programming*.
+El primer volumen se publicó en 1978 y el segundo cinco años después. 
+Nació en el Stanford Artificial Intelligence Laboratory (SAIL) como respuesta a la crisis tipográfica que enfrentaba la impresión de libros científicos y matemáticos en esa época. Crisis que Donald Knuth 
+y su sana obsesión por la calidad tipográfica no podían tolerar.
 
-Durante siglos, la impresión de libros fue un arte manual de alta precisión. Los artesanos colocaban tipos de plomo físico, asegurando que cada página tuviera un "color" (densidad de tinta) uniforme y hermoso. Pero con la llegada de las nuevas tecnologías de fotocomposición digital en los 70, algo terrible sucedió: la calidad se desplomó.
+>Era una obra monumental, repleta de fórmulas matemáticas complejas y diagramas intrincados. Knuth, un perfeccionista obsesionado con la calidad tipográfica, estaba encantado con la impresión del libro.
 
-**Donald Knuth**, un renombrado informático y matemático, recibió las pruebas de impresión para el segundo volumen de su obra maestra, *The Art of Computer Programming*, y quedó horrorizado. Las fórmulas matemáticas se veían torpes, el espaciado era irregular y la belleza de los volúmenes anteriores había desaparecido.
+Hasta aquellos años la creación de documentos matemáticos de alta calidad dependía de una tecnología que había alcanzado su cúspide a finales del siglo XIX: la composición con metal caliente usando dos tipos de máquinas.
+La máquina de composición **Monotype:**<CitationSup id={1}/> (Máquinas que fundían caracteres individuales, permitiendo una mayor flexibilidad para la notación matemática) era la que producía los textos matemáticos de mejor calidad hasta entonces.
+
+Lamentablemente para Knuth y afortunadamente para $\TeX$, en la década de 1970, esta tecnología se volvió obsoleta por razones económicas y fue reemplazada por la fotocomposición.
+>Esta caída de calidad visual (belleza según Knuth) fue lo que "horrorizó" a Knuth al ver las pruebas del volumen 2 de The Art of Computer Programming, impulsándolo a crear TeX para restaurar digitalmente la calidad de los antiguos maestros artesanos
+
+Lo anterior lo cuenta el mismo Knuth cuenta en un discurso llamado _Digital Typography_ <CitationSup id={2}/>.
 
 ![caption=La extensa obra de Knuth: "The Art of Computer Programming" que hizo posible TeX.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767290081/elCronopio/Blog-posts/2880px-The_Art_of_Computer_Programming__vol._1-4B_-2807_d4lvyt.jpg)
 
-Knuth, siendo un perfeccionista, decidió que no podía tolerar eso. Pensó que le tomaría unos seis meses escribir un programa para solucionar el problema. Le tomó casi una década. El resultado fue **TeX**.
-
-En mayo de 1977, Knuth diría lo siguiente: 
+>Knuth, siendo un perfeccionista desde niño, decidió que no podía tolerar eso. 
 
 
-<QuoteAndAuthor quotation={{ quote: "TEX is for technical text. Insiders pronounce the X as a Greek Chi (cf. the Scottish `ch' sound in `Loch Ness') since the word `technical' stems from a Greek root meaning art as well as technology. I am preparing the system   primarily for use in publishing my series The Art of Computer Programming-- the initial system will be tuned for my books, but it will not be difficult to extend it for other purposes if anybody wants to do so.", author: "Donald Knuth", source: "Preliminary preliminary description of TEX (1977)"}} />
+## La obsesión con la calidad tipográfica y la composición
 
+Una anécdota famosa de su juventud<CitationSup id={3}/> es cuando ganó un concurso de la compañía de dulces Ziegler's Giant Bar. 
+El reto consistía en formar tantas palabras como fuera posible con las letras de la frase "Ziegler's Giant Bar". 
+Mientras los jueces esperaban unas pocas docenas, el joven Knuth de 13 años, fingiendo dolor de estómago para quedarse en casa y trabajar en ello, 
+encontró metódicamente más de 4,700 palabras, demostrando su temprana obsesión por la combinatoria, las listas y el procesamiento sistemático de datos (incluso antes de tener una computadora).
 
-## ¿Qué es TeX realmente?
+Otra anécdota contada en el discurso del premio Kyoto <CitationSup id={2}/> habla de su interés por las letras y la tipografía desde muy niño.
+<QuoteAndAuthor quotation={{ quote: "De hecho, no solo siempre me han encantado los libros, sino que también me fascinan las letras individuales. Aquí les dejo una página del primer libro del abecedario que tuve de pequeña. Curiosamente, marqué cada serifa con una pequeña x y las conté: la letra K tiene 7 serifas. La letra P tiene 4; la letra O no tiene ninguna.", author: "Donald Knuth", source: ""}} />
 
-TeX no es un procesador de textos convencional; es un sistema de **composición tipográfica** (*typesetting*). 
+![caption=Anotaciones de Knuth sobre sus libros infantiles, señalando las serifas de la tipografía. Apuntes de la Conferencia del Premio Kyoto de Donald Knuth (1996)](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767468485/elCronopio/Blog-posts/knuth_kid-serif_iyt0mp.png)
 
-<QuoteAndAuthor quotation={{ quote: "...TEX, a new typesetting system intended for the creation of beautiful books -- and especially for books that contain a lot of mathematics.", author: "Donald Knuth", source: "The TeXbook (1984)"}} />
+### Knuth decide resolver el problema (tipográfico) él mismo
+Luego de la decepción al recibir las copias de su libro tipografía hadas con las nuevas tecnologías de la época, empieza a buscar una solución editorial, encontrando en Polonia algunas personas que aún usan la tecnología tipográfica antigua, pero esto resulta casi imposible.
+<QuoteAndAuthor quotation={{ quote: "My whole book had been completely retypeset with a different technology. The new fonts looked terrible! The subscripts were in a different style from the large letters, for example, and the spacing was very bad. You can look at books printed in the early 70s and it turns out that if it wasn't simple -- well, almost everything looked atrocious in those days.  I couldn't stand to see my books so ugly.", author:"Donald Knuth", source: "https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf"}} /> 
+En aquel entonces Knuth ya trabajaba en el _Laboratorio de Inteligencia Artificial de Stanford_ (SAIL), liderado por nada menos que John McCarthy. Allí tenían una impresora Xerox XPG <CitationSup id={4}/>
+que era capaz de imprimir con una _densidad de 120 puntos por pulgada_, mucho mejor que las impresoras de matriz de puntos comunes en esa época aunque no suficientes para producir
+las tipografías que quería Knuth.
+En medio de esta búsqueda, febrero de 1977, se topa con las pruebas de la primera edición del libro _inteligencia artificial_ de Patrick Winston <CitationSup id={5}/>, 
+que había sido compuesto con una impresora de matriz en la empresa Information International, Inc. (III), con una densidad de 1000 puntos por pulgada.
+Knuth quedó impresionado por la calidad de impresión, y sobre todo por la técnica. La forma de composición utilizada se basaba en pixeles, era totalmente digital, con puntos de tinta. En lugar de imágenes
+fotográficas, la impresora usaba algoritmos para calcular la posición exacta de cada punto de tinta en la página. Bits, según dice Knuth en <CitationSup id={6}/>.
+<QuoteAndAuthor quotation={{ quote: "El problema de imprimir libros hermosos había pasado de ser un problema de metalurgia a un problema de óptica y luego a un problema de ciencias de la computación. Un problema de ceros y unos.", author: "Donald Knuth", source: "Conferencia del Premio Kyoto de Donald Knuth (1996)"}} />
 
+En este momento Knuth abandona todo lo que estaba haciendo (iba por las primeras 100 páginas del cuarto volumen de The Art of Computer Programming) y decide resolver **el problema** él mismo.
+>Pensó que le tomaría unos meses escribir un programa para solucionar este problema, durante su año sabático de 1978 en Chile (donde también pretendía aprender español). Le tomó casi una década. El resultado fue **TeX**.
 
-Su objetivo no es simplemente poner letras en una página, sino hacerlo con la misma calidad estética que los antiguos maestros impresores, pero utilizando la precisión de las matemáticas modernas.
+En este punto Knuth se da cuenta de varios problemas, primero que nadie más estaba trabajando en este problema, y segundo que una máquina tipográfica era algo costoso para el presupuesto universitario. Tercero, 
+no se podía pensar en el sistema tipográfico de impresión sin tener las fuentes y símbolos tipográficos necesarios. Knuth tenía que diseñar las formulas matemáticas para describir la forma de las fuentes y caracteres.
+Trató de buscar ayuda en Xerox, pero la condición era que los derechos de uso de las fuentes que desarrollara fueran de Xerox. 
+Knuth no estaba de acuerdo con esto pensando que una fórmula matemática no podía ser propiedad de nadie<CitationSup id={6}/>.
 
+Intenta trabajar con las tecnologías disponibles en SAIL, pero no eran suficientes. Se trataba de capturar la imagen de las fuentes tipográficas con la mayor precisión posible utilizando cámaras de televisión.
+Esto para poder trazar las fuentes y caracteres con la mayor precisión posible. También lo intentó con la ayuda de su esposa,  
+fotografiando letras impresas con una cámara de alta resolución y proyectándolas en una pared para poder trazar las curvas a mano alzada, sin embargo no eran lo suficientemente claras.
+En este intento se da cuenta de algo sencillo: que _las fuentes eran diseñadas por personas_
+y se da cuenta que si las personas lo hacen, él podía hacer un programa de computadora que lo hiciera. 
+Así nace **METAFONT**, el sistema para diseñar fuentes tipográficas mediante algoritmos matemáticos<CitationSup id={7}/> buscando encontrar lo que Knuth llamó
+_la curva más placentera_, la cual encontró utilizando expresiones cúbicas.
 
-### El Nombre y el Logo: Una Declaración de Principios
+En el diseño de fuentes tipográficas es importante mencionar a Hermann Zapf, un tipógrafo alemán que diseñó fuentes clásicas como Palatino, Optima y Zapfino, que colaboró en los 80s con Knuth en el diseño de la 
+fuente **Computer Modern**, la fuente por defecto de TeX<CitationSup id={8}/>.
 
-Quizás hayas visto el nombre escrito de una forma peculiar:
+A mediados de 1977 trabajando en el prototipo de TeX, Knuth escribe una nota preliminar describiendo el sistema, donde explica el nombre y propósito de TeX. En mayo de 1977, Knuth diría lo siguiente: 
+<QuoteAndAuthor quotation={{ quote: "TEX is for technical text. Insiders pronounce the X as a Greek Chi (cf. the Scottish `ch' sound in `Loch Ness') since the word `technical' stems from a Greek root meaning art as well as technology. I am preparing the system primarily for use in publishing my series --The Art of Computer Programming-- the initial system will be tuned for my books, but it will not be difficult to extend it for other purposes if anybody wants to do so.", author: "Donald Knuth", source: "Preliminary preliminary description of TEX (1977)"}} />
 
-<div style={{ fontFamily: 'serif', fontSize: '1.5rem', margin: '1rem 0' }}>
-  T<span style={{ verticalAlign: '-0.25em', marginLeft: '-0.1em', marginRight: '-0.05em' }}>E</span>X
-</div>
+Hoy en día $\TeX$ es utilizado por importantes editoriales como Addison-Wesley (la de The Art of Computer Programming), Elsevier, Oxford o Springer<CitationSup id={9}/>. Cientos de libros se han publicado 
+usando este sistema y miles de artículos científicos en todo el mundo. Incluso universidades tienen sus tesis en este formato.
 
-* **El Origen Griego:** El nombre proviene de la raíz griega **$\tau\epsilon\chi$** (*tau*, *epsilon*, *chi*), el inicio de la palabra *techne*, que significa "arte" y "tecnología". Por eso, la "X" se pronuncia como una jota suave o el sonido "loch" escocés, no como una "ks".
-* **La 'E' Caída:** El logo con la 'E' desplazada hacia abajo no es un adorno. Es una demostración técnica. En las máquinas de escribir antiguas, las letras estaban atrapadas en una línea fija. TeX demostró desde su propio logo que tenía el control absoluto para mover cualquier elemento a cualquier lugar de la página, rompiendo la rigidez de los sistemas anteriores. Donald Knuth 
-dice que esta "E" fuera de lugar nos recuerda que TeX se trata de composición tipográfica y distingue el nombre TeX de los demás sistemas<CitationSup id={"1"}/>.
+## ¿Pero cómo TeX puede imprimir?
+Primero METAFONT definía ecuaciones para las curvas (curvas de Bézier cúbicas) y el grosor del trazo. Esto creaba una "letra ideal" que era independiente de la resolución; existía solo como pura matemática (coordenadas).
+Para poder imprimir, TeX usaba un proceso llamado "rasterización" que convertía estas definiciones matemáticas en una matriz de puntos (pixeles) que la impresora podía entender. 
+La salida del proceso de compilación consistía de varios archivos, entre esos el archivo DVI (DeVice Independent) que contenía las instrucciones para colocar cada carácter en la página, y los archivos de fuentes generados por METAFONT.
 
-Citando a Knuth en The TeXBook<CitationSup id={"1"}/>: Los expertos pronuncian la $X$ de $TeX$ como una _chi griega_, y no como una 'x', por lo que $TeX$ rima 
-con la palabra inglesa _blechhh_. Es el sonido de la 'ch' en palabras escocesas como _loch_ o en palabras alemanas como _ach_; es una 'j' española y una 'kh' rusa.
-Y culmina el párrafo con el humor característico de <CitationSup id={"1"}/> con: "Al hablar correctamente con el ordenador, la terminal podría humedecerse ligeramente."
+Es por esto que $\TeX$ compone documentos de alta calidad aún sin la existencia del PDF. Fue concebido para la imprenta.
+También es importante mencionar que TeX fue diseñado para ser independiente del dispositivo de salida (impresora o pantalla), por lo que 
+un documentos escrito en TeX en 1990, se puede imprimir hoy (o en cien años) sin problemas en una impresora moderna, manteniendo la misma calidad tipográfica.
 
+## Breve cronología de TeX y su ecosistema
+$\TeX$ es uno de los sofwares más longevos que existen, y su desarrollo ha sido constante desde su creación en los años 70's. Fue inventado en 1978 y la versión "final" (1.0) se lanzó en 1982 conocida como $\TeX 82$.
 
-### El ESCAPE como solución a los caracteres limitados
-A finales de los años 70, los sistemas de composición eran primitivos. Normalmente en una máquina de escribir o en un sistema de 
-composición de texto actual, los caracteres disponibles en el teclado son algo parecido a lo siguiente:
-   $$
-    \begin{aligned}
-    & ABCDEFGHIJKLMNOPQRSTUVWXYZ \\
-    & abcdefghijklmnopqrstuvwxyz \\
-    & 0123456789"\#\$\%\&@*+-=,.:;?! \\
-    & ()\lt\gt[]\{\}`'\|/\_\sim\hat{} \,\backslash
-    \end{aligned}
-    $$
+Antecede a varias tecnologías importantes como PostScript (1984) y PDF (1993) así como a el protocolo HTTP, la World Wide Web y el HTML. Ha evolucionado para adaptarse a los nuevos tiempos, incluyendo soporte para Unicode y PDF nativo.
+```mermaid
+---
+config:
+  layout: dagre
+  look: classic
+  theme: dark
+---
+timeline TB
+    title Cronología de TeX (Basado en N. Beebe, 2003)
+    section Nacimiento de TeX
+        1977-1978 : Donald Knuth crea las versiones clásicas de TeX y METAFONT (en SAIL)
+        1978 : TeX original implementado
+        1979 : Publicación de "Mathematical Typography"
+        1982 : Versiones "Finales" de TeX y METAFONT en Pascal (TeX82)
+```
 
-Knuth, en The TeXBook<CitationSup id={"1"}/> usa este argumento de los caracteres limitado para introducir una de las claves de 
-TeX (en aquella época previa a las computadoras modernas): el uso del carácter de escape `\` para introducir comandos especiales que van más allá de los caracteres disponibles en el teclado.
+```mermaid
+---
+config:
+  layout: dagre
+  look: classic
+  theme: dark
+---
+timeline TB
+    title Cronología de TeX (Basado en N. Beebe, 2003)
+    section Expansión del Ecosistema
+        1983-1985 : Creación de LaTeX (Leslie Lamport)
+        1984 : BibTeX (Oren Patashnik)
+             : Lanzamiento de PostScript (Adobe Systems)
+        1986 : grap (J. Bentley y B. W. Kernighan)
+        1989 : "Nuevo" TeX y METAFONT (Soporte de 8-bits)
+        1990 : METAPOST (John Hobby)
+```
+```mermaid
+---
+config:
+  layout: dagre
+  look: classic
+  theme: dark
+---
+timeline TB
+    title Cronología de TeX (Basado en N. Beebe, 2003)
+    section Era de Internet y PDF
+        1989-1991 : Nacimiento de HTML y HTTP (Tim Berners-Lee)
+        1991 : World Wide Web (Tim Berners-Lee)
+        1993 : Lanzamiento del formato PDF (Adobe Systems)
+        1994 : Lanzamiento de LaTeX2e
+             : Proyecto Omega (Unicode)
+        1996 : pdfTeX (Hàn Thế Thành)
+        1997 : e-TeX (P. Breitenlohner et al.)
+```
 
-La elección del carácter de escape `\` no fue arbitraria. En los sistemas de composición de la época, este carácter no se usaba para nada especial además que esta tecla se ubicaba cerca de la barra espaciadora en teclados de los 70's (actualmente está en una ubicación mucho mas conveniente en los teclados en inglés), por lo que Knuth lo eligió para evitar conflictos con otros caracteres. 
+## La última versión, los números $\pi$ y $e$
+En 1990, Knuth anunció que TeX y METAFONT no iban a cambiar más, sino que solo se les harían pequeñas correcciones de errores. De tal manera que sus versiones 
+nuevas serían numeradas con los decimales de $\pi$ y $e$ respectivamente, hasta la fecha de su muerte. En este momento se congelarían las versiones y sería el fin de 
+las actualizaciones del código fuente de $\TeX$ y METAFONT.
 
->Después de teclear el carácter de escape `\`, TeX interpreta la siguiente secuencia de caracteres como un __comando especial__. 
+> La versión actual de TeX es $\TeX\, 3.14159265$ y la de METAFONT es $2.7182818$.
 
-Por ejemplo, `\alpha` representa la letra griega $\alpha$, y `\frac{a}{b}` crea una fracción con 'a' en el numerador y 'b' en el denominador:
-$$\frac{a}{b}$$
-
-Los _comandos especiales_ de $TeX$ son el primer paso a la comprensión de su filosofía y su uso: separar el contenido del formato visual.
-
-## Una Filosofía Diferente: WYSIWYM
-
-Programas conocidos como Word, que siguen la filosofía **WYSIWYG** (*What You See Is What You Get* - Lo que ves es lo que obtienes). Si pones algo en negrita, lo ves al instante.
-El paradigma más conocido y "cómodo" de trabajar es sin duda el __WYSIWYG__. Parece útil, pero mezcla dos procesos que deberían estar separados: la **autoría** y la **edición**.
-
-![caption=Paradigma WYSIWYG. Entre el documento de salida y el que modificamos en un editor de texto no hay casi diferencia. Modificamos el documento tal cual lo queremos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767297024/elCronopio/Blog-posts/IMG_0052_wuw4dw.jpg)
-
-TeX propone algo más profundo usando el paradigma **WYSIWYM** (*What You See Is What You Mean* - Lo que ves es lo que quieres decir).
-
-En lugar de distraerte con el diseño visual mientras escribes, en TeX te concentras en la estructura y el significado:
-
-![caption=Paradigma WYSIWYM. Entre el documento de salida y el que editamos hay un proceso de compilación de algún lenguaje (como TeX) y no hay parecido alguno entre estos documentos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767297023/elCronopio/Blog-posts/IMG_0051_eeqkhd.jpg)
-
-En el caso de TeX, usamos los comandos predefinidos (o incluso los definimos nosotros) y nos enfocamos en escribir el contenido y el significado, y TeX se encarga de calcular matemáticamente los saltos de línea, el kerning (espacio entre letras) y la justificación perfecta. Es como tener a un diseñador gráfico experto dentro de tu ordenador.
-
-* **En WYSIWYG:** Pasas el tiempo moviendo márgenes con el ratón, cambiando fuentes manualmente y preocupándote por si la imagen saltó a la página siguiente.
-* **En WYSIWYM (TeX):** Tú escribes el *significado*. Dices: `\chapter{Introducción}` o `\emph{importante}`. No te preocupas por cómo se ve mientras escribes; te concentras en el contenido. Luego, TeX actúa como el diseñador gráfico experto, tomando tus instrucciones semánticas y convirtiéndolas en una página visualmente perfecta.
-
-
-## Más Allá de las Matemáticas: La Versatilidad de TeX
-
-Aunque TeX nació para salvar la impresión de libros de matemáticas (es insuperable componiendo ecuaciones complejas), su motor es tan robusto que hoy se usa para todo tipo de documentos impresos de alta calidad:
-
-1. **Presentaciones:** Con paquetes como `Beamer`, TeX permite crear diapositivas profesionales con un control total sobre el diseño.
-2. **Gráficos y Diagramas:** A través de extensiones como `TikZ`, los usuarios pueden crear gráficos vectoriales complejos directamente dentro de sus documentos TeX.
-3. **Revistas Científicas:** Muchas publicaciones académicas utilizan TeX para garantizar la consistencia y calidad tipográfica en sus artículos.
-4. **Posters Académicos:** TeX es una herramienta popular para diseñar posters científicos y académicos debido a su capacidad para manejar texto y gráficos de manera eficiente.
-5. **CV**: Muchos profesionales utilizan TeX para crear currículums vitae que destacan por su diseño limpio y profesional.
-6.  **Libros y Novelas:** Para lograr esa apariencia profesional donde el texto fluye sin "ríos" de espacio en blanco distractores.
-7. **Exámenes y Material Educativo:** Muchos educadores utilizan TeX para crear exámenes y materiales de estudio debido a su capacidad para manejar fórmulas matemáticas y diagramas complejos.
-8. **Material Promocional:** Cartas, menús de restaurantes o invitaciones que requieren una presentación elegante.
-9.  **Partituras Musicales:** Sistemas como `MusiXTeX` utilizan el motor para colocar notas con precisión milimétrica.
-10. **Cartas y Correspondencia Formal:** TeX permite diseñar cartas con un formato impecable, ideal para comunicaciones profesionales.
-11.  **Documentos Legales:** Donde la estructura y la permanencia del formato son críticas.
-
-La plataforma Overleaf<CitationSup id={2}/> (una plataforma en línea para escribir documentos TeX), tiene una extensa galería con todo tipo de documentos de TeX. Puedes ver todas estas plantillas en línea [haciendo clic aquí.](https://www.overleaf.com/gallery/)
-
-### El Ecosistema Actual, los motores: TeX Live y MiKTeX
-
-Aunque el código fuente original de Knuth es la base inmutable (literalmente "congelada" para evitar cambios que rompan la compatibilidad histórica), hoy en día interactuamos con TeX a través de distribuciones modernas.
-Nadie usa el TeX original "puro" hoy en día sin ayuda. 
-
-Utilizamos (e instalamos en nuestros ordenadores) "distribuciones" que facilitan su uso: **TeX-Live:** y **MiKTeX:**
-
-* **TeX Live:** Es el estándar *de facto* en el mundo Linux y Unix (y Mac a través de MacTeX). Es una distribución completa, robusta y mantenida por una comunidad vibrante (TUG). Si quieres tener "todo" el universo TeX instalado y listo, esta es tu elección.
-* **MiKTeX:** Muy popular entre los usuarios de Windows. Su genialidad radica en su capacidad de "instalación bajo demanda". ¿Tu documento pide un paquete de fuentes exótico que no tienes? MiKTeX lo descarga e instala automáticamente mientras compila.
-
-Ambos son los "chasis" modernos para el motor clásico que Knuth diseñó.
-
-## Conclusión
-
-TeX es la respuesta de un programador a la fealdad. Es la herramienta definitiva para quienes creen que un documento no solo debe leerse, sino admirarse. Al separar el contenido de la forma, TeX garantiza que tus escritos de hoy se podrán imprimir perfectamente dentro de 100 años.
+En la parte 2 de este post continuaremos hablando sobre las características de TeX, la particularidad de su nombre, su ecosistema actual y sus aplicaciones.
 
 <ReferenceList references={[
-{id: "1", text:"Donald Knuth, The TeXBook (1984)", url:"https://www-cs-faculty.stanford.edu/~knuth/abcde.html#texbk"},
-{id:"2", text: "Overleaf - Online LaTeX Editor", url: "https://www.overleaf.com/"}
+  {id: "1", text:"Monotype System", url:"https://en.wikipedia.org/wiki/Monotype_system"}, 
+  {id: "2", text: "Conferencia del Premio Kyoto de Donald Knuth (1996)", url:"https://www.kyotoprize.org/en/lectures/the-1996-kyoto-prize/"},
+  {id:"3",text:"The Computer Scientist Who Can't Stop Telling Stories",url:"https://www.quantamagazine.org/computer-scientist-donald-knuth-cant-stop-telling-stories-20200416/"},
+  {id:"4",text:"Xerox Graphics Printer (XGP)",url:"https://gunkies.org/wiki/Xerox_Graphics_Printer"},
+  {id:"5",text:"Artificial Intelligence, Patrick H. Winston (1977)",url:"https://en.wikipedia.org/wiki/Artificial_Intelligence_(book)"},
+  {id:"6",text:"An Interview with Donald Knuth 1974 ACM Turing Award Recipient (2007)",url:"https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf"},
+  {id:"7",text:"METAFONT en Wikipedia",url:"https://en.wikipedia.org/wiki/Metafont"},
+  {id:"8",text:"Mathematical Typography, D. E. Knuth, Bulletin of the American Mathematical Society, Volume 1, Number 2, 1979, pp. 337-372.",url:"https://projecteuclid.org/journalArticle/Download?urlId=bams%2F1183544082&isResultClick=False"},
+  {id:"9",text:"25 Years of TeX and METAFONT: Looking Back and Looking Forward, Nelson Beebe (2003)",url:"https://www.tug.org/TUGboat/Articles/tb25-1/beebe-2003keynote.pdf"},
 ]}/>

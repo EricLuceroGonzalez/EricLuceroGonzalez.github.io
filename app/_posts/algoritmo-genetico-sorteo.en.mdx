@@ -6,26 +6,27 @@ order: 0
 author: "Eric Lucero"
 socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839285/elCronopio/Thumbnails/GA-blog-es_swpqiq.png
 webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg
-coverImageAlt: ""
-title: "A Genetic Algorithm to Generate the FIFA World Cup 2026 Group Draw"
+coverImageAlt: "Emojis with flags of the participating countries in the FIFA World Cup 2026, organized in groups."
+title: "A Genetic Algorithm to Generate the FIFA World Cup Group Draw"
 shortTitle: "World Cup Groups with Genetic Algorithms"
 entryType: "blog"
 excerpt: "Hacking the 2026 World Cup: How Genetic Algorithms solve what brute force cannot."
 doctype: ["blog", "python"]
 isPublic: true
 ---
+We use Genetic Algorithms to generate the 2026 FIFA World Cup group draw, a constrained combinatorial optimization problem.
 ## Content
 
 ## The FIFA World Cup 2026 Group Draw
 The 2026 FIFA World Cup will be the first to feature 48 national teams from across the globe.
-These 48 teams must be distributed into 12 groups through a draw procedure that places interesting constraints on how these groups are formed. Thanks to these constraints, the draw can be conducted quickly and smoothly.
+These 48 teams must be distributed into 12 groups through a draw procedure that places some interesting constraints on how these groups are formed. Thanks to these constraints, the draw can be conducted quickly and smoothly.
 Once the draw is complete, the initial matchups for the tournament are set in stone.
 
 In the 2026 edition, with 48 participating teams, the draw becomes even more complex due to the multiple constraints that must be satisfied<CitationSup id="1" />.
 
 ![number=1caption=Knockout round itinerary according to FIFA. This configuration enforces the restriction that Spain and Argentina, or France and England, cannot face each other before the final, affecting their group assignment in the draw.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765980604/elCronopio/Blog-posts/IMG_0045_g1dpkv.jpg)
 
-The problem we face when generating the group draw is a **constrained combinatorial optimization problem**.
+The challenge we face when generating the group draw is a **constrained combinatorial optimization problem**.
 There is only a limited number of possible combinations that comply with all the restrictions imposed by FIFA; these are called *feasible solutions*.
 
 ### Feasible Solution
@@ -33,7 +34,8 @@ There is only a limited number of possible combinations that comply with all the
 A feasible solution is one that satisfies the objective function and does not violate any of the problem's constraints—or at least those considered mandatory.
 
 In the context of World Cup groups, a feasible solution is a draw configuration that complies with all imposed rules, such as confederation distribution and team rankings.
-Most of the possible combinations that can be made with 48 teams, 4 pots, and 12 groups will *not* be feasible solutions.
+*Most of the possible combinations that can be made with 48 teams, 4 pots, and 12 groups will not be feasible solutions.*
+
 Here lies the difficulty of the problem: finding a draw that is valid across all constraints.
 
 This solution space can be extremely large and complex, especially when considering all confederation and ranking constraints.
@@ -71,25 +73,27 @@ The restrictions are as follows <CitationSup id="3" />:
 - *Pot 1:* The other nine teams in Pot 1 will be identified by nine balls of the same color and automatically assigned to position 1 of the group into which they are drawn.
 - *Uniform Distribution:* Each group must have one team from each pot.
 - *Confederations per Group:* No group can have more than one team from the same confederation, except for UEFA, which can have up to two teams in the same group.
-- *Top 4 Ranking:* Finally, Spain and Argentina on one side, and France and England on the other, cannot face each other until the semifinals, as they are the top four in the FIFA Men's Ranking at the time <CitationSup id="2" />. This restricts their placement into arbitrary groups.
-![number=3caption=Spain vs Argentina and England vs France cannot meet until the World Cup final. This assumes each qualifies first in their respective groups.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/Brackets-10_qxhf0p.jpg)
+- *Top 4 Ranking:* Finally, Spain and Argentina on one side, and France and England on the other, cannot face each other until the final, as they are the top four in the FIFA Men's Ranking at the time <CitationSup id="2" />. This restricts their placement into arbitrary groups.
 
-These are what we call the *hard constraints* of the problem.
+![number=3caption=Distribution of brackets or team itineraries. Teams from one bracket that qualify for the next round will compete against teams from the other bracket. Spain vs Argentina and England vs France cannot meet until the World Cup final. This assumes each qualifies first in their respective groups.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/Brackets-10_qxhf0p.jpg)
+
+These are what we call the *constraints* of the problem.
 Attempting to generate all possible combinations and then filtering for those that meet the constraints would be computationally intractable, as we have already seen.
 
 ## What is a Genetic Algorithm?
-Without diving too deep, a Genetic Algorithm (GA) is an optimization algorithm inspired by the reproduction of populations from generation to generation  and biological evolutionary processes. They fall under the umbrella of *evolutionary algorithms*.
+
+Without diving too deep, a Genetic Algorithm (GA) is an optimization algorithm inspired by the reproduction of populations from generation to generation and biological evolutionary processes. They fall under the umbrella of *evolutionary algorithms*.
 
 The theoretical foundations and initial concepts of genetic algorithms belong to the work of John Holland and Lawrence Fogel in the 1960s<CitationSup id='4'/><CitationSup id='5'/>.
 
-A genetic algorithm consists of a population of individuals representing candidate solutions to the problem we want to solve.
+A genetic algorithm consists of populations of individuals representing candidate solutions to the problem we want to solve.
 Each of these solutions is evaluated by a cost, fitness, or objective function that measures how good the solution is.
 Then, the best solutions are selected to reproduce and generate new solutions through *crossover* and *mutation* operations.
 
 This process repeats over several generations until a termination criterion is reached, such as a maximum number of generations or a sufficiently good solution.
 
 ### Basic Genetic Algorithm
-In the lifecycle of a genetic algorithm, there are values that do not change, called *hyperparameters*, and their value can determine the success or failure of the algorithm, as some __metaheuristics__ are very sensitive to these inputs. In our case, these hyperparameters are:
+In the lifecycle of a genetic algorithm, there are values that generally do not change, called *hyperparameters*, and their value can determine the success or failure of the algorithm, as some __metaheuristics__ are very sensitive to these inputs. In our case, these hyperparameters are:
 - Population Size: How many individuals (candidate solutions) will make up the population in each generation.
 - Number of Generations: How many times the algorithm's lifecycle will repeat.
 - Crossover Probability: Set at 80%, as this value is usually effective for exploring the search space.
@@ -100,7 +104,6 @@ GENERACIONES = 1000 # Number of generations
 PROB_CROSSOVER = 0.8  # 80% crossover probability
 PROB_MUTACION = 0.2  # 20% mutation probability
 ```
-
 The lifecycle of a basic genetic algorithm can be represented by the following flowchart:
 ```mermaid
 ---
@@ -136,13 +139,21 @@ graph TD
 ```
 
 ## Initial Population
-Genetic algorithms belong to the set of metaheuristics classified as population-based. In this type of algorithm, a set of solutions is evaluated in each iteration, which we call a population. Each population is made up of individuals, and each of these must be evaluated by the cost function. In the best-case scenario, a solution is reached when an individual is found that has optimal Fitness and does not incur any violation of restrictions.
 
-In our case, for this problem, each individual is a draw, as mentioned before. This individual may contain schemas that violate the draw rules and constraints. It is the Fitness function that will punish this individual by assigning values that push it further away from the optimum.
+Genetic algorithms belong to the set of __metaheuristics__ classified as population-based.
+In this type of algorithm, a set of solutions is evaluated in each iteration, which we call a population. Each population is made up of individuals, and each of these must be evaluated by the cost function.
+In the best-case scenario, a solution is reached when an individual is found that has optimal fitness and does not incur any violation of restrictions.
 
-Before defining the population, it is important to first define the individuals that make up the population. We call this the encoding of the individual. Each individual in the population is a draw which we must find a way to represent in the algorithm and create (encoding).
+For this problem, each individual is a draw, as mentioned before. This individual may contain schemas that violate the draw rules and constraints,
+and it is the fitness function that punishes that individual by assigning values that push it further away from the optimum (from its chance to reproduce).
 
-The following code shows the process of creating an individual in a procedure similar to the actual draw; that is, teams are assigned pot by pot, from the first to the fourth. Ignoring restrictions, individuals can be valid or invalid, depending on whether they violate constraints. It is the algorithm that must determine who is the best or optimal among all individuals.
+Before defining the population, it is important to first define the individuals that make it up. We call this the *individual encoding*.
+
+>We must find a way to represent it in the algorithm and create it (encoding).
+
+The following code shows the process of creating an individual in a procedure similar to the actual draw; that is, teams are assigned pot by pot, from the first to the fourth.
+Ignoring restrictions, individuals can be valid or invalid, depending on whether they violate constraints.
+*It is the algorithm that must determine who is the best or optimal among all individuals.*
 
 ```python
 def crear_individuo(lista_equipos):
@@ -176,10 +187,16 @@ def crear_individuo(lista_equipos):
 
 ### Individual Structure
 
-We have already said that each individual of the genetic algorithm represents a candidate solution to the problem. This is a group draw with the 12 complete groups, regardless of whether they are valid or not. Since each draw is composed of groups, each group represents what we call a gene within the individual.
+We have already said that each individual of the genetic algorithm represents a candidate solution to the problem. This is
+_a group draw_ with the 12 complete groups, regardless of whether they are valid or not. Since each draw is composed of groups, each group represents what we call a _gene_ within the individual.
 
-For our code, each gene consists of elements of the `Equipo` (Team) class that contains the relevant information for each national team:
+![number=4caption=Representation of an individual as a complete draw of 12 groups and 48 teams. It can be seen that this individual does not meet some restrictions, for example, Group H has both Qatar and Jordan. These two teams belong to the same confederation and are not allowed to share a group.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg)
+
+In __Figure 4__, we see an example of what our algorithm will treat as an *individual*, and what we see is a complete draw assigning each team to one of the groups. This particular individual is not valid, since Group H contains Qatar and Jordan, both belonging to the same confederation (AFC), and it is not permitted for them to share a group. Additionally, the group with Croatia, Norway, and the European playoff winner cannot share a group since all three belong to UEFA. Something similar happens with the other non-European playoffs.
+
+For our code, each _gene_ consists of elements of the `Equipo` (Team) class that contains the relevant information for each national team:
 ```python
+
 class Equipo:
     def __init__(self, nombre, confederacion, bombo, grupo_fijo=None, ranking_top=None):
         self.nombre = nombre
@@ -196,27 +213,28 @@ class Equipo:
 ```
 For example, a top 4 team would be represented like this:
 ```python
-Equipo("Spain", ["UEFA"], 1, ranking_top=1)
-Equipo("Argentina", ["CONMEBOL"], 1, ranking_top=2)
+Equipo("Spain", ["UEFA"], bombo=1, ranking_top=1)
+Equipo("Argentina", ["CONMEBOL"], bombo=1, ranking_top=2)
 ```
 And host teams with a fixed group:
-
 ```python
-Equipo("Mexico", ["CONCACAF"], 1, grupo_fijo="A")
-Equipo("Canada", ["CONCACAF"], 1, grupo_fijo="B")
+Equipo("Mexico", ["CONCACAF"], bombo=1, grupo_fijo="A")
+Equipo("Canada", ["CONCACAF"], bombo=1, grupo_fijo="B")
 ```
 The rest of the teams are instantiated to the Team class more simply:
-
 ```python
-Equipo("Germany", ["UEFA"], 1)
-Equipo("Ecuador", ["CONMEBOL"], 2)
-Equipo("Panama", ["CONCACAF"], 3)
+Equipo("Germany", ["UEFA"], bombo=1)
+Equipo("Ecuador", ["CONMEBOL"], bombo=2)
+Equipo("Panama", ["CONCACAF"], bombo=3)
 # And so on until the rest are complete...
 ```
-## Fitness Function
-The simplest way to evaluate an individual with these characteristics is by creating an objective function that counts the times restrictions are violated. For each violation, it assigns a penalty to that individual—an unfavorable valuation so that in the lifecycle of the algorithm, this individual falls behind, cannot reproduce, and eventually goes extinct.
 
-![number=5caption=Evaluación de dos individuos. El individuo A tiene un fitness de 900, ya que viola la repetición de confederaciones en los grupos C,D,E. Además de no separar los itinerarios de España y Argentina.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/Blog-posts/fitness-11_y0fggo.jpg)
+## Fitness Function
+
+The simplest way to evaluate an individual with these characteristics is by creating an objective function that counts the times restrictions are violated.
+For each violation, it assigns a penalty to that individual—an unfavorable valuation so that in the *lifecycle* of the algorithm, this individual falls behind, cannot reproduce, and eventually goes extinct.
+
+![number=5caption=Evaluation of two individuals. Individual A has a fitness of 900 because it violates the confederation repetition rule in groups C, D, and E. Additionally, it fails to separate the itineraries of Spain and Argentina.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/Blog-posts/fitness-11_y0fggo.jpg)
 
 The algorithm seeks to minimize this number. A fitness of 1400 is a disaster; a fitness of 0 is a valid draw.
 
@@ -224,12 +242,10 @@ The function `calcularFitness(sorteo)` is the engine of the algorithm. Its goal 
 
 Upon finding one of these, the algorithm has found the optimum, i.e., a valid draw. This is where the aforementioned constraints come into play.
 
-Here we apply Hard Constraints:
-
+Here we apply **Hard Constraints**:
 - Confederations: No group can have more than one team from the same confederation (except Europe, which allows two).
-
 ```python
-for j in range(len(grupo)):
+        for j in range(len(grupo)):
             for k in range(j + 1, len(grupo)):
                 equipo_a = grupo[j]
                 equipo_b = grupo[k]
@@ -247,7 +263,7 @@ for j in range(len(grupo)):
 ```
 - Itineraries: The Top 4 seeded teams must be distributed in opposite brackets so they do not meet before the semifinals. If Top 1 and Top 2 land on the same side of the bracket, we apply a massive penalty (+500).
 ```python
-# We create a dictionary to know where the Top 4 are
+  # We create a dictionary to know where the Top 4 are
   ubicacion_tops = {}
     # For each group we get that location:
     for equipo in grupo:
@@ -263,8 +279,6 @@ for j in range(len(grupo)):
         penalizacion += PENALTY_ITINERARY
 ```
 Let's see the complete cost function. Its goal is to evaluate each group, count the times a restriction is violated, and apply penalties.
-
-
 ```python
 def calcular_fitness(sorteo):
     """
@@ -339,16 +353,20 @@ def calcular_fitness(sorteo):
             penalizacion += PENALTY_ITINERARY
 
     return penalizacion
+
 ```
 
 ## Genetic Algorithm Lifecycle
-In a population-based algorithm, a population of individuals is created, and this population is traversed evaluating the cost of each one in search of the optimum. If none is found, we must resort to genetic operators, which are responsible for creating variations in the population to generate new individuals.
+In a population-based algorithm, a population of individuals is created, and this population is traversed evaluating the cost of each one in search of the optimum.
+If none is found, we must resort to **genetic operators**, which are responsible for creating variations in the population to generate new individuals.
 
-These operators are mutation and crossover, simulating aspects of genetics. Mutation is equivalent to taking an individual (chromosome) and randomly changing an element (gene). Crossover simulates the reproduction of two individuals. It consists of taking two individuals and exchanging genetic material (sections of the individual) between one and the other. Both crossover and mutation have many variants<CitationSup id="6"/>; in this case, we apply the simplest ones, which are those defined previously.
+These operators are *mutation* and *crossover*, simulating aspects of genetics. Mutation is equivalent to taking an individual (chromosome) and randomly changing an element (gene).
+Crossover simulates the reproduction of two individuals. It consists of taking two individuals and exchanging genetic material (sections of the individual) between one and the other. Both crossover and mutation have many variants<CitationSup id="6"/>; in this case, we apply the simplest ones, which are those defined previously.
 
 In the specific case of the draw, crossover is done by taking two individuals via the roulette mechanism. These two will play the role of father and mother reproducing to generate a child; this child will be the new generated individual.
 
-The `cruzar()` function takes two parents and randomly decides which will be the donor and receptor (although actually both donate). Each donor will swap all groups received from a specific pot with the other parent.
+The `cruzar` function takes two parents and randomly decides which will be the donor and receptor (although actually both donate). Each donor will swap all groups received from a specific pot with the other parent.
+
 ```python
 def ejecutar_ga_completo():
     # --- CONFIGURATION ---
@@ -407,20 +425,26 @@ def ejecutar_ga_completo():
 
     print("⚠️ Limit reached. Returning best approximation.")
     return evaluados[0][1]
-```
+```    
 
 ## Genetic Operators
-The first operator to be applied is called selection. The goal of selection is to simulate Darwin's law of survival of the fittest. Like other operators, there are many ways to perform selection, with roulette and tournament being among the most used.
+
+The first operator to be applied is called *selection*. The goal of selection is to simulate Darwin's law of survival of the fittest.
+Like other operators, there are many ways to perform selection, with *roulette* and *tournament* being among the most used.
 
 In the tournament operator, pairs of individuals are taken and their fitness value is compared. In each pair, the winner "qualifies" and faces other winners until a tournament winner is obtained. This winner is selected for crossover.
 
-The roulette operator simulates the behavior of a roulette wheel; however, the spaces or divisions of this wheel are not equal. The probability of selecting an individual is proportional to its fitness value. The higher the fitness (or lower cost), the higher the probability of being selected. The selected individuals form part of the parents from which the new population of individuals will emerge via other genetic operators.
+The roulette operator simulates the behavior of a roulette wheel; however, the spaces or divisions of this wheel are not equal. The probability of selecting an individual is proportional to its fitness value.
+The higher the fitness (or lower cost), the higher the probability of being selected. The selected individuals form part of the parents from which the new population of individuals will emerge via other genetic operators.
 
 ### Selection
 
-We don't let just anyone reproduce. The roulette operator is utilized, although the tournament operator also appears in the code. This operator takes all individuals of a generation and creates an array called `pesos` (weights) containing the inverse of the fitness value of each. Then it randomly selects one using the `random.choices()` function which assigns an individual randomly, but with a probability proportional to its fitness value, designated in the code by the `pesos` variable.
+We don't let just anyone reproduce. The roulette operator is utilized, although the tournament operator also appears in the code.
+This operator takes all individuals of a generation and creates an array called `pesos` (weights) containing the inverse of the fitness value of each.
+Then it randomly selects one using the `random.choices()` function which assigns an individual randomly, but with a probability proportional to its fitness value, designated in the code by the `pesos` variable.
 
 This process is repeated to generate each Parent, for every individual in every generation. This generates enough individuals to completely replace (in equal numbers) all individuals of a generation.
+
 ```python
 def seleccion_ruleta(evaluados):
     """
@@ -440,25 +464,34 @@ def seleccion_ruleta(evaluados):
 
     return seleccionado
 ```
+
+
 ### Crossover
 
-Crossover is the most important operator, as it is responsible for creating diversity and exploring the search space. Crossover takes two parents and creates a child. This leads to the replacement of the current population by a new generation. In our case, we must be very careful because we cannot perform a crossover at just any point of the individual (chromosome). If we slice a draw in half and swap it with another, we would break the structure of the pots.
+![number=6caption=Example of the crossover operator. In the image, we see that Parent A donates all teams belonging to pots 1 and 4 to Child A, and teams from pot 2 and 3 to Child B.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/FIFA-cruce-6_mkwaqe.jpg)
 
-The crossover operator defined in the cruzar() function operates pot by pot. For Pot 1 (Top seeds), flip a coin: Do you inherit the distribution from Parent A or B? Repeat for Pots 2, 3, and 4.
+Crossover is the most important operator, as it is responsible for creating diversity and exploring the search space. 
+
+>The crossover used here *takes two parents and creates two children*.
+
+This leads to the replacement of the current population by a new generation. In our case, we must be very careful because we cannot perform a crossover at just any point of the individual (chromosome).
+If we slice a draw in half and swap it with another, we would break the structure of the pots.
+
+The crossover operator defined in the `cruzar()` function operates pot by pot. For Pot 1 (Top seeds), flip a coin: Do you inherit the distribution from Parent A or B?
+Repeat for Pots 2, 3, and 4.
 
 This guarantees that the child is structurally valid (there will always be one team from each pot in each group) but genetically new.
 
+
 For each pot (1, 2, 3, 4):
-
-Flip coin: from which parent to inherit this pot?
-
-Child1 inherits complete pot from selected parent
-
-Child2 inherits complete pot from other parent
+  - Flip coin: from which parent to inherit this pot?
+  - Child1 inherits complete pot from selected parent
+  - Child2 inherits complete pot from other parent
 
 Result: 2 new draws (children)
 
 ```python
+
 def cruzar(padre1, padre2):
     """
     Stratified Crossover Operator (Uniform Crossover by Pots).
@@ -488,17 +521,19 @@ def cruzar(padre1, padre2):
             hijo2[g_idx].append(equipo_p2)
     return hijo1, hijo2
 ```
-### Mutation
 
+### Mutation
 If we only cross parents, eventually all children will look alike, and we will stagnate in a "Local Minimum" (a solution that seems good but is not the best).
+
+![number=7caption=Example of the mutation operator.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/Fifa-mutar-7_grtdqh.jpg)
 
 The `mutar(individuo)` function introduces controlled chaos. With a 20% probability, we take a draw, pick two random groups, and swap two teams from the same pot.
 
 If it mutates:
-1. Pick 2 random groups
-2. Pick a random pot (1, 2, 3, or 4)
-3. Swap the teams of that pot between the 2 groups
-4. Only if neither has a fixed group
+  - Pick 2 random groups
+  - Pick a random pot (1, 2, 3, or 4)
+  - Swap the teams of that pot between the 2 groups
+  - Only if neither has a fixed group
 
 ```python
 def mutar(individuo, prob_mutacion):
@@ -524,26 +559,30 @@ def mutar(individuo, prob_mutacion):
 
     return nuevo
 ```
-Replacement
 
+### Replacement
 The new generation completely replaces the previous one (this is debatable).
 
-Termination Criterion
-To end the lifecycle, the value does not strictly need a termination criterion. One method is to terminate the algorithm if the maximum amount of previously stipulated generations is reached. The other, if it detects that an individual has a Fitness equal to zero, also terminates the algorithm and takes this individual as the optimal solution.
+## Termination Criterion
+To end the lifecycle, we must have a *termination criterion*.
+One method terminates the algorithm if the maximum number of previously stipulated generations is reached. The other, if it detects that an individual has a fitness equal to zero, takes this individual as the optimal solution.
 
-Termination Criteria:
-
-If a draw with penalty = 0 is found -> Success!
-
-If it reaches generation 1000 -> return the best one found.
+*Termination Criteria:*
+- If a draw with $\text{penalty} = 0 \Rightarrow \text{Success}$ is found.
+- If it reaches generation $1000 \Rightarrow$ return the best one found.
 
 Fortunately, the pot structure allows finding solutions quickly with genetic algorithms, and there is usually no need to resort to the generation termination criterion.
 
-Results
-Visit this blog entry (clicking here 👀) to see an example of a draw generated by the genetic algorithm. You can also test the full code in the GitHub repository by clicking the link below.
+## Results
+Visit this blog entry [(clicking here 👀)](/blog/sorteo-mundial) to see an example of a draw generated by the genetic algorithm.
+You can also test the full code in the GitHub repository by clicking the link below.
 
-<RepoBadge url={"https://github.com/EricLuceroGonzalez/algorithms-share/tree/main/Genetic-algorithms"}/> 
-<ReferenceList 
-references={[ 
-    {id:"1", text:"FIFA Draw Constraints", url:"https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/sorteo-copa-mundial-2026-procedimiento-sorteo-final"}, 
-    {id: "2", text:"FIFA/Coca-Cola Men's World Ranking.", url: "https://inside.fifa.com/es/fifa-world-ranking/men"}, {id: "3", text:"Procedure for the Final Draw of the FIFA World Cup 2026™", url:"https://digitalhub.fifa.com/m/3fd60e2399fe26ff/original/Procedimiento-del-sorteo-de-la-Copa-Mundial" }, {id: "4", text:"John Holland, Adaptation in Natural and Artificial Systems, 1975", url: "https://mitpress.mit.edu/books/adaptation-natural-and-artificial-systems"}, {id: "5", text:"Lawrence Fogel, Intelligent decision making through a simulation of evolution, 1966", url: "https://doi.org/10.1002/bs.3830110403"}, {id: "6", text:"Larrañaga et al, Genetic Algorithms for the Travelling Salesman Problem: A Review of Representations and Operators", url:"https://doi.org/10.1023/A:1006529012972"} ]}/>
+<RepoBadge url={"https://github.com/EricLuceroGonzalez/algorithms-share/tree/main/Genetic-algorithms"}/>
+<ReferenceList references={[
+{id:"1", text:"FIFA Draw Constraints", url:"https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/sorteo-copa-mundial-2026-procedimiento-sorteo-final"},
+    {id: "2", text:"FIFA/Coca-Cola Men's World Ranking.", url: "https://inside.fifa.com/es/fifa-world-ranking/men"},
+    {id: "3", text:"Procedure for the Final Draw of the FIFA World Cup 2026™", url:"https://digitalhub.fifa.com/m/3fd60e2399fe26ff/original/Procedimiento-del-sorteo-de-la-Copa-Mundial" },
+    {id: "4", text:"John Holland, Adaptation in Natural and Artificial Systems, 1975", url: "https://mitpress.mit.edu/books/adaptation-natural-and-artificial-systems"},
+    {id: "5", text:"Lawrence Fogel, Intelligent decision making through a simulation of evolution, 1966", url: "https://doi.org/10.1002/bs.3830110403"},
+    {id: "6", text:"Larrañaga et al, Genetic Algorithms for the Travelling Salesman Problem: A Review of Representations and Operators", url:"https://doi.org/10.1023/A:1006529012972"}
+]}/>

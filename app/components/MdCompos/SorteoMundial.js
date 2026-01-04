@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import styled from "styled-components";
-import SpinnerLoad from "../SpinnerLoad";
 import { SiFifa } from "react-icons/si";
 
 // ==========================================
@@ -11,9 +10,11 @@ import { SiFifa } from "react-icons/si";
 const Container = styled.div`
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 2rem auto;
   padding: 2rem 1rem;
-  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; */
+  border-top: 1px dotted var(--gray-light);
+  border-bottom: 1px dotted var(--gray-light);
+  background-color: var(--emphasis-bg);
 `;
 
 const Header = styled.div`
@@ -24,12 +25,11 @@ const Header = styled.div`
 const Title = styled.h1`
   font-size: x-large;
   font-weight: bold;
-  color: var(--accent);
+  color: var(--primary);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
   margin-bottom: 0.5rem;
 `;
 

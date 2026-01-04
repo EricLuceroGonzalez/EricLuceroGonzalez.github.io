@@ -6,53 +6,66 @@ order: 1
 author: "Eric Lucero"
 socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839284/elCronopio/Thumbnails/GA-generator-es_kqrnyd.png
 webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765059827/elCronopio/Blog-posts/pots-12_h4swi6.jpg
-coverImageAlt: ""
+coverImageAlt: "Dibujo digital con efecto hecho a mano y con lapices. Muestra los cuatro bombos y una linea que los une al logo del sorteo."
 title: "Generador de grupos de la Copa Mundial de la FIFA"
 shortTitle: "Genera los grupos que quieras del sorteo del mundial con Algoritmos Genéticos. Con solo un clic podemos explorar los posibles grupos que se pueden crear en los sorteos del mundial de 2026."
 entryType: "latex"
-excerpt: "Generando el sorteo de grupos del mundial usando algoritmos genéticos."
+excerpt: "Genera los grupos que quieras del sorteo del mundial con Algoritmos Genéticos. Con solo un clic podemos explorar los posibles grupos que se pueden crear en los sorteos del mundial de 2026."
 doctype: ["blog", "python", "javascript"]
 isPublic: true
 ---
+El siguiente programa genera grupos del mundial usando algoritmos genéticos.
+Los hiperparámetros son los mencionados que [(en este post)](/blog/algoritmo-genetico-sorteo). La diferencia es que para
+poder apreciarlo la lógica está hecha en JavaScript en lugar de Python.
 
+## Generador del sorteo de la Copa Mundial de la FIFA
 <SorteoMundial />
 
-
-Flujo del algoritmo genético para el sorteo de la FIFA:
+## Flujo del algoritmo genético para el sorteo de la FIFA:
 ```mermaid
-graph TD;
-    A[Inicio] --> B{¿Tiene errores?};
-    B -- Sí --> C[Arreglar código];
-    C --> B;
-    B -- No --> D[Deploy];
-```
-```mermaid
----
-config:
-  layout: dagre
-  look: classic
-  theme: dark
----
-flowchart TB
-  A[Start] --> B{Decision}
-  B -->|Yes| C[Continue]
-  B -->|No| D[Stop]
-  D --> A[Start]
-```
+graph TD
+    %% Nodos de Inicio y Configuración
+    Start([Usuario hace clic en 'Ejecutar Sorteo']) --> InitData[generarDatosEquipos<br/>Define Equipos, Bombos y Restricciones Fijas]
+    InitData --> InitPop[Inicializar Población<br/>crearIndividuo x 100]
+    
+    %% Nota sobre la creación de individuos
+    InitPop -.-> Eval
+    Eval[calcularFitness<br/>Evalúa cada sorteo]
 
-```python
+    Eval --> CheckSuccess
+    %% Bucle Principal del GA
+    subgraph Ciclo_Genetico ["Bucle Generacional (Max 1000)"]
+        direction TB
+        
+        Sort[Ordenar Población por Costo Ascendente]
+        
+        CheckSuccess{¿Costo == 0?}
+        
+        %% Ramas de decisión
+        CheckSuccess -- Sí --> Found([¡Solución Encontrada!<br/>Retornar Sorteo Válido])
+        CheckSuccess -- No --> CheckGen{¿Generaciones Agotadas?}
+        
+        CheckGen -- Sí --> StopMax([Terminar:<br/>Retornar Mejor Aproximación])
+        CheckGen -- No --> Reproduction
+        
+        %% Operadores Genéticos
+        subgraph Reproduction [Reproducción y Variación]
+            Select[Selección por Ruleta<br/>Probabilidad ~ 1/Costo]
+            Cross[Cruce / Crossover<br/>Intercambio de Bombos completos]
+            Mut[Mutación<br/>Swap de 2 equipos aleatorios<br/>dentro del mismo bombo]
+        end
+        
+        Sort --> Select
+        Select --> Cross --> Mut --> NewPop[Nueva Población]
+    end
 
-class Equipo:
-    def __init__(self, nombre, confederacion, bombo, grupo_fijo=None, ranking_top=None):
-        self.nombre = nombre
-        self.confederacion = confederacion  # String simple
-        self.bombo = bombo
-        self.grupo_fijo = grupo_fijo
-        self.ranking_top = ranking_top  # 1, 2, 3, 4 o None
+    NewPop --> Eval
 
-    def __repr__(self):
-        # Muestra info útil al imprimir
-        r = f" [R#{self.ranking_top}]" if self.ranking_top else ""
-        f = f" (Fijo:{self.grupo_fijo})" if self.grupo_fijo else ""
-        return f"{self.nombre}{r}{f}"
+    %% Estilos para dar claridad visual
+    style Start fill:#0077FF,stroke:#fff,color:#fff
+    style Found fill:#00cc66,stroke:#fff,color:#fff
+    style StopMax fill:#FF3366,stroke:#fff,color:#fff
+    style Eval fill:#2c2c00,stroke:#FF3366,color:#fff
+    style Reproduction fill:#1a1a1a,stroke:#666,stroke-dasharray: 5 5
 ```
+<RepoBadge url={"https://github.com/EricLuceroGonzalez/algorithms-share/tree/main/Genetic-algorithms"}/>

@@ -65,7 +65,9 @@ const BlogPost = async ({ params }) => {
 
     return result;
   };
+
   const readT = readingTime(post.content);
+
   return (
     <Layout>
       <MainBg>

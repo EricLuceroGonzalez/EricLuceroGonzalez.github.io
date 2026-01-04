@@ -115,19 +115,16 @@ export const TitleContainer = styled.h2`
 `;
 
 export const Date = styled.div`
-  font-size: smaller;
-  /* margin-bottom: 2rem; */
-  color: var(--gray-light);
-  font-family: monospace;
+  font-size: small;
   flex-direction: row;
   justify-content: space-between;
 `;
 
 export const MetaInfo = styled.div`
-  /* border: 2px solid blue; */
-  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--secondary-btn-hover);
+  padding-bottom: 0.5rem;
   font-size: small;
-  color: var(--gray-light);
+  color: var(--secondary-btn-hover);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -137,12 +134,9 @@ export const MetaInfo = styled.div`
     width: 80%;
     flex-direction: row;
     font-size: small;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--quote-bg);
+    /* padding-bottom: 12px;
+    border-bottom: 1px solid var(--quote-bg); */
   }
-  /* @media (max-width: 667px) {
-    margin-bottom: 2.75rem;
-  } */
   padding-top: 3px;
 `;
 // Contenedor para el avatar y el nombre del autor
@@ -453,14 +447,6 @@ const LogosBox = styled.div`
   /* max-width: 90%; */
   margin: 1rem auto;
   flex-wrap: wrap;
-  /* @media (min-width: 1080px) {
-    width: 60%;
-    border: 1px dashed var(--accent);
-    }
-    @media (max-width: 880px) {
-      max-width: 80%;
-      border: 1px dashed red;
-      } */
 
   font-size: small;
   color: var(--accent);

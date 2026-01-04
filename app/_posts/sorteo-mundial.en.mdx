@@ -1,18 +1,70 @@
 ---
 slug: "sorteo-mundial"
-id: "ai-0012"
+id: "ai-002"
 date: "2025-11-01"
 order: 1
 author: "Eric Lucero"
-socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839284/elCronopio/Thumbnails/GA-generator-en_wth7po.png
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839284/elCronopio/Thumbnails/GA-generator-es_kqrnyd.png
 webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765059827/elCronopio/Blog-posts/pots-12_h4swi6.jpg
-coverImageAlt: ""
-title: "FIFA World Cup Groups Draw"
-shortTitle: "FIFA World Cup Groups Draw with Genetic Algorithms"
+coverImageAlt: "Digital drawing with a hand-drawn pencil effect. Shows the four pots and a line connecting them to the draw logo."
+title: "FIFA World Cup Group Generator"
+shortTitle: "Generate custom World Cup groups with Genetic Algorithms. Explore possible 2026 scenarios with just one click."
 entryType: "latex"
-excerpt: "Generating the world cup groups draw using genetic algorithms."
+excerpt: "Generate custom World Cup groups with Genetic Algorithms. Explore possible 2026 scenarios with just one click."
 doctype: ["blog", "python", "javascript"]
 isPublic: true
 ---
+The following application generates World Cup group stages using Genetic Algorithms.
+The hyperparameters utilized are the same ones discussed [(in this post)](/blog/sorteo-mundial). However, to render this simulation directly in your browser, the logic has been ported from Python to JavaScript.
 
+## FIFA World Cup Draw Generator
 <SorteoMundial />
+
+## Genetic Algorithm Flowchart for the FIFA Draw:
+```mermaid
+graph TD
+    %% Start and Configuration Nodes
+    Start([User clicks 'Run Draw']) --> InitData[generateTeamData<br/>Defines Teams, Pots, and Fixed Constraints]
+    InitData --> InitPop[Initialize Population<br/>createIndividual x 100]
+    
+    %% Note on individual creation
+    InitPop -.-> Eval
+    Eval[calcFitness<br/>Evaluates each draw]
+
+    Eval --> CheckSuccess
+    %% Main GA Loop
+    subgraph Ciclo_Genetico ["Generational Loop (Max 1000)"]
+        direction TB
+        
+        Sort[Sort Population by Ascending Cost]
+        
+        CheckSuccess{Cost == 0?}
+        
+        %% Decision Branches
+        CheckSuccess -- Yes --> Found([Solution Found!<br/>Return Valid Draw])
+        CheckSuccess -- No --> CheckGen{Generations Exhausted?}
+        
+        CheckGen -- Yes --> StopMax([Terminate:<br/>Return Best Approximation])
+        CheckGen -- No --> Reproduction
+        
+        %% Genetic Operators
+        subgraph Reproduction [Reproduction and Variation]
+            Select[Roulette Selection<br/>Probability ~ 1/Cost]
+            Cross[Crossover<br/>Swap entire Pots]
+            Mut[Mutation<br/>Swap 2 random teams<br/>within the same pot]
+        end
+        
+        Sort --> Select
+        Select --> Cross --> Mut --> NewPop[New Population]
+    end
+
+    NewPop --> Eval
+
+    %% Styles for visual clarity
+    style Start fill:#0077FF,stroke:#fff,color:#fff
+    style Found fill:#00cc66,stroke:#fff,color:#fff
+    style StopMax fill:#FF3366,stroke:#fff,color:#fff
+    style Eval fill:#2c2c00,stroke:#FF3366,color:#fff
+    style Reproduction fill:#1a1a1a,stroke:#666,stroke-dasharray: 5 5
+```
+<RepoBadge url={"https://github.com/EricLuceroGonzalez/algorithms-share/tree/main/Genetic-algorithms"}/>
