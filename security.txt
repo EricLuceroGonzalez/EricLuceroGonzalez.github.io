@@ -1,0 +1,4 @@
+Contact: https://eric-lucero-gonzalez.vercel.app/es/about
+Expires: 2027-01-05T23:00:00.000Z
+Preferred-Languages: es, en
+Policy: https://eric-lucero-gonzalez.vercel.app/es/about/terminos-legales
