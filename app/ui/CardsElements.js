@@ -24,7 +24,8 @@ export const GridHeroImage = styled.div`
   justify-content: center;
   margin: 0.3rem auto;
   width: 95%;
-  height: auto;
+  /* height: 125px; */
+  aspect-ratio: 16 / 9;
   position: relative;
   @media (max-width: 660px) {
     display: none;

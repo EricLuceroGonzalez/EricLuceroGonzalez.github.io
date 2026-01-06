@@ -42,18 +42,20 @@ const AllPosts = ({
         <CardContainer>
           <ImageContainer>
             <GridHeroImage>
-              {coverImage && coverImage != "" && (
+              {coverImage && (
                 <Image
                   src={coverImage}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: "100%", height: "auto", objectFit: "cover" }} // optional
+                  // width={0}
+                  // height={0}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  style={{ objectFit: "cover" }}
                   alt={
                     coverImageAlt
                       ? coverImageAlt
                       : "Cover images with a illustration of the title"
                   }
+                  priority={false} // Opcional: true si es la imagen principal del LCP
                 />
               )}
             </GridHeroImage>
