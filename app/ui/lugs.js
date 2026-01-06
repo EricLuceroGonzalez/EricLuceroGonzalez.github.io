@@ -243,8 +243,8 @@ export const IconLink = styled(motion.a)`
   color: var(--fg);
   text-decoration: none;
   svg {
-    width: 33px;
-    height: 33px;
+    width: 48px;
+    height: 48px;
     fill: var(--fg); // Color inicial del SVG
     transition: fill 0.3s ease;
   }
@@ -257,6 +257,8 @@ export const IconLink = styled(motion.a)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 12px 16px;
+  min-height: 48px;
 `;
 
 export const AboutWrapper = styled.div`

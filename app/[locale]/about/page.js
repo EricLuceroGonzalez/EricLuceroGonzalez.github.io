@@ -91,7 +91,6 @@ export default async function About({ params }) {
           </AboutMePanel>
           <LinkList>
             <IconLink
-              aria-label="Github logo that opens Github in new tab"
               href="https://github.com/EricLuceroGonzalez"
               target="_blank"
               rel="noopener noreferrer"
@@ -103,6 +102,8 @@ export default async function About({ params }) {
               }}
             >
               <svg
+                aria-hidden="true"
+                focusable="false"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 width="18"
@@ -114,7 +115,6 @@ export default async function About({ params }) {
               GitHub
             </IconLink>
             <IconLink
-              aria-label="LinkedIn logo that opens LinkedIn in new tab"
               href="https://www.linkedin.com/in/ericlucerog/"
               target="_blank"
               rel="noopener noreferrer"
@@ -126,6 +126,8 @@ export default async function About({ params }) {
               }}
             >
               <svg
+                aria-hidden="true"
+                focusable="false"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
                 width="18"
@@ -136,7 +138,6 @@ export default async function About({ params }) {
               LinkedIn
             </IconLink>
             <IconLink
-              aria-label="Mail logo that opens email editor in new tab"
               href="mailto:ericlucerogonzalez@gmail.com"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -146,6 +147,8 @@ export default async function About({ params }) {
               }}
             >
               <svg
+                aria-hidden="true"
+                focusable="false"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
                 width="18"
@@ -156,7 +159,6 @@ export default async function About({ params }) {
               Email
             </IconLink>
             <IconLink
-              aria-label="Twitter (X) logo that opens X in new tab"
               href="https://x.com/EricLuceroG"
               target="_blank"
               rel="noopener noreferrer"
@@ -167,7 +169,7 @@ export default async function About({ params }) {
                 scale: { type: "spring", visualDuration: 0.4, bounce: 0.65 },
               }}
             >
-              <FaSquareXTwitter /> Twitter
+              <FaSquareXTwitter aria-hidden="true" focusable="false" /> Twitter
             </IconLink>
           </LinkList>
         </AboutWrapper>

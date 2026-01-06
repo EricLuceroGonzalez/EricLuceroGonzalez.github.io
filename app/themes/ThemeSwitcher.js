@@ -77,11 +77,23 @@ const ThemeSwitcher = () => {
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       />
       {/* Botón Light */}
-      <IconWrapper id="themeSwitchToLight" role="button" $isActive={!isDark}>
+      <IconWrapper
+        id="themeSwitchToLight"
+        role="button"
+        $isActive={!isDark}
+        aria-label="Cambiar a modo claro" // Agregado
+        tabIndex={0} // navegable con teclado
+      >
         <TbSunFilled size={20} />
       </IconWrapper>
       {/* Botón Dark */}
-      <IconWrapper id="themeSwitchToDark" role="button" $isActive={isDark}>
+      <IconWrapper
+        id="themeSwitchToDark"
+        role="button"
+        $isActive={isDark}
+        aria-label="Cambiar a modo oscuro" // Agregado
+        tabIndex={0} // navegable con teclado
+      >
         <TbMoonFilled size={20} />
       </IconWrapper>{" "}
     </SwitchContainer>
