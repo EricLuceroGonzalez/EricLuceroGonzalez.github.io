@@ -16,6 +16,7 @@ import ShowPath from "../../components/showPath";
 import ScrollDiv from "../../components/navigation/ScrollDiv";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "@/app/components/BgMovingDots";
+import ViewportSize from "@/app/components/viewPortViewer";
 
 const BlogPage = async ({ params }) => {
   // 1. Obtener idioma
@@ -30,6 +31,7 @@ const BlogPage = async ({ params }) => {
   return (
     <Layout>
       <PageContainer>
+        <ViewportSize />
         <ScrollDiv />
         <BackgroundDots numDots={90} />
         <MainPageBg

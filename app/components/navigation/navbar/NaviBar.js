@@ -1,6 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
-import { Bar, DivLogo, MainNav, MainNavLogo, NavLogo } from "./navCompos";
+import {
+  Bar,
+  DivLogo,
+  MainNav,
+  MainNavLogo,
+  NavLogo,
+  NavSwitchContainer,
+} from "./navCompos";
 import ThemeSwitcher from "../../../themes/ThemeSwitcher.js";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -63,10 +70,10 @@ const NaviBar = () => {
         </StyledLink>
       </MainNav>
       {/* Contenedor para los switchers */}
-      <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+      <NavSwitchContainer>
         <ThemeSwitcher />
         <LanguageSwitcher />
-      </div>
+      </NavSwitchContainer>
     </Bar>
   );
 };

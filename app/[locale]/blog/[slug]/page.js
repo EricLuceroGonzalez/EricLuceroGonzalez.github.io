@@ -187,9 +187,7 @@ export async function generateStaticParams({ params }) {
   // Pedimos SOLO los posts de este idioma específico
   const posts = getAllPosts(["slug", "doctype"], locale);
 
-  // Filtramos y mapeamos
-  // Ya no hace falta devolver "locale" en el objeto, porque Next.js ya sabe
-  // que estamos dentro de ese locale. Solo devolvemos el slug.
+  // Filtramos y mapeamos - devolvemos el slug.
   return posts
     .filter((post) => post.doctype && post.doctype.includes("blog"))
     .map((post) => ({

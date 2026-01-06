@@ -29,7 +29,7 @@ import {
   LogosTitle,
   ReactIcon,
 } from "@/app/components/about/AboutStyled";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ScrollDiv from "@/app/components/navigation/ScrollDiv";
 
 // Configuración para el contenedor padre
@@ -64,8 +64,13 @@ const itemVariants = {
     },
   },
 };
-const AboutThisPage = () => {
-  const t = useTranslations("About");
+const AboutThisPage = async ({ params }) => {
+  // const t = useTranslations("About");
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  // const t = useTranslations("About");
+  const t = await getTranslations({ locale, namespace: "About" });
 
   return (
     <Layout>

@@ -51,6 +51,7 @@ export const dynamicMdxComponents = {
   CitationSup: (props) => <CitationSup id={props.id} />,
   QuoteAndAuthor: (props) => <QuotationAndAuthor quotation={props.quotation} />,
   RepoBadge: (props) => <RepoFooter url={props.url} type={props.type} />,
+
   // PDFViewer: (props) => (
   //   <Suspense fallback={<div>Cargando PDF...</div>}>
   //     <PDFViewer {...props} />

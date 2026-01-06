@@ -84,7 +84,6 @@ export const ReferenceList = ({ references }) => {
 
   return (
     <div>
-      <MdSubHeadA>Referencias</MdSubHeadA>
       <RefNumbers>
         {references.map(({ id, text, url }) => (
           <li key={id} id={`ref-${id}`}>

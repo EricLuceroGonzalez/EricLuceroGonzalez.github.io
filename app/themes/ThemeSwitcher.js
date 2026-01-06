@@ -6,28 +6,6 @@ import { useEffect, useState } from "react";
 import { TbSunFilled, TbMoonFilled } from "react-icons/tb";
 import styled from "styled-components";
 
-const SunIcon = styled(TbSunFilled)`
-  cursor: pointer;
-  color: ${(props) => (props.theme === "dark" ? "var(--accent)" : "var(--fg)")};
-  transition: color 0.35s;
-`;
-const MoonIcon = styled(TbMoonFilled)`
-  cursor: pointer;
-  color: ${(props) =>
-    props.theme === "light" ? "var(--emphasis-bg)" : "var(--fg)"};
-  transition: color 0.35s;
-`;
-const ThemeToggle = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  border-radius: 30px;
-  padding: 2px;
-  background-color: var(--fg);
-  max-height: fit-content;
-  margin: auto 1px;
-  transition: background-color 0.2s;
-`;
-
 const SwitchContainer = styled.div`
   display: flex;
   align-items: center;
@@ -38,7 +16,6 @@ const SwitchContainer = styled.div`
   cursor: pointer;
   position: relative; /* Necesario para el layout */
   width: fit-content;
-  border: 1px solid var(--fg);
 `;
 
 const IconWrapper = styled.button`
@@ -66,6 +43,7 @@ const ActiveIndicator = styled(motion.div)`
   left: 0;
   border-radius: 999px;
   background-color: var(--emphasis-bg); /* Color de la pastilla activa */
+
   z-index: 1;
 `;
 const ThemeSwitcher = () => {
@@ -81,26 +59,10 @@ const ThemeSwitcher = () => {
   const isDark = theme === "dark";
 
   return (
-    // <ThemeToggle
-    //   title={`Set ${theme == "dark" ? "light" : "dark"} theme`}
-    //   transition={{
-    //     type: "spring",
-    //     visualDuration: 0.2,
-    //     bounce: 0.2,
-    //   }}
-    // >
-    //   <SunIcon
-    //     onClick={() => setTheme("light")}
-    //     theme={theme}
-    //     size={20}
-    //   ></SunIcon>
-    //   <MoonIcon
-    //     onClick={() => setTheme("dark")}
-    //     theme={theme}
-    //     size={20}
-    //   ></MoonIcon>
-    // </ThemeToggle>
-    <SwitchContainer title={t("theme_switch_toggle")}>
+    <SwitchContainer
+      title={t("theme_switch_toggle")}
+      onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
+    >
       <ActiveIndicator
         layoutId="active-theme-indicator" // Magia de Framer Motion
         initial={false}
@@ -115,11 +77,11 @@ const ThemeSwitcher = () => {
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       />
       {/* Botón Light */}
-      <IconWrapper onClick={() => setTheme("light")} $isActive={!isDark}>
+      <IconWrapper $isActive={!isDark}>
         <TbSunFilled size={20} />
       </IconWrapper>
       {/* Botón Dark */}
-      <IconWrapper onClick={() => setTheme("dark")} $isActive={isDark}>
+      <IconWrapper $isActive={isDark}>
         <TbMoonFilled size={20} />
       </IconWrapper>{" "}
     </SwitchContainer>

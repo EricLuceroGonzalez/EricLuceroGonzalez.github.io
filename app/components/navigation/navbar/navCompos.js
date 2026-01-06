@@ -7,51 +7,47 @@ export const NavigationBar = styled.div`
 `;
 
 export const Bar = styled.nav`
-  font-size: 14px;
   background-color: var(--bg);
   z-index: 1000;
   border: 1px solid rgba(150, 150, 150, 0.2);
-  padding: 5px 5px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
 `;
 export const MainNav = styled.div`
-  width: 95%;
+  /* width: 95%; */
   list-style-type: none;
   display: ${(props) => props.display};
   color: var(--fg);
   flex-direction: row; /* Change for mobile to column  */
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-around;
-  margin-right: 10px;
 
-  @media (max-width: 768px) {
-    width: 100%;
-  }
   @media (min-width: 660px) {
     justify-content: flex-end;
-    margin-right: 120px;
   }
   background-color: var(--bg);
   z-index: 1000;
+  flex-grow: 2;
 `;
 
 export const MainNavLogo = styled.div`
-  width: 15%;
+  /* width: 15%; */
   color: var(--accent);
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-
-  @media (max-width: 768px) {
-    /* display: none; */
-    width: 45%;
-  }
+  justify-content: flex-start;
+  flex-grow: 1;
   background-color: var(--bg);
   z-index: 1000;
-  /* border: 1px solid red; */
+`;
+export const NavSwitchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
+  flex-grow: 1;
 `;
 export const DivLogo = styled.div`
   padding-left: 2px;

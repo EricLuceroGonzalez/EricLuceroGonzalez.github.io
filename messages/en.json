@@ -65,6 +65,7 @@
         "stack_vercel": "The infrastructure platform. It connects directly to GitHub to build and deploy the site. It provides the Global Edge Network required for high-performance content delivery and supports the dynamic server-side features of Next.js.",
         "stack_graymatter": "The metadata manager. It extracts header information (Frontmatter) from my MDX files, allowing me to organize posts by date, title, and author before the content is processed.",
         "stack_rehype": "The HTML processor. It is the ecosystem that polishes the final code: **rehype-highlight** adds color to code blocks, **rehype-slug** creates links in headings, **rehype-katex** renders mathematical formulas, and **rehype-sanitize** ensures site security.",
+        "stack_motion": "Coreography of the animations. (former Framer-Motion). Is the library responsible for animations. I use it for easy transitions, some bouncing effect ad buttons and boxes, the scroll bar on top of post pages and physic interactivity of buttons, making the UX organic and fluid.",
         "stack_mermaid": "Diagrams as code. An integrated tool that renders flowcharts and complex graphs directly from text within the articles, essential for visually explaining algorithms."
     },
     "Blog": {
