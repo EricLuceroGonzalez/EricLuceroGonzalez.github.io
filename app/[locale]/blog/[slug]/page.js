@@ -71,9 +71,17 @@ const BlogPost = async ({ params }) => {
     <Layout>
       <MainBg>
         <ScrollDiv />
+        <ShowPath title={post.slug} />
         {/* <ViewportSize /> */}
-        <Article>
-          <ShowPath title={post.slug} />
+        <Article
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.33,
+            delay: 0.1,
+            ease: [0, 0.25, 0.75, 1.01],
+          }}
+        >
           <MdHead>{post.title}</MdHead>
           {/* No Thumbnail for now...too much */}
           {/* {post.socialThumbnail && (

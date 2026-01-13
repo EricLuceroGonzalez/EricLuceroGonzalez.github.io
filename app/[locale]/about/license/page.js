@@ -7,8 +7,8 @@ const LicensePage = () => {
   const t = useTranslations("About");
   return (
     <Layout>
+      <ShowPath title={"license"} />
       <MainBg>
-        <ShowPath title={"license"} />
         <h1>{t("license_title")}</h1>
         <p>{t("license_terms")}</p>
       </MainBg>

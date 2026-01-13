@@ -42,6 +42,7 @@ const Latex = async ({ params }) => {
       <PageContainer>
         <ScrollDiv />
         <BackgroundDots numDots={95} />
+        <ShowPath title={latexBlogPost.title} />
         <MainPageBg
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -51,7 +52,6 @@ const Latex = async ({ params }) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          <ShowPath title={latexBlogPost.title} />
           <TitlePage>{trans("title")}</TitlePage>
           <MdSubHeadC>{trans("subtitle")}</MdSubHeadC>
           {/* TODO: Create the feeling here...(and in suscribe, but later) */}

@@ -27,8 +27,8 @@ export default async function About({ params }) {
     <Layout>
       <MainBg>
         <BackgroundDots numDots={90} />
+        <ShowPath title={""} />
         <AboutWrapper>
-          <ShowPath title={""} />
           <AboutMePanel>
             <PhotoAvatar
               initial={{ opacity: 0, scale: 0, x: -50 }}

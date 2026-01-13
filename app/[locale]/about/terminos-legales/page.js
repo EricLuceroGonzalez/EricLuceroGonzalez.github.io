@@ -31,8 +31,8 @@ const LegalPage = async ({ params }) => {
   return (
     <Layout>
       <MainBg>
+        <ShowPath title={"terminos-legales"} />
         <Article>
-          <ShowPath title={"terminos-legales"} />
           <MdHead>{t("title")}</MdHead>
           <MetaInfo>{t("lastUpdated")}</MetaInfo>
           <MdParagraph>{t("sections.intro")}</MdParagraph>

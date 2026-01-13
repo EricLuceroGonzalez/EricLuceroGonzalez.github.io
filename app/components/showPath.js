@@ -13,6 +13,32 @@ const PathBlock = styled(motion.div)`
   @media (0 <= width <= 410px) {
     font-size: x-small;
   }
+  /* Same as <Article> */
+  width: 70%;
+
+  @media (0px <= width < 390px) {
+    width: 99%;
+  }
+  @media (min-width: 390px) {
+    width: 95%;
+  }
+
+  @media (600px <= width < 780px) {
+    min-width: 80%;
+    padding: 5px;
+    box-shadow: none;
+    font-size: small;
+  }
+  @media (min-width: 1080px) {
+    width: 85%;
+  }
+  @media (min-width: 1280px) {
+    width: 65%;
+  }
+  @media (min-width: 1440px) {
+    width: 50%;
+  }
+  /* border: 1px solid red; */
 `;
 const PathSlash = styled.div`
   color: var(--fg);

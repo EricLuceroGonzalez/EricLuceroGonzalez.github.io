@@ -31,19 +31,19 @@ const BlogPage = async ({ params }) => {
   return (
     <Layout>
       <PageContainer>
-        <ViewportSize />
+        {/* <ViewportSize /> */}
         <ScrollDiv />
         <BackgroundDots numDots={90} />
+        <ShowPath />
         <MainPageBg
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
-            duration: 0.2,
-            delay: 0.0,
+            duration: 0.35,
+            delay: 0.1,
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          <ShowPath />
           <TitlePage>{t("title")}</TitlePage>
           <MdParagraph>{t("copy_text.p1")}</MdParagraph>
 

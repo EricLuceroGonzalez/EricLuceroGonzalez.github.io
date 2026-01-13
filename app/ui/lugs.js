@@ -22,7 +22,7 @@ export const Layout = styled.div`
 `;
 
 // Define los estilos para cada parte del artículo
-export const Article = styled.article`
+export const Article = styled(motion.article)`
   width: 90%;
   margin: 0 auto;
   background-color: var(--bg);
@@ -53,6 +53,7 @@ export const Article = styled.article`
     width: 50%;
   }
   padding: 1rem 0 33vh 0;
+  /* border: 1px solid red; */
 `;
 
 export const Title = styled.h1`

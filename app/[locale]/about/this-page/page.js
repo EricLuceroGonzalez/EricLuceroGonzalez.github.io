@@ -76,8 +76,8 @@ const AboutThisPage = async ({ params }) => {
     <Layout>
       <MainBg>
         <ScrollDiv />
+        <ShowPath title={"this-page"} />
         <Article>
-          <ShowPath title={"this-page"} />
           <MdHead>{t("page_content_title")}</MdHead>
           <p>{t("page_content")}</p>
           <H2Header>{t("stack_title")}</H2Header>
