@@ -1,0 +1,11 @@
+# El Cronopio - Eric Lucero
+
+Sitio personal de Eric Lucero Gonzalez.
+Temas principales: Next.js, Inteligencia Artificial, LaTeX y Optimización.
+
+## Artículos Destacados
+- Generador de Sorteo Mundial (Algoritmos Genéticos): https://eric-lucero-gonzalez.vercel.app/es/blog/sorteo-mundial
+- Introducción a TeX: https://eric-lucero-gonzalez.vercel.app/es/blog/que-es-tex-1
+
+## Bio
+Estudiante de doctorado especializado en Inteligencia Artificial. Mis intereses incluyen algoritmos de optimización, meta-heurísticas y LaTeX. Disfruto compartiendo conocimiento y aprendiendo a través de la escritura.

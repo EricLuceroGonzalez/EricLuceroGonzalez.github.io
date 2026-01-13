@@ -4,25 +4,38 @@ import { getAllPosts } from "./lib/api";
 
 export default async function sitemap() {
   const baseUrl = "https://eric-lucero-gonzalez.vercel.app";
+  const locales = ["es", "en"];
+  const defaultLocale = "es";
 
   // rutas estáticas (Home, Blog, About, etc.)
-  const routes = ["", "/blog", "/latex", "/about"].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: "monthly",
-    priority: route === "" ? 1 : 0.8, // Home es prioridad 1
-  }));
+  const staticRoutes = ["", "/blog", "/latex", "/about"].flatMap((route) => {
+    return locales.map((locale) => ({
+      url: `${baseUrl}/${locale}${route}`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "monthly",
+      priority: route === "" ? 1 : 0.8,
+    }));
+  });
 
   // rutas dinámicas (Los Posts)
   const posts = getAllPosts(["slug", "doctype"]);
+  // GENERAR RUTAS DE POSTS
+  const postRoutes = posts.flatMap((post) => {
+    let dateObj = new Date(post.date);
+    if (isNaN(dateObj.getTime())) {
+      console.warn(
+        `⚠️ Fecha inválida en post: ${post.slug}. Usando fecha actual.`
+      );
+      dateObj = new Date();
+    }
+    return locales.map((locale) => ({
+      url: `${baseUrl}/${locale}/blog/${post.slug}`,
+      lastModified: dateObj.toISOString(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }));
+  });
 
-  const blogUrls = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date).toISOString(),
-    changeFrequency: "weekly", // Los posts viejos cambian poco
-    priority: 0.7,
-  }));
-
-  // Fusionar todo
-  return [...routes, ...blogUrls];
+  // UNIR TODO
+  return [...staticRoutes, ...postRoutes];
 }
