@@ -21,13 +21,14 @@ export default async function sitemap() {
   const posts = getAllPosts(["slug", "doctype"]);
   // GENERAR RUTAS DE POSTS
   const postRoutes = posts.flatMap((post) => {
-    let dateObj = new Date(post.date);
+    let dateObj = new Date(post.date.iso);
     if (isNaN(dateObj.getTime())) {
       console.warn(
         `⚠️ Fecha inválida en post: ${post.slug}. Usando fecha actual.`
       );
       dateObj = new Date();
     }
+
     return locales.map((locale) => ({
       url: `${baseUrl}/${locale}/blog/${post.slug}`,
       lastModified: dateObj.toISOString(),
