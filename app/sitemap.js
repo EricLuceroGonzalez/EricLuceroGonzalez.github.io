@@ -1,34 +1,28 @@
 // app/sitemap.js
 
-export default function sitemap() {
+import { getAllPosts } from "./lib/api";
+
+export default async function sitemap() {
   const baseUrl = "https://eric-lucero-gonzalez.vercel.app";
 
-  // Definimos tus rutas estáticas principales
-  const routes = [
-    "", // Home
-    "/about",
-    "/blog",
-    "/papers",
-    "/legal", // Aunque tenga noindex, es bueno tenerla mapeada
-  ];
+  // rutas estáticas (Home, Blog, About, etc.)
+  const routes = ["", "/blog", "/latex", "/about"].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: "monthly",
+    priority: route === "" ? 1 : 0.8, // Home es prioridad 1
+  }));
 
-  // Generamos las entradas para Español e Inglés
-  const sitemapEntries = routes.flatMap((route) => {
-    return [
-      {
-        url: `${baseUrl}/es${route}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: route === "" ? 1 : 0.8, // Home tiene más prioridad
-      },
-      {
-        url: `${baseUrl}/en${route}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: route === "" ? 1 : 0.8,
-      },
-    ];
-  });
+  // rutas dinámicas (Los Posts)
+  const posts = getAllPosts(["slug", "doctype"]);
 
-  return sitemapEntries;
+  const blogUrls = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date).toISOString(),
+    changeFrequency: "weekly", // Los posts viejos cambian poco
+    priority: 0.7,
+  }));
+
+  // Fusionar todo
+  return [...routes, ...blogUrls];
 }
