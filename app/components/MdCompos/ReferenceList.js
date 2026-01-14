@@ -1,7 +1,7 @@
 "use client";
-import { MdSubHeadA } from "@/app/ui/MarkDownComponents";
+import { useTranslations } from "next-intl";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { IoReturnDownBack } from "react-icons/io5";
+import { FaArrowUp } from "react-icons/fa6";
 import styled from "styled-components";
 
 // Contenedor de la lista
@@ -31,7 +31,9 @@ const RefNumbers = styled.ol`
     flex-shrink: 0; /* Evita que el número se aplaste si hay poco espacio */
   }
 `;
-
+const RefEntry = styled.li`
+  text-align: left;
+`;
 // Wrapper para el contenido del texto para que se mantenga junto en la columna derecha
 const RefContent = styled.div`
   flex: 1; /* Toma todo el espacio restante */
@@ -46,11 +48,10 @@ const RefTex = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  opacity: 0.8;
+  opacity: 0.7;
   transition: opacity 0.2s;
-  font-weight: bold;
+  color: var(--emphasis-bg);
   &:hover {
-    color: var(--emphasis-bg);
     opacity: 1;
   }
 
@@ -60,12 +61,12 @@ const RefTex = styled.a`
 `;
 
 const RefUrl = styled.a`
-  display: inline-flex; /* IMPORTANTE: inline-flex para no romper la línea */
+  display: inline-flex;
   align-items: center;
   gap: 4px;
   color: var(--quote-fg);
 
-  font-size: 0.9em;
+  font-size: x-small;
   margin-left: 4px;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -75,18 +76,20 @@ const RefUrl = styled.a`
   }
 
   svg {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 `;
 
 export const ReferenceList = ({ references }) => {
+  const t = useTranslations("mdxComponents");
+
   if (!references || references.length === 0) return null;
 
   return (
     <div>
       <RefNumbers>
         {references.map(({ id, text, url }) => (
-          <li key={id} id={`ref-${id}`}>
+          <RefEntry key={id} id={`ref-${id}`}>
             {/* Envolvemos todo el contenido (texto + links) en un div para que sea el segundo hijo del Flex */}
             <RefContent>
               <span>{text}</span>
@@ -100,11 +103,11 @@ export const ReferenceList = ({ references }) => {
                 </>
               )}
               <RefTex href={`#cite-${id}`} aria-label="Volver al texto">
-                <IoReturnDownBack />
-                (volver)
+                ({t("Reference_back")})
+                <FaArrowUp />
               </RefTex>
             </RefContent>
-          </li>
+          </RefEntry>
         ))}
       </RefNumbers>
     </div>

@@ -170,5 +170,8 @@
         },
         "donald_text": "To paraphrase Donald Knuth (creator of TeX): if you want to create something truly beautiful, of the highest possible quality, and something you can be fully proud of, this is what you should use.",
         "advanced_text": "For advanced and curious users: LaTeX is much more than academic papers. Dive into creating high-impact scientific posters, design poetry collections with exquisite typefaces, or automate complex diagrams. Discover packages that transform simple code into visual art and take professional typesetting to the next level."
+    },
+    "mdxComponents": {
+        "Reference_back": "Back to text"
     }
 }

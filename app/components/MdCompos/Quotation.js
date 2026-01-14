@@ -20,29 +20,30 @@ const QuoteBack = styled.div`
 
 const QuoteText = styled.div`
   line-height: 1.5;
-  font-size: 1.1rem;
+  font-size: large;
   @media (max-width: 660px) {
     font-size: normal;
     margin: 5px auto;
   }
+  /* border: 1px solid red; */
 `;
 
 const QuoteLeftIcon = styled.div`
-  font-size: 2.5em;
+  font-size: x-large;
   color: var(--accent);
   text-align: left;
-  margin-bottom: -1rem;
+  margin-bottom: -0.7rem;
 `;
 
 const QuoteRightIcon = styled.div`
-  font-size: 2.5em;
+  font-size: x-large;
   color: var(--accent);
   text-align: right;
-  margin-top: -1rem;
+  margin-top: -1.25rem;
 `;
 
 const AuthorContainer = styled.div`
-  margin-top: 0%.5;
+  margin-top: -0.5rem;
   text-align: right;
   font-weight: bold;
   font-size: normal;

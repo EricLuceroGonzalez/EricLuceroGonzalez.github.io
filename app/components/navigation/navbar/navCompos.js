@@ -28,7 +28,7 @@ export const MainNav = styled.div`
   }
   background-color: var(--bg);
   z-index: 1000;
-  flex-grow: 2;
+  flex-grow: 4;
 `;
 
 export const MainNavLogo = styled.div`
@@ -43,11 +43,13 @@ export const MainNavLogo = styled.div`
   z-index: 1000;
 `;
 export const NavSwitchContainer = styled.div`
+  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   gap: 5px;
   justify-content: flex-end;
   flex-grow: 1;
+  padding-right: 10px;
 `;
 export const DivLogo = styled.div`
   padding-left: 2px;
