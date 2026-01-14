@@ -22,7 +22,7 @@ import localFont from "next/font/local";
 export const parkinsans = localFont({
   src: [
     {
-      path: "../public/fonts/Parkinsans-VariableFont_wght.ttf", // Ajusta la ruta según donde guardaste el archivo
+      path: "../fonts/Parkinsans-VariableFont_wght.ttf", // Ajusta la ruta según donde guardaste el archivo
       style: "normal",
     },
     // Si tuvieras un archivo separado para italic, lo agregarías aquí

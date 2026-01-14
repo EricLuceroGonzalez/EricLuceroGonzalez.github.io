@@ -31,6 +31,6 @@ export function proxy(request) {
 export const config = {
   // Matcher: Ignora rutas internas de Next.js, estáticos, imágenes, favicon, etc.
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llms.txt|.*\\..*).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|llms.txt|\\.well-known|.*\\..*).*)",
   ],
 };
