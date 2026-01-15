@@ -224,7 +224,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     openGraph: {
       title: `${post.title} | Blog`,
       description: post.excerpt,
-      url: `https://eric-lucero-gonzalez.vercel.app/blog/${locale}/${post.slug}`,
+      url: `https://ericlucero.dev/blog/${locale}/${post.slug}`,
       images: [
         {
           url: post.socialThumbnail,

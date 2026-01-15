@@ -104,7 +104,7 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
 
   const metadata = await getTranslations({ locale, namespace: "Metadata" });
-  const URLbase = "https://eric-lucero-gonzalez.vercel.app";
+  const URLbase = "https://ericlucero.dev";
 }
 // export const metadata = {
 //   title: "Tutoriales LaTeX | Eric Lucero González",

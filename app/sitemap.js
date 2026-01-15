@@ -3,7 +3,7 @@
 import { getAllPosts } from "./lib/api";
 
 export default async function sitemap() {
-  const baseUrl = "https://eric-lucero-gonzalez.vercel.app";
+  const baseUrl = "https://ericlucero.dev";
   const locales = ["es", "en"];
   const defaultLocale = "es";
 
