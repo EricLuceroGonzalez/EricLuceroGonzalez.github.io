@@ -1,5 +1,4 @@
 import {
-  EmojiContainer,
   HomePageCover,
   HomePageCoverText,
   LatexSection,
@@ -11,9 +10,10 @@ import {
 import HomeBoxes from "../components/HomeBoxes";
 import { MdParagraph } from "../ui/MarkDownComponents";
 import ScrollDiv from "../components/navigation/ScrollDiv";
-import { getAllPosts, getPostsByType } from "../lib/api";
+import { getPostsByType } from "../lib/api";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "../components/BgMovingDots";
+import EmojiContainer from "../ui/EmojiContainer";
 
 export default async function Home({ params }) {
   // 1. Obtener idioma
@@ -32,13 +32,7 @@ export default async function Home({ params }) {
         <HomePageCover>
           <HomePageCoverText>
             <TitlePage>
-              {t("title")}{" "}
-              <EmojiContainer
-                animate={{ rotate: [0, 30, -20, 30, 0] }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-              >
-                👋🏼
-              </EmojiContainer>
+              {t("title")} <EmojiContainer />
             </TitlePage>
             {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>

@@ -1,11 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-export const EmojiContainer = styled(motion.div)`
-  font-size: larger;
-  width: 50px;
-  /* background-color: var(--fg); */
-`;
+
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
