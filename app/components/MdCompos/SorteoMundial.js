@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { SiFifa } from "react-icons/si";
 import { motion } from "framer-motion";
@@ -183,7 +183,7 @@ const ConfTag = styled.span`
   font-size: xx-small;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  background: ${(props) => props.bg};
+  background: ${(props) => props.$bg};
   color: ${(props) => props.color};
 `;
 
@@ -642,14 +642,6 @@ export default function SorteoMundialGA(props) {
       setTiempoTotal(((tiempoTotal - tiempoInicio) / 1000).toFixed(2));
     }, 100);
   };
-  useEffect(() => {
-    console.log(`resultado: ${resultado}`);
-
-    // return () => {
-    //   setResultado(null);
-    // };
-  }, [sorteo, resultado]);
-
   const getConfColors = (conf) => {
     const colors = {
       UEFA: { bg: "#dbeafe", color: "#1e40af" },
@@ -761,7 +753,7 @@ export default function SorteoMundialGA(props) {
                             return (
                               <ConfTag
                                 key={cIdx}
-                                bg={colors.bg}
+                                $bg={colors.bg}
                                 color={colors.color}
                                 style={{
                                   fontSize:
@@ -836,7 +828,7 @@ export default function SorteoMundialGA(props) {
                             return (
                               <ConfTag
                                 key={cIdx}
-                                bg={colors.bg}
+                                $bg={colors.bg}
                                 color={colors.color}
                                 style={{
                                   fontSize:
