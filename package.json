@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@remotion/player": "^4.0.285",
+    "@vercel/analytics": "^1.6.1",
     "babel-plugin-styled-components": "^2.1.4",
     "better-react-mathjax": "^2.1.0",
     "chart.js": "^4.4.8",

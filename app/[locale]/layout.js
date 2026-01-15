@@ -12,7 +12,7 @@ import { Alexandria, Parkinsans } from "next/font/google";
 import { parkinsans } from "../ui/fonts.js";
 // import { MathJaxContext } from "better-react-mathjax";
 // import NaviBar from "./components/navigation/navbar/NaviBar";
-
+import { Analytics } from "@vercel/analytics/next";
 import nextDynamic from "next/dynamic";
 
 export const dynamic = "force-static";
@@ -92,6 +92,7 @@ export default async function LocaleLayout({ children, params }) {
       suppressHydrationWarning
     >
       <body style={{ width: "100%" }} antialiased="true">
+        <Analytics />
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <NaviBar />

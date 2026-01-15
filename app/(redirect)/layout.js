@@ -1,8 +1,12 @@
 // app/(redirect)/layout.js
+import { Analytics } from "@vercel/analytics/next";
 export default function RootLayout({ children }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <Analytics />
+        {children}
+      </body>
     </html>
   );
 }
