@@ -108,7 +108,7 @@ export const metadata = {
       "Guías prácticas para dominar LaTeX, incluyendo tips avanzados y ejemplos paso a paso para documentos académicos y más.",
     images: [
       {
-        url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png", // Imagen temática de LaTeX
+        url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1739810044/elCronopio/Web-communication/LaTeX_logo_light_rodd4d.png", // Imagen temática de LaTeX
         width: 1200,
         height: 630,
         alt: "Tutoriales y tips de LaTeX",
@@ -121,6 +121,6 @@ export const metadata = {
     description:
       "Aprende LaTeX desde lo básico hasta lo avanzado con tutoriales claros y ejemplos prácticos.",
     image:
-      "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
+      "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1739810044/elCronopio/Web-communication/LaTeX_logo_light_rodd4d.png",
   },
 };

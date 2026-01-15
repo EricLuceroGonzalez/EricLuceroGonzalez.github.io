@@ -3,7 +3,7 @@
         "defaultTitle": "Eric Lucero | AI Research & Optimization",
         "description": "Personal research blog by Eric Lucero regarding Artificial Intelligence, Genetic Algorithms, Optimization, and LaTeX tutorials.",
         "keywords": "AI, PhD, LaTeX, Algorithms, Optimization, Metaheuristics, Spain, Research, Computer Science, Next.js",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839288/elCronopio/Thumbnails/URL-base-en_z11bcn.png",
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509763/elCronopio/Thumbnails/portada-en_htnuoq.png",
         "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
     },
     "HomePage": {
@@ -43,7 +43,7 @@
         "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research.",
         "metaTitle": "About Me | Eric Lucero",
         "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",
-        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839288/elCronopio/Thumbnails/URL-base-en_z11bcn.png",
+        "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509763/elCronopio/Thumbnails/portada-en_htnuoq.png",
         "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
         "metadata": {
             "title": "Tech Stack & Architecture | Eric Lucero",
@@ -112,7 +112,7 @@
             "description": "Legal terms, GDPR compliance, privacy policy, and details regarding the Creative Commons and MIT licenses of this website.",
             "keywords": "Legal Notice, Privacy Policy, GDPR, Copyright, Creative Commons, MIT License, Terms of Use, Data Protection",
             "logo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
-            "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839290/elCronopio/Thumbnails/URL-base-es_vpsnir.png"
+            "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509763/elCronopio/Thumbnails/portada-en_htnuoq.png"
         },
         "sections": {
             "intro": "This website is a personal and academic portfolio with no direct commercial purpose. My philosophy regarding your privacy is simple: I do not collect unnecessary personal information, I do not track you across the Internet, and I do not sell your data. Below is the legal information required by Spanish and European regulations.",
