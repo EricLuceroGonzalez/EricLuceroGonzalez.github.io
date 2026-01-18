@@ -47,8 +47,6 @@ const LatexPost = async ({ params }) => {
   if (!post) {
     return notFound();
   }
-  // const coursePosts = getPostsByType(["latex"], post.order);
-  // const coursePosts = getPostsByType(["latex"], 0, locale);
 
   const { previous, next } = getSurroundingPosts("latex", post.order, locale);
   // const previous = "null";

@@ -24,7 +24,7 @@ const BlogPage = async ({ params }) => {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Blog" });
   // const blogPosts = getBlogPosts();
-  const blogPosts = getPostsByType(["blog"], 0, locale);
+  const blogPosts = getPostsByType(["blog"], 1, locale);
   if (!blogPosts.posts) {
     return notFound();
   }

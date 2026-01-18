@@ -22,7 +22,7 @@ export default async function Home({ params }) {
   const t = await getTranslations({ locale, namespace: "HomePage" });
   // const allPostsData = getAllPosts([], locale);
   const allPostsData = getPostsByType(["blog"], 0, locale);
-  const allLatexPosts = getPostsByType(["latex"], 0, locale);
+  const allLatexPosts = getPostsByType(["latex", "LaTeX"], 0, locale);
 
   return (
     <PageContainer>

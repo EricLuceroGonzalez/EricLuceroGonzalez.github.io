@@ -14,10 +14,7 @@ import {
 } from "@/app/ui/CardsElements.js";
 import DateDisplay from "../DateDisplay.js";
 
-const Section = styled.section`
-  /* No hay estilos en esta sección en tu código original */
-`;
-
+import { DISPLAYABLE_TAGS } from "@/app/lib/constants";
 // JSX Component
 const AllPosts = ({
   title,
@@ -29,6 +26,7 @@ const AllPosts = ({
   coverImageAlt,
   locale,
 }) => {
+  const visibleTags = doctype.filter((tag) => DISPLAYABLE_TAGS.includes(tag));
   return (
     <GridContainer
       initial={{ opacity: 0, scale: 0 }}
@@ -45,8 +43,6 @@ const AllPosts = ({
               {coverImage && (
                 <Image
                   src={coverImage}
-                  // width={0}
-                  // height={0}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: "cover" }}
@@ -71,13 +67,15 @@ const AllPosts = ({
                     locale={locale}
                   />
                 </Date>
-                {doctype.map((type, index) => (
-                  <SectionType key={index} $tag={type}>
-                    {type}
-                    {/* Agrega una coma si no es el último elemento */}
-                    {index < doctype.length - 1}
-                  </SectionType>
-                ))}
+                {/* doctype.filter((tag) => DISPLAYABLE_TAGS.includes(tag)); */}
+                {visibleTags.map((type, index) => {
+                  return (
+                    <SectionType key={index} $tag={type}>
+                      {type}
+                      {/* {index < doctype.length - 1} */}
+                    </SectionType>
+                  );
+                })}
               </SideInfo>
             </MetaInfo>
             <ExcerptContainer>

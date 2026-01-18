@@ -190,7 +190,7 @@ export const SectionType = styled.div`
       case "IA":
         return "var(--primary-border)";
       default:
-        return "var(--subheading)"; // Color por defecto
+        return "var(--fg)"; // Color por defecto
     }
   }};
   color: ${(props) => {
@@ -211,7 +211,7 @@ export const SectionType = styled.div`
       case "IA":
         return "var(--primary-border)";
       default:
-        return "var(--subheading)"; // Color por defecto
+        return "var(--bg)"; // Color por defecto
     }
   }};
 

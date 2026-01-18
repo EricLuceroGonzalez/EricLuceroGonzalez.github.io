@@ -45,8 +45,6 @@ const BlogPost = async ({ params }) => {
   // const blogPosts = getBlogPosts(post.order);
   const blogPosts = getPostsByType(["blog"], post.order);
   const { previous, next } = getSurroundingPosts("blog", post.order, locale);
-  // const latexPosts = getPostsByType(["blog"]);
-
   if (!post) {
     return notFound();
   }
@@ -156,7 +154,7 @@ const BlogPost = async ({ params }) => {
               },
             }}
           />
-          {(!next == "null" || !previous == "null") && (
+          {(next !== null || previous !== null) && (
             <div
               style={{
                 marginTop: "10rem",

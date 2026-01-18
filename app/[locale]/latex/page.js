@@ -25,14 +25,16 @@ const Latex = async ({ params }) => {
   setRequestLocale(locale);
   const trans = await getTranslations({ locale, namespace: "LatexPage" });
   // const AllLatexPosts = getLatexPosts();
-  const AllLatexPosts = getPostsByType(["latex"], 0, locale);
+  const AllLatexPosts = getPostsByType(["latex", "LaTeX"], 0, locale);
+
   // Filtra solo los posts que tienen "curso"
-  const latexBlogPost = AllLatexPosts.posts.filter((post) =>
-    post.doctype.includes("latex")
+  const latexBlogPost = AllLatexPosts.posts.filter(
+    (post) => post.doctype.includes("latex") || post.doctype.includes("LaTeX"),
   );
+  console.log(latexBlogPost);
   // Filtra solo los posts que tienen "curso"
   const latexCoursePost = AllLatexPosts.posts.filter(
-    (post) => post.doctype.includes("latex") && post.doctype.includes("curso")
+    (post) => post.doctype.includes("latex") && post.doctype.includes("curso"),
   );
   if (!latexBlogPost && !latexCoursePost) {
     return notFound();

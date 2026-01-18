@@ -45,7 +45,7 @@ function getAllPosts(fields = [], locale = "es") {
     })
     .filter((post) => post && post.isPublic == true)
     .sort(
-      (post1, post2) => new Date(post2.date.iso) - new Date(post1.date.iso)
+      (post1, post2) => new Date(post2.date.iso) - new Date(post1.date.iso),
     );
 
   return posts;
@@ -58,7 +58,7 @@ function getPostsByType(types = [], orderNum = 0, locale = "es") {
   // 2. FILTRO CRÍTICO: Nos quedamos SOLO con los archivos del idioma actual
   // Esto elimina automáticamente los archivos del otro idioma
   const localeFiles = allFiles.filter((file) =>
-    file.endsWith(`.${locale}.mdx`)
+    file.endsWith(`.${locale}.mdx`),
   );
 
   // 3. Procesamos esos archivos
@@ -81,18 +81,17 @@ function getPostsByType(types = [], orderNum = 0, locale = "es") {
       // Si types está vacío, devuelve todo, si no, busca coincidencia
       return types.length === 0 || types.some((t) => post.doctype.includes(t));
     })
-    .sort((post1, post2) => (post1.order || 99) - (post2.order || 99)); // Orden ascendente
+    .sort((post1, post2) => {
+      return new Date(post2.date.iso) - new Date(post1.date.iso);
+    }); // Orden ascendente
 
   // --- Lógica de Paginación (Next/Prev) ---
-  // Si orderNum es 0, asumimos que es el landing y no buscamos next/prev específico por ID
-  // Si esta función se usa para un post individual, entonces sí buscamos el índice.
   let previousPost = null;
   let nextPost = null;
-  // console.log(filteredPosts);
-  // console.log(`orderNum: ${orderNum}`);
+
   if (orderNum > 0) {
     const currentIndex = filteredPosts.findIndex(
-      (post) => post.order === orderNum
+      (post) => post.order === orderNum,
     );
     if (currentIndex !== -1) {
       previousPost = currentIndex > 0 ? filteredPosts[currentIndex - 1] : null;
@@ -102,7 +101,7 @@ function getPostsByType(types = [], orderNum = 0, locale = "es") {
           : null;
     }
   }
-
+  // console.log(filteredPosts);
   return {
     posts: filteredPosts,
     previousPost,
@@ -136,7 +135,7 @@ function getSurroundingPosts(type, currentOrder, locale = "es") {
       return getPostBySlug(
         cleanSlug,
         ["title", "slug", "order", "doctype", "isPublic", "excerpt"],
-        locale
+        locale,
       );
     })
 
@@ -155,7 +154,7 @@ function getSurroundingPosts(type, currentOrder, locale = "es") {
 
   // 7. ENCONTRAR VECINOS
   const currentIndex = orderedPosts.findIndex(
-    (post) => post.order === currentOrder
+    (post) => post.order === currentOrder,
   );
 
   if (currentIndex === -1) {
