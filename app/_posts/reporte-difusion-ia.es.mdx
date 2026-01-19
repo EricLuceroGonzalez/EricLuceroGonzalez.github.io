@@ -4,65 +4,108 @@ id: "blog-003"
 date: "2026-01-18"
 order: 2
 author: "Eric Lucero"
-socialThumbnail: 
-webThumbnail: ""
+socialThumbnail: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768847448/elCronopio/Thumbnails/AI-diffusionReport-es_iuhe1o.png" 
+webThumbnail: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768846992/elCronopio/Blog-posts/AI-diffusionReport2_d3t7yv.png"
 coverImageAlt: ""
-title: "La Falacia de la Extrapolación: Una crítica metodológica a la medición de la Difusión Global de IA"
+title: "Una crítica metodológica a la medición de la Difusión Global de IA"
 shortTitle: "Grupos del mundial con Algoritmos Genéticos"
 entryType: "blog"
-excerpt: ""
+excerpt: "En enero de 2026, Microsoft publica el AI Diffusion Report 2025 (H2) para conocer la adopción de la IA, a nivel global, en la segunda mitad del 2025. Hago un breve comentario sobre la generalización del comportamiento de los usuarios de todas las plataformas a partir de los datos de telemetría del ecosistema Microsoft."
 doctype: ["blog"]
 categories: ["AI", "Data Science",  "Microsoft","Papers"]
 keywords: ["blog", "AI","AI Metrics", "Data Science", "Research", "Microsoft","papers"]
-isPublic: false
+isPublic: true
 ---
-Breve intro mencionando la extrapolación.
+En enero de 2026, Microsoft publica el AI Diffusion Report 2025 (H2) para conocer la adopción de la IA, a nivel global, en la segunda mitad del 2025. Hago un breve comentario sobre la generalización del comportamiento de los usuarios de todas las plataformas a partir de los datos de telemetría del ecosistema Microsoft.
 
 ## Contenido
 
-# La Falacia de la Extrapolación: Por qué medirlo "todo" nos deja sin medir nada
+## Por qué medirlo "todo" nos deja sin medir nada
 
-En la carrera actual por cuantificar el impacto de la Inteligencia Artificial, nos encontramos inundados de métricas que prometen darnos una "visión de Dios" sobre la adopción tecnológica. Recientemente, analicé el *preprint* de Microsoft Research, **"Measuring AI Diffusion: A Population-Normalized Metric for Tracking Global AI Usage"** (Misra et al., 2025).
-Fuente: https://www.microsoft.com/en-us/corporate-responsibility/topics/ai-economy-institute/reports/global-ai-adoption-2025/#fn:1
-Fuente: [2511.02781] Measuring AI Diffusion: A Population-Normalized Metric for Tracking Global AI Usage
-Si bien el esfuerzo por estandarizar métricas es loable, como investigador en IA, no puedo evitar detenerme en las "costuras" metodológicas del estudio. Al intentar escalar datos de telemetría propietarios para inferir un comportamiento global, el estudio sacrifica la **validez interna** en favor de un alcance generalista cuestionable.
+En la carrera actual por cuantificar el impacto de la Inteligencia Artificial, nos encontramos inundados de métricas que prometen darnos una visión general sobre la adopción tecnológica. 
 
-A continuación, analizo por qué la extrapolación de datos de Windows y la asunción de independencia estadística introducen un ruido crítico en estas mediciones.
+>El 8 de enero de 2026 Microsoft AI Economy Institute publicó el __AI Diffusion Report 2025 (H2)__, en su versión oficial en PDF: <CitationSup id="1"/>, también puedes ver la versión web en:  <CitationSup id="2"/>.
+>El paper que da origen a este documento se publicó en ArXiv como: **"Measuring AI Diffusion: A Population-Normalized Metric for Tracking Global AI Usage"** (Misra et al, 2025) que puede ver en: <CitationSup id="3"/>.
+
+Si bien el esfuerzo por estandarizar métricas es deseable, el estudio tiene una debilidad metodológica (a mi parecer) al intentar escalar __datos de telemetría__ propietarios de Windows 
+para **inferir** un comportamiento global, el estudio sacrifica la **validez interna** en favor de un alcance generalista cuestionable.
+
+A continuación, analizo por qué la extrapolación de datos internos de los usuarios de Windows y la asunción de independencia estadística introducen un ruido crítico en estas mediciones.
+Por lo tanto nos vamos a centrar en el paper<CitationSup id="3"/> que es el que contiene los detalles metodológicos del estudio y no en los documentos corporativos publicados por Microsoft (basados en el paper), que considero 
+están pulidos y se alejan de estos cuestionamientos de forma impresionante.
+
+Básicamente me llaman la atención dos cosas:
+1. Que basados en los datos de telemetría de usuarios de Windows, se infiera que los usuarios de las demás plataformas __tengan conductas iguales__ hacia el uso y adopción de la IA (**Homogeneidad poblacional**).
+2. Que el uso que le dan los usuarios a sus dispositivos de escritorio (desktop) __es independiente__ (no tiene relación) con el uso que le dan a los dispositivos móviles (__Independencia estadística__).
+
+>Los datos presentados en el Microsoft AI Diffusion Report 2025 H2 deben interpretarse estrictamente como indicadores de adopción en el ecosistema Windows, lo cual han hecho genial. 
+>Sin embargo, a mi parecer, no representan la totalidad del uso global de IA, especialmente en investigación, desarrollo de software y mercados mobile-first.
+>Por lo tanto, queriendo medirlo todo nos han dejado sin medir nada.
+
+## ¿De dónde se toman los datos?
+
+Los datos provienen exclusivamente de la telemetría interna `"anonimizada"` de usuarios Microsoft, específicamente de Windows, versión escritorio en usuarios PC/tablets.
+### Fuente de uso de IA
+El primer filtro es que la telemetría proviene de usuarios que han aceptado enviar sus datos en algún momento (el mensaje de enviar errores o diagnóstico de fallos), además que solo se toman en cuenta
+usuarios que han estado activos por al menos 90 minutos a la semana. Los datos vienen de las búsquedas y paginas visitadas en navegadores de Microsoft, software instalado, etc.
+
+### Fuente de la población
+Para calcular la cuota, cruzan la telemetría con:
+- El número de dispositivos Windows activos en cada país.
+- Estadísticas de población en edad laboral y acceso a Internet (probablemente de fuentes como el Banco Mundial o la UIT, aunque el paper se centra en su propia estimación de "Población con PC").
+
+No tienen datos directos de sistemas operativos móviles (Android/iOS), ni de los otros sistemas operativos en computadoras de escritorio o portátiles. Esto lo infieren del porcentaje de usuarios de Windows respecto 
+al total de usuarios de sitios como StatCounter.
+
+![caption=Los datos de telemetría que envían los usuarios Windows se pueden ver en el Diagnostic Data Viewer. Microsoft asegura que estos datos están anonimizados.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768851321/elCronopio/Blog-posts/ddv-event-view_m3bxou.jpg)
 
 ## El Problema de la Homogeneidad Poblacional
 
-El estudio utiliza la telemetría del ecosistema Windows como *proxy* base. Para estimar la población total de usuarios de IA en una región, aplican una normalización basada en la cuota de mercado (*Market Share*). La lógica implícita se puede resumir en la siguiente ecuación:
+El estudio utiliza la telemetría del ecosistema Windows como *proxy* base. Para estimar la población total de usuarios de IA en una región, aplican una normalización basada en la cuota de mercado (*Market Share*). 
+
+La lógica implícita se puede resumir en la siguiente ecuación:
 
 $$
 N_{total} = \frac{\text{Monthly Active Devices}}{\text{Market Share}} = \text{Alguna proporción}
 $$
 
-Donde _Monthly Active Devices_ representa los dispositivos activos detectados por Microsoft.
-Con activos se refieren a los usuarios 
+Donde _Monthly Active Devices_ representa los dispositivos activos detectados por Microsoft y _Market Share_ es la proporción del mercado de Desktop y Tablets que usa Microsoft.
+Con dispositivos activos se refieren, como hemos dicho, a los usuarios:
 - Windows con al menos 90 minutos al mes de actividad, 
-- que hayan aceptado compartir su información. 
+- Que hayan aceptado compartir su información. 
 No dice si esto toma en cuenta otros productos Windows como GitHub o el Visual Studio.
 
 ### Por qué falla esta métrica
 Esta fórmula asume **homogeneidad poblacional**. Da por sentado que la "densidad de uso de IA" es constante a través de todos los sistemas operativos; 
-es decir, *asume que un usuario de macOS o Linux se comporta igual que uno de Windows*.
+es decir, **asume que un usuario de macOS o Linux se comporta igual que uno de Windows**.
 
 >El paper asume que el comportamiento en Windows (mayormente corporativo/ofimática) es extrapolable a todo el mundo.
 
->Un usuario de Linux que corre `Ollama` en su terminal o usa un script de Python que llama a la API de OpenAI _es invisible_ para la metodología de este paper, porque no genera "visitas web" tradicionales ni usa el stack de telemetría de Windows.
+Por ejemplo que un usuario de **Linux** que corre `Ollama` en su terminal o usa un script de Python que llama a la **API** de OpenAI _es invisible_ para la metodología de este paper, porque no genera "visitas web" tradicionales ni usa el stack de telemetría de Windows.
 
 La realidad demográfica del sector tecnológico sugiere lo contrario:
-* **El Sesgo del Desarrollador:** Según la *Stack Overflow Developer Survey 2025*, cerca del 50% de los desarrolladores profesionales utilizan sistemas basados en Unix (macOS o Linux) como su entorno primario.
-* **Ciencia de Datos y ML:** Encuestas de la comunidad (como las de Kaggle) muestran que los entornos Linux dominan los flujos de trabajo de Machine Learning e inferencia de modelos.
+* **El Sesgo del Desarrollador:** Según la *Stack Overflow Developer Survey 2025*<CitationSup id="4"/>, cerca del 50% de los desarrolladores profesionales utilizan sistemas basados en Unix (macOS o Linux) como su entorno primario.
 
-https://survey.stackoverflow.co/2025/technology
-[asd](https://survey.stackoverflow.co/2025/)
-https://devecosystem-2025.jetbrains.com/
-Al dividir la telemetría de Windows (que domina el mercado de consumo general y administrativo con ~72% de cuota) por su *market share*, el estudio **diluye** estadísticamente a los *Power Users* que residen en otros ecosistemas. Están tratando de medir la "fiebre del oro" de la IA mirando solo a quienes compran picos y palas estándar, ignorando a los ingenieros que usan maquinaria pesada en otras plataformas.
+* **Ciencia de Datos y ML:** Encuestas de la comunidad (como las de Kaggle) muestran que los entornos Linux dominan los flujos de trabajo de Machine Learning e inferencia de modelos.
+* **JetBrains State of Developer Ecosystem Report 2025**<CitationSup id="5"/>: Esta encuesta arroja que el 85% de los desarrolladores usan IA para escribir código y el 62% usan al menos un asistente, agente o editor de código basado en IA.
+
+
+
+Al dividir la telemetría de Windows (que sin dudas domina el mercado de consumo general y administrativo/corporativo con ~72% de cuota) por su *market share*, el estudio **diluye** estadísticamente a los *Power Users* que residen en otros ecosistemas
+, es decir a los usuarios que quizás están desarrollando el grueso de la IA en todo el mundo. 
+
+>Están tratando de medir la "fiebre del oro" de la IA mirando solo a quienes compran picos y palas estándar, ignorando a los ingenieros que usan maquinaria pesada en otras plataformas.
+
+Si bien es cierto que las encuesta de StackOverflow (<CitationSup id="4"/>)y JetBrains (<CitationSup id="5"/>) tiene su sesgo al ser encuestas hechas voluntariamente por 
+usuarios cuyo perfil se aleja de lo que el AI Diffusion Report busca, sin dudas no podemos ignorar estos números, mucho menos generalizar que los usuarios de Windows adoptan la IA
+de la misma forma de los usuarios de Linux/MacOs.
+
+Por ejemplo no se hace la distinción cuando un usuario usa su computadora en el trabajo (usuario corporativo) y cuando esa misma persona llega a casa y usa su dispositivo
+Windows personal de forma totalmente distinta (ni hablar si usa otros sistemas operativos). Esta persona se contará dos veces y su "adopción de la IA" seguramente sea distinta analizando los datos en sus dispositivos.
 
 ## La Trampa de la Independencia Estadística
 
-Quizás el punto más débil desde una perspectiva de modelado estocástico es cómo los autores agregan usuarios de diferentes plataformas (Desktop vs. Mobile).
+Otro punto débil que me llama la atención es cómo los autores agregan usuarios de diferentes plataformas (Desktop / Mobile), asumiéndolas independientes.
 
 Para calcular el porcentaje de usuarios únicos que utilizan IA, el estudio asume **independencia estadística** entre los eventos de uso. Matemáticamente, postulan que la probabilidad conjunta es el producto de las probabilidades marginales:
 
@@ -70,28 +113,75 @@ $$
 P(Desktop \cap Mobile) \approx P(Desktop) \cdot P(Mobile)
 $$
 
-### La Violación de la Correlación Intra-sujeto
+
 Esta asunción ignora el comportamiento humano básico. La adopción de tecnología tiene una fuerte **correlación positiva**.
-* **Realidad:** Un usuario que utiliza herramientas de IA en su escritorio (por ejemplo, Copilot o ChatGPT Web) tiene una probabilidad $P(M|D)$ muy alta de tener una app de IA en su móvil.
+* **Realidad:** Un usuario que utiliza herramientas de IA en su escritorio (por ejemplo, Copilot o ChatGPT Web) tiene una probabilidad $P(M|D)$ muy alta de tener una app de IA en su móvil, y muchas veces la misma.
 * **Consecuencia:** Al asumir independencia (correlación cero), el modelo subestima drásticamente la intersección ($Desktop \cap Mobile$).
 
-Esto lleva a un error de "doble conteo" sistemático. Al subestimar el *overlap*, inflan artificialmente el número de usuarios únicos estimados. En términos técnicos, el estimador no es *i.i.d.* (independiente e idénticamente distribuido), lo que invalida los intervalos de confianza presentados.
+Esto lleva a un error de "doble conteo" sistemático. Y (¿sin querer?) inflan artificialmente el número de usuarios únicos estimados. 
+En términos técnicos, el estimador no es independiente e idénticamente distribuido.
+
 
 ### La Ceguera ante la IA Integrada (Embedded AI)
 
-Otro fallo crítico en la recolección de datos es la falta de granularidad en herramientas profesionales. El estudio parece basarse en "visitas a dominios de IA" o "lanzamiento de aplicaciones de IA". Sin embargo, la revolución actual no es solo visitar una web, es la **integración**.
+Otro fallo crítico en la recolección de datos es la falta de granularidad en herramientas profesionales. El estudio parece basarse en "visitas a dominios de IA" o "abrir una aplicación de IA en mi sistema". 
+Sin embargo, la revolución actual no es solo visitar una web, es la **integración** (bots, LLMs locales, RaspberryPi, proyectos en Python, etc.).
+El uso de IA vía API dentro de entornos de desarrollo (IDEs) o terminales (CLI) no genera necesariamente la "huella web" que el estudio rastrea.
+Para la telemetría de Windows, abrir **VS Code** cuenta simplemente como abrir un editor de texto. El estudio __no detalla__ mecanismos para detectar si ese usuario está utilizando masivamente **GitHub Copilot** dentro del editor. 
 
-Para la telemetría de Windows, abrir **VS Code** cuenta simplemente como abrir un editor de texto. El estudio no detalla mecanismos para detectar si ese usuario está utilizando masivamente **GitHub Copilot** dentro del editor. 
+>Un ingeniero que pasa 8 horas al día haciendo *pair-programming* con IA en VS Code podría ser contabilizado como un "No usuario de IA" si no visita la web de ChatGPT explícitamente (en su navegador Edge en el SO Windows). Una vez más, la métrica penaliza la sofisticación técnica.
 
-* **El problema:** El uso de IA vía API dentro de entornos de desarrollo (IDEs) o terminales (CLI) no genera necesariamente la "huella web" que el estudio rastrea.
-* **El resultado:** Un ingeniero que pasa 8 horas al día haciendo *pair-programming* con IA en VS Code podría ser contabilizado como un "No usuario de IA" si no visita la web de ChatGPT explícitamente. Una vez más, la métrica penaliza la sofisticación técnica.
 
-## Conclusión: Menos Ruido, Más Señal
+## Lo Bueno
+- Normalización Poblacional: A diferencia de métricas web (que cuentan "visitas"), ellos intentan __medir "personas"__. El esfuerzo por dividir el uso de IA entre la "población en edad laboral" de cada país es un avance necesario.
+- Alcance Global: Cubren más de 100 países. La mayoría de reportes (Stanford AI Index, etc.) suelen tener un sesgo masivo hacia EE.UU. y Europa. Este reporte pone luces sobre mercados olvidados (habla de Sur Global y Norte Global).
+- Reconocimiento de la Brecha: Aunque sus números exactos sean dudosos, la tendencia es correcta: 
+__la infraestructura (PC + Internet rápido) y condiciones socio-económicas son el mayor cuello de botella para la IA en el Sur Global, no la falta de interés__ (aunque no se deduce de este estudio a mi parecer).
 
-La crítica principal a este *paper* no es que los datos de Microsoft sean malos —de hecho, son una de las fuentes de telemetría más ricas del mundo—, sino que 
-su manipulación (?) para intentar abarcar plataformas fuera de su control debilita su generalización.
+La crítica principal a este *paper* no es que los datos de Microsoft sean malos —de hecho, son una de las fuentes de telemetría más ricas del mundo, dominan >70% del mercado—, sino que 
+su manipulación para intentar abarcar plataformas fuera de su control debilita su generalización.
 
-Hubiera sido preferible un estudio limitado a la **"Difusión de IA en el Ecosistema Windows"**. Esto habría garantizado una **Validez Interna** perfecta, sirviendo como un indicador adelantado (*leading indicator*) robusto para el mercado corporativo.
+
+Hubiera sido preferible un estudio limitado a la **"Difusión de IA en el Ecosistema Windows"**. Esto habría garantizado una **Validez Interna** perfecta, sirviendo como un indicador robusto para el mercado corporativo.
 
 Al intentar medirlo todo mediante extrapolaciones lineales sobre poblaciones heterogéneas, terminamos con una métrica que, aunque ambiciosa, oscurece la verdadera dinámica de adopción de la Inteligencia Artificial.
+>Están midiendo quién usa Microsoft, no necesariamente quién usa IA.
 
+### Métrica AI User Share
+Elaboran una métrica llamada __AI User Share__ definida como el porcentaje: 
+   $$
+    \begin{aligned}
+    \text{AI User Share} &= (\% \text{ of Microsoft Users That Use AI})\\
+    &= (\% \text{ of Population With a Desktop Device})\\
+    &= (\times \text{ Mobile Scaling Factor})\\
+    \end{aligned}
+    $$
+
+Para obtener el __número absoluto de usuarios de IA__ se multiplica este valor por la población en edad laboral <CitationSup id="3"/>.
+
+![caption=Ejemplo de la métrica AI User Share cuya intención es reflejar la adopción de la IA a nivel global con respecto a la población en edad laboral (15 a 65 años) ](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768846802/elCronopio/Blog-posts/AI-diffusionReport_ayasgx.png)
+
+Para terminar, y ponernos bastante desconfiados (y atrevidos), después de leer el paper me quedan las siguiente preguntas (ademas de los cuestionamientos de arriba que están sujetos a ser aclarador):
+- ¿Buscan influir en las políticas públicas de estos países para seguir con su hegemonía corporativa?
+- ¿Están convirtiendo una debilidad metodológica en marketing corporativo?
+- ¿Qué pasa con los usuarios que usan Windows por su trabajo y en casa usan otro sistema, o se comportan de forma distinta?
+- ¿Quiere Microsoft hacerse ver como los líderes en IA a nivel global, sabiendo que pierden la carrera por la innovación de herramientas de IA?
+- ¿Solo fue un error y ya?
+
+En fin, el paper (y el informe) son útiles para ver tendencias relativas (quién crece más rápido), pero desconfiaría de los números absolutos. 
+El porcentaje real es probablemente mayor si consideramos el "Shadow AI" (uso de herramientas no corporativas), sistemas IA agnósticos y el ecosistema móvil real.
+
+✌🏼
+
+## Referencias
+<ReferenceList
+references={
+    [{id:"1", text:"Global AI Adoption in 2025 - A Widening Digital Divide; Microsoft.", url:"https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Microsoft-AI-Diffusion-Report-2025-H2.pdf"},
+    {id:"2",text:"Global AI Adoption in 2025—A Widening Digital Divide (web version).",url:"https://www.microsoft.com/en-us/corporate-responsibility/topics/AI-Economy-Institute/reports/Global-AI-Adoption-2025/#fn:1"},
+    {id:"3",text:"Misra et al (2025). Measuring AI Diffusion: A Population-Normalized Metric for Tracking Global AI Usage",url:"https://arxiv.org/abs/2511.02781"},
+{id:"4",text:"StackOverflow: 2025 Developer Survey",url:"https://survey.stackoverflow.co/2025/"},
+{id:"5",text:"JetBrains: State of Developer Ecosystem Report 2025",url:"https://devecosystem-2025.jetbrains.com/"}
+
+]}
+/>
+{/* {id:"4",text:"",url:""} */}
