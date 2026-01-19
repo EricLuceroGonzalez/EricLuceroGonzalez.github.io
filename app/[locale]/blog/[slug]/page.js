@@ -202,7 +202,7 @@ export async function generateStaticParams({ params }) {
 export async function generateMetadata({ params, searchParams }, parent) {
   const { locale, slug } = await params;
   const post = getPostBySlug(slug, ["title", "excerpt", "coverImage"], locale);
-
+  const URLbase = "https://ericlucero.dev";
   if (!post) {
     return {
       title: "Post not found",
@@ -214,6 +214,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
     slug: post.slug,
     keywords: post.keywords,
     shortTitle: post.shortTitle,
+    // Configuración vital para SEO Multilingüe
+    alternates: {
+      canonical: `${URLbase}/${locale}`,
+      languages: {
+        es: `${URLbase}/es`,
+        en: `${URLbase}/en`,
+      },
+    },
     robots: {
       index: true,
       follow: true,
@@ -223,14 +231,23 @@ export async function generateMetadata({ params, searchParams }, parent) {
       title: `${post.title} | Blog`,
       description: post.excerpt,
       url: `https://ericlucero.dev/blog/${locale}/${post.slug}`,
+      siteName: "Eric Lucero González",
       images: [
         {
           url: post.socialThumbnail,
           width: 1200,
           height: 630,
-          alt: "Vista previa del sitio web de Eric",
+          alt: post.coverImageAlt,
+          locale: locale,
+          type: "website",
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      image: post.socialThumbnail,
     },
   };
 }
