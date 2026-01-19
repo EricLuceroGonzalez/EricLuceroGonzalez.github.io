@@ -5,15 +5,15 @@ import {
   setRequestLocale,
   getTranslations,
 } from "next-intl/server";
-import React, { Suspense } from "react";
+import React from "react";
 import Footer from "../components/navigation/footer";
 import Providers from "../Providers.js";
-import { Alexandria, Parkinsans } from "next/font/google";
 import { parkinsans } from "../ui/fonts.js";
 // import { MathJaxContext } from "better-react-mathjax";
 // import NaviBar from "./components/navigation/navbar/NaviBar";
 import { Analytics } from "@vercel/analytics/next";
 import nextDynamic from "next/dynamic";
+import ViewportSize from "../components/viewPortViewer";
 
 export const dynamic = "force-static";
 export async function generateMetadata({ params }) {
@@ -65,8 +65,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const NaviBar = nextDynamic(() =>
-  import("../components/navigation/navbar/NaviBar")
+const NaviBar = nextDynamic(
+  () => import("../components/navigation/navbar/NaviBar"),
 );
 
 export function generateStaticParams() {
@@ -96,6 +96,7 @@ export default async function LocaleLayout({ children, params }) {
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <NaviBar />
+            {/* <ViewportSize /> */}
             <main>{children}</main>
             <Footer />
           </Providers>

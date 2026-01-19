@@ -21,6 +21,8 @@ const HomeBoxes = ({ props, locale }) => {
             author,
             excerpt,
             doctype,
+            categories,
+            keywords,
             webThumbnail,
             coverImageAlt,
           }) => (
@@ -32,11 +34,13 @@ const HomeBoxes = ({ props, locale }) => {
               excerpt={excerpt}
               author={author}
               doctype={doctype}
+              categories={categories}
+              keywords={keywords}
               coverImage={webThumbnail}
               coverImageAlt={coverImageAlt}
               locale={locale}
             />
-          )
+          ),
         )}
       </BoxGrid>
     </>

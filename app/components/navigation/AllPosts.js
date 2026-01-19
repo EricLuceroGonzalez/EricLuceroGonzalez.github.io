@@ -1,5 +1,4 @@
 "use client";
-import styled from "styled-components";
 import { Link } from "../../../i18n/navigation";
 import Image from "next/image";
 import { Date, MetaInfo, SideInfo, SectionType } from "../../ui/lugs.js";
@@ -14,7 +13,6 @@ import {
 } from "@/app/ui/CardsElements.js";
 import DateDisplay from "../DateDisplay.js";
 
-import { DISPLAYABLE_TAGS } from "@/app/lib/constants";
 // JSX Component
 const AllPosts = ({
   title,
@@ -22,11 +20,11 @@ const AllPosts = ({
   date,
   excerpt,
   doctype,
+  categories,
   coverImage,
   coverImageAlt,
   locale,
 }) => {
-  const visibleTags = doctype.filter((tag) => DISPLAYABLE_TAGS.includes(tag));
   return (
     <GridContainer
       initial={{ opacity: 0, scale: 0 }}
@@ -67,8 +65,7 @@ const AllPosts = ({
                     locale={locale}
                   />
                 </Date>
-                {/* doctype.filter((tag) => DISPLAYABLE_TAGS.includes(tag)); */}
-                {visibleTags.map((type, index) => {
+                {categories.map((type, index) => {
                   return (
                     <SectionType key={index} $tag={type}>
                       {type}

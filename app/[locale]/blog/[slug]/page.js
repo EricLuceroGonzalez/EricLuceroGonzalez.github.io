@@ -42,8 +42,7 @@ const BlogPost = async ({ params }) => {
   // const t = useTranslations("About");
   const t = await getTranslations({ locale, namespace: "Blog" });
   const post = getPostBySlug(slug, [], locale);
-  // const blogPosts = getBlogPosts(post.order);
-  const blogPosts = getPostsByType(["blog"], post.order);
+
   const { previous, next } = getSurroundingPosts("blog", post.order, locale);
   if (!post) {
     return notFound();
@@ -57,7 +56,6 @@ const BlogPost = async ({ params }) => {
     //https://regex101.com/r/q2Kqjg/6
     const regex = /\w+/g;
     result.wordCount = (post || "").match(regex).length;
-
     result.readingTime = Math.ceil(result.wordCount / WORDS_PER_MINUTE);
 
     return result;
@@ -121,7 +119,7 @@ const BlogPost = async ({ params }) => {
               {/* TODO: Renderizar post del mismo tag al hacer click */}
               <Link href={`/${locale}/${post.doctype[0]}`}>
                 {/* Renderiza todos los elementos del array como categorías */}
-                {post.doctype.map((type, index) => (
+                {post.categories.map((type, index) => (
                   <SectionType key={index} $tag={type}>
                     {type}
                     {/* Agrega una coma si no es el último elemento */}
@@ -204,6 +202,7 @@ export async function generateStaticParams({ params }) {
 export async function generateMetadata({ params, searchParams }, parent) {
   const { locale, slug } = await params;
   const post = getPostBySlug(slug, ["title", "excerpt", "coverImage"], locale);
+
   if (!post) {
     return {
       title: "Post not found",
@@ -213,6 +212,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     title: `${post.title} | Blog`,
     description: post.excerpt,
     slug: post.slug,
+    keywords: post.keywords,
     shortTitle: post.shortTitle,
     robots: {
       index: true,

@@ -98,7 +98,7 @@ const LatexPost = async ({ params }) => {
             </Date>
             <SideInfo>
               <Link href={`/${post.doctype[0]}`}>
-                {post.doctype.map((type, index) => (
+                {post.categories.map((type, index) => (
                   <SectionType key={index} $tag={type}>
                     {type}
                     {index < post.doctype.length - 1}
@@ -206,6 +206,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     title: `${post.title} | LaTeX`,
     description: post.excerpt,
     slug: post.slug,
+    keywords: post.keywords,
     shortTitle: post.shortTitle,
     robots: {
       index: true,

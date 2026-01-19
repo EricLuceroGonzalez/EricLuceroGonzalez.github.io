@@ -11,8 +11,10 @@ title: "La Falacia de la Extrapolación: Una crítica metodológica a la medici�
 shortTitle: "Grupos del mundial con Algoritmos Genéticos"
 entryType: "blog"
 excerpt: ""
-doctype: ["blog", "AI","AI Metrics", "Data Science", "Research", "Microsoft","papers"]
-isPublic: true
+doctype: ["blog"]
+categories: ["AI", "Data Science",  "Microsoft","Papers"]
+keywords: ["blog", "AI","AI Metrics", "Data Science", "Research", "Microsoft","papers"]
+isPublic: false
 ---
 Breve intro mencionando la extrapolación.
 
@@ -27,28 +29,38 @@ Si bien el esfuerzo por estandarizar métricas es loable, como investigador en I
 
 A continuación, analizo por qué la extrapolación de datos de Windows y la asunción de independencia estadística introducen un ruido crítico en estas mediciones.
 
-## 1. El Problema de la Homogeneidad Poblacional
+## El Problema de la Homogeneidad Poblacional
 
 El estudio utiliza la telemetría del ecosistema Windows como *proxy* base. Para estimar la población total de usuarios de IA en una región, aplican una normalización basada en la cuota de mercado (*Market Share*). La lógica implícita se puede resumir en la siguiente ecuación:
 
-{/*
 $$
-N_{total} = \frac{MAD_{Windows}}{MarketShare_{Windows}}
+N_{total} = \frac{\text{Monthly Active Devices}}{\text{Market Share}} = \text{Alguna proporción}
 $$
- I am a comment */}
 
-Donde $MAD$ (*Monthly Active Devices*) representa los dispositivos activos detectados por Microsoft.
-Con activos se refieren a los usuarios Windows con al menos 90 minutos al mes de actividad, que hayan aceptado compartir su información. No dice si esto toma en cuenta otros productos Windows como GitHub VS code.
+Donde _Monthly Active Devices_ representa los dispositivos activos detectados por Microsoft.
+Con activos se refieren a los usuarios 
+- Windows con al menos 90 minutos al mes de actividad, 
+- que hayan aceptado compartir su información. 
+No dice si esto toma en cuenta otros productos Windows como GitHub o el Visual Studio.
+
 ### Por qué falla esta métrica
-Esta fórmula asume **homogeneidad poblacional**. Da por sentado que la "densidad de uso de IA" es constante a través de todos los sistemas operativos; es decir, asume que un usuario de macOS o Linux se comporta igual que uno de Windows.
+Esta fórmula asume **homogeneidad poblacional**. Da por sentado que la "densidad de uso de IA" es constante a través de todos los sistemas operativos; 
+es decir, *asume que un usuario de macOS o Linux se comporta igual que uno de Windows*.
+
+>El paper asume que el comportamiento en Windows (mayormente corporativo/ofimática) es extrapolable a todo el mundo.
+
+>Un usuario de Linux que corre `Ollama` en su terminal o usa un script de Python que llama a la API de OpenAI _es invisible_ para la metodología de este paper, porque no genera "visitas web" tradicionales ni usa el stack de telemetría de Windows.
 
 La realidad demográfica del sector tecnológico sugiere lo contrario:
-* **El Sesgo del Desarrollador:** Según la *Stack Overflow Developer Survey 2024*, cerca del 50% de los desarrolladores profesionales utilizan sistemas basados en Unix (macOS o Linux) como su entorno primario.
+* **El Sesgo del Desarrollador:** Según la *Stack Overflow Developer Survey 2025*, cerca del 50% de los desarrolladores profesionales utilizan sistemas basados en Unix (macOS o Linux) como su entorno primario.
 * **Ciencia de Datos y ML:** Encuestas de la comunidad (como las de Kaggle) muestran que los entornos Linux dominan los flujos de trabajo de Machine Learning e inferencia de modelos.
-Fuente https://survey.stackoverflow.co/2024/technology#most-popular-technologies-new-collab-tools-prof
+
+https://survey.stackoverflow.co/2025/technology
+[asd](https://survey.stackoverflow.co/2025/)
+https://devecosystem-2025.jetbrains.com/
 Al dividir la telemetría de Windows (que domina el mercado de consumo general y administrativo con ~72% de cuota) por su *market share*, el estudio **diluye** estadísticamente a los *Power Users* que residen en otros ecosistemas. Están tratando de medir la "fiebre del oro" de la IA mirando solo a quienes compran picos y palas estándar, ignorando a los ingenieros que usan maquinaria pesada en otras plataformas.
 
-## 2. La Trampa de la Independencia Estadística
+## La Trampa de la Independencia Estadística
 
 Quizás el punto más débil desde una perspectiva de modelado estocástico es cómo los autores agregan usuarios de diferentes plataformas (Desktop vs. Mobile).
 
@@ -65,29 +77,7 @@ Esta asunción ignora el comportamiento humano básico. La adopción de tecnolog
 
 Esto lleva a un error de "doble conteo" sistemático. Al subestimar el *overlap*, inflan artificialmente el número de usuarios únicos estimados. En términos técnicos, el estimador no es *i.i.d.* (independiente e idénticamente distribuido), lo que invalida los intervalos de confianza presentados.
 
-## 3. Código: Simulando el Sesgo
-
-Para ilustrar el impacto de asumir independencia, podemos simular un escenario simple en Python donde la correlación real entre dispositivos es alta (0.8).
-
-```python
-import numpy as np
-
-def calculate_bias(n_users=10000, p_desktop=0.3, p_mobile=0.4, correlation=0.0):
-    # Simulación teórica simplificada
-    p_intersection_independent = p_desktop * p_mobile
-    
-    # En la realidad, existe una correlación (rho)
-    # Si rho > 0, la intersección real es mayor que el producto
-    # Bias = (Estimado - Real)
-    
-    print(f"Bajo asunción de independencia, el overlap estimado es: {p_intersection_independent:.2%}")
-    print("Esto resulta en una sobreestimación de usuarios únicos totales.")
-
-# Ejemplo conceptual
-calculate_bias()
-```
-
-### 3. La Ceguera ante la IA Integrada (Embedded AI)
+### La Ceguera ante la IA Integrada (Embedded AI)
 
 Otro fallo crítico en la recolección de datos es la falta de granularidad en herramientas profesionales. El estudio parece basarse en "visitas a dominios de IA" o "lanzamiento de aplicaciones de IA". Sin embargo, la revolución actual no es solo visitar una web, es la **integración**.
 
@@ -98,7 +88,8 @@ Para la telemetría de Windows, abrir **VS Code** cuenta simplemente como abrir 
 
 ## Conclusión: Menos Ruido, Más Señal
 
-La crítica principal a este *paper* no es que los datos de Microsoft sean malos —de hecho, son una de las fuentes de telemetría más ricas del mundo—, sino que su manipulación para intentar abarcar plataformas fuera de su control debilita la ciencia.
+La crítica principal a este *paper* no es que los datos de Microsoft sean malos —de hecho, son una de las fuentes de telemetría más ricas del mundo—, sino que 
+su manipulación (?) para intentar abarcar plataformas fuera de su control debilita su generalización.
 
 Hubiera sido preferible un estudio limitado a la **"Difusión de IA en el Ecosistema Windows"**. Esto habría garantizado una **Validez Interna** perfecta, sirviendo como un indicador adelantado (*leading indicator*) robusto para el mercado corporativo.
 

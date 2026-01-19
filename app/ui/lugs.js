@@ -2,8 +2,9 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { TAG_STYLES } from "../lib/constants";
+import { synthwave84 } from "react-syntax-highlighter/dist/esm/styles/prism";
 // import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-
 // Contenedor principal para manejar diseño responsivo
 export const Layout = styled.div`
   display: flex;
@@ -50,7 +51,7 @@ export const Article = styled(motion.article)`
     width: 65%;
   }
   @media (min-width: 1440px) {
-    width: 50%;
+    width: 62%;
   }
   padding: 1rem 0 33vh 0;
   /* border: 1px solid red; */
@@ -172,48 +173,17 @@ export const SectionType = styled.div`
   margin-left: 10px;
   font-size: xx-small;
   font-family: monospace;
-  background-color: ${(props) => {
-    // Retorna el color basado en la prop "tag"
-    switch (props.$tag) {
-      case "blog":
-        return "var(--accent)";
-      case "js":
-        return "var(--heading)";
-      case "latex":
-        return "var(--fg)";
-      case "curso":
-        return "var(--emphasis-fg)";
-      case "python":
-        return "var(--emphasis-bg)";
-      case "ia":
-        return "var(--primary-border)";
-      case "IA":
-        return "var(--primary-border)";
-      default:
-        return "var(--fg)"; // Color por defecto
-    }
-  }};
-  color: ${(props) => {
-    // Retorna el color basado en la prop "tag"
-    switch (props.$tag) {
-      case "blog":
-        return "var(--bg)";
-      case "javascript":
-        return "var(--bg)";
-      case "latex":
-        return "var(--bg)";
-      case "curso":
-        return "var(--accent)";
-      case "python":
-        return "var(--emphasis-fg)";
-      case "ia":
-        return "var(--primary-border)";
-      case "IA":
-        return "var(--primary-border)";
-      default:
-        return "var(--bg)"; // Color por defecto
-    }
-  }};
+  ${(props) => {
+    // tag a minúsculas
+    const tagKey = props.$tag ? props.$tag.toLowerCase() : "default";
+    // Filtro de estilo
+    const style = TAG_STYLES[tagKey] || TAG_STYLES.default;
+    return `
+      background-color: ${style.bg};
+      color: ${style.text};
+      border: 1px solid ${style.bg}; 
+    `;
+  }}
 
   @media (0px <= width <= 396px) {
     display: none;

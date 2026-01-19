@@ -31,7 +31,7 @@ const Latex = async ({ params }) => {
   const latexBlogPost = AllLatexPosts.posts.filter(
     (post) => post.doctype.includes("latex") || post.doctype.includes("LaTeX"),
   );
-  console.log(latexBlogPost);
+
   // Filtra solo los posts que tienen "curso"
   const latexCoursePost = AllLatexPosts.posts.filter(
     (post) => post.doctype.includes("latex") && post.doctype.includes("curso"),

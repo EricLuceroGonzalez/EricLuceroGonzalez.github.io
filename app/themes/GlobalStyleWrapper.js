@@ -66,6 +66,12 @@ a {
     --box-border-hover: #0077FF;
     --gray-light: #919ca2ff;
     --green-go: #00cc66;
+
+    --js-yellow: #F0DB4F;
+    --py-blue: #4B8BBE;
+    --py-yellow: #FFE873;
+    --microsoft-blue: #008AD7;
+    --latex-green: #0acaca;
   }
 
   [data-theme='dark'] {

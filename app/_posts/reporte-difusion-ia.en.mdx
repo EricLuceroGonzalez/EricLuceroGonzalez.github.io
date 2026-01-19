@@ -11,8 +11,10 @@ title: "La Falacia de la Extrapolación: Una crítica metodológica a la medici�
 shortTitle: "Grupos del mundial con Algoritmos Genéticos"
 entryType: "blog"
 excerpt: ""
-doctype: ["blog", "AI","AI Metrics", "Data Science", "Research", "Microsoft","papers"]
-isPublic: true
+doctype: ["blog"]
+categories: ["AI", "Data Science",  "Microsoft","Papers"]
+keywords: ["blog", "AI","AI Metrics", "Data Science", "Research", "Microsoft","papers"]
+isPublic: false
 ---
 Breve intro mencionando la extrapolación.
 
@@ -31,9 +33,9 @@ A continuación, analizo por qué la extrapolación de datos de Windows y la asu
 
 El estudio utiliza la telemetría del ecosistema Windows como *proxy* base. Para estimar la población total de usuarios de IA en una región, aplican una normalización basada en la cuota de mercado (*Market Share*). La lógica implícita se puede resumir en la siguiente ecuación:
 
-{/*$$
+$$
 N_{total} = \frac{MAD_{Windows}}{MarketShare_{Windows}}
-$$*/}
+$$
 
 Donde $MAD$ (*Monthly Active Devices*) representa los dispositivos activos detectados por Microsoft.
 Con activos se refieren a los usuarios Windows con al menos 90 minutos al mes de actividad, que hayan aceptado compartir su información. No dice si esto toma en cuenta otros productos Windows como GitHub VS code.

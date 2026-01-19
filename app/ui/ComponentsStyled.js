@@ -29,9 +29,9 @@ export const MainBg = styled.div`
     text-align: justify;
     padding: 1rem 5px;
   }
-  /* border: 2px solid red; */
 `;
 export const MainPageBg = styled(motion.div)`
+  /* border: 2px solid red; */
   flex: 1;
   padding: 0 1.5rem;
   background-color: var(--bg);
