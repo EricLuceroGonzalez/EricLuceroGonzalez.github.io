@@ -14,12 +14,12 @@ export const TAG_STYLES = {
     text: "#000000",
   },
   python: {
-    bg: "var(--py-blue)", // Azul Python oficial
-    text: "var(--bg)",
+    bg: "var(--py-yellow)", // Azul Python oficial
+    text: "var(--py-blue)",
   },
   latex: {
     bg: "var(--latex-green)", // Un teal elegante
-    text: "var(--bg)",
+    text: "var(--fg)",
   },
   ai: {
     bg: "var(--accent)",

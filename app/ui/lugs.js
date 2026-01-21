@@ -123,10 +123,11 @@ export const Date = styled.div`
 `;
 
 export const MetaInfo = styled.div`
+  /* border: 1px solid blue; */
   border-bottom: 1px solid var(--secondary-btn-hover);
   padding-bottom: 0.5rem;
   font-size: small;
-  color: var(--secondary-btn-hover);
+  color: var(--accent);
   display: flex;
   flex-direction: row;
   justify-content: space-between;

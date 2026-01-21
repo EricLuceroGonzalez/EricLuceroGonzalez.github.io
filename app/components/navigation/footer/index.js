@@ -52,7 +52,7 @@ const FooterTextBox = styled.div`
   }
 `;
 const FooterText = styled.p`
-  font-size: smaller;
+  font-size: small;
 `;
 const FooterLink = styled.a`
   /* background-color: red; */
@@ -83,11 +83,22 @@ const FooterLink = styled.a`
 `;
 
 const LocaleLink = styled(Link)`
-  font-size: x-small;
+  font-size: small;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--bg);
+
   &:hover {
     color: var(--accent);
   }
-  padding: 5px 0;
+
+  @media (max-width: 660px) {
+    justify-content: flex-start;
+    width: 100%;
+  }
   /* border: 1px solid blue; */
 `;
 const Footer = () => {

@@ -42,7 +42,7 @@ a {
     
     --secondary-btn-bg: #E2E6EA; 
     --secondary-btn-fg: #0077FF;
-    --secondary-btn-hover: #c3c7cdff;
+    --secondary-btn-hover: rgb(255, 255, 255);
 
     /* ENLACES */
     --link-fg: #0077FF; 
@@ -68,7 +68,8 @@ a {
     --green-go: #00cc66;
 
     --js-yellow: #F0DB4F;
-    --py-blue: #4B8BBE;
+    --py-yellow: #FFDE57;
+    --py-blue: #4584b6;
     --py-yellow: #FFE873;
     --microsoft-blue: #008AD7;
     --latex-green: #0acaca;
