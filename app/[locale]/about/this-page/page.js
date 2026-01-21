@@ -38,7 +38,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3, // delay automático entre hijos
+      staggerChildren: 0.1, // delay automático entre hijos
       delayChildren: 0.1, // delay inicial
     },
   },
@@ -59,8 +59,8 @@ const itemVariants = {
       type: "spring", // Mantenemos tu efecto rebote
       stiffness: 100,
       damping: 10,
-      visualDuration: 0.3,
-      bounce: 0.5,
+      visualDuration: 0.2,
+      bounce: 0.3,
     },
   },
 };

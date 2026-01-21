@@ -211,25 +211,30 @@ export const LinkList = styled.div`
 `;
 
 export const IconLink = styled(motion.a)`
+  /* border: 1px solid red; */
   color: var(--fg);
   text-decoration: none;
+  font-size: x-small;
   svg {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     fill: var(--fg); // Color inicial del SVG
     transition: fill 0.3s ease;
   }
   &:hover {
     color: var(--accent);
-    border: 1px solid var(--fg);
-    border-radius: 12px;
+    border-bottom: 1px solid var(--fg);
     padding: 2px 4px;
+    svg {
+      width: 42px;
+      height: 42px;
+    }
   }
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 16px;
-  min-height: 48px;
+  padding: 12px 8px;
+  /* min-height: 48px; */
 `;
 
 export const AboutWrapper = styled.div`

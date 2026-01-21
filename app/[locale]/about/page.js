@@ -41,6 +41,7 @@ export default async function About({ params }) {
               <Image
                 src={
                   "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/Web-communication/owsftbzp6mn5iuvkogrl.jpg"
+                  // "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
                 }
                 alt={"A portrait photos of Eric Lucero"} // Texto alternativo
                 width={280} // Ancho de la imagen

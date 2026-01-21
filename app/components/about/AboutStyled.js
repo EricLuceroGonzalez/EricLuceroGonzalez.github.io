@@ -31,6 +31,11 @@ export const LogosBox = styled(motion.div)`
   @media (min-width: 1080px) {
     width: 32%;
   }
+  &:hover {
+    background-color: var(--fg);
+    color: var(--bg);
+    cursor: pointer;
+  }
 `;
 
 export const LogosText = styled.div`
@@ -59,8 +64,5 @@ export const ReactIcon = styled(Link)`
   margin: 5px;
   svg {
     color: var(--accent);
-  }
-  svg:hover {
-    color: var(--fg);
   }
 `;

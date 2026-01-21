@@ -23,7 +23,7 @@ const FooterIcons = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
-  @media (0 <=width <= 390px) {
+  @media (0 <=width <= 399px) {
     flex-direction: column;
     margin-top: 2rem;
     font-size: xx-small;
@@ -34,6 +34,7 @@ const FooterLinksContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin-bottom: 12px;
 `;
 
 const FooterTextBox = styled.div`
@@ -86,6 +87,8 @@ const LocaleLink = styled(Link)`
   &:hover {
     color: var(--accent);
   }
+  padding: 5px 0;
+  /* border: 1px solid blue; */
 `;
 const Footer = () => {
   const t = useTranslations("Footer");
