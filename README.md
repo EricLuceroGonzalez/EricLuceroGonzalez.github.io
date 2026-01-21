@@ -1,4 +1,4 @@
-# 🌐 EricLuceroGonzalez.github.io: Personal Portfolio & Digital Garden
+# 🌐 ericlucero.dev: Personal Portfolio & Digital Garden
 
 [![Project Status](https://img.shields.io/badge/Status-Production%20%26%20Active-brightgreen)](https://ericlucero.dev/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
