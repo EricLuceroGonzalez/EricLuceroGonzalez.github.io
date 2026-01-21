@@ -128,6 +128,14 @@
                 "title": "3. Copyright & Licensing",
                 "intro": "This site adopts a 'Free Culture' approach but distinguishes between editorial content and source code:",
                 "content_license": "**Editorial Content:** Unless otherwise stated, all articles, text, original images, and educational material on this blog are licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)**. You are free to share and adapt the content as long as you credit me, use it for non-commercial purposes, and keep the same license.",
+                "content_license_list": {
+                    "share": "**Share**: copy and redistribute the material in any medium or format.",
+                    "adapt": "**Adapt**: remix, transform, and build upon the material,",
+                    "text_slice": "under the following terms:",
+                    "Attribution": "**Attribution:** You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.",
+                    "NonCommercial": "**Non-commercial:** You may not use the material for commercial purposes.",
+                    "ShareAlike": "**ShareAlike**:  If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original."
+                },
                 "code_license": "**Source Code:** Code snippets, scripts, and software published on this blog, unless otherwise noted in the specific repository, are released under the **MIT License**. You are free to use this code in your own projects (including commercial ones) without restriction, beyond standard attribution.",
                 "third_party": "**Third Parties:** Logos, trademarks, and libraries mentioned (Next.js, React, Vercel) are the property of their respective owners."
             },

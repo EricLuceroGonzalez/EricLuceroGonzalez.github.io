@@ -60,6 +60,52 @@ const LegalPage = async ({ params }) => {
               __html: parseText(t("sections.copyright.content_license")),
             }}
           />
+          <MdUnorderedList>
+            <MdListItem
+              dangerouslySetInnerHTML={{
+                __html: parseText(
+                  t("sections.copyright.content_license_list.share"),
+                ),
+              }}
+            />
+            <MdListItem
+              dangerouslySetInnerHTML={{
+                __html: parseText(
+                  t("sections.copyright.content_license_list.adapt"),
+                ),
+              }}
+            />
+            <MdParagraph
+              dangerouslySetInnerHTML={{
+                __html: parseText(
+                  t("sections.copyright.content_license_list.text_slice"),
+                ),
+              }}
+            />
+
+            <MdListItem
+              dangerouslySetInnerHTML={{
+                __html: parseText(
+                  t("sections.copyright.content_license_list.Attribution"),
+                ),
+              }}
+            />
+            <MdListItem
+              dangerouslySetInnerHTML={{
+                __html: parseText(
+                  t("sections.copyright.content_license_list.NonCommercial"),
+                ),
+              }}
+            />
+            <MdListItem
+              dangerouslySetInnerHTML={{
+                __html: parseText(
+                  t("sections.copyright.content_license_list.ShareAlike"),
+                ),
+              }}
+            />
+          </MdUnorderedList>
+
           <MdParagraph
             dangerouslySetInnerHTML={{
               __html: parseText(t("sections.copyright.code_license")),

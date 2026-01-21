@@ -1,117 +1,147 @@
-# 🌐 EricLuceroGonzalez.github.io: Portafolio Personal y CV Digital
+# 🌐 EricLuceroGonzalez.github.io: Personal Portfolio & Digital Garden
 
-[![Estado del Proyecto](https://img.shields.io/badge/Estado-Producci%C3%B3n%20y%20Mantenimiento-brightgreen)](https://ericlucero.dev/)
-[![Licencia](https://img.shields.io/badge/Licencia-MIT-blue)](LICENSE)
-[![Autor](https://img.shields.io/badge/Autor-Eric%20Lucero%20Gonz%C3%A1lez-informational)](https://github.com/EricLuceroGonzalez)
-
----
-
-## 🌟 Descripción General
-
-Este repositorio contiene el **código fuente** del **sitio web personal y portafolio profesional** de **Eric Lucero González**.
-
-El sitio actúa como una **tarjeta de presentación digital**, exponiendo mi experiencia laboral, mis **habilidades técnicas (stack tecnológico)** y una selección de proyectos clave, facilitando el contacto profesional y una excusa para registrar y ejercitar la escritura de temas que me interesan y que pueden servir para cualquier persona.
-
-### 🔗 Acceso al Sitio en Vivo
-
-El sitio web está disponible y desplegado a través de GitHub Pages:
-
-**URL:** [https://ericlucero.dev/](https://ericlucero.dev/)
+[![Project Status](https://img.shields.io/badge/Status-Production%20%26%20Active-brightgreen)](https://ericlucero.dev/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+[![Author](https://img.shields.io/badge/Author-Eric%20Lucero%20Gonz%C3%A1lez-informational)](https://github.com/EricLuceroGonzalez)
 
 ---
 
-## 🚀 Tecnologías y Dependencias Clave
+## 🌟 Overview
 
-Este proyecto utiliza un *stack* moderno de desarrollo web, con enfoque en la modularidad y la estilización basada en componentes.
+This repository contains the **source code** for **Eric Lucero González's** personal website and professional portfolio.
 
-### Frontend y Estilización
-* **Next.js:** Framework principal de desarrollo para la construcción de la interfaz de usuario.
-* **JavaScript (ES6+):** Lógica de interactividad y gestión de componentes.
-* **Styled Components:** Biblioteca utilizada para escribir CSS directamente en JavaScript, facilitando la creación de componentes estilizados y modulares.
-* **GitHub Pages:** Servicio de *hosting* y despliegue. 
+The site serves as a **digital business card** and a **content playground**, showcasing my professional experience, **technical stack**, and a curated selection of engineering projects. It is also a medium to document technical deep-dives into topics that interest me, ranging from Web Development to Algorithms.
 
-### Procesamiento de Contenido (Markdown)
-El proyecto incorpora diversas librerías para el manejo y procesamiento avanzado de archivos Markdown, incluyendo soporte para sintaxis extendida y fórmulas matemáticas:
+### 🔗 Live Deployment
 
-| Librería | Función |
+The application is deployed on **Vercel** for optimal performance:
+
+**Live URL:** [https://ericlucero.dev/](https://ericlucero.dev/)
+
+---
+
+## 🧪 Laboratory & Roadmap
+
+This portfolio is a living product. Here is what I am currently engineering or planning to ship soon:
+
+- [ ] **Blog posts:** Implementing **Metaheuristic Algorithms** to solve the problem of the Tetonor game.
+- [ ] **Blog posts:** Part 2 of TeX history.
+- [ ] **Blog posts:** LaTeX history.
+- [ ] **Blog posts:** The stackoverflow questions.
+- [ ] **Performance:** Achieving 100/100 Core Web Vitals score.
+
+*Last update: January 2026*
+
+---
+
+## 🚀 Tech Stack
+
+This project uses a modern, component-driven architecture focused on performance and developer experience.
+
+### Frontend & Styling
+* **Next.js (App Router):** Main framework for Server-Side Rendering (SSR) and Static Site Generation (SSG).
+* **JavaScript (ES6+):** Core logic and component interactivity.
+* **Styled Components:** CSS-in-JS library for building modular, scoped, and dynamic UI components.
+* **Vercel:** Hosting, CI/CD, and Edge Network deployment.
+
+### Content Engineering (MDX)
+The blog engine powers advanced technical writing, supporting extended syntax and mathematical formulas:
+
+| Library | Function |
 | :--- | :--- |
-| `remark-gfm` | Soporte para **GitHub Flavored Markdown** (tablas, *strikethrough*, etc.). |
-| `remark-math` | Habilita la sintaxis de **$\LaTeX$** para ecuaciones matemáticas. |
-| `rehype-mathjax` | Renderiza las ecuaciones matemáticas ($\LaTeX$) en el HTML usando **MathJax**. |
-| `supersub` | Extiende la sintaxis para superíndices y subíndices. |
-| `rehype-highlight` | Proporciona el resaltado de sintaxis para bloques de código. |
+| `remark-gfm` | Adds support for **GitHub Flavored Markdown** (tables, strikethrough, etc.). |
+| `remark-math` | Enables **$\LaTeX$** syntax parsing for mathematical equations. |
+| `rehype-mathjax` | Renders the parsed $\LaTeX$ into accessible HTML using **MathJax**. |
+| `supersub` | Extends syntax for superscripts and subscripts. |
+| `rehype-highlight` | Provides syntax highlighting for code blocks within posts. |
 
 ---
 
-## ⚙️ Instalación y Ejecución Local
+## 📂 Project Structure
 
-Para clonar y ejecutar el sitio en tu entorno de desarrollo:
+A quick look at the top-level architecture:
 
-### Prerrequisitos
+```text
+.
+├── app/             # Next.js App Router (Pages, Layouts, API)
+├── components/      # Reusable UI Atoms (Styled Components)
+├── lib/             # Business logic (Algorithms, Constants, Utils)
+├── posts/           # MDX Content Files (Blog posts)
+├── public/          # Static assets (Images, Robots.txt)
+└── messages/        # i18n JSON strings
+```
 
-* **Git** instalado.
-* **Node.js** (versión LTS recomendada) y **npm** o **yarn**.
+---
 
-### Pasos para Clonar e Instalar
+## ⚙️ Local Development
 
-1.  **Clonar el Repositorio:**
+Follow these steps to clone and run the application locally.
+
+### Prerequisites
+
+* **Git** installed.
+* **Node.js** (LTS version recommended) and **npm** or **yarn**.
+
+### Installation
+
+1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/EricLuceroGonzalez/EricLuceroGonzalez.github.io.git](https://github.com/EricLuceroGonzalez/EricLuceroGonzalez.github.io.git)
+    git clone https://github.com/EricLuceroGonzalez/EricLuceroGonzalez.github.io.git
     cd EricLuceroGonzalez.github.io
     ```
 
-2.  **Instalar Dependencias:**
-    Instala todas las dependencias listadas en `package.json`:
+2.  **Install Dependencies:**
     ```bash
     npm install
-    # o si usas yarn: yarn install
+    # or if using yarn: yarn install
     ```
 
-### Ejecución del Proyecto
+3.  **Environment Setup:**
+    Rename `.env.example` to `.env.local` (if applicable) or ensure you have the necessary keys.
 
-Inicia el servidor de desarrollo local:
+### Running the Server
+
+Start the local development server:
 ```bash
 npm run dev
-# o si usas yarn: yarn dev
 ```
 
-### Visualización Local
+### Preview
 
-La forma más sencilla de ver el sitio es abrir el archivo principal:
-
-1.  Abre el archivo **`index.html`** directamente en tu navegador.
-
----
-
-## 🤝 Contribución
-
-Agradezco cualquier sugerencia o informe de error (bug). Si deseas contribuir:
-
-1.  Abre un **Issue** para describir cualquier problema (errores tipográficos, *bugs*, accesibilidad, etc.).
-2.  Crea un **Pull Request** con la solución o mejora propuesta.
+Open your browser and navigate to:
+**http://localhost:3000**
 
 ---
 
-## 📄 Licencia y Reconocimiento de Autoría
+## 🤝 Contribution
 
-Este proyecto se distribuye bajo la **Licencia MIT (Massachusetts Institute of Technology)**.
+Feedback and contributions are welcome. If you find a bug or have a suggestion:
 
-### Derechos Otorgados
+1.  Open an **Issue** to describe the problem (typos, bugs, accessibility).
+2.  Create a **Pull Request** with your proposed solution.
 
-Esta licencia de código abierto es altamente permisiva y te permite:
+---
 
-| Permisos | Descripción |
+## 📄 License
+
+This project is distributed under the **MIT License**.
+
+### Rights Granted
+
+This open-source license is highly permissive and allows:
+
+| Permissions | Description |
 | :--- | :--- |
-| **Uso Comercial** | Uso, copia, y distribución en proyectos comerciales. |
-| **Modificación** | Alterar el código fuente. |
-| **Distribución** | Redistribuir el código. |
-| **Sublicencia** | Otorgar licencias a otros. |
+| **Commercial Use** | You can use, copy, and distribute this for commercial projects. |
+| **Modification** | You can modify the source code. |
+| **Distribution** | You can redistribute the code. |
+| **Sublicense** | You can grant licenses to others. |
 
-### Condiciones de la Licencia (Obligatorio)
+### Condition (Mandatory)
 
-La **única condición** es que el aviso de derechos de autor (*copyright*) y la nota de permiso de la Licencia MIT **deben ser incluidos** en todas las copias o porciones sustanciales del Software. **Debe reconocerse la autoría original.**
+The only condition is that the **original copyright notice** and the MIT License permission notice **must be included** in all copies or substantial portions of the Software.
 
-* **Copyright © 2025 Eric Lucero González.**
-* **Autor Principal:** Eric Lucero González - [GitHub](https://github.com/EricLuceroGonzalez)
+* **Copyright © 2026 Eric Lucero González.**
+* **Author:** Eric Lucero González - [GitHub](https://github.com/EricLuceroGonzalez)
 
-Para los términos completos de la licencia, consulta el archivo **`LICENSE`** en la raíz del repositorio.
+For full terms, please refer to the **`LICENSE`** file in the root directory.
