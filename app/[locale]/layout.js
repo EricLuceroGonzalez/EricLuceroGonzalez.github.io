@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
-import "katex/dist/katex.min.css";
+
 import {
   getMessages,
   setRequestLocale,
@@ -13,7 +13,7 @@ import { parkinsans } from "../ui/fonts.js";
 // import NaviBar from "./components/navigation/navbar/NaviBar";
 import { Analytics } from "@vercel/analytics/next";
 import nextDynamic from "next/dynamic";
-import ViewportSize from "../components/viewPortViewer";
+// import ViewportSize from "../components/viewPortViewer";
 
 export const dynamic = "force-static";
 export async function generateMetadata({ params }) {
@@ -88,10 +88,18 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html
       lang={locale}
-      className={`${parkinsans.className}`}
+      className={`${parkinsans.variable}`}
       suppressHydrationWarning
     >
-      <body style={{ width: "100%" }} antialiased="true">
+      <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+      </head>
+      <body
+        style={{ width: "100%" }}
+        className={parkinsans.className}
+        antialiased="true"
+      >
         <Analytics />
         <NextIntlClientProvider messages={messages}>
           <Providers>

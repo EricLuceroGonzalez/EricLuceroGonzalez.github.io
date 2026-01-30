@@ -70,7 +70,7 @@ const nextConfig = {
             key: "Content-Security-Policy",
             // OJO: Aquí permitimos Cloudinary explícitamente en img-src
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://res.cloudinary.com; font-src 'self' data:;",
+              "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://res.cloudinary.com; media-src 'self' blob: data: https://res.cloudinary.com; font-src 'self' data:;",
           },
         ],
       },

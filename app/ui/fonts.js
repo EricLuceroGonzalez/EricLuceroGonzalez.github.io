@@ -7,6 +7,7 @@ export const parkinsans = localFont({
       style: "normal",
     },
   ],
+  preload: true,
   display: "swap",
-  variable: "--font-parkinsans",
+  fallback: ["system-ui", "arial"], // fallbacks
 });

@@ -145,6 +145,7 @@ const MdxComponents = {
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
           alt={caption}
+          priority
         />
         {hasCaption && hasNumber && (
           <MdImageCaption>

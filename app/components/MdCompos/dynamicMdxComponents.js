@@ -6,6 +6,7 @@ import { QuotationAndAuthor } from "./Quotation";
 import { useTranslations } from "next-intl";
 import { RepoFooter } from "./RepoShare";
 
+const LazyManim = lazy(() => import("./Videos"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
 // const PDFViewer = lazy(() => import("../PDFViewer"));
@@ -38,9 +39,7 @@ const SorteoMundialWithTranslations = () => {
 };
 
 export const dynamicMdxComponents = {
-  SuperIndex: (props) => {
-    <sup {...props}>{props.children}</sup>;
-  },
+  SuperIndex: (props) => <sup {...props}>{props.children}</sup>,
   BarChart: (props) => (
     <Suspense fallback={<div>Cargando...</div>}>
       <BarChart {...props} />
@@ -51,6 +50,9 @@ export const dynamicMdxComponents = {
   CitationSup: (props) => <CitationSup id={props.id} />,
   QuoteAndAuthor: (props) => <QuotationAndAuthor quotation={props.quotation} />,
   RepoBadge: (props) => <RepoFooter url={props.url} type={props.type} />,
+  Videos: (props) => (
+    <LazyManim publicId={props.publicId} caption={props.caption} />
+  ),
 
   // PDFViewer: (props) => (
   //   <Suspense fallback={<div>Cargando PDF...</div>}>

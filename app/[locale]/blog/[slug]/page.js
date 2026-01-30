@@ -1,4 +1,5 @@
 import { FaClock, FaPencilAlt } from "react-icons/fa";
+// import "katex/dist/katex.min.css";
 import {
   getAllPosts,
   getPostBySlug,
@@ -34,10 +35,12 @@ import { notFound } from "next/navigation";
 import ViewportSize from "@/app/components/viewPortViewer";
 import rehypeSlug from "rehype-slug";
 import remarkToc from "remark-toc";
+import ConditionalKaTeXLoader from "@/app/components/MdCompos/ConditionalKaTeXLoader";
 
 const BlogPost = async ({ params }) => {
   const { locale, slug } = await params;
   // Importamos los idiomas:
+
   setRequestLocale(locale);
   // const t = useTranslations("About");
   const t = await getTranslations({ locale, namespace: "Blog" });
@@ -62,10 +65,15 @@ const BlogPost = async ({ params }) => {
   };
 
   const readT = readingTime(post.content);
+  const needsKaTeX = post.keywords?.some((cat) =>
+    ["math", "latex", "mathematics", "algorithm"].includes(cat.toLowerCase()),
+  );
 
   return (
     <Layout>
       <MainBg>
+        <ConditionalKaTeXLoader needsKaTeX={needsKaTeX} />
+
         <ScrollDiv />
         <ShowPath title={post.slug} />
         {/* <ViewportSize /> */}

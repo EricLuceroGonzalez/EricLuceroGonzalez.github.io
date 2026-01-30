@@ -34,6 +34,7 @@ import remarkGfm from "remark-gfm";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
+import ConditionalKaTeXLoader from "@/app/components/MdCompos/ConditionalKaTeXLoader";
 
 // import ShowPath from "@/app/components/showPath";
 const LatexPost = async ({ params }) => {
@@ -67,9 +68,13 @@ const LatexPost = async ({ params }) => {
   };
   const readT = readingTime(post.content);
 
+  const needsKaTeX = post.keywords?.some((cat) =>
+    ["math", "latex", "mathematics", "algorithm"].includes(cat.toLowerCase()),
+  );
   return (
     <Layout>
       <MainBg>
+        <ConditionalKaTeXLoader loadKaTeX={needsKaTeX} />
         <ScrollDiv />
         <ShowPath title={post.title} />
         <Article
