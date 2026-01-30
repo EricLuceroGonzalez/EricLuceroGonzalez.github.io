@@ -60,7 +60,7 @@ const LazyManim = ({ publicId, caption }) => {
   const posterUrl = `https://res.cloudinary.com/dcvnw6hvt/video/upload/w_800,f_auto,q_auto,fl_lossy/${cleanPublicId}.jpg`;
 
   //   console.log("Clean Public ID:", cleanPublicId);
-  //   console.log("Video URL:", videoUrl);
+  // console.log("Video URL:", videoUrl);
   //   console.log("Poster URL:", posterUrl);
 
   return (
@@ -68,6 +68,7 @@ const LazyManim = ({ publicId, caption }) => {
       {isIntersecting ? (
         <StyledVideo
           // controls
+          autoPlay
           muted
           loop
           playsInline
@@ -75,9 +76,8 @@ const LazyManim = ({ publicId, caption }) => {
           poster={posterUrl}
           key={posterUrl}
           aria-label={caption || "Video animation"}
-
-          //   onLoadedData={() => console.log("Video loaded successfully")}
-          //   onCanPlay={() => console.log("Video can play")}
+          // onLoadedData={() => console.log("Video loaded successfully")}
+          // onCanPlay={() => console.log("Video can play")}
           //   onError={(e) => console.error("Video error:", e)}
         >
           <source src={videoUrl} type="video/mp4" />
