@@ -28,8 +28,9 @@ a {
     --bg: #F8F9FA;
     --fg: #1A1A1A;
     --accent: #0077FF;
-    --primary: #FF3366;
-
+    --primary: #ff3366;
+    --accent-transparent: rgba(0, 119, 255, 0.1);
+    --primary-transparent: rgba(255, 51, 102, 0.1);
     /* TIPOGRAFÍA */
   
     --heading: #111111; 
@@ -50,7 +51,7 @@ a {
     
     /* ÉNFASIS Y CÓDIGO */
     --strong-fg: #0077FF;
-    --emphasis-bg: #fceaaeff;
+    --emphasis-bg: rgb(255, 224, 123);
     --emphasis-fg: #1A1A1A;
     /* HEADERS */
     --heading-3: #004966;
@@ -66,9 +67,9 @@ a {
     --box-border-hover: #0077FF;
     --gray-light: #919ca2ff;
     --green-go: #00cc66;
+    --warning: #D72638;
 
     --js-yellow: #F0DB4F;
-    --py-yellow: #FFDE57;
     --py-blue: #4584b6;
     --py-yellow: #FFE873;
     --microsoft-blue: #008AD7;
@@ -85,6 +86,9 @@ a {
     --fg: #E0E6ED; 
     --accent: #FF3366;
     --primary: #0077FF;
+
+    --primary-transparent: rgba(0, 119, 255, 0.1);
+    --accent-transparent: rgba(255, 51, 102, 0.1);
     /* TIPOGRAFÍA */
     --heading: #FFFFFF; 
     --subheading: #B0BEC5;
@@ -116,6 +120,8 @@ a {
     --code-fg: #00FFE7; /* Cyan neón para el texto */
     --code-bg: #00364D; /* Casi negro (más oscuro que el fondo principal) */
     --code-box-bg:#002332;
+
+    --warning: #eac626;
     --primary-border: #004966;
     --box-border-hover: #FF3366;
     --gray-light: #919ca2ff;

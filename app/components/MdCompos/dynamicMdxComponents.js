@@ -9,6 +9,7 @@ import { RepoFooter } from "./RepoShare";
 const LazyManim = lazy(() => import("./Videos"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
+const Disclaimer = lazy(() => import("./Disclaimer"));
 // const PDFViewer = lazy(() => import("../PDFViewer"));
 
 // Wrapper con traducciones
@@ -39,6 +40,7 @@ const SorteoMundialWithTranslations = () => {
 };
 
 export const dynamicMdxComponents = {
+  Disclaimer: (props) => <Disclaimer body={props.body} />,
   SuperIndex: (props) => <sup {...props}>{props.children}</sup>,
   BarChart: (props) => (
     <Suspense fallback={<div>Cargando...</div>}>

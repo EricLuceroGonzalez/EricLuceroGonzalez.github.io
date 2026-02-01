@@ -1,10 +1,6 @@
 import { FaClock, FaPencilAlt } from "react-icons/fa";
-import {
-  getAllPosts,
-  getPostBySlug,
-  getPostsByType,
-  getSurroundingPosts,
-} from "@/app/lib/api";
+import "katex/dist/katex.min.css"; // Carga global de KaTeX (Aunque afecte Performance)
+import { getAllPosts, getPostBySlug, getSurroundingPosts } from "@/app/lib/api";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import MdxComponents from "@/app/components/MdCompos/MDXComponents";
 import { dynamicMdxComponents } from "@/app/components/MdCompos/dynamicMdxComponents";

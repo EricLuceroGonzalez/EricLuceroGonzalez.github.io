@@ -18,8 +18,8 @@ export const TAG_STYLES = {
     text: "var(--py-blue)",
   },
   latex: {
-    bg: "var(--latex-green)", // Un teal elegante
-    text: "var(--fg)",
+    bg: "var(--latex-green)",
+    text: "#002332",
   },
   ai: {
     bg: "var(--accent)",

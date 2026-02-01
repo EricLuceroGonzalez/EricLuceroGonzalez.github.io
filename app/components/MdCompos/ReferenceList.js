@@ -14,7 +14,7 @@ const RefNumbers = styled.ol`
   li {
     counter-increment: ref-counter;
     margin-bottom: 0.8rem;
-    display: flex; /* Esto crea dos columnas: número y contenido */
+    display: flex;
     align-items: baseline; /* Alinea el número con la primera línea de texto */
     gap: 0.5rem; /* Espacio entre el [1] y el texto */
     font-size: 1rem;
@@ -26,9 +26,9 @@ const RefNumbers = styled.ol`
     content: "[" counter(ref-counter) "]";
     color: var(--link-fg);
     font-weight: bold;
-    min-width: 1.8em; /* Ancho fijo para que todos los números se alineen */
-    text-align: right; /* Alinea el número a la derecha dentro de su caja */
-    flex-shrink: 0; /* Evita que el número se aplaste si hay poco espacio */
+    min-width: 1.8em;
+    text-align: right;
+    flex-shrink: 0;
   }
 `;
 const RefEntry = styled.li`
@@ -36,8 +36,8 @@ const RefEntry = styled.li`
 `;
 // Wrapper para el contenido del texto para que se mantenga junto en la columna derecha
 const RefContent = styled.div`
-  flex: 1; /* Toma todo el espacio restante */
-  word-break: break-word; /* Evita que URLs largas rompan el layout */
+  flex: 1;
+  word-break: break-word;
 `;
 
 const RefTex = styled.a`

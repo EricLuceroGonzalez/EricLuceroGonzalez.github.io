@@ -1,51 +1,45 @@
 "use client";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { TbSunFilled, TbMoonFilled } from "react-icons/tb";
 import styled from "styled-components";
 
-const SwitchContainer = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: var(--fg);
-  border-radius: 999px;
-  /* padding: 2px; */
-  gap: 4px;
-  cursor: pointer;
-  position: relative; /* Necesario para el layout */
-  width: fit-content;
-`;
-
-const IconWrapper = styled.button`
-  display: flex;
-  align-items: center;
+const SwitchContainer = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 2; /* Para que esté por encima del fondo animado */
-  position: relative;
+  padding: 8px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 4px;
-  color: ${(props) => (props.$isActive ? "var(--accent)" : "var(--fg)")};
-  transition: color 0.2s;
+  color: var(--fg);
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden; /* Mantiene la animación contenida */
+  width: 40px;
+  height: 40px;
 
   &:hover {
+    background-color: var(--bg-secondary, rgba(128, 128, 128, 0.1));
     color: var(--accent);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--accent);
   }
 `;
 
-const ActiveIndicator = styled(motion.div)`
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  left: 0;
-  border-radius: 999px;
-  background-color: var(--emphasis-bg); /* Color de la pastilla activa */
-
-  z-index: 1;
+const IconWrapper = styled(motion.div)`
+  position: absolute; /* Superpone los iconos para la animación */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -55,47 +49,29 @@ const ThemeSwitcher = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return <SwitchContainer aria-hidden="true" style={{ opacity: 0 }} />;
+  }
   const isDark = theme === "dark";
 
   return (
     <SwitchContainer
+      type="button"
       title={t("theme_switch_toggle")}
-      onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
     >
-      <ActiveIndicator
-        layoutId="active-theme-indicator" // Magia de Framer Motion
-        initial={false}
-        animate={{
-          // Calculamos la posición manualmente o dejamos que flexbox lo haga si cambiamos estructura.
-          x: isDark ? "100%" : "0%",
-        }}
-        style={{
-          width: "50%", // Ocupa la mitad del contenedor (ajustar según padding)
-          left: 0,
-        }}
-        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-      />
-      {/* Botón Light */}
-      <IconWrapper
-        id="themeSwitchToLight"
-        role="button"
-        $isActive={!isDark}
-        aria-label="Cambiar a modo claro" // Agregado
-        tabIndex={0} // navegable con teclado
-      >
-        <TbSunFilled size={20} />
-      </IconWrapper>
-      {/* Botón Dark */}
-      <IconWrapper
-        id="themeSwitchToDark"
-        role="button"
-        $isActive={isDark}
-        aria-label="Cambiar a modo oscuro" // Agregado
-        tabIndex={0} // navegable con teclado
-      >
-        <TbMoonFilled size={20} />
-      </IconWrapper>{" "}
+      <AnimatePresence mode="wait" initial={false}>
+        <IconWrapper
+          key={isDark ? "sun" : "moon"}
+          initial={{ y: -20, opacity: 0, rotate: -90 }}
+          animate={{ y: 0, opacity: 1, rotate: 0 }}
+          exit={{ y: 20, opacity: 0, rotate: 90 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+        >
+          {isDark ? <TbSunFilled size={22} /> : <TbMoonFilled size={22} />}
+        </IconWrapper>
+      </AnimatePresence>
     </SwitchContainer>
   );
 };

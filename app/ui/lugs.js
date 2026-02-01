@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { TAG_STYLES } from "../lib/constants";
-import { synthwave84 } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import { synthwave84 } from "react-syntax-highlighter/dist/esm/styles/prism";
 // import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // Contenedor principal para manejar diseño responsivo
 export const Layout = styled.div`
