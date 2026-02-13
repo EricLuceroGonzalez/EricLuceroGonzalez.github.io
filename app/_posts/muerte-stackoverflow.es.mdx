@@ -1,0 +1,419 @@
+---
+slug: "algoritmo-genetico-sorteo"
+id: "blog-004"
+date: "2025-12-04"
+order: 0
+author: "Eric Lucero"
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839285/elCronopio/Thumbnails/GA-blog-es_swpqiq.png
+webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043191/elCronopio/Blog-posts/individuo-6_s8wgyw.jpg
+coverImageAlt: "Emojis con banderas de los países participantes en la Copa Mundial de la FIFA 2026, organizados en grupos."
+title: "StackOverflow"
+shortTitle: "Grupos del mundial con Algoritmos Genéticos"
+entryType: "blog"
+excerpt: "Hackeando el Mundial 2026: Cómo los Algoritmos Genéticos resuelven lo que la fuerza bruta no puede."
+doctype: ["blog", "python"]
+categories: [ "python", "javascript"]
+keywords: ["blog", "python", "javascript","latex"]
+isPublic: true
+---
+
+- Fuente: https://data.stackexchange.com
+- Para StackOverflow: https://data.stackexchange.com/stackoverflow/query/new
+
+<DataCards data={[
+  { value: "24,177,395", label: "Total preguntas" },
+  { value: "4,323,660", label: "Preguntas con termino 'How'" },
+  { value: "15,890", label: "Preguntinas sin respuesta" },
+  { value: "1.2M", label: "Usuarios activos" },
+  { value: "1.2M", label: "Usuarios activos" },
+  { value: "1.2M", label: "Usuarios activos" },
+]}/>
+
+## Contenido
+Cada domingo es actualizada.
+HIstoria de la ia:https://lifearchitect.ai/timeline/
+Ver 1: https://blog.pragmaticengineer.com/are-reports-of-stackoverflows-fall-exaggerated/
+Ver 2: https://observablehq.com/@ayhanfuat/the-fall-of-stack-overflow
+## Sobre 2014
+- Meta Stack Overflow launch: https://meta.stackoverflow.com/questions/272870/announcing-meta-stack-overflow
+- En https://stackoverflow.blog/2014/04/17/announcing-the-launch-of-meta-stack-exchange/
+- Moderadores: https://meta.stackoverflow.com/questions/251175/stack-overflow-is-not-yet-a-vast-wasteland-a-history-of-moderator-tooling
+- Huelga de moderadores (Junio - Agosto 2023): https://jlericson.com/tag/strike
+- Ericson hace su analisis: https://jlericson.com/2023/06/26/problem_ai.html
+- Segun Ericson, ya venia de antes: ChatGPT might have accelerated the problem, but I was worried about answer rates (and new answerers) back in January of 2019.
+- En mayo de 2023, la empresa (Stack Overflow Inc.) impuso una nueva política interna a los moderadores que prohibía eliminar contenido generado por IA (como ChatGPT) a menos que hubiera pruebas irrefutables de que lo era.
+
+
+## 2024
+- El 22 de febrero de 2024, Stack Overflow anunció que comenzaría a utilizar modelos de lenguaje grande (LLM) para ayudar a responder preguntas en su plataforma.
+- En marzo de 2024, Stack Overflow lanzó una función llamada "AI Answers" que utiliza LLM para generar respuestas a preguntas de los usuarios.
+- En Febrero 2024, Stack Overflow anunció alianza con Google(https://stackoverflow.co/company/press/archive/google-cloud-strategic-gen-ai-partnership)
+- En Mayo de 2024 Stack Overflow anunció alienza con OpenAI (https://stackoverflow.co/company/press/archive/openai-partnership)
+- Aqui se comenta el impacto: https://www.zdnet.com/article/how-stack-overflow-is-adding-value-to-human-answers-in-the-age-of-ai/
+- https://www.zdnet.com/article/stack-overflow-joins-reddit-and-twitter-in-charging-ai-companies-for-training-data/
+### Modelo de negocio con datos: 
+- How the learning models learn
+- Human-validated. Fairly attributed. Train and fine-tune your AI on one of the internet's biggest troves of answers, solutions and top-class technical expertise.
+at https://stackoverflow.co/data-licensing/
+## El conteo de Posts desde los inicios
+
+Desde sus inicios, 2008 hasta febrero 2026 tenemos el conteo de Posts (preguntas que hacen los usuarios de StackOverflow)
+## Conteo de comentarios al mes 
+{/* ----- ----- ----- ----- ----- ----- ----- */}
+del Stack Exchange Data Explorer (https://data.stackexchange.com/stackoverflow/query/new)
+para consultar datos sobre la actividad en Stack Overflow. 
+
+Me interesa sobre todo encontrar una razon de la debabacle de StackOverflow
+y si tiene relacion con la aparicion de los LLMs (Large Language Models) como
+la cantidad de preguntas realizadas por mes, la cantidad de comentarios,
+la cantidad de preguntas sin respuesta, etc.
+
+Para esto tengo algunas consultas SQL que me permiten extraer estos datos.
+Pero mas importante me gustaria que analices el esquema de la base de datos y 
+me sugieras otras consultas que puedan ser relevantes para entender
+el declive de StackOverflow.
+
+{/* ----- ----- ----- ----- ----- ----- ----- */}
+Como puedo usar AnswerCount, CommentCount para cada post para medir 
+la calidad de las preguntas y respuestas a lo largo del tiempo?
+<Disclaimer body={"Some body example"} list={[
+    "La base de datos muta en la medida que los usuarios borran sus preguntas/respuesta",
+    "Las query se hicieron e tal fecha",
+    "Se actaliza los domingos",
+    "Para datos de enero se espero hasta el 2/Feb"]}/>
+
+
+    {/* ----- ----- ----- ----- ----- ----- ----- */}
+## Consultas:
+
+### Preguntas por mes
+```SQL
+-- Contar preguntas por mes (Agrupación histórica)
+SELECT
+    -- Crea una fecha limpia (Día 1 de cada mes) para que sea fácil de graficar
+    DATEFROMPARTS(YEAR(CreationDate), MONTH(CreationDate), 1) AS [Mes],
+    COUNT(*) AS [Cantidad de Preguntas]
+FROM Posts
+WHERE
+    PostTypeId = 1 -- El 1 filtra solo "Preguntas" (2 sería respuestas)
+GROUP BY
+    YEAR(CreationDate), MONTH(CreationDate)
+ORDER BY
+    YEAR(CreationDate), MONTH(CreationDate);
+```
+### Comentarios por mes
+```SQL
+-- Contar Comentarios por mes (Tendencia de discusión)
+SELECT
+    DATEFROMPARTS(YEAR(CreationDate), MONTH(CreationDate), 1) AS [Mes],
+    COUNT(*) AS [Total Comentarios]
+FROM Comments
+GROUP BY
+    YEAR(CreationDate), MONTH(CreationDate)
+ORDER BY
+    YEAR(CreationDate), MONTH(CreationDate);
+```
+### Preguntas sin respuesta
+```SQL
+-- Preguntas sin respuesta (AnswerCount = 0)
+SELECT
+    DATEFROMPARTS(YEAR(CreationDate), MONTH(CreationDate), 1) AS [Mes],
+    SUM(CASE WHEN AnswerCount = 0 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS [Porcentaje Sin Respuesta]
+FROM Posts
+WHERE
+    PostTypeId = 1 -- Solo preguntas
+GROUP BY
+    YEAR(CreationDate), MONTH(CreationDate)
+ORDER BY
+    YEAR(CreationDate), MONTH(CreationDate);
+```
+### El "Efecto ChatGPT por Lenguaje": Comparativa de Tags
+```SQL
+-- Cuales son los tags en programacion
+SELECT
+    DATEFROMPARTS(YEAR(p.CreationDate), MONTH(p.CreationDate), 1) AS [Mes],
+    t.TagName,
+    COUNT(*) AS [Total Preguntas]
+FROM Posts p
+JOIN PostTags pt ON p.Id = pt.PostId
+JOIN Tags t ON pt.TagId = t.Id
+WHERE
+    t.TagName IN ('python', 'css','javascript', 'c++', 'rust') -- Tus tags de interés
+    AND p.CreationDate >= '2008-01-01' -- Enfocado en la era reciente
+GROUP BY
+    YEAR(p.CreationDate), MONTH(p.CreationDate), t.TagName
+ORDER BY
+    YEAR(p.CreationDate), MONTH(p.CreationDate);
+```
+### Votos y likes
+- Validación humana
+- comunidad
+```SQL
+-- Votos y likes
+SELECT
+    DATEFROMPARTS(YEAR(CreationDate), MONTH(CreationDate), 1) AS [Mes],
+    COUNT(*) AS [Total Votos Emitidos]
+FROM Votes
+WHERE
+    VoteTypeId IN (2, 3) -- 2=UpMod (Positivo), 3=DownMod (Negativo)
+GROUP BY
+    YEAR(CreationDate), MONTH(CreationDate)
+ORDER BY
+    YEAR(CreationDate), MONTH(CreationDate);
+```
+## Analisis grafico con los csv 
+
+- compartir el codigo de SQL
+- Compartir CSV via github
+- Analizar y comparar vs aparicion de los LLMS
+
+## El caso de MathOverflow
+
+https://data.stackexchange.com/mathoverflow/query/new
+
+## Primera pregunta 
+comparar la fecha de la "Primera Pregunta" con la fecha de lanzamiento de ChatGPT (Nov 2022), puedes calcular exactamente cuántos años de conocimiento humano "puro" sirvieron para entrenar a la IA antes de que esta empezara a contaminar el ecosistema.
+```SQL
+SELECT
+    COUNT(*) AS [Total Preguntas Históricas],
+    MIN(CreationDate) AS [Fecha Primera Pregunta],
+    MAX(CreationDate) AS [Fecha Última Pregunta]
+FROM Posts
+WHERE
+    PostTypeId = 1; -- Filtramos para contar solo Preguntas (y no respuestas)
+```
+Total Preguntas: 24,177,395 
+De la cuales 4,323,660 incluyen "How" (17.9% de todas las preguntas)
+
+Primera: 2008-07-31 21:42:52
+Última: 2026-01-10 23:57:58
+
+## PRimera y ultima preguntaSELECT
+```SQL
+SELECT TOP 1
+    Id AS [ID de Pregunta],
+    Title AS [Título],
+    Body AS [Contenido],
+    OwnerDisplayName AS [Autor],
+    CreationDate AS [Fecha de Creación],
+    Score AS [Votos]
+FROM Posts
+WHERE
+    PostTypeId = 1 -- Solo preguntas
+ORDER BY
+    CreationDate ASC;
+```
+
+Link a la primera pregunta: https://stackoverflow.com/questions/4/how-to-convert-decimal-to-double-in-c
+- 31 de julio 2008
+- How to convert Decimal to Double in C#?
+- Tiene id de 4 por las pruebas internas
+- https://stackoverflow.com/questions/{numero_de_aqui} si es $\<4$ te llevara a Oh where the joel data go, 
+este es Joel Spolsky, miembro del founding team: Joel Spolsky, Jeff Atwood, Geoff Dalgas, and Jarrod Dixon.
+- Mostrar captura del primero (Joel data)
+
+
+## Primera pregunta en Latex:
+- https://tex.stackexchange.com/questions/28608/how-to-add-a-matrix-to-a-latex-document 
+- 18-Ago-2008
+
+## Aparicion de ChatGPT
+
+- Al filtrar consultas con la palabra "How" se nota el impacto en Nov-2022
+- https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768404674/elCronopio/Blog-posts/stackoverflow-HOW-queries_fb3w65.png
+
+## Vercel entrenando?
+ - Post: https://vercel.com/blog/introducing-react-best-practices
+ - Google liberando open source LangChain
+
+ ## Se ha visto antes?
+ - https://en.wikipedia.org/wiki/Stack_Overflow de aqui: 
+A 2013 study has found that 75% of users only ask one question, 
+65% only answer one question, and only 8% of users answer more than 5 questions.[34] 
+
+To empower a wider group of users to ask questions and then answer, 
+Stack Overflow created a mentorship program resulting in users having a 50% increase in score on average.[35] 
+As of 2011, 92% of the questions were answered, in a median time of 11 minutes.[36]
+
+{/* QueryResults-allData */}
+```SQL
+-- Métricas combinadas: Preguntas, Respuestas, Comentarios, Votos
+WITH MetricasPosts AS (
+    SELECT
+        DATEFROMPARTS(YEAR(CreationDate), MONTH(CreationDate), 1) AS [Mes],
+        -- Contamos preguntas y respuestas usando el ID de tipo
+        SUM(CASE WHEN PostTypeId = 1 THEN 1 ELSE 0 END) AS [Preguntas],
+        SUM(CASE WHEN PostTypeId = 2 THEN 1 ELSE 0 END) AS [Respuestas],
+        -- Métrica de calidad (solo aplica a preguntas)
+        SUM(CASE WHEN PostTypeId = 1 AND AnswerCount = 0 THEN 1 ELSE 0 END) AS [PreguntasSinRespuesta]
+    FROM Posts
+    WHERE PostTypeId IN (1, 2)
+    GROUP BY YEAR(CreationDate), MONTH(CreationDate)
+),
+MetricasComentarios AS (
+    SELECT
+        DATEFROMPARTS(YEAR(CreationDate), MONTH(CreationDate), 1) AS [Mes],
+        COUNT(*) AS [Comentarios]
+    FROM Comments
+    GROUP BY YEAR(CreationDate), MONTH(CreationDate)
+),
+MetricasVotos AS (
+    SELECT
+        DATEFROMPARTS(YEAR(CreationDate), MONTH(CreationDate), 1) AS [Mes],
+        COUNT(*) AS [Votos]
+    FROM Votes 
+    WHERE VoteTypeId IN (2, 3)
+    GROUP BY YEAR(CreationDate), MONTH(CreationDate)
+)
+SELECT
+    p.[Mes],
+    p.[Preguntas],
+    p.[Respuestas],
+    -- Calculamos el ratio de respuestas por pregunta           
+    CAST(p.[Respuestas] AS FLOAT) / NULLIF(p.[Preguntas], 0) AS [Ratio Respuestas/Pregunta],
+    c.[Comentarios] AS [Total Comentarios],
+    v.[Votos] AS [Total Votos],
+    (p.[PreguntasSinRespuesta] * 100.0 / NULLIF(p.[Preguntas], 0)) AS [Porcentaje Sin Respuesta]
+FROM MetricasPosts p
+LEFT JOIN MetricasComentarios c ON p.[Mes] = c.[Mes]
+LEFT JOIN MetricasVotos v ON p.[Mes] = v.[Mes]
+ORDER BY p.[Mes] DESC;
+```
+{/* QueryResults-CommetsPerAnswers */}
+### Evolución de la "Frustración" (Comentarios por Respuesta)
+Esta consulta mide cuántos comentarios se necesitan para generar una 
+respuesta. 
+Un aumento en este ratio sugiere que las preguntas son de menor calidad 
+(requieren más aclaraciones) o que la comunidad se ha vuelto más pedante.
+```SQL
+--- Comentarios por Respuesta a lo largo del tiempo
+SELECT 
+    DATEADD(month, DATEDIFF(month, 0, CreationDate), 0) AS [Month],
+    CAST(SUM(CommentCount) AS FLOAT) / NULLIF(SUM(AnswerCount), 0) AS CommentsPerAnswer,
+    AVG(CAST(AnswerCount AS FLOAT)) AS AvgAnswerCount
+FROM Posts
+WHERE PostTypeId = 1 -- Solo Preguntas
+AND CreationDate > '2019-01-01'
+GROUP BY DATEADD(month, DATEDIFF(month, 0, CreationDate), 0)
+ORDER BY [Month]
+```
+
+{/*  QueryResults-PercentNegativeScore */}
+### Distribución de Calidad (Score vs. Respuestas)
+El Score (votos a favor menos votos en contra) es el indicador definitivo de calidad según la comunidad. Esta consulta agrupa por mes para ver si las preguntas con "puntuación negativa" están aumentando.
+```SQL
+--- Puntuación promedio y porcentaje de puntuaciones negativas
+SELECT 
+    DATEADD(month, DATEDIFF(month, 0, CreationDate), 0) AS [Month],
+    AVG(CAST(Score AS FLOAT)) AS AvgScore,
+    SUM(CASE WHEN Score < 0 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS PercentNegativeScore
+FROM Posts
+WHERE PostTypeId = 1
+AND CreationDate > '2019-01-01'
+GROUP BY DATEADD(month, DATEDIFF(month, 0, CreationDate), 0)
+ORDER BY [Month]
+```
+
+{/* QueryResults0AvgVoters */}
+### La "Muerte" de los Nuevos Usuarios
+Esta consulta analiza cuántos usuarios nuevos han hecho al menos una publicación en su primer mes de vida, comparando antes y después de la IA.
+```SQL
+SELECT 
+    DATEADD(month, DATEDIFF(month, 0, CreationDate), 0) AS RegistrationMonth,
+    COUNT(*) AS NewUsers,
+    SUM(CASE WHEN UpVotes + DownVotes > 0 THEN 1 ELSE 0 END) AS ActiveVoters,
+    AVG(Reputation) AS AvgReputation
+FROM Users
+WHERE CreationDate > '2021-01-01'
+GROUP BY DATEADD(month, DATEDIFF(month, 0, CreationDate), 0)
+ORDER BY RegistrationMonth
+```
+
+
+{/* QueryResults-TotalVotes */}
+### Actividad de Votación (El pulso de la comunidad)
+A veces el número de posts engaña, pero los votos no. Si la gente deja de votar, es que ha dejado de leer o valorar el contenido humano.
+```SQL
+SELECT 
+    DATEADD(month, DATEDIFF(month, 0, v.CreationDate), 0) AS [Month],
+    COUNT(*) AS TotalVotes
+FROM Votes v
+WHERE v.CreationDate > '2008-08-01'
+GROUP BY DATEADD(month, DATEDIFF(month, 0, v.CreationDate), 0)
+ORDER BY [Month]
+```
+
+{/* QueryResultsExpertosActivos */}
+### Tasa de Deserción de "Power Users"
+Esta consulta es crucial para tu hipótesis sobre los LLM. Analiza a los usuarios que eran el motor del sitio (expertos con >2000 de reputación) y observa cuántos de ellos han dejado de publicar respuestas a partir de la llegada de ChatGPT (finales de 2022).
+```SQL
+/* Usuarios expertos que estaban activos en 2021-2022 y su actividad actual */
+WITH Expertos AS (
+    SELECT Id, DisplayName, Reputation
+    FROM Users
+    WHERE Reputation > 2000
+)
+SELECT 
+    DATEADD(month, DATEDIFF(month, 0, p.CreationDate), 0) AS [Mes],
+    COUNT(DISTINCT p.OwnerUserId) AS ExpertosActivos,
+    COUNT(p.Id) AS TotalRespuestasExpertos
+FROM Posts p
+JOIN Expertos e ON p.OwnerUserId = e.Id
+WHERE p.PostTypeId = 2 -- Solo respuestas
+AND p.CreationDate > '2008-08-01'
+GROUP BY DATEADD(month, DATEDIFF(month, 0, p.CreationDate), 0)
+ORDER BY [Mes]
+```
+{/* QueryResults-UsuariosQueVotaron */}
+### Nuevas Cuentas y su "Supervivencia"
+Esta consulta mide cuántos usuarios se registran por mes y, lo más importante, cuántos de ellos realmente contribuyen. Si hay muchos registros pero poca actividad, son "cuentas fantasma".
+```SQL
+SELECT 
+    DATEADD(month, DATEDIFF(month, 0, CreationDate), 0) AS [MesRegistro],
+    COUNT(*) AS NuevosUsuarios,
+    SUM(CASE WHEN UpVotes + DownVotes > 0 THEN 1 ELSE 0 END) AS UsuariosQueVotaron,
+    SUM(CASE WHEN Views > 10 THEN 1 ELSE 0 END) AS UsuariosConPerfilVisto
+FROM Users
+WHERE CreationDate > '2008-08-01'
+GROUP BY DATEADD(month, DATEDIFF(month, 0, CreationDate), 0)
+ORDER BY [MesRegistro]
+```
+## MEdir la complejidad de las preguntas
+Midiendo el largo del body. Numero de tags.
+-- ============================================================================
+-- SIMPLE: Monthly Average Question and Answer Length (2008 - Present)
+-- ============================================================================
+-- Shows the average length of questions and answers per month
+-- Perfect for creating a time series chart
+-- ============================================================================
+```SQL
+SELECT 
+    YEAR(q.CreationDate) AS Year,
+    MONTH(q.CreationDate) AS Month,
+    DATEFROMPARTS(YEAR(q.CreationDate), MONTH(q.CreationDate), 1) AS Date,
+    
+    -- Question metrics
+    COUNT(q.Id) AS TotalQuestions,
+    AVG(LEN(q.Body)) AS AvgQuestionLength,
+    
+    -- Answer metrics (average of all answers posted that month)
+    (SELECT AVG(LEN(a.Body)) 
+     FROM Posts a 
+     WHERE a.PostTypeId = 2 
+       AND YEAR(a.CreationDate) = YEAR(q.CreationDate)
+       AND MONTH(a.CreationDate) = MONTH(q.CreationDate)) AS AvgAnswerLength
+
+FROM Posts q
+
+WHERE 
+    q.PostTypeId = 1  -- Questions only
+    AND q.CreationDate >= '2008-07-31'  -- Stack Overflow launch
+    AND q.DeletionDate IS NULL
+
+GROUP BY 
+    YEAR(q.CreationDate), 
+    MONTH(q.CreationDate)
+
+ORDER BY 
+    Year, Month;
+```

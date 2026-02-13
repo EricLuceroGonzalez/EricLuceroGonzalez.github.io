@@ -27,10 +27,20 @@ const DisclaimerBody = styled.div`
 `;
 const DisclaimerText = styled.div`
   padding: 5px 0;
-  font-size: 0.9rem;
+  font-size: normal;
   color: var(--accent);
 `;
-const Disclaimer = ({ body }) => {
+const Disclaimer = ({ body, list = [] }) => {
+  list.map((listItem) => {
+    console.log(listItem);
+  });
+
+  const DisclaimerList = styled.ul`
+    color: var(--accent);
+    li {
+      font-size: small;
+    }
+  `;
   return (
     <DisclaimerContainer>
       <DisclaimerIcon>
@@ -39,6 +49,14 @@ const Disclaimer = ({ body }) => {
       <DisclaimerBody>
         <strong>Disclaimer:</strong>
         <DisclaimerText>{body && <p>{body}</p>}</DisclaimerText>
+        {/* Verificamos que list exista y que tenga elementos */}
+        {list && list.length > 0 && (
+          <DisclaimerList style={{ marginTop: "5px" }}>
+            {list.map((listItem, index) => (
+              <li key={index}>{listItem}</li>
+            ))}
+          </DisclaimerList>
+        )}
       </DisclaimerBody>
     </DisclaimerContainer>
   );

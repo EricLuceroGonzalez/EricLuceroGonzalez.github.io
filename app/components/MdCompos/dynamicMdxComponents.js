@@ -10,6 +10,7 @@ const LazyManim = lazy(() => import("./Videos"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
 const Disclaimer = lazy(() => import("./Disclaimer"));
+const DataCards = lazy(() => import("./DataCards"));
 // const PDFViewer = lazy(() => import("../PDFViewer"));
 
 // Wrapper con traducciones
@@ -40,13 +41,13 @@ const SorteoMundialWithTranslations = () => {
 };
 
 export const dynamicMdxComponents = {
-  Disclaimer: (props) => <Disclaimer body={props.body} />,
   SuperIndex: (props) => <sup {...props}>{props.children}</sup>,
   BarChart: (props) => (
     <Suspense fallback={<div>Cargando...</div>}>
       <BarChart {...props} />
     </Suspense>
   ),
+  Disclaimer: (props) => <Disclaimer body={props.body} list={props.list} />,
   SorteoMundial: SorteoMundialWithTranslations,
   ReferenceList: (props) => <ReferenceList references={props.references} />,
   CitationSup: (props) => <CitationSup id={props.id} />,
@@ -55,23 +56,5 @@ export const dynamicMdxComponents = {
   Videos: (props) => (
     <LazyManim publicId={props.publicId} caption={props.caption} />
   ),
-
-  // PDFViewer: (props) => (
-  //   <Suspense fallback={<div>Cargando PDF...</div>}>
-  //     <PDFViewer {...props} />
-  //   </Suspense>
-  // ),
-  //   props // Fixed: Added return and Suspense
-  // ) => (
-  // (
-  // <Suspense fallback={<div>Cargando...</div>}>
-  // </Suspense>
-  // )
-  // <Suspense fallback={<div>Cargando...</div>}>
-  // </Suspense>;
-  //   AnotherComponent: (props) => (
-  //     <Suspense fallback={<div>Cargando...</div>}>
-  //       <AnotherComponent {...props} />
-  //     </Suspense>
-  //   ),
+  DataCards: (props) => <DataCards data={props.data} />,
 };
