@@ -1,0 +1,236 @@
+---
+slug: "agonia-de-stack-overflow"
+id: "blog-004"
+date: "2026-3-08"
+order: 3
+author: "Eric Lucero Gonzalez"
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1773003879/elCronopio/Thumbnails/stack-overflow-dead-es_i2avlu.png
+webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1773002969/elCronopio/Blog-posts/DiffAnswersQuestions-scatter_vmcumy.png
+coverImageAlt: "Plot showing the difference between answers and questions on Stack Overflow from 2008 to 2026."
+title: "The agony of Stack Overflow"
+shortTitle: "The agony of Stack Overflow"
+entryType: "blog"
+excerpt: "A data-driven autopsy of Stack Overflow. From its golden age to a 98% crash in activity: discover how ChatGPT, aggressive moderation, and corporate AI deals broke the ultimate developer hub."
+doctype: ["blog", "python"]
+categories: [ "blog", "tech","Data Science"]
+keywords: ["blog", "python", "javascript","Data Science","Metrics","Stack overflow"]
+isPublic: true
+---
+A forensic analysis of Stack Overflow's decline. How the rise of LLMs devalued the platform and drove away the experts who kept the open-source ecosystem alive. I argue that the platform's community grew organically from its launch in 2008 until the shift in Q&A policies, at which point it began to decline. It saw a brief spike in May 2020 due to the pandemic, then resumed its gradual descent until the emergence of conversational AI, specifically ChatGPT, released to the public in November 2022.
+
+## Table of Contents
+{/* - Source: [https://data.stackexchange.com](https://data.stackexchange.com) */}
+{/* - For Stack Overflow: [https://data.stackexchange.com/stackoverflow/query/new](https://data.stackexchange.com/stackoverflow/query/new) */}
+
+<Disclaimer body={"It is necessary to clarify a few points regarding the gathered data and how the charts are visualized."}
+list={[
+    "The database mutates as users themselves delete their questions/answers.",
+    "The queries were executed up until February 2026.",
+    "SEDE is updated every Sunday.",
+    "Best viewed in landscape mode on mobile devices."]}
+    />
+
+## Introduction
+Stack Overflow is a tech `Q&A` community where both beginners and the most seasoned experts have been participating since 2008. 
+> Its impact became so massive that it was often said if this platform went down for even a moment, global technological progress and software support would nosedive.
+
+![number=1caption=Total questions and answers on the platform (2008-2026).](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1772988330/elCronopio/Blog-posts/QuestionsAndAnswers-dual_drh9mg.png)
+
+{/* <PlotlyCharts 
+ number="1"
+ jsonPath="/charts/QuestionsAndAnswers-dual.json" 
+caption="Total questions and answers on the platform (2008-2026)."/> */}
+
+This chart documents key milestones in the history of __Stack Overflow__. At first glance, you can easily spot how the vertical gap between the answers line (blue) and the questions line (red) has drastically narrowed—or in other words, it has reverted to its 2008 starting point. Compared to its historical peak in 2014, activity *has plummeted by 98.1%* over the last three years *since the dawn of conversational AI* like ChatGPT.
+
+__Stack Overflow__ is not a social network, even though its community and member interactions might feel like one. For some, it's a university—the ultimate hub to clear up software doubts across any language, ranging from its very first question about *C#*<CitationSup id="1" />, to *formatting an image in Word*, or the classic *centering a div*.
+
+### TLDR
+At its peak activity in the first quarter of 2014, it reached a monthly volume of __207,456 questions__ and a record __317,246 answers__. Currently (late 2025 and early 2026), it is in a continuous downward spiral toward _fewer than 5,000_ questions per month.
+
+The platform was launched in 2008. We analyzed its evolution from its inception up to January 2026 by querying the Stack Exchange Data Explorer (SEDE). We leveraged this database to extract the insights used in this analysis. 
+I argue that the platform's community grew organically from its launch in 2008 until the shift in Q&A policies, at which point it began to decline. It saw a brief spike in May 2020 due to the pandemic, then resumed its gradual descent until the emergence of conversational AI, specifically ChatGPT, released to the public in November 2022. This catalyzed a freefall that had already been brewing since 2014. Driven by a series of baffling policy changes that ignored the user base, the final nail in the coffin was a set of partnerships with major AI corporations. These companies hooked their systems straight into the __Stack Overflow__ database, permanently altering the community landscape.
+> We analyze the platform's regression to its origins—that is, *the rise and fall* of the Stack Overflow community.
+
+<PlotlyCharts 
+ number="2"
+  jsonPath="/charts/Scatter_SupplyDemand.json" 
+  caption="Knowledge Supply vs. Demand on Stack Overflow." 
+/>
+
+## What Happened Before 2014?
+
+The very first question on __Stack Overflow__ dates back to July 31, 2008<CitationSup id="1"/>. That’s where it all began. Since then, approximately __24 million__ questions have been asked<CitationSup id="2"/>.
+
+![number=3caption=Screenshot of the first official question asked in July 2008.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768402605/elCronopio/Blog-posts/stackoverflow-firstQ_ildxlc.png)
+This first official question, shown in Figure 3, was answered that exact same day by another user, as seen in Figure 4. This was the core essence of the platform from its inception: solving developers' problems fast enough to implement the solutions in real-time. This dynamic was entirely disrupted by the instant gratification provided by conversational AI chats.
+
+![number=4caption=Screenshot of the highest-rated answer to the platform's first question.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768402606/elCronopio/Blog-posts/stackoverflow-firstA_zokcng.png)
+You can browse through the questions by understanding that the URLs number them sequentially at the `/questions/{question_number}` endpoint. Thus, the first question in Stack Overflow's history can be accessed simply by navigating to: [https://stackoverflow.com/questions/4](https://stackoverflow.com/questions/4). We can see that the `question_number` endpoint acts as the unique identifier. Questions 1, 2, and 3 are technically the first ones on Stack Overflow, but they aren't public because they were internal tests, as shown in Figure 5.
+If the `question_number` endpoint is $<4$, it redirects you to: _"Oh where the joel data go"_. This refers to Joel Spolsky, a member of the founding team consisting of Joel Spolsky, Jeff Atwood, Geoff Dalgas, and Jarrod Dixon.
+![number=5caption=Screenshot of the internal tests on Stack Overflow's earliest posts.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768402607/elCronopio/Blog-posts/stackoverflow-firstQ-JOEL_jvcr6h.png)
+
+### Stack Overflow from 2008 to 2014
+In November 2008, Atwood made it crystal clear that Stack Overflow _belongs to the programmers_, not its creators. The guiding principle, coined "Stack Overflow Is You", was rooted in blind trust towards the community<CitationSup id="3"/>.
+
+As Stack Overflow skyrocketed in popularity, the founders realized they couldn't just cram every tech-related question into a single hub without watering down the programming focus. To preserve the original platform's identity, they created two sister sites in 2009, forming a trilogy: Stack Overflow (strictly for programmers and code), Server Fault (for system administrators and server support—a more serious, infrastructure-focused tone), and Super User (for computer enthusiasts and general hardware/software troubleshooting, where the rules were slightly more relaxed). This segmentation didn't negatively impact the Q&A dynamic, as the charts clearly show.
+
+As the platform scaled massively, the romanticized "trust the community" model stopped working on its own. Garbage questions, spam, and low-quality answers began piling up.
+The birth of the "Review Queues" emerged to prevent the platform from turning into a wasteland. Stack Overflow revamped its moderation policy<CitationSup id="4"/>. Instead of relying on a handful of official moderators, they shipped tools to decentralize the workload. They empowered everyday users (with sufficient reputation) to rapidly vote, close, and delete posts through these review queues.
+
+This established the modern golden rule: _Stack Overflow is not a social forum_<CitationSup id="5"/>. Aggressive question-closing mechanisms were implemented to prevent extended discussions, enforcing the site's role as a "human computational grid" for direct Q&A.
+
+Eventually, the beast became so uncontrollable that in 2014 it was split into several entities, giving birth to Meta Stack Overflow and Meta Stack Exchange<CitationSup id="6"/>.
+
+<PlotlyCharts 
+ number="6"
+  jsonPath="/charts/DiffAnswersQuestions.json" 
+  caption="Net monthly difference between created answers and questions." 
+/>
+
+### The 2014 Turning Point
+Let's jump back to the charts. From its inception, there's a clear upward trajectory in Q&A activity until 2014. That year, Stack Overflow overhauled its policies to filter and improve answer quality (a great summary can be found in the post: "The war of the closes" in <CitationSup id="7"/> and <CitationSup id="5"/>). This was the exact moment when __strict constraints were placed on how both questions and answers were formulated__. Looking at the graph, you can see the immediate aftermath of these policies: a sharp drop-off, though relatively well-absorbed by the community, which kept the momentum going, albeit at a slower pace.
+<PlotlyCharts 
+ number="7"
+ caption="Total questions and answers on the platform (2008-2026). A clear inflection point is observed starting in 2014."
+ jsonPath="/charts/QuestionsAndAnswers-dual.json"/>
+
+ You can also spot a recurring minor peak around March and April. This likely correlates with the peak productivity season in the Northern Hemisphere, where the largest cluster of users is concentrated (see map). To view the raw geographic data, check out <CitationSup id="8"/>, and to dive into the raw data for all monthly questions since 2008, see <CitationSup id="9"/>.
+![number=8caption=Logarithm of total users by country (Top 5000).](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1772988339/elCronopio/Blog-posts/Map_Stackoverflow_okgu5e.png)
+
+## The Brief COVID-19 Bump
+The pandemic left an undeniable footprint on the community, visible across almost every chart. In May 2020, there was a noticeable spike, peaking at 186,550 questions and 241,418 answers. With almost everyone locked at home, a massive wave of people either learned to code or had to troubleshoot without a coworker sitting at the next desk. In hindsight, we can view this as a "dead cat bounce" (a false rebound) that temporarily masked the slow, organic decay the platform had been suffering since 2014.
+
+## Everything Changes in November 2022
+When you asked something like, let's say, `How do I center a Div?`, assuming the post survived the strict formatting policies (i.e., it wasn't outright rejected), community members constantly monitoring the feeds would rush to answer to rack up points. The platform relied heavily on its reward system: user reputation and upvotes for the best answer. This process could take anywhere from a few minutes to several days. So, if someone had an urgent software blocker and relied on the community, they had to sit tight and wait. Often, that "answer" was just a request for more context, delaying the actual resolution even further. 
+>With __ChatGPT__, that wait time was slashed to mere seconds—the time it takes for an LLM to spit out a response to any prompt, software architecture included.
+
+### November 2022: Stack Overflow's Abyss
+By 2022, the steady decline we had tracked since 2014 accelerated, dropping off a cliff. Activity and engagement metrics plummeted abruptly. Exactly one year later (November 2023), the numbers had crashed to 50,511 questions and 66,594 answers—_a staggering 54% collapse in just 12 months_.
+__Programmers simply stopped going to the Stack Overflow community to solve their roadblocks.__ Conversational AI offered instant answers without the hassle of navigating penalizations for poorly phrased prompts, struggling to format code blocks, or getting hit with the dreaded "This Question Has Already Been Answered" comment.
+
+## Reward Mechanisms
+Stack Overflow allows users to upvote or downvote every answer. The users providing those answers are evaluated by their peers, which is the foundation of the reputation and voting system<CitationSup id="10"/>.
+Votes act as a filter for developers searching through previously answered questions; naturally, the highest-voted answers bubble up to the top as the best solutions.
+
+A user's reputation grants them a certain degree of authority within their domain. It is the platform's way of rewarding the time and effort poured into helping others and elevating the overall quality of the ecosystem.
+<PlotlyCharts 
+ number="9"
+  jsonPath="/charts/usersWhoVoted-scatter.json" 
+  caption="Community apathy: A dramatic drop in the volume of users casting votes." 
+/>
+> Votes (Upvotes/Downvotes) are the ultimate currency. After all, who hasn't landed on a Stack Overflow thread and immediately scrolled down searching for that __green checkmark__ (the accepted, highest-voted answer), completely ignoring the rest?
+
+At its peak, the platform boasted over __21,800 active voting users every month__. Today, barely _4,000 people_ bother to cast a vote. If nobody votes, the gamification and reward system breaks down, leaving developers and contributors with zero incentive to spend their valuable time debugging strangers' problems and writing comprehensive answers.
+
+### The Ignored Questions
+When charting the time elapsed between when a question is posted and when it gets an answer, there is a distinct, unstoppable upward trend (see Figure 10). In the early days of the platform, nearly 100% of questions received an answer. Fast forward to early 2026, and almost half of all questions are left hanging in the void. 
+<PlotlyCharts 
+ number="10"
+  jsonPath="/charts/time-unanswered-scatter.json" 
+  caption="Timeline of the percentage of unanswered questions (2008-2026)." 
+/>
+> One out of every two people asking for help on Stack Overflow leaves _empty-handed_.
+
+## The Pivot
+Users visiting the platform don't necessarily have to post new questions; most simply __consume existing ones__. Perhaps because of this, the platform has pivoted. Knowing that the novelty niche has dried up, the current behavior is strictly consuming archived knowledge or asking hyper-specific edge-case questions.
+
+## The "How to..." Questions
+Take the term `"How..."` as an example. Platforms like Stack Overflow used to be the go-to place for fundamental "how-to" queries—like the legendary __"How to center a div?"__. 
+> In 2019, a staggering 41,337 questions per month contained the word "How". Fast forward to January 2026, and that number has dwindled to a mere 272.
+
+<PlotlyCharts 
+ number="11"
+  jsonPath="/charts/HowQuestions-vs-length-dual.json" 
+  caption="The extinction of the basic question: Occurrence of the term 'How' vs. Average question length. Note the correlation with ChatGPT's arrival in 2022." 
+/>
+
+### Average Question Length
+Another fascinating metric is the __average question length__ (measured in characters), which has skyrocketed in recent years. Looking at this parameter (see Figures 11 and 12), it's hard to definitively pinpoint what's happening under the hood, but two plausible conclusions emerge: 
+- Either Stack Overflow is now exclusively a battleground for complex, highly elaborate problems that simple AI prompts can't solve, 
+- Or users are now drafting their questions inside a conversational AI and then copy-pasting the verbose output straight into Stack Overflow. 
+> The average question length has been steadily climbing over time, as shown in Figures 11 and 12. A few years ago, the monthly average sat at __343 characters__. By December 2025, it shattered records, hitting a massive __2,770 characters__ per question on average. 
+
+{/* HowQuestions-vs-length-dual.json and QuestionLength-vs-Questions-dual.json */}
+<PlotlyCharts 
+ number="12"
+  jsonPath="/charts/QuestionLength-vs-Questions-dual.json" 
+  caption="Complexity trend: As volume drops, question length surges." 
+/>
+
+Another clue hinting at AI-generated user behavior (keep in mind Stack Overflow forged strategic alliances with Google<CitationSup id="11"/> and OpenAI<CitationSup id="12"/>) lies in analyzing the __monthly average question length__ against the __average answer length__, as illustrated in Figure 13. 
+{/* Avg-QuestionVsAnswerLength-scatter.json) */}
+<PlotlyCharts 
+ number="13"
+  jsonPath="/charts/Avg-QuestionVsAnswerLength-scatter.json" 
+  caption="Evolution of complexity: Question length vs. Answer length." 
+/>
+The correlation between the two is incredibly high, and both metrics have surged since November 2022 (the ChatGPT era). However, the counter-theory remains valid: it could just be that only insanely complex problems are brought to Stack Overflow nowadays, naturally demanding equally massive and complex answers. 
+
+> I personally argue that there are AI agents acting behind these essays posing as questions and answers. 
+
+Another massive correlation exists between the __length__, __the monthly average of questions__, and the __percentage of unanswered questions__, as shown in Figure 14.
+> As the absolute volume of questions tanked to an all-time low, the rate of ignored questions skyrocketed to an all-time high (January 2026). 
+
+<PlotlyCharts 
+ number="14"
+  jsonPath="/charts/Avg-LengthVsUnanswered-scatter.json" 
+  caption="Correlation between question length and the probability of remaining unanswered." 
+/>
+
+This is likely because the few remaining experts on the platform are turning a blind eye to problems that demand too much cognitive overhead. It's also entirely possible that the vast majority of standard questions have already been answered somewhere in Stack Overflow's colossal historical archive.
+{/* PercentageUnanswered-Questions-dual.json and Avg-LengthVsUnanswered-scatter.json */}
+<PlotlyCharts 
+ number="15"
+  jsonPath="/charts/PercentageUnanswered-Questions-dual.json" 
+  caption="The collapse of the answer: Plummeting questions vs. Surging unanswered rate." 
+/>
+
+## The Bot Invasion
+{/* QuestionsVsNewUsers-scatter.json */}
+While question creation is in freefall, _user account creation exploded overnight_. The historical peak for new users hit in April 2024, with a mind-bending __880,000 new accounts registered in a single month__. This _does not correlate whatsoever with the nosedive in questions and answers_; rather, it aligns perfectly with the corporate partnerships struck with Google and OpenAI. 
+
+> It is highly probable that these are bot accounts, scraping and harvesting data without contributing a single byte of new knowledge to the ecosystem—essentially strip-mining it to extinction.
+
+<PlotlyCharts 
+ number="16"
+  jsonPath="/charts/QuestionsVsNewUsers-scatter.json" 
+  caption="Question volume vs. New user creation." 
+/>
+
+## The Brain Drain
+If we analyze the churn rate of high-reputation users ($> 1000$), we can see the platform has accumulated a loss of roughly __284,000 users__ who have gone dark (`LastAccessDate`). Out of these, a staggering __72,388 are high-reputation profiles__ (the Power Users). It's safe to say these were the "elders" holding the community and forums together, whether to rack up bounty points or out of a genuine desire to help others.
+
+> The Stack Overflow incentive system has likely been broken beyond repair. 
+{/* HighReputationlost-dual.json */}
+
+<PlotlyCharts 
+ number="17"
+  jsonPath="/charts/HighReputationlost-dual.json" 
+  caption="The Brain Drain: Abandonment by users with over 1,000 reputation points." 
+/>
+
+<PlotlyCharts 
+ number="18"
+  jsonPath="/charts/UsersLost-AvgReputation-scatter.json" 
+  caption="Abandonment profile: Volume of lost users vs. Their reputation." 
+/>
+
+Every new iteration of an LLM (like Gemini 1.5) and events like the moderator strike have been fatal blows, but the kill shot was delivered by the strategic partnerships forged between Stack Overflow, Google Cloud, and OpenAI. In essence, Stack Overflow leveraged the knowledge generated by its community and the altruistic dynamics built over years by human beings, only to sell it to the massive tech conglomerates training artificial intelligence models—the very same AIs that triggered the agony of the platform as we knew it. It was a corporate maneuver steeped in ethical gray areas, and its direct fallout was another 60% crash in traffic in under a year. Far from breathing life back into the community, the decision to sell user data seemingly enraged the platform's core demographic. Instead of driving new traffic, these partnerships simply fast-tracked the silent strike of the *Power Users* who once generated all the content.
+
+## References
+<ReferenceList references={[
+{id:"1", text:"First official question: How to convert a decimal to double in C?", url:"[https://stackoverflow.com/questions/4/how-to-convert-decimal-to-double-in-c](https://stackoverflow.com/questions/4/how-to-convert-decimal-to-double-in-c)"},
+{id: "2", text:"SQL Query: All questions on Stack Overflow to date.", url: "[https://data.stackexchange.com/stackoverflow/query/1940826/preguntas-desde-2008](https://data.stackexchange.com/stackoverflow/query/1940826/preguntas-desde-2008)"},
+{id: "3", text:"Stack Overflow Is You", url: "[https://stackoverflow.blog/2008/11/25/stack-overflow-is-you/](https://stackoverflow.blog/2008/11/25/stack-overflow-is-you/)"},
+{id: "4", text:"First moderation changes", url: "[https://stackoverflow.blog/2011/01/14/improved-flagging/](https://stackoverflow.blog/2011/01/14/improved-flagging/)"},
+{id: "5", text:"A brief history of moderation tooling on Stack Overflow", url: "[https://meta.stackoverflow.com/questions/251175/stack-overflow-is-not-yet-a-vast-wasteland-a-history-of-moderator-tooling](https://meta.stackoverflow.com/questions/251175/stack-overflow-is-not-yet-a-vast-wasteland-a-history-of-moderator-tooling)"},
+{id: "6", text:"The birth of Meta Stack Exchange", url: "[https://stackoverflow.blog/2014/04/17/announcing-the-launch-of-meta-stack-exchange/](https://stackoverflow.blog/2014/04/17/announcing-the-launch-of-meta-stack-exchange/)"},
+{id: "7", text:"The War of the Closes", url: "[https://stackoverflow.blog/2013/06/25/the-war-of-the-closes/](https://stackoverflow.blog/2013/06/25/the-war-of-the-closes/)"},
+{id: "8", text:"SQL Query: Platform user locations, based on the top 5000.", url: "[https://data.stackexchange.com/stackoverflow/query/1940827/ubicacion-de-usuarios](https://data.stackexchange.com/stackoverflow/query/1940827/ubicacion-de-usuarios)"},
+{id: "9", text:"SQL Query: Total monthly questions, from 2008 to date.", url: "[https://data.stackexchange.com/stackoverflow/query/1940792/preguntas-por-mes](https://data.stackexchange.com/stackoverflow/query/1940792/preguntas-por-mes)"},
+{id: "10", text:"Reputation rules and voting system.", url: "[https://internal.stackoverflow.help/en/articles/8775594-reputation-and-voting](https://internal.stackoverflow.help/en/articles/8775594-reputation-and-voting)"},
+{id: "11", text:"In February 2024, Stack Overflow announced a partnership with Google", url: "[https://stackoverflow.co/company/press/archive/google-cloud-strategic-gen-ai-partnership](https://stackoverflow.co/company/press/archive/google-cloud-strategic-gen-ai-partnership)"},
+{id: "12", text:"In May 2024, Stack Overflow announced a partnership with OpenAI", url: "[https://stackoverflow.co/company/press/archive/openai-partnership](https://stackoverflow.co/company/press/archive/openai-partnership)"},
+{id: "13", text:"SQL Query: User abandonment", url: "[https://data.stackexchange.com/stackoverflow/query/1940829/perfil-del-abandono](https://data.stackexchange.com/stackoverflow/query/1940829/perfil-del-abandono)"}
+]}/>
