@@ -13,10 +13,9 @@ entryType: "blog"
 excerpt: "Hackeando el Mundial 2026: Cómo los Algoritmos Genéticos resuelven lo que la fuerza bruta no puede."
 doctype: ["blog"]
 categories: [ "python", "javascript"]
-keywords: ["blog", "python", "javascript","latex"]
+keywords: ["blog", "python", "javascript","metaheuristics", "genetic algorithms","Artificial intelligence"]
 isPublic: true
 ---
-$\TeX$ es un sistema de composición tipográfica
 Usamos un algoritmo genético para generar el sorteo de grupos de la Copa Mundial de la FIFA 2026, un problema de optimización combinatoria con restricciones.
 ## Contenido
 
@@ -460,7 +459,7 @@ A mayor fitness, mayor probabilidad de ser seleccionado. Los individuos seleccio
 No dejamos que cualquiera se reproduzca. Se utiliza el operador de ruleta, aunque también aparece en el código el operador de torneo.
 Este operador toma todos los individuos de una generación y crea un arreglo llamado `pesos` que contiene el inverso del valor del fitness de cada uno de estos, 
 luego selecciona uno aleatoriamente con la función `random.choices()` que asigna un individuo de forma aleatoria, pero con una probabilidad proporcional a su valor de fitness, lo que en el código designamos con la variable `pesos`.
-<Videos publicId={"elCronopio/Blog-posts/RouletteWheelSelection_i1q6gm"}  caption={"Funcionamiento de la selección por ruleta."}/>
+<Videos publicId="elCronopio/Blog-posts/RouletteWheelSelection_i1q6gm.mp4"  caption="Funcionamiento de la selección por ruleta."/>
 Este proceso se repite para generar cada Padre, para cada individuo en cada generación. Lo que genera suficientes individuos para reemplazar totalmente (en igual número) a todos los individuos de una generación.
 
 ```python

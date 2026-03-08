@@ -13,7 +13,7 @@ entryType: "blog"
 excerpt: "Hacking the 2026 World Cup: How Genetic Algorithms solve what brute force cannot."
 doctype: ["blog"]
 categories: ["python", "javascript"]
-keywords: ["blog", "python", "javascript","latex"]
+keywords: ["blog", "python", "javascript","metaheuristics", "genetic algorithms","Artificial intelligence"]
 isPublic: true
 ---
 We use Genetic Algorithms to generate the 2026 FIFA World Cup group draw, a constrained combinatorial optimization problem.
@@ -444,7 +444,7 @@ The higher the fitness (or lower cost), the higher the probability of being sele
 We don't let just anyone reproduce. The roulette operator is utilized, although the tournament operator also appears in the code.
 This operator takes all individuals of a generation and creates an array called `pesos` (weights) containing the inverse of the fitness value of each.
 Then it randomly selects one using the `random.choices()` function which assigns an individual randomly, but with a probability proportional to its fitness value, designated in the code by the `pesos` variable.
-
+<Videos publicId="elCronopio/Blog-posts/RouletteWheelSelection_i1q6gm.mp4"  caption="Selection by roulette wheel."/>
 This process is repeated to generate each Parent, for every individual in every generation. This generates enough individuals to completely replace (in equal numbers) all individuals of a generation.
 
 ```python
