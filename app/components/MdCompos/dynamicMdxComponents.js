@@ -10,7 +10,7 @@ const LazyManim = lazy(() => import("./Videos"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
 const Disclaimer = lazy(() => import("./Disclaimer"));
-// const PDFViewer = lazy(() => import("../PDFViewer"));
+const LazyPlotlyCharts = lazy(() => import("../PlotlyChart"));
 
 // Wrapper con traducciones
 const SorteoMundialWithTranslations = () => {
@@ -40,7 +40,7 @@ const SorteoMundialWithTranslations = () => {
 };
 
 export const dynamicMdxComponents = {
-  Disclaimer: (props) => <Disclaimer body={props.body} />,
+  Disclaimer: (props) => <Disclaimer body={props.body} list={props.list} />,
   SuperIndex: (props) => <sup {...props}>{props.children}</sup>,
   BarChart: (props) => (
     <Suspense fallback={<div>Cargando...</div>}>
@@ -54,6 +54,11 @@ export const dynamicMdxComponents = {
   RepoBadge: (props) => <RepoFooter url={props.url} type={props.type} />,
   Videos: (props) => (
     <LazyManim publicId={props.publicId} caption={props.caption} />
+  ),
+  PlotlyCharts: (props) => (
+    <Suspense fallback={<div>Cargando gráfica interactiva...</div>}>
+      <LazyPlotlyCharts {...props} />
+    </Suspense>
   ),
 
   // PDFViewer: (props) => (
