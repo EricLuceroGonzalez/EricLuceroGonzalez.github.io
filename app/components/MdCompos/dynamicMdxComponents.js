@@ -1,7 +1,7 @@
 // components/dynamicMdxComponents.js
 import React, { lazy, Suspense } from "react";
 import { CitationSup } from "./CitationSup";
-import { ReferenceList } from "./ReferenceList";
+// import { ReferenceList } from "./ReferenceList";
 import { QuotationAndAuthor } from "./Quotation";
 import { useTranslations } from "next-intl";
 import { RepoFooter } from "./RepoShare";
@@ -9,7 +9,12 @@ import { RepoFooter } from "./RepoShare";
 const LazyManim = lazy(() => import("./Videos"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
-const Disclaimer = lazy(() => import("./Disclaimer"));
+const LazyDisclaimer = lazy(() => import("./Disclaimer"));
+const LazyReferenceList = lazy(() =>
+  import("./ReferenceList").then((module) => ({
+    default: module.ReferenceList,
+  })),
+);
 const LazyPlotlyCharts = lazy(() => import("../PlotlyChart"));
 
 // Wrapper con traducciones
@@ -40,7 +45,26 @@ const SorteoMundialWithTranslations = () => {
 };
 
 export const dynamicMdxComponents = {
-  Disclaimer: (props) => <Disclaimer body={props.body} list={props.list} />,
+  Disclaimer: (props) => (
+    <Suspense
+      fallback={
+        <div style={{ padding: "1rem", color: "gray" }}>Cargando notas...</div>
+      }
+    >
+      <LazyDisclaimer {...props} />
+    </Suspense>
+  ),
+  ReferenceList: (props) => (
+    <Suspense
+      fallback={
+        <div style={{ padding: "1rem", color: "gray" }}>Cargando notas...</div>
+      }
+    >
+      <LazyReferenceList {...props} />
+    </Suspense>
+  ),
+  // ReferenceList: (props) => <ReferenceList references={props.references} />,
+
   SuperIndex: (props) => <sup {...props}>{props.children}</sup>,
   BarChart: (props) => (
     <Suspense fallback={<div>Cargando...</div>}>
@@ -48,9 +72,8 @@ export const dynamicMdxComponents = {
     </Suspense>
   ),
   SorteoMundial: SorteoMundialWithTranslations,
-  ReferenceList: (props) => <ReferenceList references={props.references} />,
   CitationSup: (props) => <CitationSup id={props.id} />,
-  QuoteAndAuthor: (props) => <QuotationAndAuthor quotation={props.quotation} />,
+  QuoteAndAuthor: (props) => <QuotationAndAuthor {...props} />,
   RepoBadge: (props) => <RepoFooter url={props.url} type={props.type} />,
   Videos: (props) => (
     <LazyManim publicId={props.publicId} caption={props.caption} />

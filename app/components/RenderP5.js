@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import p5 from "p5";
 
 const P5jsContainer = ({ sketch }) => {
-  console.log(sketch);
+  // console.log(sketch);
 
   const parentRef = useRef(null);
   const p5Instance = useRef(null);
@@ -12,7 +12,7 @@ const P5jsContainer = ({ sketch }) => {
     if (parentRef.current) {
       p5Instance.current = new p5(
         (p) => sketch(p, parentRef.current),
-        parentRef.current
+        parentRef.current,
       );
     }
 

@@ -42,7 +42,8 @@ export async function MDXContent({ posts }) {
       },
       // Indicates whether or not to parse the frontmatter from the MDX source
       parseFrontmatter: false,
-    }
+      blockJS: false,
+    },
   );
 
   return (

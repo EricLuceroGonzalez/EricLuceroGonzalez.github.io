@@ -41,7 +41,8 @@ const BulletList = styled.ol`
   margin-top: 0.75rem;
   margin-bottom: 0;
   padding-left: 1.5rem;
-  color: var(--accent); /* Gris un poco más suave para la lista */
+  color: var(--accent);
+  font-size: x-small;
 `;
 
 const ListItem = styled.li`
@@ -54,7 +55,36 @@ const ListItem = styled.li`
     margin-bottom: 0;
   }
 `;
-const Disclaimer = ({ body, list }) => {
+const StyledContent = styled.div`
+  /* Apuntamos a la lista desordenada que genera MDX */
+  ul {
+    list-style-type: none; /* Quitamos los puntos negros aburridos por defecto */
+    padding-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  /* Apuntamos a cada elemento de la lista */
+  li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--fg);
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: var(--accent);
+  }
+
+  /* Le ponemos un icono personalizado (puedes cambiar el emoji por lo que quieras) */
+  li::before {
+    content: "👉"; /* También puede ser un "👉", un "check", o un punto de color */
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 1rem;
+  }
+`;
+const Disclaimer = ({ body, children }) => {
   return (
     <DisclaimerContainer>
       <DisclaimerIcon>
@@ -63,13 +93,7 @@ const Disclaimer = ({ body, list }) => {
       <DisclaimerBody>
         <DisclaimerTitle>Disclaimer:</DisclaimerTitle>
         <DisclaimerText>{body && <p>{body}</p>}</DisclaimerText>
-        {list && list.length > 0 && (
-          <BulletList>
-            {list.map((item, index) => (
-              <ListItem key={index}>{item}</ListItem>
-            ))}
-          </BulletList>
-        )}
+        <StyledContent>{children}</StyledContent>
       </DisclaimerBody>
     </DisclaimerContainer>
   );

@@ -52,15 +52,12 @@ const LazyManim = ({ publicId, caption }) => {
 
     return () => observer.disconnect();
   }, []);
-  console.log(`cleanPublicId: ${publicId}`);
+
   const cleanPublicId = publicId?.replace(/\.(mp4|mov|avi|webm)$/i, "");
   //   const videoUrl = `https://res.cloudinary.com/dcvnw6hvt/video/upload/f_auto,q_auto/${cleanPublicId}.mp4`;
   //   const posterUrl = `https://res.cloudinary.com/dcvnw6hvt/video/upload/f_auto,q_auto/${cleanPublicId}.jpg`;
   const videoUrl = `https://res.cloudinary.com/dcvnw6hvt/video/upload/f_auto,q_auto,w_800,vc_auto/${cleanPublicId}.mp4`;
   const posterUrl = `https://res.cloudinary.com/dcvnw6hvt/video/upload/w_800,f_auto,q_auto,fl_lossy/${cleanPublicId}.jpg`;
-  //   console.log("Clean Public ID:", cleanPublicId);
-  // console.log("Video URL:", videoUrl);
-  //   console.log("Poster URL:", posterUrl);
 
   return (
     <VideoContainer ref={videoRef}>

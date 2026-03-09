@@ -81,16 +81,22 @@ const RefUrl = styled.a`
 `;
 
 export const ReferenceList = ({ references }) => {
+  let refs = [];
+  try {
+    if (references) {
+      refs = JSON.parse(references);
+    }
+  } catch (error) {
+    console.error("Error parseando las referencias:", error);
+  }
   const t = useTranslations("mdxComponents");
-
-  if (!references || references.length === 0) return null;
+  if (!refs || refs.length === 0) return null;
 
   return (
     <div>
       <RefNumbers>
-        {references.map(({ id, text, url }) => (
+        {refs.map(({ id, text, url }) => (
           <RefEntry key={id} id={`ref-${id}`}>
-            {/* Envolvemos todo el contenido (texto + links) en un div para que sea el segundo hijo del Flex */}
             <RefContent>
               <span>{text}</span>
               {url && (
@@ -113,3 +119,25 @@ export const ReferenceList = ({ references }) => {
     </div>
   );
 };
+
+// {references.map(({ id, text, url }) => (
+//           <RefEntry key={id} id={`ref-${id}`}>
+//             {/* Envolvemos todo el contenido (texto + links) en un div para que sea el segundo hijo del Flex */}
+//             <RefContent>
+//               <span>{text}</span>
+//               {url && (
+//                 <>
+//                   {", "}
+//                   <RefUrl href={url} target="_blank" rel="noopener noreferrer">
+//                     {url}{" "}
+//                     <FaExternalLinkAlt style={{ color: "var(--primary)" }} />
+//                   </RefUrl>
+//                 </>
+//               )}
+//               <RefTex href={`#cite-${id}`} aria-label="Volver al texto">
+//                 ({t("Reference_back")})
+//                 <FaArrowUp />
+//               </RefTex>
+//             </RefContent>
+//           </RefEntry>
+//         ))}

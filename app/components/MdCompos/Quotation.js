@@ -54,22 +54,18 @@ const SourceContainer = styled.div`
   font-size: small;
 `;
 
-export const QuotationAndAuthor = ({ quotation }) => {
+export const QuotationAndAuthor = ({ quote, author, source }) => {
   return (
     <QuoteBack>
       <QuoteLeftIcon>
         <BiSolidQuoteLeft />
       </QuoteLeftIcon>
-      <QuoteText>{quotation.quote}</QuoteText>
+      <QuoteText>{quote}</QuoteText>
       <QuoteRightIcon>
         <BiSolidQuoteRight />
       </QuoteRightIcon>
-      {quotation.author && (
-        <AuthorContainer>— {quotation.author}</AuthorContainer>
-      )}
-      {quotation.source && (
-        <SourceContainer> {quotation.source}</SourceContainer>
-      )}
+      {author && <AuthorContainer>— {author}</AuthorContainer>}
+      {source && <SourceContainer> {source}</SourceContainer>}
     </QuoteBack>
   );
 };
