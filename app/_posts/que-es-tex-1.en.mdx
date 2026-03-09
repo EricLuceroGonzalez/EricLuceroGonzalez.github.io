@@ -48,20 +48,20 @@ The challenge was to form as many words as possible from the letters in the phra
 While the judges expected a few dozen, the 13-year-old Knuth, feigning a stomach ache to stay home and work on it, methodically found over 4,700 words, demonstrating his early obsession with combinatorics, lists, and systematic data processing (even before owning a computer).
 
 Another anecdote told in his Kyoto Prize speech <CitationSup id={2}/> speaks of his interest in letters and typography from a very young age.
-<QuoteAndAuthor quotation={{ quote: "In fact, not only have I always loved books, but I am also fascinated by individual letters. Here is a page from the first alphabet book I had as a child. Interestingly, I marked each serif with a small x and counted them: the letter K has 7 serifs. The letter P has 4; the letter O has none.", author: "Donald Knuth", source: "Notes from Kyoto Prize Lecture (1996)"}} />
+<QuoteAndAuthor quote="In fact, not only have I always loved books, but I am also fascinated by individual letters. Here is a page from the first alphabet book I had as a child. Interestingly, I marked each serif with a small x and counted them: the letter K has 7 serifs. The letter P has 4; the letter O has none." author="Donald Knuth" source="Notes from Kyoto Prize Lecture (1996)" />
 
 ![caption=Knuth's annotations on his childhood books, pointing out the serifs of the typography. Notes from Donald Knuth's Kyoto Prize Lecture (1996)](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767468485/elCronopio/Blog-posts/knuth_kid-serif_iyt0mp.png)
 
 ### Knuth Decides to Solve the (Typographic) Problem Himself
 After the disappointment of receiving the galleys typeset with the new technologies of the era, he began looking for an editorial solution, finding some people in Poland who still used the old typographic technology, but this proved almost impossible.
-<QuoteAndAuthor quotation={{ quote: "My whole book had been completely retypeset with a different technology. The new fonts looked terrible! The subscripts were in a different style from the large letters, for example, and the spacing was very bad. You can look at books printed in the early 70s and it turns out that if it wasn't simple -- well, almost everything looked atrocious in those days.  I couldn't stand to see my books so ugly.", author:"Donald Knuth", source: "An Interview with Donald Knuth (2007)"}} />
+<QuoteAndAuthor quote="My whole book had been completely retypeset with a different technology. The new fonts looked terrible! The subscripts were in a different style from the large letters, for example, and the spacing was very bad. You can look at books printed in the early 70s and it turns out that if it wasn't simple -- well, almost everything looked atrocious in those days.  I couldn't stand to see my books so ugly." author="Donald Knuth" source="An Interview with Donald Knuth (2007)" />
 At that time, Knuth was already working at the *Stanford Artificial Intelligence Laboratory* (SAIL), led by none other than John McCarthy. There, they had a Xerox XGP printer<CitationSup id={4}/> capable of printing with a density of *120 dots per inch*, much better than the common dot matrix printers of that era, though not sufficient to produce the typefaces Knuth wanted.
 In the midst of this search, in February 1977, he stumbled upon the proofs of the first edition of Patrick Winston's *Artificial Intelligence* book<CitationSup id={5}/>, which had been composed with a high-resolution matrix printer at the company Information International, Inc. (III), with a density of 1000 dots per inch.
 Knuth was impressed by the print quality, and above all by the technique. The method of composition used was based on pixels; it was totally digital, using dots of ink. Instead of photographic images, the printer used algorithms to calculate the exact position of each dot of ink on the page. Bits, as Knuth says in: <CitationSup id={6}/>.
 
 ![caption=Example of a series of LISP instructions (left). Database operation diagram (right). Pages 300 and 374, Artificial Intelligence, Patrick H. Winston (1977)](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768512499/elCronopio/Blog-posts/AI-tex-2_zp9uxc.png)
 
-<QuoteAndAuthor quotation={{ quote: "The problem of printing beautiful books had changed from a problem of metallurgy to a problem of optics and then to a problem of computer science. A problem of zeros and ones.", author: "Donald Knuth", source: "Donald Knuth's Kyoto Prize Lecture (1996)"}} />
+<QuoteAndAuthor quote="The problem of printing beautiful books had changed from a problem of metallurgy to a problem of optics and then to a problem of computer science. A problem of zeros and ones." author="Donald Knuth" source="Donald Knuth's Kyoto Prize Lecture (1996)" />
 ![caption=Example of equations, graphs, and diagrams that surprised Knuth in 1977. Pages 9 and 223, Artificial Intelligence, Patrick H. Winston (1977)](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768512500/elCronopio/Blog-posts/AI-tex-1_gwj8ne.png)
 
 At this moment, Knuth abandoned everything he was doing (he was about 100 pages into the fourth volume of *The Art of Computer Programming*) and decided to solve **the problem** himself.
@@ -79,7 +79,7 @@ Thus **METAFONT** was born, the system for designing typographic fonts through m
 In typographic font design, it is important to mention Hermann Zapf, a German typographer who designed classic fonts like Palatino, Optima, and Zapfino, who collaborated with Knuth in the 80s on the design of the **Computer Modern** font, the default font of TeX<CitationSup id={8}/>.
 
 In mid-1977, while working on the TeX prototype, Knuth wrote a preliminary note describing the system, explaining the name and purpose of TeX. In May 1977, Knuth stated:
-<QuoteAndAuthor quotation={{ quote: "TEX is for technical text. Insiders pronounce the X as a Greek Chi (cf. the Scottish `ch' sound in `Loch Ness') since the word `technical' stems from a Greek root meaning art as well as technology. I am preparing the system   primarily for use in publishing my series The Art of Computer Programming-- the initial system will be tuned for my books, but it will not be difficult to extend it for other purposes if anybody wants to do so.", author: "Donald Knuth", source: "Preliminary preliminary description of TEX (1977)"}} />
+<QuoteAndAuthor quote="TEX is for technical text. Insiders pronounce the X as a Greek Chi (cf. the Scottish `ch' sound in `Loch Ness') since the word `technical' stems from a Greek root meaning art as well as technology. I am preparing the system   primarily for use in publishing my series The Art of Computer Programming-- the initial system will be tuned for my books, but it will not be difficult to extend it for other purposes if anybody wants to do so." author="Donald Knuth" source="Preliminary preliminary description of TEX (1977)" />
 
 Today, $\TeX$ is used by major publishers like Addison-Wesley (the publisher of *The Art of Computer Programming*), Elsevier, Oxford, and Springer<CitationSup id={9}/>. Hundreds of books have been published using this system, along with thousands of scientific articles worldwide. Even universities have their theses in this format.
 
@@ -157,14 +157,14 @@ In 1990, Knuth announced that TeX and METAFONT would not change anymore, but onl
 In part 2 of this post, we will continue discussing the characteristics of TeX, the peculiarity of its name, its current ecosystem, and its applications.
 
 ## References
-<ReferenceList references={[
-  {id: "1", text:"Monotype System", url:"https://en.wikipedia.org/wiki/Monotype_system"},
-  {id: "2", text: "Donald Knuth's Kyoto Prize Lecture (1996)", url:"https://www.kyotoprize.org/en/lectures/the-1996-kyoto-prize/"},
-  {id:"3",text:"The Computer Scientist Who Can't Stop Telling Stories",url:"https://www.quantamagazine.org/computer-scientist-donald-knuth-cant-stop-telling-stories-20200416/"},
-  {id:"4",text:"Xerox Graphics Printer (XGP)",url:"https://gunkies.org/wiki/Xerox_Graphics_Printer"},
-  {id:"5",text:"Artificial Intelligence, Patrick H. Winston (1977)",url:"https://en.wikipedia.org/wiki/Artificial_Intelligence_(book)"},
-  {id:"6",text:"An Interview with Donald Knuth 1974 ACM Turing Award Recipient (2007)",url:"https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf"},
-  {id:"7",text:"METAFONT on Wikipedia",url:"https://en.wikipedia.org/wiki/Metafont"},
-  {id:"8",text:"Mathematical Typography, D. E. Knuth, Bulletin of the American Mathematical Society, Volume 1, Number 2, 1979, pp. 337-372.",url:"https://projecteuclid.org/journalArticle/Download?urlId=bams%2F1183544082&isResultClick=False"},
-  {id:"9",text:"25 Years of TeX and METAFONT: Looking Back and Looking Forward, Nelson Beebe (2003)",url:"https://www.tug.org/TUGboat/Articles/tb25-1/beebe-2003keynote.pdf"},
-]}/>
+<ReferenceList references='[
+  {"id": "1", "text":"Monotype System", "url":"https://en.wikipedia.org/wiki/Monotype_system"},
+  {"id": "2", "text": "Donald Knuth Kyoto Prize Lecture (1996)", "url":"https://www.kyotoprize.org/en/lectures/the-1996-kyoto-prize/"},
+  {"id":"3","text":"The Computer Scientist Who Cant Stop Telling Stories","url":"https://www.quantamagazine.org/computer-scientist-donald-knuth-cant-stop-telling-stories-20200416/"},
+  {"id":"4","text":"Xerox Graphics Printer (XGP)","url":"https://gunkies.org/wiki/Xerox_Graphics_Printer"},
+  {"id":"5","text":"Artificial Intelligence, Patrick H. Winston (1977)","url":"https://en.wikipedia.org/wiki/Artificial_Intelligence_(book)"},
+  {"id":"6","text":"An Interview with Donald Knuth 1974 ACM Turing Award Recipient (2007)","url":"https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf"},
+  {"id":"7","text":"METAFONT on Wikipedia","url":"https://en.wikipedia.org/wiki/Metafont"},
+  {"id":"8","text":"Mathematical Typography, D. E. Knuth, Bulletin of the American Mathematical Society, Volume 1, Number 2, 1979, pp. 337-372.","url":"https://projecteuclid.org/journalArticle/Download?urlId=bams%2F1183544082&isResultClick=False"},
+  {"id":"9","text":"25 Years of TeX and METAFONT: Looking Back and Looking Forward, Nelson Beebe (2003)","url":"https://www.tug.org/TUGboat/Articles/tb25-1/beebe-2003keynote.pdf"}
+]'/>

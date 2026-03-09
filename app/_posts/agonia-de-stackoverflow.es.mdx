@@ -1,7 +1,7 @@
 ---
 slug: "agonia-de-stack-overflow"
 id: "blog-004"
-date: "2026-3-08"
+date: "2026-03-09"
 order: 3
 author: "Eric Lucero Gonzalez"
 socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1773003879/elCronopio/Thumbnails/stack-overflow-dead-es_i2avlu.png
@@ -22,33 +22,27 @@ Análisis forense del declive de Stack Overflow. Cómo el surgimiento de los LLM
 {/* - Fuente: https://data.stackexchange.com */}
 {/* - Para Stack Overflow: https://data.stackexchange.com/stackoverflow/query/new */}
 
-<Disclaimer body={"Es necesario hacer algunas aclaraciones respecto a los datos obtenidos y la forma de visualizar las gráficas."}
-list={[
-    "La base de datos muta en la medida que los propios usuarios borran sus preguntas/respuestas.",
-    "Las consultas se hicieron hasta Febrero 2026.",
-    "SEDE se actualiza todos los domingos.",
-    "En el teléfono se ve mejor en horizontal"]}
-    />
-
 ## Introducción
 Stack Overflow es una comunidad tecnológica de tipo `Q&A` en la que tanto principiantes como los más expertos en temas tecnológicos participan desde el año 2008. 
 >Su impacto llegó a ser tal que se decía que si esta plataforma quedaba fuera de servicio por un momento el avance de la tecnología y el soporte del software a nivel mundial caerían en picada.
 
-![number=1caption=Total de preguntas y respuesta en la plataforma (2008-2026).](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1772988330/elCronopio/Blog-posts/QuestionsAndAnswers-dual_drh9mg.png)
+![number=1caption=Total de preguntas y respuestas en la plataforma (2008-2026).](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1772988330/elCronopio/Blog-posts/QuestionsAndAnswers-dual_drh9mg.png)
 
-{/* <PlotlyCharts 
- number="1"
- jsonPath="/charts/QuestionsAndAnswers-dual.json" 
-caption="Total de preguntas y respuesta en la plataforma (2008-2026)."/> */}
+<Disclaimer body="Es necesario hacer algunas aclaraciones respecto a los datos obtenidos y la forma de visualizar las gráficas.">
+  - La base de datos muta en la medida que los propios usuarios borran sus preguntas/respuestas.
+  - Las consultas se hicieron hasta Febrero 2026.
+  - SEDE se actualiza todos los domingos.
+  - En el teléfono se ve mejor en horizontal
+</Disclaimer>
 
-En este gráfico se documentan los momentos clave en la historia de __Stack Overflow__, ya a simple vista se puede ver cómo la distancia vertical entre la línea de la respuestas (azul) y las preguntas (línea roja), se ha ido cerrando drásticamente, o dicho, de otra manera, ha vuelto al punto inicial de 2008. Tomando el pico histórico de 2014, *ha caído un 98.1%* de actividad en los últimos tres años *desde el advenimiento de la IA conversacional* como ChatGPT.
+En este gráfico se documentan los momentos clave en la historia de __Stack Overflow__, ya a simple vista se puede ver cómo la distancia vertical entre la línea de la respuestas (azul) y las preguntas (línea roja), se ha ido cerrando drásticamente, o dicho, de otra manera, ha vuelto al punto inicial de 2008. Tomando el pico histórico de 2014, *ha caído un 98.1%* de actividad en los últimos tres años *desde el advenimiento de la IA conversacional*, especialmente ChatGPT.
 
 __Stack Overflow__ no es una red social aunque su comunidad y la interacción entre sus miembros puede parecer una. Para algunos es una universidad, el sitio donde se aclaran las dudas de software de todo tipo de lenguaje, desde su primera pregunta en *lenguaje C#*<CitationSup id="1" />, hasta *formatear una imagen en Word* o el típico *centrar un div*.
 
 ### TLDR
 En su momento de mayor actividad en el primer trimestre de 2014, llegó a tener mensualmente __207,456 preguntas__ y un récord de __317,246 respuestas__, actualmente (finales de 2025 y 2026) está descendiendo continuamente hacia _menos de 5000_ preguntas al mes.
 
-La plataforma se creó en el año 2008. Analizamos su evolución desde entonces hasta en enero de 2026, haciendo consultas a la base de datos en el servicio Stack Exchange (SEDE). Usamos esta base de datos para obtener la información que usamos en este análisis. 
+La plataforma se creó en el año 2008. Analizamos su evolución desde entonces hasta enero de 2026, haciendo consultas a la base de datos en el servicio Stack Exchange (SEDE). Usamos esta base de datos para obtener la información que usamos en este análisis. 
 Sostengo que la plataforma crece orgánicamente en comunidad desde su inicio en 2008 hasta el cambio en las políticas de preguntas y respuestas en la cual empieza a decaer hasta mayo de 2020 donde tiene un leve auge producto de la pandemia, luego sigue cayendo poco a poco hasta el surgimiento de la IA conversacional ChatGPT, que fue lanzada al público en noviembre de 2022. Esto aceleró la caída que ya venía de 2024, y una serie de políticas poco entendibles y que no tomaron en cuenta a la comunidad de usuarios y que terminó finalmente en colaboraciones con grandes empresas de inteligencia artificial que conectaron sus sistemas a la base de datos de __Stack Overflow__ y terminaron de cambiar para siempre a la comunidad.
 >Analizamos el regreso de esta plataforma a sus inicios, esto es, *el auge y la caída* de la comunidad Stack Overflow.
 
@@ -215,18 +209,18 @@ Si analizamos la pérdida de usuarios con alta reputación ($> 1000$) podemos ve
 Cada nueva versión de un LLM como el caso de Gemini 1.5 o eventos como la huelga de moderadores de Stack Overflow o dos eventos claves que son los Partnership con Google Cloud y OpenAI para compartir la información generada por humanos, expertos, interactuando, en comunidad y ofrecerla a estas grandes plataformas para entrenar sus modelos. Es decir Stack Overflow utilizó la información generada de su comunidad y la dinámica establecida durante años entre humanos, para venderse a las grandes empresas que entrenan sus LLM, que a su vez fueron los causantes de la agonía de Stack Overflow, tal como lo conocíamos. Una movida que deja muchas preguntas. Otra caída del 60% en menos de un año. Lejos de revitalizar a la comunidad, los anuncios de alianzas con Google Cloud y OpenAI (para vender los datos de los usuarios) parecen haber enfurecido al núcleo duro (los "Power Users"). En lugar de atraer tráfico nuevo, aceleraron la huelga silenciosa de los expertos que generan el contenido.
 
 ## Referencias
-<ReferenceList references={[
-{id: "1", text:"Primera pregunta oficial: ¿Cómo convertir un decimal a doble en C?", url:"https://stackoverflow.com/questions/4/how-to-convert-decimal-to-double-in-c"},
-{id: "2", text:"SQL Query: Todas las preguntas que tiene stackoverflow hasta la fecha.", url: "https://data.stackexchange.com/stackoverflow/query/1940826/preguntas-desde-2008"},
-{id: "3", text:"Stack Overflow Is You", url: "https://stackoverflow.blog/2008/11/25/stack-overflow-is-you/"},
-{id: "4", text:"Primeros cambios en la moderación", url: "https://stackoverflow.blog/2011/01/14/improved-flagging/"},
-{id: "5", text:"Breve historia de la moderación en Stack Overflow", url: "https://meta.stackoverflow.com/questions/251175/stack-overflow-is-not-yet-a-vast-wasteland-a-history-of-moderator-tooling"},
-{id: "6", text:"Nacimiento de Meta StackExchange", url: "https://stackoverflow.blog/2014/04/17/announcing-the-launch-of-meta-stack-exchange/"},
-{id: "7", text:"The War of the Closes", url: "https://stackoverflow.blog/2013/06/25/the-war-of-the-closes/"},
-{id: "8", text:"SQL Query: Ubicación de usuarios de la plataforma, tomando en cuenta el top 5000.", url: "https://data.stackexchange.com/stackoverflow/query/1940827/ubicacion-de-usuarios"},
-{id: "9", text:"SQL Query: Total de preguntas por mes, desde 2008 a la fecha.", url: "https://data.stackexchange.com/stackoverflow/query/1940792/preguntas-por-mes"},
-{id: "10", text:"Reglas de la reputación y sistema de votación.", url: "https://internal.stackoverflow.help/en/articles/8775594-reputation-and-voting"},
-{id: "11", text:"En Febrero 2024, Stack Overflow anunció alianza con Google", url: "https://stackoverflow.co/company/press/archive/google-cloud-strategic-gen-ai-partnership"},
-{id: "12", text:"En Mayo de 2024 Stack Overflow anunció alianza con OpenAI", url: "https://stackoverflow.co/company/press/archive/openai-partnership"},
-{id: "13", text:"SQL Query: Abandono de usuarios", url: "https://data.stackexchange.com/stackoverflow/query/1940829/perfil-del-abandono"}
-]}/>
+<ReferenceList references='[
+{"id":"1", "text":"Primera pregunta oficial: ¿Cómo convertir un decimal a doble en C?", "url":"https://stackoverflow.com/questions/4/how-to-convert-decimal-to-double-in-c"},
+{"id":"2", "text":"SQL Query: Todas las preguntas que tiene stackoverflow hasta la fecha.", "url":"https://data.stackexchange.com/stackoverflow/query/1940826/preguntas-desde-2008"},
+{"id":"3", "text":"Stack Overflow Is You", "url":"https://stackoverflow.blog/2008/11/25/stack-overflow-is-you/"},
+{"id":"4", "text":"Primeros cambios en la moderación", "url":"https://stackoverflow.blog/2011/01/14/improved-flagging/"},
+{"id":"5", "text":"Breve historia de la moderación en Stack Overflow", "url":"https://meta.stackoverflow.com/questions/251175/stack-overflow-is-not-yet-a-vast-wasteland-a-history-of-moderator-tooling"},
+{"id":"6", "text":"Nacimiento de Meta StackExchange", "url":"https://stackoverflow.blog/2014/04/17/announcing-the-launch-of-meta-stack-exchange/"},
+{"id":"7", "text":"The War of the Closes", "url":"https://stackoverflow.blog/2013/06/25/the-war-of-the-closes/"},
+{"id":"8", "text":"SQL Query: Ubicación de usuarios de la plataforma, tomando en cuenta el top 5000.", "url":"https://data.stackexchange.com/stackoverflow/query/1940827/ubicacion-de-usuarios"},
+{"id":"9", "text":"SQL Query: Total de preguntas por mes, desde 2008 a la fecha.", "url":"https://data.stackexchange.com/stackoverflow/query/1940792/preguntas-por-mes"},
+{"id":"10", "text":"Reglas de la reputación y sistema de votación.", "url":"https://internal.stackoverflow.help/en/articles/8775594-reputation-and-voting"},
+{"id":"11", "text":"En Febrero 2024, Stack Overflow anunció alianza con Google", "url":"https://stackoverflow.co/company/press/archive/google-cloud-strategic-gen-ai-partnership"},
+{"id":"12", "text":"En Mayo de 2024 Stack Overflow anunció alianza con OpenAI", "url":"https://stackoverflow.co/company/press/archive/openai-partnership"},
+{"id":"13", "text":"SQL Query: Abandono de usuarios", "url":"https://data.stackexchange.com/stackoverflow/query/1940829/perfil-del-abandono"}
+]'/>  
