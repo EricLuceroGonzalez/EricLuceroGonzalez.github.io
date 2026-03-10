@@ -26,7 +26,9 @@ const ShieldLink = styled.a`
   font-size: 13px;
   font-weight: 600;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   height: 28px; /* Altura fija típica de shields */
 
   &:hover {
@@ -85,7 +87,7 @@ const ModernBadge = styled.a`
 
 // --- COMPONENTE ---
 
-export const RepoFooter = ({ url, type = "shield" }) => {
+export const RepoFooter = ({ url, type = "shield", message = "" }) => {
   const t = useTranslations("SmallComponents");
   if (!url) return null;
 
@@ -107,7 +109,8 @@ export const RepoFooter = ({ url, type = "shield" }) => {
       ) : (
         <ModernBadge href={url} target="_blank" rel="noopener noreferrer">
           <FaCodeBranch />
-          <span>{t("secondary_mssg")}</span>
+          {message != "" && <span>{message}</span>}
+          {message == "" && <span>{t("secondary_mssg")}</span>}
         </ModernBadge>
       )}
     </Container>

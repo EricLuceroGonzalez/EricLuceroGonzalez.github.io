@@ -205,7 +205,7 @@ export const HeroImage = styled.div`
 `;
 
 export const MdTable = styled.table`
-  width: 80%;
+  width: 100%;
   border-collapse: collapse;
   margin: 20px auto;
   @media (max-width: 660px) {
@@ -221,8 +221,8 @@ export const MdTableHead = styled.th`
 `;
 
 export const MdTableD = styled.td`
-  background-color: var(--bg);
-  color: var(--strong-fg);
+  font-size: x-small;
+  color: var(--fg);
   padding: 2px 2px;
   border: 1px solid var(--gray-light);
 `;

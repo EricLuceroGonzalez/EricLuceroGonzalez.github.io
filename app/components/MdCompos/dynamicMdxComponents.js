@@ -74,7 +74,9 @@ export const dynamicMdxComponents = {
   SorteoMundial: SorteoMundialWithTranslations,
   CitationSup: (props) => <CitationSup id={props.id} />,
   QuoteAndAuthor: (props) => <QuotationAndAuthor {...props} />,
-  RepoBadge: (props) => <RepoFooter url={props.url} type={props.type} />,
+  RepoBadge: (props) => (
+    <RepoFooter url={props.url} type={props.type} message={props.message} />
+  ),
   Videos: (props) => (
     <LazyManim publicId={props.publicId} caption={props.caption} />
   ),
