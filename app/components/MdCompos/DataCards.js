@@ -2,12 +2,12 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
-const GridContainer = styled.div`
+// 1. Exportamos el contenedor (La grilla)
+export const DataGrid = styled.div`
   display: grid;
   gap: 1.5rem;
   width: 90%;
   margin: 2rem auto;
-  /* Define la matriz de máximo 3 columnas */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
   @media (min-width: 1024px) {
@@ -51,13 +51,12 @@ const StatLabel = styled.p`
   }
 `;
 
-// --- Componente de Animación ---
+// Animación intacta
 const CountUp = ({ target, duration = 2000 }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    // 1. Limpiamos el string para convertirlo en número (ej: "24,177" -> 24177)
-    // Si el valor tiene letras (como 1.2M), lo tratamos diferente
+    if (!target) return;
     const isSpecial = /[a-zA-Z]/.test(target);
     if (isSpecial) {
       setCount(target);
@@ -70,8 +69,6 @@ const CountUp = ({ target, duration = 2000 }) => {
     const animate = (currentTime) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-
-      // Aplicamos una curva de "easeOut" para que desacelere al llegar al final
       const currentCount = Math.floor(progress * endValue);
 
       setCount(currentCount);
@@ -84,26 +81,20 @@ const CountUp = ({ target, duration = 2000 }) => {
     requestAnimationFrame(animate);
   }, [target, duration]);
 
-  // Si no es un número puro, devolvemos el target original
   if (typeof count === "string") return count;
-
-  // Formateamos con comas para que se vea bien (ej: 24177 -> 24,177)
   return count.toLocaleString();
 };
-const DataCards = ({ data }) => {
-  return (
-    <GridContainer>
-      {data.map((item, index) => (
-        <StatCard key={index}>
-          <StatValue>
-            <CountUp target={item.value} />
-          </StatValue>
 
-          <StatLabel>{item.label}</StatLabel>
-        </StatCard>
-      ))}
-    </GridContainer>
+// 2. Exportamos la tarjeta individual (ya no recibe un array, recibe solo dos strings)
+export const DataCard = ({ value, label }) => {
+  if (!value) return null; // Seguridad anti-crashes
+
+  return (
+    <StatCard>
+      <StatValue>
+        <CountUp target={value} />
+      </StatValue>
+      <StatLabel>{label}</StatLabel>
+    </StatCard>
   );
 };
-
-export default DataCards;

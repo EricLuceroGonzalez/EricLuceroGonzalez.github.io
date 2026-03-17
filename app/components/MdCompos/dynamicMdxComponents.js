@@ -9,12 +9,20 @@ import { RepoFooter } from "./RepoShare";
 const LazyManim = lazy(() => import("./Videos"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
-const DataCard = lazy(() => import("./DataCards"));
+// Borra el import viejo de DataCard y pon estos dos:
+const LazyDataGrid = lazy(() =>
+  import("./DataCards").then((mod) => ({ default: mod.DataGrid })),
+);
+const LazyDataCard = lazy(() =>
+  import("./DataCards").then((mod) => ({ default: mod.DataCard })),
+);
 const LazyDisclaimer = lazy(() => import("./Disclaimer"));
+// Borra el const LazyReferenceList viejo y pon estos dos:
 const LazyReferenceList = lazy(() =>
-  import("./ReferenceList").then((module) => ({
-    default: module.ReferenceList,
-  })),
+  import("./ReferenceList").then((mod) => ({ default: mod.ReferenceList })),
+);
+const LazyReferenceItem = lazy(() =>
+  import("./ReferenceList").then((mod) => ({ default: mod.ReferenceItem })),
 );
 const LazyPlotlyCharts = lazy(() => import("../PlotlyChart"));
 
@@ -55,16 +63,6 @@ export const dynamicMdxComponents = {
       <LazyDisclaimer {...props} />
     </Suspense>
   ),
-  ReferenceList: (props) => (
-    <Suspense
-      fallback={
-        <div style={{ padding: "1rem", color: "gray" }}>Cargando notas...</div>
-      }
-    >
-      <LazyReferenceList {...props} />
-    </Suspense>
-  ),
-  // ReferenceList: (props) => <ReferenceList references={props.references} />,
 
   SuperIndex: (props) => <sup {...props}>{props.children}</sup>,
 
@@ -73,11 +71,7 @@ export const dynamicMdxComponents = {
       <BarChart {...props} />
     </Suspense>
   ),
-  DataCard: (props) => (
-    <Suspense fallback={<div>Cargando...</div>}>
-      <DataCard {...props} />
-    </Suspense>
-  ),
+
   SorteoMundial: SorteoMundialWithTranslations,
   CitationSup: (props) => <CitationSup id={props.id} />,
   QuoteAndAuthor: (props) => <QuotationAndAuthor {...props} />,
@@ -92,7 +86,36 @@ export const dynamicMdxComponents = {
       <LazyPlotlyCharts {...props} />
     </Suspense>
   ),
+  DataGrid: (props) => <LazyDataGrid {...props} />,
 
+  DataCard: (props) => (
+    <Suspense
+      fallback={
+        <div style={{ padding: "2rem", textAlign: "center" }}>
+          Cargando dato...
+        </div>
+      }
+    >
+      <LazyDataCard {...props} />
+    </Suspense>
+  ),
+  ReferenceList: (props) => (
+    <Suspense
+      fallback={
+        <div style={{ padding: "1rem", color: "gray" }}>
+          Cargando lista de referencias...
+        </div>
+      }
+    >
+      <LazyReferenceList {...props} />
+    </Suspense>
+  ),
+
+  ReferenceItem: (props) => (
+    <Suspense fallback={<span>Cargando referencia...</span>}>
+      <LazyReferenceItem {...props} />
+    </Suspense>
+  ),
   // PDFViewer: (props) => (
   //   <Suspense fallback={<div>Cargando PDF...</div>}>
   //     <PDFViewer {...props} />

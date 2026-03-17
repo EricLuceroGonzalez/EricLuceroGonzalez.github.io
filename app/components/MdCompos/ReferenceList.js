@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa6";
 import styled from "styled-components";
-
 // Contenedor de la lista
 const RefNumbers = styled.ol`
   list-style: none;
@@ -31,6 +30,7 @@ const RefNumbers = styled.ol`
     flex-shrink: 0;
   }
 `;
+
 const RefEntry = styled.li`
   text-align: left;
 `;
@@ -79,65 +79,38 @@ const RefUrl = styled.a`
     font-size: 0.9em;
   }
 `;
-
-export const ReferenceList = ({ references }) => {
-  let refs = [];
-  try {
-    if (references) {
-      refs = JSON.parse(references);
-    }
-  } catch (error) {
-    console.error("Error parseando las referencias:", error);
-  }
-  const t = useTranslations("mdxComponents");
-  if (!refs || refs.length === 0) return null;
-
+// solo envuelve a los hijos
+export const ReferenceList = ({ children }) => {
   return (
     <div>
-      <RefNumbers>
-        {refs.map(({ id, text, url }) => (
-          <RefEntry key={id} id={`ref-${id}`}>
-            <RefContent>
-              <span>{text}</span>
-              {url && (
-                <>
-                  {", "}
-                  <RefUrl href={url} target="_blank" rel="noopener noreferrer">
-                    {url}{" "}
-                    <FaExternalLinkAlt style={{ color: "var(--primary)" }} />
-                  </RefUrl>
-                </>
-              )}
-              <RefTex href={`#cite-${id}`} aria-label="Volver al texto">
-                ({t("Reference_back")})
-                <FaArrowUp />
-              </RefTex>
-            </RefContent>
-          </RefEntry>
-        ))}
-      </RefNumbers>
+      <RefNumbers>{children}</RefNumbers>
     </div>
   );
 };
 
-// {references.map(({ id, text, url }) => (
-//           <RefEntry key={id} id={`ref-${id}`}>
-//             {/* Envolvemos todo el contenido (texto + links) en un div para que sea el segundo hijo del Flex */}
-//             <RefContent>
-//               <span>{text}</span>
-//               {url && (
-//                 <>
-//                   {", "}
-//                   <RefUrl href={url} target="_blank" rel="noopener noreferrer">
-//                     {url}{" "}
-//                     <FaExternalLinkAlt style={{ color: "var(--primary)" }} />
-//                   </RefUrl>
-//                 </>
-//               )}
-//               <RefTex href={`#cite-${id}`} aria-label="Volver al texto">
-//                 ({t("Reference_back")})
-//                 <FaArrowUp />
-//               </RefTex>
-//             </RefContent>
-//           </RefEntry>
-//         ))}
+// recibe strings simples
+export const ReferenceItem = ({ id, text, url }) => {
+  const t = useTranslations("mdxComponents");
+
+  if (!text) return null; // Seguridad anti-crashes
+
+  return (
+    <RefEntry id={`ref-${id}`}>
+      <RefContent>
+        <span>{text}</span>
+        {url && (
+          <>
+            {", "}
+            <RefUrl href={url} target="_blank" rel="noopener noreferrer">
+              {url} <FaExternalLinkAlt style={{ color: "var(--primary)" }} />
+            </RefUrl>
+          </>
+        )}
+        <RefTex href={`#cite-${id}`} aria-label="Volver al texto">
+          ({t("Reference_back")})
+          <FaArrowUp />
+        </RefTex>
+      </RefContent>
+    </RefEntry>
+  );
+};
