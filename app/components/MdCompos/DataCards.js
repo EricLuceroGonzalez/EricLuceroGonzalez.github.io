@@ -5,12 +5,12 @@ import { useState, useEffect } from "react";
 // 1. Exportamos el contenedor (La grilla)
 export const DataGrid = styled.div`
   display: grid;
-  gap: 1.5rem;
-  width: 90%;
+  gap: 1.25rem;
+  width: 99%;
   margin: 2rem auto;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-  @media (min-width: 1024px) {
+  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+  grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 660px) {
     grid-template-columns: repeat(3, 1fr);
   }
 `;
@@ -19,7 +19,7 @@ const StatCard = styled.div`
   background: var(--bg);
   border: 2px solid var(--accent);
   color: var(--accent);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 12px;
   box-shadow: 8px 5px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
@@ -35,14 +35,17 @@ const StatCard = styled.div`
 `;
 
 const StatValue = styled.h2`
-  font-size: 2.2rem;
+  font-size: large;
   font-weight: 800;
   margin: 0;
   letter-spacing: -1px;
+  @media (min-width: 1024px) {
+    font-size: x-large;
+  }
 `;
 
 const StatLabel = styled.p`
-  font-size: 1rem;
+  font-size: small;
   color: var(--quote-fg);
   margin: 0.5rem 0 0 0;
   font-weight: 500;

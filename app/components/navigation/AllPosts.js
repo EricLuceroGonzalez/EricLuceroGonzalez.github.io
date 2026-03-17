@@ -1,7 +1,12 @@
 "use client";
 import { Link } from "../../../i18n/navigation";
 import Image from "next/image";
-import { Date, MetaInfo, SideInfo, SectionType } from "../../ui/lugs.js";
+import {
+  Date,
+  MetaInfo,
+  SideInfo,
+  SectionType,
+} from "../../ui/BlogHeaderInfo.js";
 import {
   CardContainer,
   GridContainer,

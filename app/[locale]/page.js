@@ -42,7 +42,6 @@ export default async function Home({ params }) {
         <MdParagraph>{t("copy_text.p2")}</MdParagraph>
 
         <SubTitlePage>Blog</SubTitlePage>
-
         <HomeBoxes props={allPostsData.posts} />
         {allLatexPosts.posts.length > 0 ? (
           <LatexSection>

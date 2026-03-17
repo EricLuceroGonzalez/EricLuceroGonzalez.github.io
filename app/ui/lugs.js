@@ -2,9 +2,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { TAG_STYLES } from "../lib/constants";
-// import { synthwave84 } from "react-syntax-highlighter/dist/esm/styles/prism";
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
 // Contenedor principal para manejar diseño responsivo
 export const Layout = styled.div`
   display: flex;
@@ -14,7 +12,7 @@ export const Layout = styled.div`
   font-size: small;
   background-color: var(--bg);
   @media (max-width: 768px) {
-    flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
+    flex-direction: column; /* Cambia a vertical en pantallas pequeñas */
   }
   @media (min-width: 1080px) {
     font-size: large;
@@ -69,12 +67,6 @@ export const Author = styled.p`
   margin-bottom: 1.5rem;
 `;
 
-// export const CodeBlock = styled(SyntaxHighlighter)`
-//   margin: 20px 0;
-//   border-radius: 8px;
-//   font-size: smaller;
-// `;
-
 export const CoverImageContainer = styled.div`
   margin-bottom: 2rem;
 
@@ -115,33 +107,6 @@ export const TitleContainer = styled.h2`
   color: var(--accent);
   text-align: left;
 `;
-
-export const Date = styled.div`
-  font-size: small;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const MetaInfo = styled.div`
-  /* border: 1px solid blue; */
-  border-bottom: 1px solid var(--secondary-btn-hover);
-  padding-bottom: 0.5rem;
-  font-size: small;
-  color: var(--accent);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  width: 75%;
-  @media (0px <= width <=398px) {
-    width: 80%;
-    flex-direction: row;
-    font-size: small;
-    /* padding-bottom: 12px;
-    border-bottom: 1px solid var(--quote-bg); */
-  }
-  padding-top: 3px;
-`;
 // Contenedor para el avatar y el nombre del autor
 export const AuthorInfo = styled.div`
   display: flex;
@@ -160,41 +125,6 @@ export const Avatar = styled.img`
 export const AuthorName = styled.span`
   font-size: x-small;
   color: var(--fg);
-`;
-
-// background: ${($props) =>
-//   $props.$isCopy ? "var(--emphasis-bg)" : "var(--secondary-btn-bg)"};
-export const SectionType = styled.div`
-  font-weight: bold;
-  /* background-color: var(--fg);  */
-  color: var(--bg);
-  padding: 1px 6px;
-  border-radius: 2px;
-  display: inline-block;
-  margin-left: 10px;
-  font-size: xx-small;
-  font-family: monospace;
-  ${(props) => {
-    // tag a minúsculas
-    const tagKey = props.$tag ? props.$tag.toLowerCase() : "default";
-    // Filtro de estilo
-    const style = TAG_STYLES[tagKey] || TAG_STYLES.default;
-    return `
-      background-color: ${style.bg};
-      color: ${style.text};
-      border: 1px solid ${style.bg}; 
-    `;
-  }}
-
-  @media (0px <= width <= 396px) {
-    display: none;
-  }
-`;
-// TODO: Agregar tags: python, ia, other?
-export const SideInfo = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 `;
 
 export const LinkList = styled.div`
@@ -261,7 +191,6 @@ export const AboutMePanel = styled.div`
   @media (min-width: 768px) {
     flex-direction: row; /* Desktop: Horizontal */
     align-items: flex-start; /* Alinea foto y texto al inicio (top) */
-    /* Si prefieres que la foto quede justo al medio verticalmente del texto, usa: align-items: center; */
     gap: 4rem; /* Aumentamos el espacio en pantallas grandes */
     text-align: left;
   }
