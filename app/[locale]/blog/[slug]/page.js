@@ -9,19 +9,19 @@ import {
 import { MDXRemote } from "next-mdx-remote/rsc";
 import MdxComponents from "@/app/components/MdCompos/MDXComponents";
 import { dynamicMdxComponents } from "@/app/components/MdCompos/dynamicMdxComponents";
+import { Article, Layout } from "@/app/ui/lugs.js";
 import {
-  Article,
   Date,
   MetaInfo,
   SideInfo,
   SectionType,
-  Layout,
-} from "@/app/ui/lugs.js";
+} from "@/app/ui/BlogHeaderInfo.js";
 import { MainBg } from "@/app/ui/ComponentsStyled.js";
 import Link from "next/link.js";
 import { MdHead } from "@/app/ui/MarkDownComponents.js";
 import PostNavigationCard from "@/app/components/PostNavigation.js";
 import ShowPath from "@/app/components/showPath.js";
+import LikesButton from "@/app/components/Likes.js";
 import ScrollDiv from "@/app/components/navigation/ScrollDiv.js";
 import DateDisplay from "@/app/components/DateDisplay.js";
 import remarkGfm from "remark-gfm";
@@ -136,6 +136,7 @@ const BlogPost = async ({ params }) => {
                 ))}
               </Link>
             </SideInfo>
+            <LikesButton slug={post.slug} />
           </MetaInfo>
           <MDXRemote
             source={post.content}

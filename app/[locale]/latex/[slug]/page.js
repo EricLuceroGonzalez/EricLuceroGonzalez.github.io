@@ -7,22 +7,21 @@ import { dynamicMdxComponents } from "@/app/components/MdCompos/dynamicMdxCompon
 
 import { HeroImage, MdHead } from "@/app/ui/MarkDownComponents";
 import { MainBg } from "@/app/ui/ComponentsStyled";
+import { Article, Layout } from "@/app/ui/lugs";
 import {
-  Article,
   Date,
-  Layout,
   MetaInfo,
-  SectionType,
   SideInfo,
-} from "@/app/ui/lugs";
+  SectionType,
+} from "@/app/ui/BlogHeaderInfo.js";
 import Image from "next/image";
 import ScrollDiv from "@/app/components/navigation/ScrollDiv";
 import ShowPath from "@/app/components/showPath";
+import LikesButton from "@/app/components/Likes.js";
 import DateDisplay from "@/app/components/DateDisplay";
 import Link from "next/link";
 import PostNavigationCard from "@/app/components/PostNavigation";
 import remarkMath from "remark-math";
-// import rehypeMathjax from "rehype-mathjax";
 import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
 import supersub from "remark-supersub";
@@ -107,6 +106,7 @@ const LatexPost = async ({ params }) => {
                 ))}
               </Link>
             </SideInfo>
+            <LikesButton slug={post.slug} />
           </MetaInfo>
           {post.coverImage && (
             <HeroImage>
