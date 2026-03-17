@@ -9,6 +9,7 @@ import { RepoFooter } from "./RepoShare";
 const LazyManim = lazy(() => import("./Videos"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
+const DataCard = lazy(() => import("./DataCards"));
 const LazyDisclaimer = lazy(() => import("./Disclaimer"));
 const LazyReferenceList = lazy(() =>
   import("./ReferenceList").then((module) => ({
@@ -66,9 +67,15 @@ export const dynamicMdxComponents = {
   // ReferenceList: (props) => <ReferenceList references={props.references} />,
 
   SuperIndex: (props) => <sup {...props}>{props.children}</sup>,
+
   BarChart: (props) => (
     <Suspense fallback={<div>Cargando...</div>}>
       <BarChart {...props} />
+    </Suspense>
+  ),
+  DataCard: (props) => (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <DataCard {...props} />
     </Suspense>
   ),
   SorteoMundial: SorteoMundialWithTranslations,
