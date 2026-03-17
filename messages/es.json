@@ -121,8 +121,8 @@
                 "content": "El responsable de este sitio web es **Eric Lucero González** (en adelante, 'el Titular'). Puedes contactarme para cualquier cuestión relacionada con este sitio en: **ericlucerogonzalez@gmail.com**."
             },
             "data": {
-                "title": "2. Protección de Datos (RGPD)",
-                "content": "Este sitio web **no recopila datos personales** de sus visitantes. No hay formularios de registro, ni comentarios, ni rastreadores de análisis (como Google Analytics). Tu navegación es completamente anónima."
+                "title": "2. Protección de Datos (RGPD) y Analíticas Anónimas",
+                "content": "Este sitio web **no recopila datos personales** de sus visitantes. No hay formularios de registro, ni comentarios, ni rastreadores de análisis intrusivos (como Google Analytics). Tu navegación es completamente anónima. Las interacciones con el contenido (como el conteo de 'vistas de página' o los 'Me gusta' en los artículos) se registran de forma estrictamente agregada y anónima en nuestra base de datos, sin asociarse en ningún momento a tu dirección IP, dispositivo o identidad personal."
             },
             "copyright": {
                 "title": "3. Copyright y Licencias",
@@ -152,11 +152,12 @@
                 "base_legal": "El tratamiento de estos datos técnicos se basa en el Interés Legítimo (Art. 6.1.f RGPD) de garantizar la seguridad de la red y la entrega del contenido."
             },
             "cookies": {
-                "title": "6. Política de Cookies",
-                "content": "Este sitio **no utiliza cookies de rastreo ni publicitarias**. Únicamente utilizamos almacenamiento local (LocalStorage) o cookies técnicas esenciales para recordar tus preferencias de:",
+                "title": "6. Política de Cookies y Almacenamiento Local",
+                "content": "Este sitio **no utiliza cookies de rastreo ni publicitarias**. En su lugar, utilizamos únicamente el almacenamiento local de tu navegador (LocalStorage) para habilitar funcionalidades técnicas estrictamente necesarias. De acuerdo con la directiva europea ePrivacy, estas funciones no requieren consentimiento explícito porque no se usan para seguimiento, e incluyen:",
                 "list": [
-                    "Idioma seleccionado (Español/Inglés)",
-                    "Tema visual (Claro/Oscuro)"
+                    "Recordar el idioma seleccionado (Español/Inglés).",
+                    "Recordar tu preferencia de tema visual (Claro/Oscuro).",
+                    "Registrar localmente los artículos a los que has dado 'Me gusta' (para reflejar tu interacción en la interfaz y evitar peticiones duplicadas a la base de datos)."
                 ]
             },
             "license": {

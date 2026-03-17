@@ -121,8 +121,8 @@
                 "content": "The owner of this website is **Eric Lucero González** (hereinafter, 'the Owner'). You can contact me regarding this site at: **ericlucerogonzalez@gmail.com**."
             },
             "data": {
-                "title": "2. Data Protection (GDPR)",
-                "content": "This website **does not collect personal data** from its visitors. There are no registration forms, comments, or analytics trackers (like Google Analytics). Your browsing is completely anonymous."
+                "title": "2. Data Protection (GDPR) & Anonymous Analytics",
+                "content": "This website **does not collect personal data** from its visitors. There are no registration forms, comments, or invasive analytics trackers (like Google Analytics). Your browsing is completely anonymous. Content interactions (such as 'page views' tracking or 'Likes' on articles) are recorded in a strictly aggregated and anonymous manner in our database, without ever being linked to your IP address, device, or personal identity."
             },
             "copyright": {
                 "title": "3. Copyright & Licensing",
@@ -152,11 +152,12 @@
                 "base_legal": "The processing of this technical data is based on Legitimate Interest (Art. 6.1.f GDPR) to guarantee network security and the correct technical delivery of the requested content."
             },
             "cookies": {
-                "title": "6. Cookie Policy",
-                "content": "This site **does not use tracking or advertising cookies**. We only use local storage (LocalStorage) or essential technical cookies to remember your preferences for:",
+                "title": "6. Cookie & Local Storage Policy",
+                "content": "This site **does not use tracking or advertising cookies**. Instead, we solely use your browser's local storage (LocalStorage) to enable strictly necessary technical functionalities. Under the European ePrivacy directive, these features do not require explicit consent because they are not used for tracking, and include:",
                 "list": [
-                    "Selected language (Spanish/English)",
-                    "Visual theme (Light/Dark)"
+                    "Remembering your selected language (Spanish/English).",
+                    "Remembering your visual theme preference (Light/Dark mode).",
+                    "Locally recording the articles you have 'Liked' (to reflect your interaction in the interface and prevent duplicate database requests)."
                 ]
             },
             "license": {
