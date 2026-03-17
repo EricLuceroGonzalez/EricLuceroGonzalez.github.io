@@ -17,6 +17,13 @@ keywords: ["blog", "python", "javascript","Data Science","Metrics","Stack overfl
 isPublic: true
 ---
 A forensic analysis of Stack Overflow's decline. How the rise of LLMs devalued the platform and drove away the experts sustaining the open-source ecosystem. I argue that the platform's community grew organically from its inception in 2008 until the shift in Q&A policies, at which point it began to decline, save for a slight bump in May 2020 due to the pandemic. Afterward, it continued its slow descent until the emergence of conversational AI, ChatGPT, which launched to the public in November 2022.
+<DataGrid>
+  <DataCard value="24,177,395" label="Total questions" />
+  <DataCard value="4,323,660" label="Questions with term 'How'" />
+  <DataCard value="15,890" label="Questions without answer" />
+  <DataCard value="1.2M" label="Active users" />
+  <DataCard value="63,47,548" label="Accounts registered until 03/2026" />
+</DataGrid>
 
 ## Table of Contents
 {/* - Source: [https://data.stackexchange.com](https://data.stackexchange.com) */}
@@ -63,6 +70,13 @@ This first official question, shown in Figure 3, was answered that exact same da
 You can browse through the questions by understanding that the URLs number them sequentially at the `/questions/{question_number}` endpoint. Thus, the first question in Stack Overflow's history can be accessed simply by navigating to: [https://stackoverflow.com/questions/4](https://stackoverflow.com/questions/4). We can see that the `question_number` endpoint acts as the unique identifier. Questions 1, 2, and 3 are technically the first ones on Stack Overflow, but they aren't public because they were internal tests, as shown in Figure 5.
 If the `question_number` endpoint is $<4$, it redirects you to: _"Oh where the joel data go"_. This refers to Joel Spolsky, a member of the founding team consisting of Joel Spolsky, Jeff Atwood, Geoff Dalgas, and Jarrod Dixon.
 ![number=5caption=Screenshot of the internal tests on Stack Overflow's earliest posts.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768402607/elCronopio/Blog-posts/stackoverflow-firstQ-JOEL_jvcr6h.png)
+
+<DataGrid>
+  <DataCard value="2,116,724" label="Questions in 2014" />
+  <DataCard value="118,402" label="Questions in 2025" />
+  <DataCard value="10" label="% of unanswered questions 2014" />
+  <DataCard value="32" label="% de unanswered questions 2025" />
+</DataGrid>
 
 ### Stack Overflow from 2008 to 2014
 In November 2008, Atwood made it crystal clear that Stack Overflow _belongs to the programmers_, not its creators. The guiding principle, coined "Stack Overflow Is You", was rooted in blind trust towards the community<CitationSup id="4"/>.
@@ -225,20 +239,28 @@ To ensure the transparency of this analysis, all interactive charts are based on
 | **High Reputation Lost** | Subset of *Users Lost* who had a high reputation (e.g., > 1,000 points) at the time they left. | Quantifies the **brain drain**. Proves that it's not just newbies leaving, but the content creators who sustained the platform. |
 | **Users who Voted** | Number of unique users who cast at least one vote (Upvote/Downvote) in the month. | Measures **democratic health and curation**. Its plunge reflects the community's apathy and burnout. |
 | **Avg Reputation (Geographic)** | Average user reputation, grouped by their home country (`Location`). | Reveals **knowledge density**. Allows mapping where true experts reside versus massive consumption countries. |
+<RepoBadge url="https://data.stackexchange.com/users/49951/eric-lucero"
+type="url"
+message="See the SQL queries here."/>
 
-<ReferenceList references='[
-{"id":"1", "text":"Stack Exchange Data Explorer (SEDE) queries", "url":"https://data.stackexchange.com/users/49951/eric-lucero"},
-{"id":"2", "text":"First official question: How to convert decimal to double in C?", "url":"[https://stackoverflow.com/questions/4/how-to-convert-decimal-to-double-in-c](https://stackoverflow.com/questions/4/how-to-convert-decimal-to-double-in-c)"},
-{"id":"3", "text":"SQL Query: All questions on Stack Overflow to date.", "url":"[https://data.stackexchange.com/stackoverflow/query/1940826/preguntas-desde-2008](https://data.stackexchange.com/stackoverflow/query/1940826/preguntas-desde-2008)"},
-{"id":"4", "text":"Stack Overflow Is You", "url":"[https://stackoverflow.blog/2008/11/25/stack-overflow-is-you/](https://stackoverflow.blog/2008/11/25/stack-overflow-is-you/)"},
-{"id":"5", "text":"First moderation changes", "url":"[https://stackoverflow.blog/2011/01/14/improved-flagging/](https://stackoverflow.blog/2011/01/14/improved-flagging/)"},
-{"id":"6", "text":"A brief history of moderation tooling on Stack Overflow", "url":"[https://meta.stackoverflow.com/questions/251175/stack-overflow-is-not-yet-a-vast-wasteland-a-history-of-moderator-tooling](https://meta.stackoverflow.com/questions/251175/stack-overflow-is-not-yet-a-vast-wasteland-a-history-of-moderator-tooling)"},
-{"id":"7", "text":"The birth of Meta Stack Exchange", "url":"[https://stackoverflow.blog/2014/04/17/announcing-the-launch-of-meta-stack-exchange/](https://stackoverflow.blog/2014/04/17/announcing-the-launch-of-meta-stack-exchange/)"},
-{"id":"8", "text":"The War of the Closes", "url":"[https://stackoverflow.blog/2013/06/25/the-war-of-the-closes/](https://stackoverflow.blog/2013/06/25/the-war-of-the-closes/)"},
-{"id":"9", "text":"SQL Query: Platform user locations, based on the top 5000.", "url":"[https://data.stackexchange.com/stackoverflow/query/1940827/ubicacion-de-usuarios](https://data.stackexchange.com/stackoverflow/query/1940827/ubicacion-de-usuarios)"},
-{"id":"10", "text":"SQL Query: Total monthly questions, from 2008 to date.", "url":"[https://data.stackexchange.com/stackoverflow/query/1940792/preguntas-por-mes](https://data.stackexchange.com/stackoverflow/query/1940792/preguntas-por-mes)"},
-{"id":"11", "text":"Reputation rules and voting system.", "url":"[https://internal.stackoverflow.help/en/articles/8775594-reputation-and-voting](https://internal.stackoverflow.help/en/articles/8775594-reputation-and-voting)"},
-{"id":"12", "text":"In February 2024, Stack Overflow announced a partnership with Google", "url":"[https://stackoverflow.co/company/press/archive/google-cloud-strategic-gen-ai-partnership](https://stackoverflow.co/company/press/archive/google-cloud-strategic-gen-ai-partnership)"},
-{"id":"13", "text":"In May 2024, Stack Overflow announced a partnership with OpenAI", "url":"[https://stackoverflow.co/company/press/archive/openai-partnership](https://stackoverflow.co/company/press/archive/openai-partnership)"},
-{"id":"14", "text":"SQL Query: User abandonment", "url":"[https://data.stackexchange.com/stackoverflow/query/1940829/perfil-del-abandono](https://data.stackexchange.com/stackoverflow/query/1940829/perfil-del-abandono)"}
-]'/>
+<RepoBadge url="https://blog.pragmaticengineer.com/stack-overflow-is-almost-dead/"
+type="url"
+message="Nice lecture on Pragmatic Engineer: 'Stack overflow is almost dead'"/>
+
+## Referencias
+<ReferenceList>
+  <ReferenceItem id="1" text="Stack Exchange Data Explorer (SEDE) queries" url="https://data.stackexchange.com/users/49951/eric-lucero" />
+  <ReferenceItem id="2" text="First official question: How to convert decimal to double in C?" url="https://stackoverflow.com/questions/4/how-to-convert-decimal-to-double-in-c" />
+  <ReferenceItem id="3" text="SQL Query: All questions on Stack Overflow to date." url="https://data.stackexchange.com/stackoverflow/query/1940826/preguntas-desde-2008" />
+  <ReferenceItem id="4" text="Stack Overflow Is You" url="https://stackoverflow.blog/2008/11/25/stack-overflow-is-you/" />
+  <ReferenceItem id="5" text="First moderation changes" url="https://stackoverflow.blog/2011/01/14/improved-flagging/" />
+  <ReferenceItem id="6" text="A brief history of moderation tooling on Stack Overflow" url="https://meta.stackoverflow.com/questions/251175/stack-overflow-is-not-yet-a-vast-wasteland-a-history-of-moderator-tooling" />
+  <ReferenceItem id="7" text="The birth of Meta Stack Exchange" url="https://stackoverflow.blog/2014/04/17/announcing-the-launch-of-meta-stack-exchange/" />
+  <ReferenceItem id="8" text="The War of the Closes" url="https://stackoverflow.blog/2013/06/25/the-war-of-the-closes/" />
+  <ReferenceItem id="9" text="SQL Query: Platform user locations, based on the top 5000." url="https://data.stackexchange.com/stackoverflow/query/1940827/ubicacion-de-usuarios" />
+  <ReferenceItem id="10" text="SQL Query: Total monthly questions, from 2008 to date." url="https://data.stackexchange.com/stackoverflow/query/1940792/preguntas-por-mes" />
+  <ReferenceItem id="11" text="Reputation rules and voting system." url="https://internal.stackoverflow.help/en/articles/8775594-reputation-and-voting" />
+  <ReferenceItem id="12" text="In February 2024, Stack Overflow announced a partnership with Google" url="https://stackoverflow.co/company/press/archive/google-cloud-strategic-gen-ai-partnership" />
+  <ReferenceItem id="13" text="In May 2024, Stack Overflow announced a partnership with OpenAI" url="https://stackoverflow.co/company/press/archive/openai-partnership" />
+  <ReferenceItem id="14" text="SQL Query: User abandonment" url="https://data.stackexchange.com/stackoverflow/query/1940829/perfil-del-abandono" />
+</ReferenceList>
