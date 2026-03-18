@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaHeart, FaRegHeart } from "react-icons/fa"; // Importamos los iconos sólido y regular
 
@@ -8,10 +8,10 @@ export default function LikeButton({ slug }) {
   const [isLiked, setIsLiked] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  const debounceTimer = useRef(null);
   // Verificamos el estado guardado al montar el componente
   useEffect(() => {
-    const storedLike = localStorage.getItem(`liked-${slug}`);
-    if (storedLike) {
+    if (localStorage.getItem(`liked-${slug}`)) {
       setIsLiked(true);
     }
     fetch(`/api/likes/${slug}`)
@@ -37,16 +37,26 @@ export default function LikeButton({ slug }) {
       localStorage.removeItem(`liked-${slug}`);
     }
     // Enviamos el cambio a MongoDB sin bloquear la UI
-    try {
-      await fetch(`/api/likes/${slug}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: newState ? "increment" : "decrement" }),
-      });
-    } catch (error) {
-      console.error("Error al guardar el like en BD", error);
-      // Podrías revertir el estado aquí si falla la red, pero en likes a veces se ignora por UX
+    if (debounceTimer.current) {
+      clearTimeout(debounceTimer.current);
     }
+
+    // Creamos un nuevo temporizador que esperará 1 segundo (1000ms) de inactividad
+    debounceTimer.current = setTimeout(async () => {
+      try {
+        await fetch(`/api/likes/${slug}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          // Solo enviamos la decisión FINAL después de que dejó de hacer clic
+          body: JSON.stringify({
+            action: newState ? "increment" : "decrement",
+          }),
+        });
+        console.log("Petición enviada a Mongo exitosamente");
+      } catch (error) {
+        console.error("Error al guardar el like en BD", error);
+      }
+    }, 1000);
   };
 
   if (!hasLoaded) return null; // O un pequeño skeleton loader
