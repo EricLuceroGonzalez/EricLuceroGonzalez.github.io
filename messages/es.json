@@ -220,6 +220,7 @@
         "btnShare": "Compartir",
         "btnFullscreen": "Pantalla Completa",
         "shareText": "Sigue la misión Artemis II en tiempo real desde este simulador interactivo.",
-        "copiedText": "¡Enlace copiado al portapapeles!"
+        "copiedText": "¡Enlace copiado al portapapeles!",
+        "btnDownloadAll": "⬇️ Descargar Calendario Completo (.ics)"
     }
 }

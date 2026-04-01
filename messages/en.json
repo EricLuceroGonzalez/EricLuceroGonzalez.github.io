@@ -220,6 +220,7 @@
         "btnShare": "Share",
         "btnFullscreen": "Full Screen",
         "shareText": "Follow the Artemis II mission in real-time with this interactive simulator.",
-        "copiedText": "Link copied to clipboard!"
+        "copiedText": "Link copied to clipboard!",
+        "btnDownloadAll": "⬇️ Download Full Timeline (.ics)"
     }
 }

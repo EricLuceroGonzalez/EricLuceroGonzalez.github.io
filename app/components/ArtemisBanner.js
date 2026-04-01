@@ -104,7 +104,7 @@ export default function ArtemisBanner() {
   const [elapsedMs, setElapsedMs] = useState(0);
 
   // La misma hora oficial en UTC que tu tracker principal
-  const officialLaunchUTC = new Date("2026-04-01T22:24:00Z").getTime();
+  const officialLaunchUTC = new Date("2026-04-01T22:35:12Z").getTime();
   // Asumimos que la misión termina unos 10 días después (aprox) para ocultar el banner
   const missionEndUTC = officialLaunchUTC + 10 * 24 * 60 * 60 * 1000;
 

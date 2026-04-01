@@ -99,7 +99,7 @@ const InputGroup = styled.div`
 const Label = styled.label`
   font-size: 13px;
   display: block;
-  margin-bottom: 6px;
+  /* margin-bottom: 6px; */
   color: #94a3b8;
   font-weight: 600;
   text-transform: uppercase;
@@ -124,7 +124,7 @@ const Display = styled.div`
   text-align: center;
   padding: 24px 20px;
   background: linear-gradient(145deg, #0f172a, #1e293b);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   border: 1px solid #334155;
   position: relative;
   overflow: hidden;
@@ -132,11 +132,12 @@ const Display = styled.div`
 
 const ProgressBarContainer = styled.div`
   width: 100%;
-  height: 4px;
+  height: 5px;
   background-color: #1e293b;
   position: absolute;
   top: 0;
   left: 0;
+  /* border: 2px solid red; */
 `;
 
 const ProgressBarFill = styled.div`
@@ -338,7 +339,42 @@ const FeedbackText = styled.p`
   font-weight: 500;
   letter-spacing: 0.5px;
 `;
+const TimeInfoGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* gap: 12px; */
+  /* margin-top: 2px; */
+  padding: 10px;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 8px;
+  border: 1px solid #334155;
+  width: 100%;
 
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const TimeLabelGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+`;
+
+const LabelSmall = styled.span`
+  font-size: 10px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+`;
+
+const DisplayValue = styled.span`
+  font-size: 13px;
+  color: #f1f5f9;
+  font-family: "JetBrains Mono", monospace;
+`;
 export default function ArtemisLiveTracker() {
   const t = useTranslations("ArtemisTracker");
   const locale = useLocale();
@@ -348,7 +384,7 @@ export default function ArtemisLiveTracker() {
     const officialLaunchUTC = new Date("2026-04-01T22:35:12Z");
     const tzOffset = officialLaunchUTC.getTimezoneOffset() * 60000;
     const localLaunchTime = new Date(officialLaunchUTC.getTime() - tzOffset);
-    return localLaunchTime.toISOString().slice(0, 16);
+    return localLaunchTime.toISOString().slice(0, 19);
   });
 
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -396,6 +432,18 @@ export default function ArtemisLiveTracker() {
     nextEvent = eventsWithMs[0];
   }
 
+  // Formato para Hora Local (detecta automáticamente el idioma del navegador)
+  const localDisplay = new Intl.DateTimeFormat(undefined, {
+    dateStyle: "long",
+    timeStyle: "medium",
+  }).format(launchDate);
+
+  // Formato para Hora UTC (estilo militar/aeroespacial)
+  const utcDisplay = launchDate
+    .toISOString()
+    .replace("T", " ")
+    .replace(/\..+/, "");
+
   const formatMET = (ms) => {
     const isNeg = ms < 0;
     const absMs = Math.abs(ms);
@@ -442,7 +490,57 @@ export default function ArtemisLiveTracker() {
     link.click();
     document.body.removeChild(link);
   };
+  const downloadAllEventsIcs = () => {
+    // 1. Cabecera del archivo iCalendar
+    const calendarHeader = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//Artemis Live Tracker//Mission Timeline//ES",
+      "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH",
+    ];
 
+    // 2. Generar cada evento (VEVENT)
+    const vevents = eventsWithMs.map((event) => {
+      const startDate = new Date(launchDate.getTime() + event.metMs);
+      const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // Duración estándar de 1 hora
+
+      const title =
+        locale === "en" && event.titleEn ? event.titleEn : event.title;
+      // Limpiamos los saltos de línea para el formato .ics
+      const desc = (
+        locale === "en" && event.descEn ? event.descEn : event.desc
+      ).replace(/\n/g, "\\n");
+
+      return [
+        "BEGIN:VEVENT",
+        `SUMMARY:${title}`,
+        `DTSTART:${formatIcsDate(startDate)}`,
+        `DTEND:${formatIcsDate(endDate)}`,
+        `DESCRIPTION:${desc} (Phase: ${event.phase}, Attitude: ${event.attitude})`,
+        "STATUS:CONFIRMED",
+        "SEQUENCE:0",
+        "END:VEVENT",
+      ].join("\r\n");
+    });
+
+    // 3. Unir todo
+    const icsContent = [...calendarHeader, ...vevents, "END:VCALENDAR"].join(
+      "\r\n",
+    );
+
+    // 4. Disparar descarga
+    const blob = new Blob([icsContent], {
+      type: "text/calendar;charset=utf-8",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", `Artemis_II_Full_Mission_Timeline.ics`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   // Pantalla Completa
   const toggleFullScreen = async () => {
     if (!document.fullscreenElement) {
@@ -509,21 +607,32 @@ export default function ArtemisLiveTracker() {
           </TopTools>
         </HeaderTop>
 
-        <InputGroup>
+        {/* <InputGroup>
           <Label>{t("launchTimeLabel")}</Label>
           <Input
             type="datetime-local"
             value={launchTime}
             onChange={(e) => setLaunchTime(e.target.value)}
-          />
-        </InputGroup>
+            />
+        </InputGroup> */}
+        <Label>{t("launchTimeLabel")}</Label>
+        <TimeInfoGrid>
+          <TimeLabelGroup>
+            <LabelSmall>Local Time</LabelSmall>
+            <DisplayValue>{localDisplay}</DisplayValue>
+          </TimeLabelGroup>
+
+          <TimeLabelGroup>
+            <LabelSmall>Universal Time (UTC)</LabelSmall>
+            <DisplayValue>{utcDisplay}</DisplayValue>
+          </TimeLabelGroup>
+        </TimeInfoGrid>
       </ControlsContainer>
 
       <Display>
-        {/* NUEVO: Barra de progreso */}
-        <ProgressBarContainer>
+        {/* <ProgressBarContainer>
           <ProgressBarFill $progress={progressPercentage} />
-        </ProgressBarContainer>
+        </ProgressBarContainer> */}
 
         <TimeHeader>
           {!isBeforeFirstEvent && !isEnded && (
@@ -593,6 +702,17 @@ export default function ArtemisLiveTracker() {
               </ActionButton>
               <ActionButton onClick={downloadNextEventIcs}>
                 {t("btnDownload")}
+              </ActionButton>
+              <ActionButton
+                onClick={downloadAllEventsIcs}
+                style={{
+                  width: "100%",
+                  marginTop: "8px",
+                  backgroundColor: "#1e293b",
+                  border: "1px solid #3b82f6",
+                }}
+              >
+                {t("btnDownloadAll")}
               </ActionButton>
             </ButtonGroup>
           </NextEvent>
