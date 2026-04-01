@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 // Asegúrate de tener tu función de conexión a Mongo adaptada para Next.js
 // import { getMongoCollection } from "@/lib/mongodb";
-import dbChuchu from "../../../lib/dbChuchu";
+import dbChuchu from "../../lib/dbChuchu";
 
 export async function GET(request) {
   try {
