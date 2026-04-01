@@ -13,7 +13,6 @@ import {
 import Image from "next/image";
 import ShowPath from "../../components/showPath";
 import { FaSquareXTwitter } from "react-icons/fa6";
-
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "@/app/components/BgMovingDots";
 

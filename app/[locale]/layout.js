@@ -13,7 +13,8 @@ import { parkinsans } from "../ui/fonts.js";
 // import NaviBar from "./components/navigation/navbar/NaviBar";
 import { Analytics } from "@vercel/analytics/next";
 import nextDynamic from "next/dynamic";
-// import ViewportSize from "../components/viewPortViewer";
+import ViewportSize from "../components/viewPortViewer";
+import ArtemisBanner from "../components/ArtemisBanner";
 
 export const dynamic = "force-static";
 export async function generateMetadata({ params }) {
@@ -104,6 +105,7 @@ export default async function LocaleLayout({ children, params }) {
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <NaviBar />
+            <ArtemisBanner />
             {/* <ViewportSize /> */}
             <main>{children}</main>
             <Footer />

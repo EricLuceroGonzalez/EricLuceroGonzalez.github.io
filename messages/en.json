@@ -4,7 +4,10 @@
         "description": "Personal research blog by Eric Lucero regarding Artificial Intelligence, Genetic Algorithms, Optimization, and LaTeX tutorials.",
         "keywords": "AI, PhD, LaTeX, Algorithms, Optimization, Metaheuristics, Spain, Research, Computer Science, Next.js",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509763/elCronopio/Thumbnails/portada-en_htnuoq.png",
-        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
+        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
+        "artemisTitle": "Artemis II Live Tracker | Official Timeline",
+        "artemisThumbnail": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1775059870/elCronopio/Blog-posts/Artemis_Logo_Color_Positive_RGB-July_2021_orig_brre74.jpg",
+        "artemisDesc": "Follow NASA's Artemis II mission in real-time. Interactive timeline, flight milestones, and telemetry of the Orion spacecraft to the Moon."
     },
     "HomePage": {
         "title": "Welcome",
@@ -182,5 +185,41 @@
     },
     "mdxComponents": {
         "Reference_back": "Back to text"
+    },
+    "Chuchu": {
+        "title": "Acerca de mí",
+        "paragraph1": "About mí",
+        "paragraph2": "About de mí"
+    },
+    "ArtemisTracker": {
+        "feedbackText": "Did you find this tracker useful?",
+        "bannerTextPre": "🚀 Artemis II Launches in:",
+        "bannerTextActive": "🚀 Artemis II Mission Active:",
+        "bannerCTA": "Watch Live",
+        "title": "⚙️ Artemis II Mission Simulator",
+        "launchTimeLabel": "Official Launch Time (Your local time)",
+        "missionActive": "Mission Active",
+        "inactiveTitle": "Inactive Operations",
+        "inactiveDesc": "There are still hours left before operations begin at Pad 39B. Stay tuned.",
+        "endedTitle": "Mission Ended",
+        "endedDesc": "The crew has splashed down safely. Navy rescue teams are recovering the capsule.",
+        "badgePrelaunch": "Pad Preparations",
+        "badgeRoutine": "Crew Routine",
+        "badgeFlight": "Flight Milestone",
+        "phase": "Phase",
+        "attitude": "Attitude",
+        "nextEvent": "Next:",
+        "startsIn": "Starts in",
+        "btnGoogle": "📅 Google Calendar",
+        "btnDownload": "⬇️ Download .ics",
+        "defPhaseTitle": "What is the Phase?",
+        "defPhaseText": "Indicates the current stage or flight regime of the mission (e.g., Earth Orbit, Trans-Lunar).",
+        "defAttitudeTitle": "What is Attitude?",
+        "defAttitudeText": "It is the 3D orientation of the spacecraft in space, not its altitude. It defines where its solar panels, cameras, or engines point.",
+        "sourceText": "Data extracted from official NASA telemetry:",
+        "btnShare": "Share",
+        "btnFullscreen": "Full Screen",
+        "shareText": "Follow the Artemis II mission in real-time with this interactive simulator.",
+        "copiedText": "Link copied to clipboard!"
     }
 }

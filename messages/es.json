@@ -4,7 +4,10 @@
         "description": "Blog personal sobre Inteligencia Artificial, Algoritmos, Optimización y LaTeX. Además de hablar de artículos científicos fundamentales.",
         "keywords": "IA, Doctorado, LaTeX, Algoritmos, España, PhD, AI, optimización, metaheurísticas, heuristics, latex, academic",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509766/elCronopio/Thumbnails/portada-es_lmwvib.png",
-        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
+        "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
+        "artemisTitle": "Artemis II | Cronología Oficial",
+        "artemisThumbnail": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1775059870/elCronopio/Blog-posts/Artemis_Logo_Color_Positive_RGB-July_2021_orig_brre74.jpg",
+        "artemisDesc": "Sigue en tiempo real la misión Artemis II de la NASA. Cronología interactiva, hitos de vuelo y telemetría de la nave Orion rumbo a la Luna."
     },
     "HomePage": {
         "title": "Hola ",
@@ -29,6 +32,11 @@
         "contact": "Contacto",
         "about_page": "Acerca de esta página y su contenido.",
         "licenses": "Términos legales y política de privacidad"
+    },
+    "Chuchu": {
+        "title": "Acerca de mí",
+        "paragraph1": "Acerca de mí",
+        "paragraph2": "Acerca de mí"
     },
     "About": {
         "title": "Acerca de mí",
@@ -182,5 +190,36 @@
     },
     "mdxComponents": {
         "Reference_back": "Volver arriba"
+    },
+    "ArtemisTracker": {
+        "feedbackText": "¿Te ha resultado útil este tracker?",
+        "bannerTextPre": "🚀 Artemis II Despega en:",
+        "bannerTextActive": "🚀 Misión Artemis II en curso:",
+        "bannerCTA": "Ver en vivo",
+        "title": "Artemis II | Cronología Oficial",
+        "launchTimeLabel": "Hora Oficial de Despegue (Tu hora local)",
+        "missionActive": "Misión Activa",
+        "inactiveTitle": "Operaciones Inactivas",
+        "inactiveDesc": "Aún faltan horas para el inicio de las operaciones en la Plataforma 39B. Mantente atento.",
+        "endedTitle": "Misión Finalizada",
+        "endedDesc": "La tripulación ha amerizado a salvo. Los equipos de rescate de la Marina están recuperando la cápsula.",
+        "badgePrelaunch": "Preparativos en Plataforma",
+        "badgeRoutine": "Rutina de Tripulación",
+        "badgeFlight": "Hito de Vuelo",
+        "phase": "Fase",
+        "attitude": "Actitud",
+        "nextEvent": "Próximo:",
+        "startsIn": "Inicia en",
+        "btnGoogle": "📅 Google Calendar",
+        "btnDownload": "⬇️ Descargar .ics",
+        "defPhaseTitle": "¿Qué es la Fase?",
+        "defPhaseText": "Indica la etapa o régimen de vuelo actual de la misión (ej. Órbita Terrestre, Tránsito Lunar).",
+        "defAttitudeTitle": "¿Qué es la Actitud?",
+        "defAttitudeText": "Es la orientación tridimensional de la nave en el espacio, no su altitud. Define hacia dónde apuntan sus paneles solares, cámaras o motores.",
+        "sourceText": "Datos extraídos de la telemetría oficial de la NASA:",
+        "btnShare": "Compartir",
+        "btnFullscreen": "Pantalla Completa",
+        "shareText": "Sigue la misión Artemis II en tiempo real desde este simulador interactivo.",
+        "copiedText": "¡Enlace copiado al portapapeles!"
     }
 }

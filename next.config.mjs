@@ -76,8 +76,10 @@ const nextConfig = {
       },
     ];
   },
+
   // Oculta uso de Next.js (seguridad por oscuridad básica)
   poweredByHeader: false,
+  allowedDevOrigins: ["192.168.0.14"],
 };
 
 // Envolvemos la configuración con el plugin de i18n
