@@ -89,9 +89,9 @@ export const missionEvents = [
   {
     title: "🚀 Despegue (Ascent)",
     titleEn: "🚀 Liftoff (Ascent)",
-    desc: "Los motores RS-25 y propulsores sólidos cobran vida. Inicio oficial del reloj MET[cite: 105].",
+    desc: "Los motores RS-25 y propulsores sólidos cobran vida. Inicio oficial del reloj MET.",
     descEn:
-      "RS-25 engines and solid boosters come to life. Official start of the MET clock[cite: 105].",
+      "RS-25 engines and solid boosters come to life. Official start of the MET clock.",
     phase: "Ascent",
     attitude: "Ascent",
     isRoutine: false,
@@ -102,9 +102,8 @@ export const missionEvents = [
   {
     title: "🌬️ Despresurización (DFTO 3, 2)",
     titleEn: "🌬️ Cabin Depress (DFTO 3, 2)",
-    desc: "Prueba de estanqueidad de los trajes espaciales. Se reduce la presión de la cabina intencionalmente[cite: 137].",
-    descEn:
-      "Spacesuit seal test. Cabin pressure is intentionally reduced[cite: 137].",
+    desc: "Prueba de estanqueidad de los trajes espaciales. Se reduce la presión de la cabina intencionalmente.",
+    descEn: "Spacesuit seal test. Cabin pressure is intentionally reduced.",
     phase: "Ascent",
     attitude: "Ascent",
     isRoutine: false,
@@ -115,9 +114,9 @@ export const missionEvents = [
   {
     title: "🔥 Elevación de Perigeo (ICPS PRM)",
     titleEn: "🔥 Perigee Raise Maneuver (ICPS PRM)",
-    desc: "La etapa superior enciende motores para estabilizar la órbita inicial a los 50 minutos del vuelo[cite: 131].",
+    desc: "La etapa superior enciende motores para estabilizar la órbita inicial a los 50 minutos del vuelo.",
     descEn:
-      "The upper stage fires engines to stabilize initial orbit 50 minutes into flight[cite: 131].",
+      "The upper stage fires engines to stabilize initial orbit 50 minutes into flight.",
     phase: "LEO",
     attitude: "MNVRS",
     isRoutine: false,
@@ -128,9 +127,8 @@ export const missionEvents = [
   {
     title: "💻 Pre ARB C/Os",
     titleEn: "💻 Pre ARB C/Os",
-    desc: "Chequeos previos de los sistemas antes de la maniobra de elevación de apogeo[cite: 106].",
-    descEn:
-      "Preliminary systems checkouts prior to the apogee raise maneuver[cite: 106].",
+    desc: "Chequeos previos de los sistemas antes de la maniobra de elevación de apogeo.",
+    descEn: "Preliminary systems checkouts prior to the apogee raise maneuver.",
     phase: "LEO",
     attitude: "MNVRs",
     isRoutine: false,
@@ -141,9 +139,9 @@ export const missionEvents = [
   {
     title: "🔥 Elevación de Apogeo (ARB TIG)",
     titleEn: "🔥 Apogee Raise Burn (ARB TIG)",
-    desc: "Encendido programado a las 0/01:47 para alargar la órbita de forma elíptica para ganar altura[cite: 136].",
+    desc: "Encendido programado a las 0/01:47 para alargar la órbita de forma elíptica para ganar altura.",
     descEn:
-      "Burn scheduled at 0/01:47 to elongate the orbit elliptically to gain altitude[cite: 136].",
+      "Burn scheduled at 0/01:47 to elongate the orbit elliptically to gain altitude.",
     phase: "LEO",
     attitude: "ARB",
     isRoutine: false,
@@ -154,9 +152,9 @@ export const missionEvents = [
   {
     title: "🧑‍🚀 Retirada de Trajes (Doff OCSS)",
     titleEn: "🧑‍🚀 Doff Survival Suits (OCSS)",
-    desc: "Los astronautas se quitan los pesados trajes anaranjados de supervivencia Orion Crew Survival System[cite: 110].",
+    desc: "Los astronautas se quitan los pesados trajes anaranjados de supervivencia Orion Crew Survival System.",
     descEn:
-      "Astronauts take off the heavy orange Orion Crew Survival System suits[cite: 110].",
+      "Astronauts take off the heavy orange Orion Crew Survival System suits.",
     phase: "LEO",
     attitude: "B-XSI",
     isRoutine: true,
@@ -167,9 +165,9 @@ export const missionEvents = [
   {
     title: "🔗 Separación Orion/ICPS",
     titleEn: "🔗 Orion/ICPS Spring Sep",
-    desc: "La nave Orion se desconecta físicamente de la etapa superior mediante resortes a las 3 horas y 23 minutos[cite: 132, 133].",
+    desc: "La nave Orion se desconecta físicamente de la etapa superior mediante resortes a las 3 horas y 23 minutos.",
     descEn:
-      "Orion spacecraft physically disconnects from the upper stage via springs at 3 hours 23 minutes[cite: 132, 133].",
+      "Orion spacecraft physically disconnects from the upper stage via springs at 3 hours 23 minutes.",
     phase: "LEO",
     attitude: "B-XSI",
     isRoutine: false,
@@ -180,9 +178,9 @@ export const missionEvents = [
   {
     title: "🛰️ Prox Ops Demo (Orion USS)",
     titleEn: "🛰️ Prox Ops Demo (Orion USS)",
-    desc: "A las 0/04:51, los astronautas prueban el control manual volando en proximidad a la etapa descartada[cite: 111, 138].",
+    desc: "A las 0/04:51, los astronautas prueban el control manual volando en proximidad a la etapa descartada.",
     descEn:
-      "At 0/04:51, astronauts test manual controls flying in proximity to the discarded stage[cite: 111, 138].",
+      "At 0/04:51, astronauts test manual controls flying in proximity to the discarded stage.",
     phase: "LEO",
     attitude: "Prox Ops Demo",
     isRoutine: false,
@@ -193,9 +191,9 @@ export const missionEvents = [
   {
     title: "🗑️ Encendido de Descarte (ICPS Disposal)",
     titleEn: "🗑️ ICPS Disposal Burn",
-    desc: "La etapa ICPS enciende su motor a las 0/05:02 para alejarse hacia una órbita cementerio segura[cite: 138].",
+    desc: "La etapa ICPS enciende su motor a las 0/05:02 para alejarse hacia una órbita cementerio segura.",
     descEn:
-      "The ICPS stage fires its engine at 0/05:02 to move to a safe graveyard orbit[cite: 138].",
+      "The ICPS stage fires its engine at 0/05:02 to move to a safe graveyard orbit.",
     phase: "LEO",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -206,9 +204,9 @@ export const missionEvents = [
   {
     title: "☀️ Despliegue de Paneles (SPL)",
     titleEn: "☀️ Solar Panel Deploy (SPL)",
-    desc: "A las 0/05:27, el Módulo de Servicio Europeo despliega sus cuatro paneles solares[cite: 139].",
+    desc: "A las 0/05:27, el Módulo de Servicio Europeo despliega sus cuatro paneles solares.",
     descEn:
-      "At 0/05:27, the European Service Module deploys its four solar arrays[cite: 139].",
+      "At 0/05:27, the European Service Module deploys its four solar arrays.",
     phase: "LEO",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -219,8 +217,8 @@ export const missionEvents = [
   {
     title: "📷 Calibración de Cámara (Dock Cam Bearing)",
     titleEn: "📷 Dock Cam Bearing",
-    desc: "Alineación de orientación (bearing) de la cámara óptica programada a las 0/06:00[cite: 139].",
-    descEn: "Optical camera bearing alignment scheduled at 0/06:00[cite: 139].",
+    desc: "Alineación de orientación (bearing) de la cámara óptica programada a las 0/06:00.",
+    descEn: "Optical camera bearing alignment scheduled at 0/06:00.",
     phase: "LEO",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -231,8 +229,8 @@ export const missionEvents = [
   {
     title: "🍲 Configuración de Cabina",
     titleEn: "🍲 Cabin Config",
-    desc: "Organización de los suministros dentro de la cápsula[cite: 112].",
-    descEn: "Organization of supplies inside the capsule[cite: 112].",
+    desc: "Organización de los suministros dentro de la cápsula.",
+    descEn: "Organization of supplies inside the capsule.",
     phase: "LEO",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -243,9 +241,9 @@ export const missionEvents = [
   {
     title: "🎙️ Chequeos PAD / PMC",
     titleEn: "🎙️ PAD / PMC Checks",
-    desc: "Conferencia médica privada (PMC) y revisión de Datos de Asesoramiento Preliminar[cite: 114, 115].",
+    desc: "Conferencia médica privada (PMC) y revisión de Datos de Asesoramiento Preliminar.",
     descEn:
-      "Private medical conference (PMC) and Preliminary Advisory Data review[cite: 114, 115].",
+      "Private medical conference (PMC) and Preliminary Advisory Data review.",
     phase: "LEO",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -256,8 +254,8 @@ export const missionEvents = [
   {
     title: "💤 Primer Ciclo de Sueño (4 hrs)",
     titleEn: "💤 First Sleep Cycle (4 hrs)",
-    desc: "Breve descanso de 4 horas para la tripulación tras la jornada de lanzamiento[cite: 116].",
-    descEn: "Brief 4-hour crew rest after the launch day[cite: 116].",
+    desc: "Breve descanso de 4 horas para la tripulación tras la jornada de lanzamiento.",
+    descEn: "Brief 4-hour crew rest after the launch day.",
     phase: "High Earth Orbit",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -268,9 +266,9 @@ export const missionEvents = [
   {
     title: "📡 Activación OpComm",
     titleEn: "📡 OpComm Activation",
-    desc: "Activación inicial del sistema de comunicaciones ópticas láser a las 0/10:06[cite: 134].",
+    desc: "Activación inicial del sistema de comunicaciones ópticas láser a las 0/10:06.",
     descEn:
-      "Initial activation of the laser optical communications system at 0/10:06[cite: 134].",
+      "Initial activation of the laser optical communications system at 0/10:06.",
     phase: "High Earth Orbit",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -281,9 +279,9 @@ export const missionEvents = [
   {
     title: "🔥 Orion PRB",
     titleEn: "🔥 Orion Perigee Raise Burn (PRB)",
-    desc: "Orion enciende su motor principal a las 0/13:30 para ajustar la órbita final antes de saltar a la Luna[cite: 135].",
+    desc: "Orion enciende su motor principal a las 0/13:30 para ajustar la órbita final antes de saltar a la Luna.",
     descEn:
-      "Orion fires its main engine at 0/13:30 to adjust final orbit before jumping to the Moon[cite: 135].",
+      "Orion fires its main engine at 0/13:30 to adjust final orbit before jumping to the Moon.",
     phase: "High Earth Orbit",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -294,8 +292,8 @@ export const missionEvents = [
   {
     title: "🔭 OpNav C/O",
     titleEn: "🔭 OpNav C/O",
-    desc: "Chequeos del sistema de navegación óptica de la nave a las 0/14:15[cite: 140].",
-    descEn: "Optical navigation system checkouts at 0/14:15[cite: 140].",
+    desc: "Chequeos del sistema de navegación óptica de la nave a las 0/14:15.",
+    descEn: "Optical navigation system checkouts at 0/14:15.",
     phase: "High Earth Orbit",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -306,9 +304,8 @@ export const missionEvents = [
   {
     title: "💤 Segundo Sueño (4.5 hrs)",
     titleEn: "💤 Second Sleep (4.5 hrs)",
-    desc: "Ciclo de descanso principal de 4.5 horas para prepararse para la inyección lunar[cite: 119].",
-    descEn:
-      "Main 4.5-hour sleep cycle to prepare for lunar injection[cite: 119].",
+    desc: "Ciclo de descanso principal de 4.5 horas para prepararse para la inyección lunar.",
+    descEn: "Main 4.5-hour sleep cycle to prepare for lunar injection.",
     phase: "High Earth Orbit",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -319,8 +316,8 @@ export const missionEvents = [
   {
     title: "💪 Prueba de Ejercicio",
     titleEn: "💪 Exercise Test",
-    desc: "Prueba de los equipos de ejercicio resistivo de la cabina[cite: 146].",
-    descEn: "Test of the cabin's resistive exercise equipment[cite: 146].",
+    desc: "Prueba de los equipos de ejercicio resistivo de la cabina.",
+    descEn: "Test of the cabin's resistive exercise equipment.",
     phase: "High Earth Orbit",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -331,9 +328,8 @@ export const missionEvents = [
   {
     title: "🌬️ ECLSS CO2 Monitor DFTO",
     titleEn: "🌬️ ECLSS CO2 Monitor DFTO",
-    desc: "Prueba de vuelo del monitor de dióxido de carbono del sistema de soporte vital[cite: 168].",
-    descEn:
-      "Flight test of the life support system's carbon dioxide monitor[cite: 168].",
+    desc: "Prueba de vuelo del monitor de dióxido de carbono del sistema de soporte vital.",
+    descEn: "Flight test of the life support system's carbon dioxide monitor.",
     phase: "High Earth Orbit",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -344,9 +340,9 @@ export const missionEvents = [
   {
     title: "🛠️ Desmontaje de Soportes",
     titleEn: "🛠️ Asc Bracket Uninstall",
-    desc: "Desmontaje de la cámara de acoplamiento y soportes de ascenso para liberar espacio[cite: 171].",
+    desc: "Desmontaje de la cámara de acoplamiento y soportes de ascenso para liberar espacio.",
     descEn:
-      "Uninstalling the docking camera and ascent brackets to free up space[cite: 171].",
+      "Uninstalling the docking camera and ascent brackets to free up space.",
     phase: "High Earth Orbit",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -361,9 +357,9 @@ export const missionEvents = [
   {
     title: "🚀 Inyección Trans-Lunar (Orion TLI)",
     titleEn: "🚀 Trans-Lunar Injection (Orion TLI)",
-    desc: "Encendido principal a las 01/01:08:42. La nave abandona la Tierra rumbo a la Luna[cite: 169].",
+    desc: "Encendido principal a las 01/01:08:42. La nave abandona la Tierra rumbo a la Luna.",
     descEn:
-      "Main burn at 01/01:08:42. The ship leaves Earth heading for the Moon[cite: 169].",
+      "Main burn at 01/01:08:42. The ship leaves Earth heading for the Moon.",
     phase: "Trans-Lunar",
     attitude: "TLI",
     isRoutine: false,
@@ -374,8 +370,8 @@ export const missionEvents = [
   {
     title: "🍲 Comida",
     titleEn: "🍲 Meal",
-    desc: "Rutina de comida para la tripulación[cite: 176].",
-    descEn: "Meal routine for the crew[cite: 176].",
+    desc: "Rutina de comida para la tripulación.",
+    descEn: "Meal routine for the crew.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -386,8 +382,8 @@ export const missionEvents = [
   {
     title: "🎙️ Evento PAO",
     titleEn: "🎙️ PAO Event",
-    desc: "Conexión de la Oficina de Asuntos Públicos[cite: 179].",
-    descEn: "Public Affairs Office connection[cite: 179].",
+    desc: "Conexión de la Oficina de Asuntos Públicos.",
+    descEn: "Public Affairs Office connection.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -398,8 +394,8 @@ export const missionEvents = [
   {
     title: "👀 Inspección de Ventanas",
     titleEn: "👀 Window Inspect",
-    desc: "Inspección visual detallada de las ventanas de la cápsula[cite: 180].",
-    descEn: "Detailed visual inspection of capsule windows[cite: 180].",
+    desc: "Inspección visual detallada de las ventanas de la cápsula.",
+    descEn: "Detailed visual inspection of capsule windows.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -410,9 +406,9 @@ export const missionEvents = [
   {
     title: "🛠️ Instalación de Soportes Duales",
     titleEn: "🛠️ Dual Cam Bracket Install",
-    desc: "Instalación del soporte de cámara dual para operaciones en el espacio profundo[cite: 170].",
+    desc: "Instalación del soporte de cámara dual para operaciones en el espacio profundo.",
     descEn:
-      "Installation of the dual camera bracket for deep space operations[cite: 170].",
+      "Installation of the dual camera bracket for deep space operations.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -423,8 +419,8 @@ export const missionEvents = [
   {
     title: "💤 Sueño en Espacio Profundo (8.5 hrs)",
     titleEn: "💤 Deep Space Sleep (8.5 hrs)",
-    desc: "Ciclo de descanso estándar de 8.5 horas[cite: 182].",
-    descEn: "Standard 8.5-hour rest cycle[cite: 182].",
+    desc: "Ciclo de descanso estándar de 8.5 horas.",
+    descEn: "Standard 8.5-hour rest cycle.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -435,9 +431,8 @@ export const missionEvents = [
   {
     title: "🔍 Inspección Térmica (CM/SM Survey)",
     titleEn: "🔍 Thermal Inspection (CM/SM Survey)",
-    desc: "Uso de cámaras a las 01/14:00 para escanear el escudo térmico buscando daños[cite: 186].",
-    descEn:
-      "Use of cameras at 01/14:00 to scan the heat shield for damage[cite: 186].",
+    desc: "Uso de cámaras a las 01/14:00 para escanear el escudo térmico buscando daños.",
+    descEn: "Use of cameras at 01/14:00 to scan the heat shield for damage.",
     phase: "Trans-Lunar",
     attitude: "Survey",
     isRoutine: false,
@@ -448,9 +443,8 @@ export const missionEvents = [
   {
     title: "📡 Demo OpCom ANU",
     titleEn: "📡 OpCom ANU Demo",
-    desc: "Demostración de enlace avanzado del sistema de comunicaciones ópticas[cite: 186].",
-    descEn:
-      "Advanced link demonstration of the optical communications system[cite: 186].",
+    desc: "Demostración de enlace avanzado del sistema de comunicaciones ópticas.",
+    descEn: "Advanced link demonstration of the optical communications system.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -465,9 +459,9 @@ export const missionEvents = [
   {
     title: "🛠️ OTC-1",
     titleEn: "🛠️ OTC-1",
-    desc: "Primera corrección de trayectoria de ida programada a las 02/01:08:42[cite: 249].",
+    desc: "Primera corrección de trayectoria de ida programada a las 02/01:08:42.",
     descEn:
-      "First Outbound Trajectory Correction burn scheduled at 02/01:08:42[cite: 249].",
+      "First Outbound Trajectory Correction burn scheduled at 02/01:08:42.",
     phase: "Trans-Lunar",
     attitude: "OTC",
     isRoutine: false,
@@ -478,9 +472,9 @@ export const missionEvents = [
   {
     title: "🩺 Demo de RCP",
     titleEn: "🩺 CPR Demo",
-    desc: "Los astronautas realizan una demostración de Resucitación Cardiopulmonar (CPR) en microgravedad[cite: 229, 230].",
+    desc: "Los astronautas realizan una demostración de Resucitación Cardiopulmonar (CPR) en microgravedad.",
     descEn:
-      "Astronauts perform a Cardiopulmonary Resuscitation (CPR) demo in microgravity[cite: 229, 230].",
+      "Astronauts perform a Cardiopulmonary Resuscitation (CPR) demo in microgravity.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -491,8 +485,8 @@ export const missionEvents = [
   {
     title: "📡 Prueba Modo SAT",
     titleEn: "📡 SAT Mode Test",
-    desc: "Prueba del modo satélite de comunicaciones[cite: 232, 233].",
-    descEn: "Test of the satellite communications mode[cite: 232, 233].",
+    desc: "Prueba del modo satélite de comunicaciones.",
+    descEn: "Test of the satellite communications mode.",
     phase: "Trans-Lunar",
     attitude: "DFTO",
     isRoutine: false,
@@ -503,8 +497,8 @@ export const missionEvents = [
   {
     title: "⚕️ Med Kit",
     titleEn: "⚕️ Med Kit",
-    desc: "Revisión del kit médico de a bordo[cite: 234].",
-    descEn: "Review of the onboard medical kit[cite: 234].",
+    desc: "Revisión del kit médico de a bordo.",
+    descEn: "Review of the onboard medical kit.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -515,9 +509,8 @@ export const missionEvents = [
   {
     title: "🌙 Lunar Cab",
     titleEn: "🌙 Lunar Cab",
-    desc: "Configuración de la cabina para operaciones de proximidad lunar[cite: 235, 236].",
-    descEn:
-      "Cabin configuration for lunar proximity operations[cite: 235, 236].",
+    desc: "Configuración de la cabina para operaciones de proximidad lunar.",
+    descEn: "Cabin configuration for lunar proximity operations.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -528,9 +521,9 @@ export const missionEvents = [
   {
     title: "📞 Enlace DSN de Emergencia",
     titleEn: "📞 DSN Emergency Comms",
-    desc: "Prueba de enlace de emergencia (EMER Comm DFTO-EM2-22) con la Red del Espacio Profundo[cite: 250].",
+    desc: "Prueba de enlace de emergencia (EMER Comm DFTO-EM2-22) con la Red del Espacio Profundo.",
     descEn:
-      "Emergency link test (EMER Comm DFTO-EM2-22) with the Deep Space Network[cite: 250].",
+      "Emergency link test (EMER Comm DFTO-EM2-22) with the Deep Space Network.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -541,9 +534,8 @@ export const missionEvents = [
   {
     title: "🎙️ CSA PAO",
     titleEn: "🎙️ CSA PAO Event",
-    desc: "Enlace exclusivo con la Agencia Espacial Canadiense (CSA)[cite: 237, 238].",
-    descEn:
-      "Exclusive link with the Canadian Space Agency (CSA)[cite: 237, 238].",
+    desc: "Enlace exclusivo con la Agencia Espacial Canadiense (CSA).",
+    descEn: "Exclusive link with the Canadian Space Agency (CSA).",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -554,9 +546,9 @@ export const missionEvents = [
   {
     title: "📷 Prueba Misalign Cámara",
     titleEn: "📷 Dock Cam Misalign Test",
-    desc: "Prueba DFTO-EM2-03 forzando una desalineación virtual de la cámara óptica[cite: 251].",
+    desc: "Prueba DFTO-EM2-03 forzando una desalineación virtual de la cámara óptica.",
     descEn:
-      "Test DFTO-EM2-03 forcing a virtual misalignment of the optical camera[cite: 251].",
+      "Test DFTO-EM2-03 forcing a virtual misalignment of the optical camera.",
     phase: "Trans-Lunar",
     attitude: "FTO",
     isRoutine: false,
@@ -567,8 +559,8 @@ export const missionEvents = [
   {
     title: "💤 Ciclo de Sueño (FD03)",
     titleEn: "💤 Sleep Cycle (FD03)",
-    desc: "Descanso de 8.5 horas[cite: 241].",
-    descEn: "8.5 hours rest[cite: 241].",
+    desc: "Descanso de 8.5 horas.",
+    descEn: "8.5 hours rest.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -583,8 +575,8 @@ export const missionEvents = [
   {
     title: "🛠️ OTC-2",
     titleEn: "🛠️ OTC-2",
-    desc: "Segunda corrección de trayectoria programada a las 3/01:08:42[cite: 334].",
-    descEn: "Second trajectory correction scheduled at 3/01:08:42[cite: 334].",
+    desc: "Segunda corrección de trayectoria programada a las 3/01:08:42.",
+    descEn: "Second trajectory correction scheduled at 3/01:08:42.",
     phase: "Trans-Lunar",
     attitude: "OTC",
     isRoutine: false,
@@ -595,9 +587,8 @@ export const missionEvents = [
   {
     title: "🥵 Min ECLSS DFTO",
     titleEn: "🥵 Min ECLSS DFTO",
-    desc: "Prueba técnica EM2-18 para los sistemas ambientales vitales mínimos[cite: 335].",
-    descEn:
-      "Technical test EM2-18 for minimum vital environmental systems[cite: 335].",
+    desc: "Prueba técnica EM2-18 para los sistemas ambientales vitales mínimos.",
+    descEn: "Technical test EM2-18 for minimum vital environmental systems.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -608,9 +599,8 @@ export const missionEvents = [
   {
     title: "🎧 Inicio DFTO Acústico (24h)",
     titleEn: "🎧 Start 24h Acoustic DFTO",
-    desc: "Comienza una prueba de medición continua de ruido ambiental (EM2-7)[cite: 336].",
-    descEn:
-      "Starts a continuous ambient noise measurement test (EM2-7)[cite: 336].",
+    desc: "Comienza una prueba de medición continua de ruido ambiental (EM2-7).",
+    descEn: "Starts a continuous ambient noise measurement test (EM2-7).",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -621,8 +611,8 @@ export const missionEvents = [
   {
     title: "📷 Instalación de Soportes de Cámara",
     titleEn: "📷 Dock Cam & Bracket Install",
-    desc: "Instalación de herramientas ópticas adicionales[cite: 337].",
-    descEn: "Installation of additional optical tools[cite: 337].",
+    desc: "Instalación de herramientas ópticas adicionales.",
+    descEn: "Installation of additional optical tools.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -633,9 +623,8 @@ export const missionEvents = [
   {
     title: "🧭 Prueba de Navegación",
     titleEn: "🧭 NAV FTO",
-    desc: "Prueba de objetivos de vuelo de navegación a las 03/07:00 (EM2-223)[cite: 338].",
-    descEn:
-      "Navigation flight objectives test at 03/07:00 (EM2-223)[cite: 338].",
+    desc: "Prueba de objetivos de vuelo de navegación a las 03/07:00 (EM2-223).",
+    descEn: "Navigation flight objectives test at 03/07:00 (EM2-223).",
     phase: "Trans-Lunar",
     attitude: "DFTO",
     isRoutine: false,
@@ -646,9 +635,9 @@ export const missionEvents = [
   {
     title: "💤 Ciclo de Sueño Adelantado",
     titleEn: "💤 Early Sleep Cycle",
-    desc: "Descanso de 8.5 horas desplazado 45 minutos antes para prepararse para la Luna[cite: 316].",
+    desc: "Descanso de 8.5 horas desplazado 45 minutos antes para prepararse para la Luna.",
     descEn:
-      "8.5-hour rest shifted 45 minutes earlier in preparation for the Moon[cite: 316].",
+      "8.5-hour rest shifted 45 minutes earlier in preparation for the Moon.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -663,9 +652,9 @@ export const missionEvents = [
   {
     title: "🛠️ OTC-3",
     titleEn: "🛠️ OTC-3",
-    desc: "Tercera y última corrección propulsada (4/04:29:52) antes de la influencia lunar[cite: 380].",
+    desc: "Tercera y última corrección propulsada (4/04:29:52) antes de la influencia lunar.",
     descEn:
-      "Third and final powered correction (4/04:29:52) before lunar influence[cite: 380].",
+      "Third and final powered correction (4/04:29:52) before lunar influence.",
     phase: "Trans-Lunar",
     attitude: "OTC",
     isRoutine: false,
@@ -676,9 +665,8 @@ export const missionEvents = [
   {
     title: "🌑 Entrada Esfera Lunar (SOI Entry)",
     titleEn: "🌑 Lunar SOI Entry",
-    desc: "Orion cruza la frontera gravitacional de la Luna a las 4/06:38[cite: 380].",
-    descEn:
-      "Orion crosses the Moon's gravitational boundary at 4/06:38[cite: 380].",
+    desc: "Orion cruza la frontera gravitacional de la Luna a las 4/06:38.",
+    descEn: "Orion crosses the Moon's gravitational boundary at 4/06:38.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -689,8 +677,8 @@ export const missionEvents = [
   {
     title: "🎧 Fin DFTO Acústico",
     titleEn: "🎧 End 24h Acoustic DFTO",
-    desc: "Finaliza la grabación ambiental de 24 horas[cite: 371].",
-    descEn: "24-hour ambient recording ends[cite: 371].",
+    desc: "Finaliza la grabación ambiental de 24 horas.",
+    descEn: "24-hour ambient recording ends.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -701,8 +689,8 @@ export const missionEvents = [
   {
     title: "🌬️ Venteo a 10.2 psi",
     titleEn: "🌬️ Vent to 10.2 psi",
-    desc: "Se iguala la presión de la cabina a niveles reducidos[cite: 372].",
-    descEn: "Cabin pressure is equalized to reduced levels[cite: 372].",
+    desc: "Se iguala la presión de la cabina a niveles reducidos.",
+    descEn: "Cabin pressure is equalized to reduced levels.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -713,9 +701,8 @@ export const missionEvents = [
   {
     title: "📷 Prueba Misalign Cámara",
     titleEn: "📷 Dock Cam Misalign Test",
-    desc: "Prueba DFTO-EM2-03 antes de acercarse a la superficie lunar[cite: 373].",
-    descEn:
-      "Test DFTO-EM2-03 prior to approaching the lunar surface[cite: 373].",
+    desc: "Prueba DFTO-EM2-03 antes de acercarse a la superficie lunar.",
+    descEn: "Test DFTO-EM2-03 prior to approaching the lunar surface.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -726,9 +713,8 @@ export const missionEvents = [
   {
     title: "💤 Ciclo de Sueño (Prevuelo Lunar)",
     titleEn: "💤 Sleep Cycle (Pre-flyby)",
-    desc: "Descanso desplazado 1 hora antes; el último antes del encuentro[cite: 379].",
-    descEn:
-      "Rest shifted 1 hour earlier; the last before the encounter[cite: 379].",
+    desc: "Descanso desplazado 1 hora antes; el último antes del encuentro.",
+    descEn: "Rest shifted 1 hour earlier; the last before the encounter.",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -743,9 +729,8 @@ export const missionEvents = [
   {
     title: "🌕 Máximo Acercamiento Lunar",
     titleEn: "🌕 Lunar Close Approach",
-    desc: "Punto más cercano en la cara oculta de la Luna a las 5/00:29:59[cite: 434].",
-    descEn:
-      "Closest point on the far side of the Moon at 5/00:29:59[cite: 434].",
+    desc: "Punto más cercano en la cara oculta de la Luna a las 5/00:29:59.",
+    descEn: "Closest point on the far side of the Moon at 5/00:29:59.",
     phase: "Trans-Earth",
     attitude: "Nav",
     isRoutine: false,
@@ -756,8 +741,8 @@ export const missionEvents = [
   {
     title: "🌌 Máxima Distancia Terrestre",
     titleEn: "🌌 Max Earth Distance",
-    desc: "El punto más alejado de la Tierra a las 5/00:35[cite: 434].",
-    descEn: "The furthest point from Earth at 5/00:35[cite: 434].",
+    desc: "El punto más alejado de la Tierra a las 5/00:35.",
+    descEn: "The furthest point from Earth at 5/00:35.",
     phase: "Trans-Earth",
     attitude: "Nav",
     isRoutine: false,
@@ -768,8 +753,8 @@ export const missionEvents = [
   {
     title: "🏆 Récord Apollo",
     titleEn: "🏆 Apollo Record",
-    desc: "La tripulación rompe el récord de distancia histórica[cite: 433].",
-    descEn: "The crew breaks the historical distance record[cite: 433].",
+    desc: "La tripulación rompe el récord de distancia histórica.",
+    descEn: "The crew breaks the historical distance record.",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -780,9 +765,8 @@ export const missionEvents = [
   {
     title: "🔭 Observaciones Lunares",
     titleEn: "🔭 Lunar Obs",
-    desc: "Observaciones visuales de la superficie de la Luna tras el sobrevuelo[cite: 418].",
-    descEn:
-      "Visual observations of the Moon's surface following the flyby[cite: 418].",
+    desc: "Observaciones visuales de la superficie de la Luna tras el sobrevuelo.",
+    descEn: "Visual observations of the Moon's surface following the flyby.",
     phase: "Trans-Earth",
     attitude: "Obsv",
     isRoutine: true,
@@ -793,8 +777,8 @@ export const missionEvents = [
   {
     title: "🔍 Inspección Post-Lunar (CM/SM Survey)",
     titleEn: "🔍 Post-Lunar Survey",
-    desc: "Revisión externa del escudo térmico a las 05/12:30[cite: 435].",
-    descEn: "External review of the heat shield at 05/12:30[cite: 435].",
+    desc: "Revisión externa del escudo térmico a las 05/12:30.",
+    descEn: "External review of the heat shield at 05/12:30.",
     phase: "Trans-Earth",
     attitude: "Survey",
     isRoutine: false,
@@ -805,9 +789,8 @@ export const missionEvents = [
   {
     title: "🌍 Salida Esfera Lunar (SOI Exit)",
     titleEn: "🌍 Lunar SOI Exit",
-    desc: "Salida de la influencia gravitacional de la Luna a las 5/18:53[cite: 436].",
-    descEn:
-      "Exit from the Moon's gravitational influence at 5/18:53[cite: 436].",
+    desc: "Salida de la influencia gravitacional de la Luna a las 5/18:53.",
+    descEn: "Exit from the Moon's gravitational influence at 5/18:53.",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -818,8 +801,8 @@ export const missionEvents = [
   {
     title: "💤 Sueño Profundo (9.5 hrs)",
     titleEn: "💤 Deep Sleep (9.5 hrs)",
-    desc: "Turno extendido de sueño de 9.5 horas desplazado 1 hora más tarde[cite: 420].",
-    descEn: "Extended 9.5-hour sleep shift pushed 1 hour later[cite: 420].",
+    desc: "Turno extendido de sueño de 9.5 horas desplazado 1 hora más tarde.",
+    descEn: "Extended 9.5-hour sleep shift pushed 1 hour later.",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: true,
@@ -834,9 +817,8 @@ export const missionEvents = [
   {
     title: "🛠️ RTC-1",
     titleEn: "🛠️ RTC-1",
-    desc: "Primera corrección de trayectoria de retorno programada a las 6/01:29:52[cite: 438].",
-    descEn:
-      "First Return Trajectory Correction burn scheduled at 6/01:29:52[cite: 438].",
+    desc: "Primera corrección de trayectoria de retorno programada a las 6/01:29:52.",
+    descEn: "First Return Trajectory Correction burn scheduled at 6/01:29:52.",
     phase: "Trans-Earth",
     attitude: "RTC1",
     isRoutine: false,
@@ -847,9 +829,9 @@ export const missionEvents = [
   {
     title: "📷 Descarga de Datos de Cámara",
     titleEn: "📷 Dock Cam WW Dump",
-    desc: "Descarga de datos capturados por los objetivos de vuelo (Dock Cam WW Dump FTO)[cite: 440].",
+    desc: "Descarga de datos capturados por los objetivos de vuelo (Dock Cam WW Dump FTO).",
     descEn:
-      "Download of data captured by flight objectives (Dock Cam WW Dump FTO)[cite: 440].",
+      "Download of data captured by flight objectives (Dock Cam WW Dump FTO).",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -860,9 +842,8 @@ export const missionEvents = [
   {
     title: "📷 Prueba Misalign Cámara",
     titleEn: "📷 Dock Cam Misalign",
-    desc: "Continuación de las pruebas de desalineación en el trayecto de vuelta[cite: 441].",
-    descEn:
-      "Continuation of misalignment tests on the return journey[cite: 441].",
+    desc: "Continuación de las pruebas de desalineación en el trayecto de vuelta.",
+    descEn: "Continuation of misalignment tests on the return journey.",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -873,9 +854,9 @@ export const missionEvents = [
   {
     title: "☢️ Refugio de Radiación Demo",
     titleEn: "☢️ Rad Shelter Demo",
-    desc: "Prueba de construcción del refugio contra tormentas solares utilizando el almacenamiento interno[cite: 447].",
+    desc: "Prueba de construcción del refugio contra tormentas solares utilizando el almacenamiento interno.",
     descEn:
-      "Test construction of the solar storm radiation shelter using internal storage[cite: 447].",
+      "Test construction of the solar storm radiation shelter using internal storage.",
     phase: "Trans-Earth",
     attitude: "DFTO",
     isRoutine: false,
@@ -886,9 +867,8 @@ export const missionEvents = [
   {
     title: "💻 FCS Checkouts",
     titleEn: "💻 FCS Checkouts",
-    desc: "Pruebas de los ordenadores del Sistema de Control de Vuelo (FCS) a las 7/17:30[cite: 504].",
-    descEn:
-      "Tests of the Flight Control System (FCS) computers at 7/17:30[cite: 504].",
+    desc: "Pruebas de los ordenadores del Sistema de Control de Vuelo (FCS) a las 7/17:30.",
+    descEn: "Tests of the Flight Control System (FCS) computers at 7/17:30.",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -899,9 +879,9 @@ export const missionEvents = [
   {
     title: "📊 Modal Survey DFTO",
     titleEn: "📊 Modal Survey DFTO",
-    desc: "Inspecciones de la dinámica y vibraciones estructurales del módulo de la tripulación (EM2-27)[cite: 456].",
+    desc: "Inspecciones de la dinámica y vibraciones estructurales del módulo de la tripulación (EM2-27).",
     descEn:
-      "Inspections of structural dynamics and vibrations of the crew module (EM2-27)[cite: 456].",
+      "Inspections of structural dynamics and vibrations of the crew module (EM2-27).",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -912,8 +892,8 @@ export const missionEvents = [
   {
     title: "💧 Venteo de Orina al Vacío",
     titleEn: "💧 Urine Venting Test",
-    desc: "Prueba de expulsión al espacio profundo (DFTO EM2-26)[cite: 459].",
-    descEn: "Expulsion test into deep space (DFTO EM2-26)[cite: 459].",
+    desc: "Prueba de expulsión al espacio profundo (DFTO EM2-26).",
+    descEn: "Expulsion test into deep space (DFTO EM2-26).",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -928,8 +908,8 @@ export const missionEvents = [
   {
     title: "🌬️ Represurización a 14.7 psi",
     titleEn: "🌬️ Repress to 14.7 psi",
-    desc: "Restauración de la presión de la cabina a niveles estándar[cite: 461].",
-    descEn: "Restoration of cabin pressure to standard levels[cite: 461].",
+    desc: "Restauración de la presión de la cabina a niveles estándar.",
+    descEn: "Restoration of cabin pressure to standard levels.",
     phase: "Trans-Earth",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -940,9 +920,8 @@ export const missionEvents = [
   {
     title: "🧑‍🚀 Colocación Trajes (OIG Don)",
     titleEn: "🧑‍🚀 Suit Up (OIG Don)",
-    desc: "Los astronautas se ponen los trajes naranjas de supervivencia preparando el aterrizaje[cite: 469].",
-    descEn:
-      "Astronauts don orange survival suits preparing for landing[cite: 469].",
+    desc: "Los astronautas se ponen los trajes naranjas de supervivencia preparando el aterrizaje.",
+    descEn: "Astronauts don orange survival suits preparing for landing.",
     phase: "Trans-Earth",
     attitude: "DFTO",
     isRoutine: true,
@@ -953,9 +932,9 @@ export const missionEvents = [
   {
     title: "🛠️ RTC-2",
     titleEn: "🛠️ RTC-2",
-    desc: "Ajuste fino programado a las 8/04:29:10 para asegurar el pasillo atmosférico[cite: 505].",
+    desc: "Ajuste fino programado a las 8/04:29:10 para asegurar el pasillo atmosférico.",
     descEn:
-      "Fine tuning scheduled at 8/04:29:10 to secure the atmospheric corridor[cite: 505].",
+      "Fine tuning scheduled at 8/04:29:10 to secure the atmospheric corridor.",
     phase: "Trans-Earth",
     attitude: "RTC",
     isRoutine: false,
@@ -966,8 +945,8 @@ export const missionEvents = [
   {
     title: "🎒 Aseguramiento de Carga (Entry Stow)",
     titleEn: "🎒 Entry Stow",
-    desc: "Guardado final de todos los objetos sueltos de la cabina[cite: 494].",
-    descEn: "Final stowage of all loose cabin items[cite: 494].",
+    desc: "Guardado final de todos los objetos sueltos de la cabina.",
+    descEn: "Final stowage of all loose cabin items.",
     phase: "Trans-Earth",
     attitude: "Entry Stow",
     isRoutine: true,
@@ -978,9 +957,9 @@ export const missionEvents = [
   {
     title: "🛠️ RTC-3",
     titleEn: "🛠️ RTC-3",
-    desc: "Último ajuste balístico directo hacia el Océano Pacífico a las 8/20:29:10[cite: 506].",
+    desc: "Último ajuste balístico directo hacia el Océano Pacífico a las 8/20:29:10.",
     descEn:
-      "Final ballistic adjustment straight towards the Pacific Ocean at 8/20:29:10[cite: 506].",
+      "Final ballistic adjustment straight towards the Pacific Ocean at 8/20:29:10.",
     phase: "Trans-Earth",
     attitude: "RTC3",
     isRoutine: false,
@@ -991,9 +970,9 @@ export const missionEvents = [
   {
     title: "🔗 Separación de Módulos (CM/SM Sep)",
     titleEn: "🔗 Module Separation (CM/SM Sep)",
-    desc: "El Módulo de Servicio Europeo se descarta a las 09/01:09 para desintegrarse en la atmósfera[cite: 507].",
+    desc: "El Módulo de Servicio Europeo se descarta a las 09/01:09 para desintegrarse en la atmósfera.",
     descEn:
-      "The European Service Module is discarded at 09/01:09 to burn up in the atmosphere[cite: 507].",
+      "The European Service Module is discarded at 09/01:09 to burn up in the atmosphere.",
     phase: "EDL",
     attitude: "Entry C/L",
     isRoutine: false,
@@ -1004,9 +983,8 @@ export const missionEvents = [
   {
     title: "💧 Detección de Fugas +X",
     titleEn: "💧 +X Leak Detection",
-    desc: "Prueba final de detección de fugas (DFTO) previa a la entrada atmosférica[cite: 508].",
-    descEn:
-      "Final leak detection test (DFTO) prior to atmospheric entry[cite: 508].",
+    desc: "Prueba final de detección de fugas (DFTO) previa a la entrada atmosférica.",
+    descEn: "Final leak detection test (DFTO) prior to atmospheric entry.",
     phase: "EDL",
     attitude: "Entry C/L",
     isRoutine: false,
@@ -1017,8 +995,8 @@ export const missionEvents = [
   {
     title: "🔥 Interfaz de Entrada (Reentrada)",
     titleEn: "🔥 Entry Interface",
-    desc: "La cápsula golpea la atmósfera a Mach 32 a las 09/01:29[cite: 509].",
-    descEn: "Capsule hits the atmosphere at Mach 32 at 09/01:29[cite: 509].",
+    desc: "La cápsula golpea la atmósfera a Mach 32 a las 09/01:29.",
+    descEn: "Capsule hits the atmosphere at Mach 32 at 09/01:29.",
     phase: "EDL",
     attitude: "Entry C/L",
     isRoutine: false,
@@ -1029,9 +1007,9 @@ export const missionEvents = [
   {
     title: "🌊 Amerizaje (Splashdown)",
     titleEn: "🌊 Splashdown",
-    desc: "Amerizaje en las aguas del Océano Pacífico a las 09/01:42:48. ¡Misión cumplida! [cite: 510]",
+    desc: "Amerizaje en las aguas del Océano Pacífico a las 09/01:42:48. ¡Misión cumplida! ",
     descEn:
-      "Splashdown in the waters of the Pacific Ocean at 09/01:42:48. Mission accomplished! [cite: 510]",
+      "Splashdown in the waters of the Pacific Ocean at 09/01:42:48. Mission accomplished! ",
     phase: "Recovery",
     attitude: "Recovery Ops",
     isRoutine: false,

@@ -345,7 +345,7 @@ export default function ArtemisLiveTracker() {
   const trackerRef = useRef(null); // Ref para la pantalla completa
 
   const [launchTime, setLaunchTime] = useState(() => {
-    const officialLaunchUTC = new Date("2026-04-01T22:24:00Z");
+    const officialLaunchUTC = new Date("2026-04-01T22:35:12Z");
     const tzOffset = officialLaunchUTC.getTimezoneOffset() * 60000;
     const localLaunchTime = new Date(officialLaunchUTC.getTime() - tzOffset);
     return localLaunchTime.toISOString().slice(0, 16);
