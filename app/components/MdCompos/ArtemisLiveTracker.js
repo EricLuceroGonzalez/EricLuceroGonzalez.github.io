@@ -9,6 +9,7 @@ import LikeButton from "../../components/Likes";
 import styled, { keyframes } from "styled-components";
 import { useTranslations, useLocale } from "next-intl";
 import { missionEvents } from "../../components/MdCompos/ArtemisEvents";
+import NasaLiveUpdate from "../../components/MdCompos/NasaLiveUpdate";
 
 const blink = keyframes`
   0% { opacity: 1; }
@@ -608,16 +609,16 @@ export default function ArtemisLiveTracker() {
               <span>{t("defAttitudeText")}</span>
             </DefinitionItem>
           </DefinitionGrid>
+          <NasaLiveUpdate />
 
           <SourceLink
-            href="https://www.nasa.gov/wp-content/uploads/2026/01/artemis-ii-overview-timeline-public-final.pdf"
+            href="https://www.nasa.gov/wp-content/uploads/2026/03/artemis-ii-overview-timeline-april-1st.pdf?emrc=bf874af"
             target="_blank"
             rel="noopener noreferrer"
           >
             {t("sourceText")} Artemis II Overview Timeline - FINAL (NASA)
           </SourceLink>
         </FooterSection>
-
         <FeedbackSection>
           <FeedbackText>{t("feedbackText")}</FeedbackText>
           <LikeButton slug="artemis-tracker-tool" />
