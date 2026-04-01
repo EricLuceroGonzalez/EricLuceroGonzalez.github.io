@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { RepoFooter } from "./RepoShare";
 
 const LazyManim = lazy(() => import("./Videos"));
+const ArtemisLiveTracker = lazy(() => import("./ArtemisLiveTracker"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
 const SorteoMundial = lazy(() => import("./SorteoMundial"));
 // Borra el import viejo de DataCard y pon estos dos:
@@ -81,6 +82,8 @@ export const dynamicMdxComponents = {
   Videos: (props) => (
     <LazyManim publicId={props.publicId} caption={props.caption} />
   ),
+  // Artemis: (props) => <Artemis {...props} />,
+  ArtemisLiveTracker: (props) => <ArtemisLiveTracker {...props} />,
   PlotlyCharts: (props) => (
     <Suspense fallback={<div>Cargando gráfica interactiva...</div>}>
       <LazyPlotlyCharts {...props} />
