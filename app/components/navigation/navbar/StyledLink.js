@@ -16,7 +16,6 @@ const StyledAnchor = styled(motion.div)`
   padding: 8px 6px;
   margin: 2px 2px;
   font-weight: bold;
-  /* border: 1px solid red; */
 
   font-size: medium;
   @media (min-width: 660px) {

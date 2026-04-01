@@ -74,6 +74,7 @@ export const NavLink = styled.a`
   /* flex-direction: column; */
   @media (min-width: 660px) {
     margin: 0px 10px;
+    /* border: 2px solid red; */
   }
 `;
 export const Logo = styled.div`

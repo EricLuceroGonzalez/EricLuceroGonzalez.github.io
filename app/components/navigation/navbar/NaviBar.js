@@ -43,17 +43,16 @@ const NaviBar = () => {
         </StyledLink>
       </MainNavLogo>
       <MainNav display={"flex"}>
+        {/* <StyledLink
+          actualPath={primaryPath}
+          pathName={"/artemis"}
+          href={"/artemis"}
+        >
+          Artemis II
+        </StyledLink> */}
         <StyledLink actualPath={primaryPath} pathName={"/blog"} href={"/blog"}>
           Blog
         </StyledLink>
-        {/* <StyledLink
-          actualPath={primaryPath}
-          pathName={"/latex"}
-          href={"/latex"}
-        >
-          LaTeX
-        </StyledLink> */}
-
         <StyledLink
           actualPath={primaryPath}
           pathName={"/latex"}
