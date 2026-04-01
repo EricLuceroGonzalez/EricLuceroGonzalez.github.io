@@ -21,10 +21,10 @@ export async function generateMetadata({ params }) {
       type: "website",
       images: [
         {
-          url: t("thumbnailImage"),
+          url: t("artemisThumbnail"),
           width: 1200,
           height: 630,
-          alt: t("description"), // Texto alternativo traducido
+          alt: t("artemisDesc"), // Texto alternativo traducido
         },
       ],
     },
