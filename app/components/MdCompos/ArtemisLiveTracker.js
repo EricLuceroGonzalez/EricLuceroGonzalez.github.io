@@ -729,7 +729,7 @@ export default function ArtemisLiveTracker() {
               <span>{t("defAttitudeText")}</span>
             </DefinitionItem>
           </DefinitionGrid>
-          <NasaLiveUpdate />
+          {/* <NasaLiveUpdate /> */}
 
           <SourceLink
             href="https://www.nasa.gov/wp-content/uploads/2026/03/artemis-ii-overview-timeline-april-1st.pdf?emrc=bf874af"

@@ -314,6 +314,19 @@ export const missionEvents = [
     minutes: 0,
   },
   {
+    title: "📞 TLI Conf (Go/No-Go)",
+    titleEn: "📞 TLI Conf (Go/No-Go)",
+    desc: "Conferencia crítica para autorizar el abandono de la órbita terrestre. Esta etapa es crucial para asegurar que todos los sistemas estén listos para el salto a la Luna.",
+    descEn:
+      "Critical conference to authorize leaving Earth orbit. This stage is crucial to ensure all systems are ready for the jump to the Moon.",
+    phase: "High Earth Orbit",
+    attitude: "Bias-XSI",
+    isRoutine: false,
+    days: 0,
+    hours: 21,
+    minutes: 30, // Capturado de texto vertical
+  },
+  {
     title: "💪 Prueba de Ejercicio",
     titleEn: "💪 Exercise Test",
     desc: "Prueba de los equipos de ejercicio resistivo de la cabina.",
@@ -457,8 +470,8 @@ export const missionEvents = [
   // --- DÍA 3 (FD03): OPERACIONES EN TRÁNSITO ---
   // ==========================================
   {
-    title: "🛠️ OTC-1",
-    titleEn: "🛠️ OTC-1",
+    title: "🛠️ Corrección de Trayectoria (OTC-1)",
+    titleEn: "🛠️ Outbound Correction (OTC-1)",
     desc: "Primera corrección de trayectoria de ida programada a las 02/01:08:42.",
     descEn:
       "First Outbound Trajectory Correction burn scheduled at 02/01:08:42.",
@@ -573,8 +586,8 @@ export const missionEvents = [
   // --- DÍA 4 (FD04): AJUSTES FINOS ---
   // ==========================================
   {
-    title: "🛠️ OTC-2",
-    titleEn: "🛠️ OTC-2",
+    title: "🛠️ Corrección de Trayectoria (OTC-2)",
+    titleEn: "🛠️ Outbound Correction (OTC-2)",
     desc: "Segunda corrección de trayectoria programada a las 3/01:08:42.",
     descEn: "Second trajectory correction scheduled at 3/01:08:42.",
     phase: "Trans-Lunar",
@@ -585,10 +598,10 @@ export const missionEvents = [
     minutes: 8,
   },
   {
-    title: "🥵 Min ECLSS DFTO",
-    titleEn: "🥵 Min ECLSS DFTO",
-    desc: "Prueba técnica EM2-18 para los sistemas ambientales vitales mínimos.",
-    descEn: "Technical test EM2-18 for minimum vital environmental systems.",
+    title: "🧪 Prueba Min ECLSS",
+    titleEn: "🧪 Min ECLSS DFTO",
+    desc: "Prueba de sistemas ambientales mínimos (DFTO EM2-18).",
+    descEn: "Minimum environmental systems test (DFTO EM2-18).",
     phase: "Trans-Lunar",
     attitude: "Bias -XSI",
     isRoutine: false,
@@ -815,8 +828,8 @@ export const missionEvents = [
   // --- DÍA 7 (FD07) - DÍA 8 (FD08): EL REGRESO ---
   // ==========================================
   {
-    title: "🛠️ RTC-1",
-    titleEn: "🛠️ RTC-1",
+    title: "🛠️ Return Trajectory Correction RTC-1",
+    titleEn: "🛠️ Return Trajectory Correction RTC-1",
     desc: "Primera corrección de trayectoria de retorno programada a las 6/01:29:52.",
     descEn: "First Return Trajectory Correction burn scheduled at 6/01:29:52.",
     phase: "Trans-Earth",
@@ -930,8 +943,8 @@ export const missionEvents = [
     minutes: 0,
   },
   {
-    title: "🛠️ RTC-2",
-    titleEn: "🛠️ RTC-2",
+    title: "🛠️ Return Trajectory Correction RTC-2",
+    titleEn: "🛠️ Return Trajectory Correction RTC-2",
     desc: "Ajuste fino programado a las 8/04:29:10 para asegurar el pasillo atmosférico.",
     descEn:
       "Fine tuning scheduled at 8/04:29:10 to secure the atmospheric corridor.",
@@ -955,8 +968,8 @@ export const missionEvents = [
     minutes: 0,
   },
   {
-    title: "🛠️ RTC-3",
-    titleEn: "🛠️ RTC-3",
+    title: "🛠️ Return Trajectory Correction RTC-3",
+    titleEn: "🛠️ Return Trajectory Correction RTC-3",
     desc: "Último ajuste balístico directo hacia el Océano Pacífico a las 8/20:29:10.",
     descEn:
       "Final ballistic adjustment straight towards the Pacific Ocean at 8/20:29:10.",

@@ -6,6 +6,7 @@ import { QuotationAndAuthor } from "./Quotation";
 import { useTranslations } from "next-intl";
 import { RepoFooter } from "./RepoShare";
 
+const EventCard = lazy(() => import("../EventCard"));
 const LazyManim = lazy(() => import("./Videos"));
 const ArtemisLiveTracker = lazy(() => import("./ArtemisLiveTracker"));
 const BarChart = lazy(() => import("./BarChartsMDX"));
@@ -84,6 +85,7 @@ export const dynamicMdxComponents = {
   ),
   // Artemis: (props) => <Artemis {...props} />,
   ArtemisLiveTracker: (props) => <ArtemisLiveTracker {...props} />,
+  EventCard: (props) => <EventCard {...props} />,
   PlotlyCharts: (props) => (
     <Suspense fallback={<div>Cargando gráfica interactiva...</div>}>
       <LazyPlotlyCharts {...props} />
