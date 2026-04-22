@@ -2,23 +2,23 @@
 import styled from "styled-components";
 
 export const MdParagraph = styled.div`
-  margin: 0.5em 0;
-  font-size: medium;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  /* border: 1px solid var(--accent); */
   @media (min-width: 660px) {
-    font-size: large;
+    font-size: 1.15rem;
   }
   z-index: 1000;
-  /* background-color: var(--bg); */
 `;
 
 export const MdListItem = styled.li`
   color: var(--fg);
   /* font-size: 0; */
   /* list-style-type: circle; */
-  font-size: medium;
+  font-size: 0.95rem;
   text-align: justify;
   @media (min-width: 660px) {
-    font-size: large;
+    font-size: 1.05rem;
   }
   margin: 0.25rem auto;
 `;
@@ -67,7 +67,7 @@ export const MdHead = styled.h1`
   line-height: 0.9;
   margin: 1em 0;
   @media (max-width: 660px) {
-    font-size: x-large;
+    font-size: 1.25rem;
     /* border: 1px solid red; */
   }
 `;
@@ -75,9 +75,9 @@ export const MdSubHeadA = styled.h2`
   padding-top: 1rem;
   margin-top: 2rem;
   color: var(--accent);
-  font-size: x-large;
+  font-size: 1.25rem;
   @media (max-width: 660px) {
-    font-size: large;
+    font-size: 1.05rem;
   }
   a {
     color: var(--bg);
@@ -106,7 +106,7 @@ export const MdSubHeadB = styled.h3`
 export const MdSubHeadC = styled.h4`
   color: var(--heading);
   margin: 15px 0;
-  font-size: medium;
+  font-size: 0.95rem;
 `;
 
 export const MdHeadAnchor = styled.a`

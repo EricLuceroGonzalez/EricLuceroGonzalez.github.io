@@ -9,7 +9,7 @@ export const PageContainer = styled.div`
   min-height: 99vh;
   font-size: xx-small;
   @media (min-width: 1080px) {
-    font-size: large;
+    font-size: 1.05rem;
   }
 `;
 
@@ -31,18 +31,17 @@ export const MainBg = styled.div`
   }
 `;
 export const MainPageBg = styled(motion.div)`
-  /* border: 2px solid red; */
+  /* border: 2px solid blue; */
   flex: 1;
-  padding: 0 1.5rem;
   background-color: var(--bg);
   min-height: 100vh;
   max-width: 100%;
   text-align: justify;
-  padding: 1rem 1rem;
   margin: 0 auto;
 
-  @media (0px <= width < 390px) {
+  @media (0px <= width < 401px) {
     width: 99%;
+    padding: 0.25rem;
   }
   @media (min-width: 390px) {
     width: 95%;
@@ -70,7 +69,7 @@ export const HomePageCover = styled.div`
   display: flex;
   flex-direction: row;
   color: var(--fg);
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 `;
 export const HomePageCoverText = styled.div`
   width: 100%;
@@ -88,25 +87,23 @@ export const CoverTitle = styled.h1`
   @media (max-width: 728px) {
     text-align: justify;
   }
-  border: 1px dashed var(--accent);
 `;
 export const TitlePage = styled.h1`
   display: flex;
   flex-direction: row;
-  font-size: x-large;
-
+  font-size: 1.25rem;
   @media (max-width: 728px) {
     text-align: justify;
   }
 
   @media (min-width: 660px) {
-    font-size: xx-large;
+    font-size: 1.33rem;
   }
 `;
 
 export const SubTitlePage = styled.h2`
   color: var(--heading-3);
-  font-size: x-large;
+  font-size: 1.15rem;
 
   @media (max-width: 728px) {
     text-align: justify;
@@ -114,14 +111,13 @@ export const SubTitlePage = styled.h2`
   }
 
   @media (min-width: 660px) {
-    font-size: xx-large;
+    font-size: 1.15rem;
   }
 
   /* border: 2px dashed orange; */
   /* background-color: var(--emphasis-bg); */
   color: var(--fg);
-  margin-top: 3rem;
-  padding-left: 1rem;
+  margin-top: 2rem;
 `;
 
 export const Section = styled.section`

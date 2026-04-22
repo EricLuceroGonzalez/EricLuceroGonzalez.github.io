@@ -86,25 +86,23 @@ export const GridContainer = styled(motion.div)`
     border: 2px solid var(--box-border-hover);
     transition: border 0.5s;
   }
-  /* border: 4px solid var(--accent); */
 `;
 
 export const ExcerptContainer = styled.p`
   font-weight: 100;
   margin: 0.5rem 0 0.5rem 0;
   color: var(--fg);
-  font-size: medium;
+  font-size: 0.75rem;
   @media (min-width: 660px) {
-    font-size: medium;
-    /* color: red; */
+    font-size: 0.85rem;
   }
 `;
 
 export const CardTitle = styled.h1`
   line-height: 0.95;
-  font-size: large;
+  font-size: 0.9rem;
   @media (min-width: 660px) {
-    font-size: x-large;
+    font-size: 0.9rem;
   }
 
   a {
@@ -117,5 +115,5 @@ export const CardTitle = styled.h1`
   color: var(--accent);
   text-align: left;
   padding: 12px 0;
-  /* border: 1px solid wheat; */
+  /* border: 2px solid red; */
 `;

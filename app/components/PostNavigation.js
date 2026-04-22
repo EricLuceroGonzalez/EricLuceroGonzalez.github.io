@@ -57,7 +57,7 @@ const Title = styled.h4`
   font-size: small;
   text-align: left;
   @media (min-width: 660px) {
-    font-size: large;
+    font-size: 1.05rem;
     text-align: left;
   }
 `;

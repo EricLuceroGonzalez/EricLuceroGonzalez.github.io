@@ -5,25 +5,25 @@ import { TAG_STYLES } from "../lib/constants";
 
 export const MetaInfo = styled.div`
   border-bottom: 1px solid var(--secondary-btn-hover);
-  font-size: small;
+  font-size: 0.65rem;
   color: var(--accent);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   width: 75%;
-  @media (0px <= width <=398px) {
+  @media (0px <= width <=401px) {
     width: 99%;
     flex-direction: row;
-    font-size: small;
   }
 `;
 
 export const Date = styled.div`
-  font-size: small;
+  font-size: 0.75rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: 0.75rem;
 `;
 
 export const SideInfo = styled.div`
@@ -38,8 +38,9 @@ export const SectionType = styled.div`
   padding: 1px 6px;
   border-radius: 2px;
   display: inline-block;
-  margin-left: 10px;
-  font-size: xx-small;
+  margin-left: 0.33rem;
+
+  font-size: 0.5rem;
   font-family: monospace;
   ${(props) => {
     // tag a minúsculas
@@ -53,7 +54,7 @@ export const SectionType = styled.div`
     `;
   }}
 
-  @media (0px <= width <= 396px) {
+  @media (0px <= width <= 401px) {
     display: none;
   }
 `;

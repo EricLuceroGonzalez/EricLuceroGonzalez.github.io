@@ -15,7 +15,7 @@ export const Layout = styled.div`
     flex-direction: column; /* Cambia a vertical en pantallas pequeñas */
   }
   @media (min-width: 1080px) {
-    font-size: large;
+    font-size: 1.05rem;
   }
   /* border: 2px solid orange; */
 `;
@@ -91,10 +91,10 @@ export const BoxGrid = styled.div`
 export const TitleContainer = styled.h2`
   margin-bottom: 1rem;
   line-height: 1.2;
-  font-size: large;
+  font-size: 1.05rem;
   margin: 2rem 0;
   @media (min-width: 660px) {
-    font-size: x-large;
+    font-size: 1.25rem;
   }
 
   a {
@@ -131,11 +131,11 @@ export const LinkList = styled.div`
   display: flex;
   gap: 1rem;
   font-family: monospace;
-  font-size: medium;
+  font-size: 0.95rem;
   margin: 5rem auto 1rem auto;
   padding: 1px 5%;
   @media (min-width: 660px) {
-    font-size: x-large;
+    font-size: 1.25rem;
     padding: 1px 12%;
   }
   justify-content: space-around;

@@ -20,7 +20,7 @@ const QuoteBack = styled.div`
 
 const QuoteText = styled.div`
   line-height: 1.5;
-  font-size: large;
+  font-size: 1.05rem;
   @media (max-width: 660px) {
     font-size: normal;
     margin: 5px auto;
@@ -29,14 +29,14 @@ const QuoteText = styled.div`
 `;
 
 const QuoteLeftIcon = styled.div`
-  font-size: x-large;
+  font-size: 1.25rem;
   color: var(--accent);
   text-align: left;
   margin-bottom: -0.7rem;
 `;
 
 const QuoteRightIcon = styled.div`
-  font-size: x-large;
+  font-size: 1.25rem;
   color: var(--accent);
   text-align: right;
   margin-top: -1.25rem;

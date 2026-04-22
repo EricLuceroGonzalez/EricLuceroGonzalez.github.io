@@ -13,6 +13,7 @@ import ScrollDiv from "../components/navigation/ScrollDiv";
 import { getPostsByType } from "../lib/api";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "../components/BgMovingDots";
+import HomeGreeting from "../components/HomeGreetings";
 import EmojiContainer from "../ui/EmojiContainer";
 
 export default async function Home({ params }) {
@@ -32,7 +33,22 @@ export default async function Home({ params }) {
         <HomePageCover>
           <HomePageCoverText>
             <TitlePage>
-              {t("title")} <EmojiContainer />
+              <span
+                className="sr-only"
+                style={{
+                  position: "absolute",
+                  width: "1px",
+                  height: "1px",
+                  overflow: "hidden",
+                }}
+              >
+                {t("title")}
+              </span>
+
+              <span aria-hidden="true" style={{ display: "flex", gap: "2px" }}>
+                <EmojiContainer />
+                <HomeGreeting defaultGreeting={t("title")} />
+              </span>
             </TitlePage>
             {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>

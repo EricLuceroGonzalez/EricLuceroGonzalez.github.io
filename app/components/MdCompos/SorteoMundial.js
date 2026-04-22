@@ -24,7 +24,7 @@ const Header = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: x-large;
+  font-size: 1.25rem;
   font-weight: bold;
   color: var(--primary);
   display: flex;
@@ -299,7 +299,7 @@ class Equipo {
     confederacion,
     bombo,
     grupoFijo = null,
-    rankingTop = null
+    rankingTop = null,
   ) {
     this.nombre = nombre;
     this.confederacion = confederacion;
@@ -370,7 +370,7 @@ function generarDatosEquipos() {
   ];
 
   configRestante.forEach(([nombre, conf, bombo]) =>
-    equipos.push(new Equipo(nombre, conf, bombo))
+    equipos.push(new Equipo(nombre, conf, bombo)),
   );
 
   return equipos;
@@ -561,7 +561,7 @@ function ejecutarGA(onProgress) {
 
   const datos = generarDatosEquipos();
   let poblacion = Array.from({ length: POBLACION_TAM }, () =>
-    crearIndividuo(datos)
+    crearIndividuo(datos),
   );
 
   for (let gen = 0; gen < GENERACIONES; gen++) {

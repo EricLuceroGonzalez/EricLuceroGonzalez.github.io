@@ -35,12 +35,12 @@ const StatCard = styled.div`
 `;
 
 const StatValue = styled.h2`
-  font-size: large;
+  font-size: 1.05rem;
   font-weight: 800;
   margin: 0;
   letter-spacing: -1px;
   @media (min-width: 1024px) {
-    font-size: x-large;
+    font-size: 1.25rem;
   }
 `;
 

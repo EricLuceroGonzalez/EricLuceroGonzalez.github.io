@@ -17,9 +17,9 @@ const StyledAnchor = styled(motion.div)`
   margin: 2px 2px;
   font-weight: bold;
 
-  font-size: medium;
+  font-size: 0.95rem;
   @media (min-width: 660px) {
-    font-size: large;
+    font-size: 1.05rem;
     margin: 2px 12px;
   }
   &:hover {
