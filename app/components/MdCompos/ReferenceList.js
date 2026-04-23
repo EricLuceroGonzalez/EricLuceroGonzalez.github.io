@@ -9,6 +9,7 @@ const RefNumbers = styled.ol`
   counter-reset: ref-counter;
   padding-left: 0;
   margin-top: 1rem;
+  font-size: var(--text-small);
 
   li {
     counter-increment: ref-counter;
@@ -16,7 +17,6 @@ const RefNumbers = styled.ol`
     display: flex;
     align-items: baseline; /* Alinea el número con la primera línea de texto */
     gap: 0.5rem; /* Espacio entre el [1] y el texto */
-    font-size: 1rem;
     line-height: 1.5;
   }
 
@@ -43,7 +43,6 @@ const RefContent = styled.div`
 const RefTex = styled.a`
   margin-left: 8px;
   color: var(--heading);
-  font-size: 0.85em;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -56,7 +55,7 @@ const RefTex = styled.a`
   }
 
   svg {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 `;
 
@@ -66,17 +65,15 @@ const RefUrl = styled.a`
   gap: 4px;
   color: var(--quote-fg);
 
-  font-size: x-small;
+  font-size: var(--text-small);
   margin-left: 4px;
-  text-decoration: underline;
-  text-underline-offset: 2px;
 
   &:hover {
     color: var(--accent);
   }
 
   svg {
-    font-size: 0.9em;
+    font-size: 1.2em;
   }
 `;
 // solo envuelve a los hijos

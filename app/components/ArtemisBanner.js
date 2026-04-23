@@ -31,12 +31,12 @@ const BannerContainer = styled.div`
   align-items: center;
   gap: 12px;
   font-family: "Inter", system-ui, sans-serif;
-  font-size: 14px;
+  font-size: var(--text-base);
   animation: ${slideDown} 0.4s ease-out;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 480px) {
-    font-size: 12px;
+    font-size: var(--text-small);
     padding: 12px;
     flex-wrap: wrap; /* Permite que el botón baje en pantallas muy estrechas */
   }
@@ -66,7 +66,7 @@ const CTAButton = styled(Link)`
   padding: 4px 6px;
   border-radius: 4px;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--text-small);
   transition: background-color 0.2s;
 
   &:hover {
@@ -78,7 +78,7 @@ const CloseButton = styled.button`
   background: transparent;
   border: none;
   color: #94a3b8;
-  font-size: 16px;
+  font-size: var(--text-base);
   cursor: pointer;
   position: absolute;
   right: 16px;

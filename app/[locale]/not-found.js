@@ -27,7 +27,6 @@ const float = keyframes`
 `;
 
 const Title = styled.h1`
-  font-size: 5rem;
   font-weight: 800;
   margin: 0;
   background: linear-gradient(#ff3366, #0077ff);
@@ -37,7 +36,6 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
-  font-size: 1.5rem;
   font-weight: normal;
   color: var(--accent);
   margin-bottom: 1.5rem;

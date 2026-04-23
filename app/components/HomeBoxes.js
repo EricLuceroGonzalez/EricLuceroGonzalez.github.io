@@ -1,6 +1,6 @@
 "use client";
 import AllPosts from "./navigation/AllPosts";
-import { BoxGrid } from "../ui/lugs";
+import { BoxGrid } from "../ui/BasicDivs";
 // const BoxGrid = styled.div`
 //   display: flex;
 //   flex-direction: row;

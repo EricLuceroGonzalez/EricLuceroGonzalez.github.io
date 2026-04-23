@@ -1,12 +1,9 @@
-import {
-  MainPageBg,
-  PageContainer,
-  TitlePage,
-} from "../../ui/ComponentsStyled";
+import { MainPageBg, PageContainer } from "../../ui/ComponentsStyled";
+import { TitlePage } from "../../ui/TitlesComponents";
 import { getPostsByType } from "../../lib/api";
 import { notFound } from "next/navigation";
 import HomeBoxes from "../../components/HomeBoxes";
-import { Layout } from "../../ui/lugs";
+import { Layout } from "../../ui/BasicDivs";
 import {
   MdParagraph,
   MdListItem,

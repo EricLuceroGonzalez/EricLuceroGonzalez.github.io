@@ -40,7 +40,7 @@ export default function HomeGreeting({ defaultGreeting }) {
       aria-hidden="true"
       style={{
         display: "inline-block",
-        minWidth: "160px",
+        minWidth: "260px",
         position: "relative",
       }}
     >

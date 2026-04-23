@@ -5,7 +5,7 @@ import { TAG_STYLES } from "../lib/constants";
 
 export const MetaInfo = styled.div`
   border-bottom: 1px solid var(--secondary-btn-hover);
-  font-size: 0.65rem;
+  font-size: var(--text-small);
   color: var(--accent);
   display: flex;
   flex-direction: row;
@@ -19,7 +19,7 @@ export const MetaInfo = styled.div`
 `;
 
 export const Date = styled.div`
-  font-size: 0.75rem;
+  font-size: var(--text-small);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -40,7 +40,7 @@ export const SectionType = styled.div`
   display: inline-block;
   margin-left: 0.33rem;
 
-  font-size: 0.5rem;
+  font-size: var(--text-very-small);
   font-family: monospace;
   ${(props) => {
     // tag a minúsculas

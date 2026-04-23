@@ -30,7 +30,7 @@ const Sidebar = styled.aside`
 `;
 const SideBarTextInstruction = styled.div`
   color: var(--quote-bg);
-  font-size: x-small;
+  font-size: var(--text-small);
 `;
 // Fondo oscuro para detectar clics fuera del Sidebar
 const Backdrop = styled.div`

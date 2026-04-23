@@ -9,9 +9,9 @@ const PathBlock = styled(motion.div)`
   flex-direction: row;
   margin: 0.5rem auto 3rem auto;
   text-align: left;
-  font-size: small;
+  font-size: var(--text-small);
   @media (0 <= width <= 410px) {
-    font-size: x-small;
+    font-size: var(--text-small);
   }
   /* Same as <Article> */
   width: 70%;
@@ -27,7 +27,7 @@ const PathBlock = styled(motion.div)`
     min-width: 80%;
     padding: 5px;
     box-shadow: none;
-    font-size: small;
+    font-size: var(--text-small);
   }
   @media (min-width: 1080px) {
     width: 85%;

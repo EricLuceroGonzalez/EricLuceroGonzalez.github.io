@@ -5,16 +5,17 @@ import { motion } from "framer-motion";
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 0.45rem 0.75rem;
   @media (max-width: 660px) {
     flex-direction: column;
   }
-  /* border: 2px solid var(--primary); */
 `;
 
 export const ImageContainer = styled.div`
   padding: 0px 3px;
   /* flex-grow: 1; */
   width: 30%;
+  /* border: 2px solid red; */
 `;
 
 export const GridHeroImage = styled.div`
@@ -22,7 +23,6 @@ export const GridHeroImage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0.3rem auto;
   width: 95%;
   /* height: 125px; */
   aspect-ratio: 16 / 9;
@@ -31,7 +31,7 @@ export const GridHeroImage = styled.div`
     display: none;
   }
   @media (min-width: 1280px) {
-    width: 95%;
+    width: 100%;
   }
   /* border: 2px solid var(--accent); */
 `;
@@ -84,7 +84,7 @@ export const GridContainer = styled(motion.div)`
   }
   &:hover {
     border: 2px solid var(--box-border-hover);
-    transition: border 0.5s;
+    transition: border 0.15s;
   }
 `;
 
@@ -92,25 +92,17 @@ export const ExcerptContainer = styled.p`
   font-weight: 100;
   margin: 0.5rem 0 0.5rem 0;
   color: var(--fg);
-  font-size: 0.75rem;
+  font-size: var(--text-small);
   @media (min-width: 660px) {
-    font-size: 0.85rem;
+    /* color: red; */
   }
 `;
 
-export const CardTitle = styled.h1`
+export const CardTitle = styled.h3`
   line-height: 0.95;
-  font-size: 0.9rem;
-  @media (min-width: 660px) {
-    font-size: 0.9rem;
-  }
 
   a {
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
   color: var(--accent);
   text-align: left;

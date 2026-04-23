@@ -24,7 +24,6 @@ const Header = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 1.25rem;
   font-weight: bold;
   color: var(--primary);
   display: flex;
@@ -36,7 +35,7 @@ const Title = styled.h1`
 
 const Subtitle = styled.p`
   color: #718096;
-  font-size: 1rem;
+  font-size: var(--text-base);
 `;
 
 const Controls = styled.div`
@@ -57,7 +56,7 @@ const Button = styled.button`
   border: none;
   border-radius: 0.5rem;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--text-base);
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   transition: background 0.2s;
 
@@ -110,7 +109,6 @@ const ItinerarioSection = styled(motion.div)`
 `;
 
 const ItinerarioHeader = styled.h2`
-  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   background: ${(props) => props.color};
@@ -130,7 +128,6 @@ const GrupoCard = styled.div`
 `;
 
 const GrupoHeader = styled.h3`
-  font-size: 1.25rem;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -147,7 +144,7 @@ const GrupoLetra = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.125rem;
+  font-size: var(--text-base);
 `;
 
 const EquiposList = styled(motion.div)`
@@ -163,12 +160,12 @@ const EquipoRow = styled.div`
   padding: 0.5rem;
   background: #f7fafc;
   border-radius: 0.375rem;
-  font-size: small;
+  font-size: var(--text-small);
 `;
 
 const BomboTag = styled.span`
   font-family: monospace;
-  font-size: 0.75rem;
+  font-size: var(--text-small);
   background: #e2e8f0;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
@@ -180,7 +177,7 @@ const EquipoNombre = styled.span`
 `;
 
 const ConfTag = styled.span`
-  font-size: xx-small;
+  font-size: var(--text-small);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   background: ${(props) => props.$bg};
@@ -188,7 +185,7 @@ const ConfTag = styled.span`
 `;
 
 const RankTag = styled.span`
-  font-size: 0.75rem;
+  font-size: var(--text-small);
   background: #e53e3e;
   color: white;
   padding: 0.25rem 0.5rem;

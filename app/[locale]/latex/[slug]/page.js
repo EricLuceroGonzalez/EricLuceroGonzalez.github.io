@@ -7,7 +7,7 @@ import { dynamicMdxComponents } from "@/app/components/MdCompos/dynamicMdxCompon
 
 import { HeroImage, MdHead } from "@/app/ui/MarkDownComponents";
 import { MainBg } from "@/app/ui/ComponentsStyled";
-import { Article, Layout } from "@/app/ui/lugs";
+import { Article, Layout } from "@/app/ui/BasicDivs";
 import {
   Date,
   MetaInfo,

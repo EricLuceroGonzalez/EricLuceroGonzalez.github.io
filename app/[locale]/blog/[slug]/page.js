@@ -9,7 +9,7 @@ import {
 import { MDXRemote } from "next-mdx-remote/rsc";
 import MdxComponents from "@/app/components/MdCompos/MDXComponents";
 import { dynamicMdxComponents } from "@/app/components/MdCompos/dynamicMdxComponents";
-import { Article, Layout } from "@/app/ui/lugs.js";
+import { Article, Layout } from "@/app/ui/BasicDivs.js";
 import {
   Date,
   MetaInfo,

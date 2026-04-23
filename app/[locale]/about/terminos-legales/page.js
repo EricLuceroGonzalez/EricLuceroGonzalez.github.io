@@ -1,6 +1,6 @@
 import { MainBg } from "@/app/ui/ComponentsStyled";
 import ShowPath from "@/app/components/showPath";
-import { Article, Layout } from "@/app/ui/lugs";
+import { Article, Layout } from "@/app/ui/BasicDivs";
 import { MetaInfo } from "@/app/ui/BlogHeaderInfo.js";
 import {
   ContainerDiv,

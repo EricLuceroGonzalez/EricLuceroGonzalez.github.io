@@ -55,7 +55,7 @@ export const DivLogo = styled.div`
   padding-left: 2px;
   font-family: monospace;
   font-weight: 100;
-  font-size: small;
+  font-size: var(--text-small);
   color: var(--quote-fg);
   @media (max-width: 768px) {
     display: none;
@@ -79,7 +79,7 @@ export const NavLink = styled.a`
 `;
 export const Logo = styled.div`
   display: inline-block;
-  font-size: 22px;
+  font-size: var(--text-base);
   margin-top: 10px;
   margin-left: 20px;
   color: var(--fg);
@@ -90,7 +90,7 @@ export const NavBarToggle = styled.span`
   right: 20px;
   cursor: pointer;
   color: var(--fg);
-  font-size: 24px;
+  font-size: var(--text-base);
 `;
 export const Hamburger = styled.img`
   color: var(--fg);

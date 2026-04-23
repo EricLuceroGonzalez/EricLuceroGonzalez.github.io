@@ -9,13 +9,13 @@ export const Layout = styled.div`
   flex-direction: row;
   height: 100%;
   width: 100%;
-  font-size: small;
+  font-size: var(--text-small);
   background-color: var(--bg);
   @media (max-width: 768px) {
     flex-direction: column; /* Cambia a vertical en pantallas pequeñas */
   }
   @media (min-width: 1080px) {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
   }
   /* border: 2px solid orange; */
 `;
@@ -40,7 +40,7 @@ export const Article = styled(motion.article)`
     min-width: 80%;
     padding: 5px;
     box-shadow: none;
-    font-size: small;
+    font-size: var(--text-small);
   }
   @media (min-width: 1080px) {
     width: 85%;
@@ -56,12 +56,11 @@ export const Article = styled(motion.article)`
 `;
 
 export const Title = styled.h1`
-  font-size: 2.5rem;
   margin-bottom: 1rem;
 `;
 
 export const Author = styled.p`
-  font-size: 1.2rem;
+  font-size: var(--text-base);
   font-style: italic;
   color: var(--fg);
   margin-bottom: 1.5rem;
@@ -91,11 +90,7 @@ export const BoxGrid = styled.div`
 export const TitleContainer = styled.h2`
   margin-bottom: 1rem;
   line-height: 1.2;
-  font-size: 1.05rem;
   margin: 2rem 0;
-  @media (min-width: 660px) {
-    font-size: 1.25rem;
-  }
 
   a {
     text-decoration: none;
@@ -123,7 +118,7 @@ export const Avatar = styled.img`
 `;
 
 export const AuthorName = styled.span`
-  font-size: x-small;
+  font-size: var(--text-small);
   color: var(--fg);
 `;
 
@@ -131,11 +126,11 @@ export const LinkList = styled.div`
   display: flex;
   gap: 1rem;
   font-family: monospace;
-  font-size: 0.95rem;
+  font-size: var(--text-small);
   margin: 5rem auto 1rem auto;
   padding: 1px 5%;
   @media (min-width: 660px) {
-    font-size: 1.25rem;
+    font-size: var(--text-base);
     padding: 1px 12%;
   }
   justify-content: space-around;
@@ -145,7 +140,7 @@ export const IconLink = styled(motion.a)`
   /* border: 1px solid red; */
   color: var(--fg);
   text-decoration: none;
-  font-size: x-small;
+  font-size: var(--text-small);
   svg {
     width: 32px;
     height: 32px;
@@ -219,7 +214,7 @@ export const PhotoAvatar = styled(motion.div)`
 export const AboutMeParaph = styled(motion.p)`
   font-family: monospace;
   line-height: 1.6; /* Mejor lectura */
-  font-size: 1rem;
+  font-size: var(--text-small);
 
   /* Estilo tipo "tarjeta" o limpio */
   background-color: var(--bg); /* O usa var(--quote-bg) para resaltarlo */
@@ -229,7 +224,7 @@ export const AboutMeParaph = styled(motion.p)`
   border-left: 3px solid var(--accent); /* Detalle visual elegante */
 
   @media (min-width: 768px) {
-    font-size: 1.1rem;
+    font-size: var(--text-base);
     padding: 0 1rem;
     background-color: var(--bg);
     border: none;
@@ -252,7 +247,6 @@ export const Sidebar = styled.aside`
 `;
 
 export const SidebarHeading = styled.h2`
-  font-size: 1.5rem;
   color: var(--heading);
   margin-bottom: 1rem;
 `;
@@ -301,7 +295,8 @@ export const LanguageBadge = styled.span`
   color: var(--primary-btn-fg);
   padding: 0.2rem 0.5rem;
   border-radius: 5px;
-  font-size: 0.75rem;
+  font-size: var(--text-small);
+
   font-weight: bold;
   text-transform: uppercase;
 `;
@@ -312,7 +307,7 @@ export const CopyButton = styled(motion.button)`
   border: none;
   border-radius: 5px;
   padding: 1rem 0.5rem;
-  font-size: 1.3rem;
+  font-size: var(--text-base);
   cursor: pointer;
   font-weight: bold;
   width: 100%;
@@ -356,7 +351,7 @@ const LogosBox = styled.div`
   margin: 1rem auto;
   flex-wrap: wrap;
 
-  font-size: small;
+  font-size: var(--text-small);
   color: var(--accent);
   background-color: var(--quote-bg);
   width: 32%;
@@ -378,7 +373,7 @@ const LogosText = styled.div`
 `;
 
 const LogosTitle = styled.h3`
-  font-size: larger;
+  font-size: var(--text-h3);
 `;
 const LogosHead = styled.div`
   display: flex;

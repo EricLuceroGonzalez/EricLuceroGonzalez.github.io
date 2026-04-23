@@ -3,6 +3,7 @@ import dbChuchu from "../../lib/dbChuchu.js";
 import Chuchu from "../../models/Chuchu.js";
 import mongoose from "mongoose";
 import { MainBg } from "../../ui/ComponentsStyled";
+import { TitlePage, SubSubTitle } from "../../ui/TitlesComponents";
 import {
   AboutMePanel,
   AboutMeParaph,
@@ -12,10 +13,10 @@ import {
   Layout,
   LinkList,
   PhotoAvatar,
-} from "../../ui/lugs";
+} from "../../ui/BasicDivs";
 import Image from "next/image";
 import ShowPath from "../../components/showPath";
-import TextCard from "../../components/TextCards";
+import TextCard from "../../ui/TextCards";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export default async function ChuchuVersos({ params }) {
@@ -42,61 +43,43 @@ export default async function ChuchuVersos({ params }) {
       ? tuit.fecha_ultimo_post.toISOString()
       : null,
   }));
+  const test = [
+    {
+      id: 1,
+      _id: 1,
+      texto:
+        "Podría sentirse rey de espacios infinitos, encerrado en la cáscara de una nuez.",
+      libro: "libro 1",
+      autor: " Chuchú Martínez",
+      año: 1965,
+      fecha_ultimo_post: "2026-04-12",
+    },
+    {
+      id: 2,
+      _id: 2,
+      texto:
+        "Podría sentirse rey de espacios infinitos, encerrado en la cáscara de una nuez.",
+      libro: "libro 1",
+      autor: " Chuchú Martínez",
+      año: 1965,
+      fecha_ultimo_post: "2026-04-12",
+    },
+  ];
   return (
     <Layout>
       <MainBg>
         <ShowPath title={""} />
-        <AboutMePanel>
-          <PhotoAvatar
-            initial={{ opacity: 0, scale: 0, x: -50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{
-              duration: 0.5,
-              scale: { type: "spring", visualDuration: 0.3, bounce: 0.35 },
-            }}
-          >
-            <Image
-              src={
-                //   "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/Web-communication/owsftbzp6mn5iuvkogrl.jpg"
-                "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png"
-              }
-              alt={"A portrait photos of Eric Lucero"} // Texto alternativo
-              width={280} // Ancho de la imagen
-              height={280} // Alto de la imagen
-              priority
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                zIndex: 100,
-              }}
-            />
-          </PhotoAvatar>
-          <BioTextContainer>
-            <AboutMeParaph
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.8,
-                scale: { type: "spring", visualDuration: 0.5, bounce: 0.3 },
-              }}
-            >
-              {t("paragraph1")}
-            </AboutMeParaph>
-
-            <AboutMeParaph
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.8,
-                scale: { type: "spring", visualDuration: 0.5, bounce: 0.3 },
-              }}
-            >
-              {t("paragraph2")}
-            </AboutMeParaph>
-          </BioTextContainer>
-        </AboutMePanel>
-        {tuitsListos.map((tuit) => (
+        <TitlePage>Chuchú Martínez</TitlePage>
+        <SubSubTitle>
+          Bot del poeta Chuchú Martínez en{" "}
+          <a href="https://x.com/Bot_Chuchu">@Bot_Chuchu</a>
+        </SubSubTitle>
+        {/* {tuitsListos.map((tuit) => (
+          // Usamos _id.toString() como key porque Mongoose devuelve ObjectId
+          //   <TextCard key={tuit.id.toString()} tuit={tuit} />
+          <TextCard key={tuit._id} tuit={tuit} />
+        ))} */}
+        {test.map((tuit) => (
           // Usamos _id.toString() como key porque Mongoose devuelve ObjectId
           //   <TextCard key={tuit.id.toString()} tuit={tuit} />
           <TextCard key={tuit._id} tuit={tuit} />

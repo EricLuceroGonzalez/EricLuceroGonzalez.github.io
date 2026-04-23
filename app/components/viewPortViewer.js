@@ -21,7 +21,7 @@ const IndicatorWrapper = styled.div`
 
   color: #fff;
   font-family: "JetBrains Mono", "Fira Code", monospace; /* Fuente de código */
-  font-size: 0.8rem;
+  font-size: var(--text-small);
   font-weight: 600;
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);

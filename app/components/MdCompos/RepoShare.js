@@ -23,7 +23,7 @@ const ShieldLink = styled.a`
   border-radius: 6px;
   overflow: hidden; /* Importante para el border-radius */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 13px;
+  font-size: var(--text-base);
   font-weight: 600;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition:
@@ -69,7 +69,7 @@ const ModernBadge = styled.a`
   border: 1px solid var(--gray-medium);
   padding: 6px 12px;
   border-radius: 20px; /* Pill shape */
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -81,7 +81,7 @@ const ModernBadge = styled.a`
   }
 
   svg {
-    font-size: 1.1em;
+    font-size: 1.25em;
   }
 `;
 

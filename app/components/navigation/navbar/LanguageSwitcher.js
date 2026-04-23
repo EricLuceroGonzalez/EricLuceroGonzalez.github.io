@@ -10,7 +10,7 @@ const LocaleButton = styled.button`
   font-weight: ${(props) => (props.lang == "es" ? "bold" : "normal")};
   background-color: ${(props) =>
     props.lang === "es" ? "var(--accent)" : "var(--gray-medium)"};
-  font-size: 11px;
+  font-size: var(--text-small);
   cursor: pointer;
   padding: 8px;
   border-radius: "8px";
@@ -23,7 +23,7 @@ const SwitchButton = styled.button`
   border: 1px solid var(--fg); /* Borde fino del color del texto */
   border-radius: 4px;
   padding: 4px 8px;
-  font-size: 12px;
+  font-size: var(--text-small);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

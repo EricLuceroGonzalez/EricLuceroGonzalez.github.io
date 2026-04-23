@@ -2,31 +2,20 @@
 import styled from "styled-components";
 
 export const MdParagraph = styled.div`
-  margin: 0.25rem 0;
-  font-size: 0.9rem;
-  /* border: 1px solid var(--accent); */
-  @media (min-width: 660px) {
-    font-size: 1.15rem;
-  }
-  z-index: 1000;
+  margin: 1.15rem 0;
+  font-size: var(--text-base);
+  background-color: var(--bg);
+  text-align: left;
+  z-index: 100;
 `;
 
 export const MdListItem = styled.li`
-  color: var(--fg);
-  /* font-size: 0; */
-  /* list-style-type: circle; */
-  font-size: 0.95rem;
-  text-align: justify;
-  @media (min-width: 660px) {
-    font-size: 1.05rem;
-  }
-  margin: 0.25rem auto;
+  font-size: var(--text-base);
 `;
 export const MdUnorderedList = styled.ul`
   list-style: none; /* Elimina los bullets predeterminados */
   list-style-position: inside;
   margin: 0px auto;
-  width: 95%;
   padding: 2px 2px;
 
   li {
@@ -36,7 +25,7 @@ export const MdUnorderedList = styled.ul`
     &::before {
       content: "✅"; /*● */
       color: var(--accent);
-      font-size: 1em;
+      font-size: var(--text-base);
       position: absolute;
       left: 0;
     }
@@ -60,25 +49,14 @@ export const MdBlockQuote = styled.blockquote`
 
 export const MdHead = styled.h1`
   text-align: left;
-  font-size: xx-large;
-  @media (min-width: 660px) {
-    font-size: 2rem;
-  }
   line-height: 0.9;
   margin: 1em 0;
-  @media (max-width: 660px) {
-    font-size: 1.25rem;
-    /* border: 1px solid red; */
-  }
 `;
+
 export const MdSubHeadA = styled.h2`
   padding-top: 1rem;
   margin-top: 2rem;
   color: var(--accent);
-  font-size: 1.25rem;
-  @media (max-width: 660px) {
-    font-size: 1.05rem;
-  }
   a {
     color: var(--bg);
   }
@@ -92,7 +70,6 @@ export const MdSubHeadA = styled.h2`
 export const MdSubHeadB = styled.h3`
   color: var(--heading-3);
   margin-top: 2rem;
-  font-size: larger;
   a {
     color: var(--bg);
   }
@@ -106,7 +83,6 @@ export const MdSubHeadB = styled.h3`
 export const MdSubHeadC = styled.h4`
   color: var(--heading);
   margin: 15px 0;
-  font-size: 0.95rem;
 `;
 
 export const MdHeadAnchor = styled.a`
@@ -172,7 +148,7 @@ export const MdImageCaption = styled.p`
   padding: 12px 0;
   text-align: justify;
   max-width: 95%;
-  font-size: smaller;
+  font-size: var(--text-small);
 `;
 export const MdImageCaptionNumber = styled.span`
   color: var(--accent);
@@ -180,7 +156,6 @@ export const MdImageCaptionNumber = styled.span`
   /* margin: 5px 0;
   text-align: justify;
   max-width: 98%;
-  font-size: smaller;
   @media (min-width: 860px) {
     max-width: 80%;
   } */
@@ -221,7 +196,7 @@ export const MdTableHead = styled.th`
 `;
 
 export const MdTableD = styled.td`
-  font-size: x-small;
+  font-size: var(--text-small);
   color: var(--fg);
   padding: 2px 2px;
   border: 1px solid var(--gray-light);
@@ -238,13 +213,12 @@ export const MdCode = styled.code`
 export const ContainerDiv = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 43px;
+  font-size: var(--text-h1);
   width: 50%;
   align-items: center;
   justify-content: space-around;
   margin: 10px auto;
   @media (0 <= width <= 660px) {
-    font-size: 26px;
     width: 100%;
     flex-wrap: wrap;
   }

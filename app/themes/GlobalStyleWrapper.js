@@ -23,7 +23,17 @@ a {
     /* =========================================
        TEMA CLARO
        ========================================= */
-       
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --text-small: clamp(0.65rem, 0.65rem + 0.25vw, 0.85rem);
+    --text-very-small: clamp(0.35rem, 0.55rem + 0.35vw, 0.55rem);
+  
+    --text-h1: clamp(2rem, 1.6rem + 2vw, 3rem);
+    --text-h2: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    --text-h3: clamp(1.15rem, 1.05rem + 0.35vw, 1.5rem);
+
+    h1 { font-size: var(--text-h1); font-weight: 800; letter-spacing: -0.02em; }
+    h2 { font-size: var(--text-h2); font-weight: 700; }
+    h3 { font-size: var(--text-h3); font-weight: 600; }
     /* BASE */
     --bg: #F8F9FA;
     --fg: #1A1A1A;

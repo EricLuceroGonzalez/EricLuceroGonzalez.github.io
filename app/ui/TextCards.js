@@ -1,8 +1,12 @@
-"use client"; // ¡Súper importante en Next.js para styled-components!
+"use client";
 
 import React from "react";
 import styled from "styled-components";
-
+import { BiSolidQuoteLeft, BiSolidQuoteRight } from "react-icons/bi";
+import {
+  QuoteLeftIcon,
+  QuoteRightIcon,
+} from "../components/MdCompos/Quotation.js";
 // --- ESTILOS ---
 const CardContainer = styled.article`
   background-color: #ffffff;
@@ -27,12 +31,15 @@ const CardContainer = styled.article`
   }
 `;
 
-const TuitTexto = styled.p`
-  font-size: 1.15rem;
+const TuitTexto = styled.div`
+  font-size: var(--text-h3);
+  font-weight: bold;
   color: #0f1419;
   line-height: 1.5;
   margin: 0 0 16px 0;
-  white-space: pre-wrap; /* Respeta los saltos de línea de tu bot */
+  white-space: pre-wrap;
+  display: flex;
+  flex-direction: column;
 `;
 
 const MetadatosFuente = styled.div`
@@ -40,7 +47,7 @@ const MetadatosFuente = styled.div`
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  font-size: 0.95rem;
+  font-size: var(--text-small);
   color: #536471;
   background-color: #f7f9f9;
   padding: 10px 12px;
@@ -60,10 +67,16 @@ const FooterTuit = styled.div`
   padding-top: 12px;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  @media (min-width: 740px) {
+    flex-direction: row;
+  }
 `;
 
 // --- COMPONENTE REACT ---
 export default function TextCard({ tuit }) {
+  console.log("tuit");
+  console.log(tuit);
   // Formateamos la fecha para que se lea: "19 de marzo de 2026, 21:53"
   const fechaFormateada = tuit.fecha_ultimo_post
     ? new Date(tuit.fecha_ultimo_post).toLocaleDateString("es-ES", {
@@ -78,7 +91,15 @@ export default function TextCard({ tuit }) {
   return (
     <CardContainer>
       {/* El texto principal del tuit */}
-      <TuitTexto>{tuit.texto}</TuitTexto>
+      <TuitTexto>
+        <QuoteLeftIcon>
+          <BiSolidQuoteLeft />
+        </QuoteLeftIcon>
+        {tuit.texto}
+        <QuoteRightIcon>
+          <BiSolidQuoteRight />
+        </QuoteRightIcon>
+      </TuitTexto>
 
       {/* Los datos de la hemeroteca */}
       <MetadatosFuente>
@@ -91,7 +112,9 @@ export default function TextCard({ tuit }) {
 
       {/* Fecha en la que el bot lo publicó */}
       <FooterTuit>
-        <span>🤖 Publicado por el Bot</span>
+        <span>
+          🤖 Publicado por <a href="https://x.com/Bot_Chuchu">@Bot_Chuchu</a>
+        </span>
         <span>{fechaFormateada}</span>
       </FooterTuit>
     </CardContainer>

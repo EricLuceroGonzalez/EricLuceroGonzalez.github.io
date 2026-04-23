@@ -1,6 +1,6 @@
 import ShowPath from "@/app/components/showPath";
 import { MainBg } from "../../../ui/ComponentsStyled";
-import { Layout } from "@/app/ui/lugs";
+import { Layout } from "@/app/ui/BasicDivs";
 import { useTranslations } from "next-intl";
 
 const LicensePage = () => {

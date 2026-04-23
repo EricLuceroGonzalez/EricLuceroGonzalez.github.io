@@ -25,7 +25,7 @@ const StyledVideo = styled.video`
 
 const Caption = styled.figcaption`
   margin-top: 1rem;
-  font-size: 0.875rem;
+  font-size: var(--text-small);
   color: #64748b;
   font-style: italic;
   text-align: center;

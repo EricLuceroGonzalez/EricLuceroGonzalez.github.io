@@ -3,6 +3,8 @@ import { RiAlarmWarningFill } from "react-icons/ri";
 import styled from "styled-components";
 
 const DisclaimerTitle = styled.h2`
+  display: flex;
+  flex-direction: row;
   color: var(--accent);
 `;
 const DisclaimerContainer = styled.div`
@@ -16,25 +18,25 @@ const DisclaimerContainer = styled.div`
   border-radius: 8px;
   @media (max-width: 660px) {
     padding: 1rem 0.25rem;
-    font-size: x-small;
+    font-size: var(--text-very-small);
   }
 `;
 const DisclaimerIcon = styled.div`
   svg {
     color: var(--warning);
-    font-size: 2em;
+    font-size: 2rem;
   }
 `;
 
 const DisclaimerBody = styled.div`
-  padding: 5px 5px;
+  padding: 0.15rem 0;
   strong {
     color: var(--accent);
   }
 `;
 const DisclaimerText = styled.div`
   padding: 5px 0;
-  font-size: 0.9rem;
+  font-size: var(--text-small);
   color: var(--accent);
 `;
 const BulletList = styled.ol`
@@ -42,11 +44,10 @@ const BulletList = styled.ol`
   margin-bottom: 0;
   padding-left: 1.5rem;
   color: var(--accent);
-  font-size: x-small;
 `;
 
 const ListItem = styled.li`
-  font-size: 0.9rem;
+  font-size: var(--text-small);
   line-height: 1.5;
   margin-bottom: 0.4rem;
 
@@ -62,6 +63,7 @@ const StyledContent = styled.div`
     padding-left: 0;
     margin-top: 1rem;
     margin-bottom: 0;
+    font-size: var(--text-small);
   }
 
   /* Apuntamos a cada elemento de la lista */
@@ -71,8 +73,9 @@ const StyledContent = styled.div`
     margin-bottom: 0.8rem;
     color: var(--fg);
     line-height: 1.5;
-    font-size: 0.95rem;
     color: var(--accent);
+
+    font-size: var(--text-small);
   }
 
   /* Le ponemos un icono personalizado (puedes cambiar el emoji por lo que quieras) */
@@ -81,17 +84,18 @@ const StyledContent = styled.div`
     position: absolute;
     left: 0;
     top: 2px;
-    font-size: 1rem;
   }
 `;
 const Disclaimer = ({ body, children }) => {
   return (
     <DisclaimerContainer>
-      <DisclaimerIcon>
-        <RiAlarmWarningFill />
-      </DisclaimerIcon>
       <DisclaimerBody>
-        <DisclaimerTitle>Disclaimer:</DisclaimerTitle>
+        <DisclaimerTitle>
+          <DisclaimerIcon>
+            <RiAlarmWarningFill />
+          </DisclaimerIcon>
+          Disclaimer:
+        </DisclaimerTitle>
         <DisclaimerText>{body && <p>{body}</p>}</DisclaimerText>
         <StyledContent>{children}</StyledContent>
       </DisclaimerBody>

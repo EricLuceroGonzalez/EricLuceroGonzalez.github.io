@@ -4,9 +4,8 @@ import {
   LatexSection,
   MainPageBg,
   PageContainer,
-  SubTitlePage,
-  TitlePage,
 } from "../ui/ComponentsStyled";
+import { TitlePage, SubTitle, SubSubTitle } from "../ui/TitlesComponents";
 import HomeBoxes from "../components/HomeBoxes";
 import { MdParagraph } from "../ui/MarkDownComponents";
 import ScrollDiv from "../components/navigation/ScrollDiv";
@@ -28,7 +27,7 @@ export default async function Home({ params }) {
   return (
     <PageContainer>
       <ScrollDiv />
-      <BackgroundDots numDots={90} />
+      {/* <BackgroundDots numDots={90} /> */}
       <MainPageBg>
         <HomePageCover>
           <HomePageCoverText>
@@ -50,18 +49,17 @@ export default async function Home({ params }) {
                 <HomeGreeting defaultGreeting={t("title")} />
               </span>
             </TitlePage>
-            {/* <CoverTitle>Eric Lucero González </CoverTitle> */}
           </HomePageCoverText>
           <BackgroundDots numDots={40} />
         </HomePageCover>
-        <MdParagraph>{t("copy_text.p1")}</MdParagraph>
+        <SubSubTitle>{t("copy_text.p1")}</SubSubTitle>
         <MdParagraph>{t("copy_text.p2")}</MdParagraph>
 
-        <SubTitlePage>Blog</SubTitlePage>
+        <SubTitle>Blog</SubTitle>
         <HomeBoxes props={allPostsData.posts} />
         {allLatexPosts.posts.length > 0 ? (
           <LatexSection>
-            <SubTitlePage>LaTeX</SubTitlePage>
+            <SubTitle>LaTeX</SubTitle>
             <HomeBoxes props={allLatexPosts.posts} />
           </LatexSection>
         ) : null}

@@ -6,7 +6,8 @@ import styled from "styled-components";
 const EmojiContainers = styled(motion.div)`
   font-size: larger;
   width: 50px;
-  padding-left: 8px;
+  margin-right: 16px;
+  font-size: var(--text-h1);
   /* background-color: var(--fg); */
 `;
 const RANDOM_EMOJIS = [

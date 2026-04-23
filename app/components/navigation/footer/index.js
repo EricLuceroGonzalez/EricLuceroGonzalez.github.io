@@ -16,7 +16,7 @@ const FooterContainer = styled.footer`
   position: relative;
   bottom: 0;
   flex-shrink: 0;
-  font-size: small;
+  font-size: var(--text-small);
 `;
 const FooterIcons = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ const FooterIcons = styled.div`
   @media (0 <=width <= 399px) {
     flex-direction: column;
     margin-top: 2rem;
-    font-size: xx-small;
+    font-size: var(--text-very-small);
   }
 `;
 
@@ -52,7 +52,7 @@ const FooterTextBox = styled.div`
   }
 `;
 const FooterText = styled.p`
-  font-size: small;
+  font-size: var(--text-small);
 `;
 const FooterLink = styled.a`
   /* background-color: red; */
@@ -83,7 +83,7 @@ const FooterLink = styled.a`
 `;
 
 const LocaleLink = styled(Link)`
-  font-size: small;
+  font-size: var(--text-small);
   display: flex;
   align-items: center;
   padding: 12px 0;

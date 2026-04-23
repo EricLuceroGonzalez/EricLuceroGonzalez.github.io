@@ -44,14 +44,14 @@ const CardHeader = styled.div`
 
 const METBadge = styled.span`
   font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
+  font-size: var(--text-small);
   color: var(--fg);
   /* background: var(--fg); */
   padding: 2px 6px;
 `;
 
 const LocalTimeText = styled.span`
-  font-size: 11px;
+  font-size: var(--text-small);
   color: var(--green-go);
   font-weight: 600;
 `;
@@ -59,11 +59,11 @@ const LocalTimeText = styled.span`
 const EventTitle = styled.h4`
   margin: 0 0 6px 0;
   color: var(--accent);
-  font-size: 15px;
+  font-size: var(--text-base);
 `;
 
 const EventDesc = styled.p`
-  font-size: 13px;
+  font-size: var(--text-base);
   color: var(--fg);
   line-height: 1.5;
   margin: 0 0 10px 0;

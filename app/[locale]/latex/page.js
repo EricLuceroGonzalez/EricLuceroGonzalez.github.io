@@ -1,10 +1,7 @@
-import {
-  MainPageBg,
-  PageContainer,
-  TitlePage,
-} from "../../ui/ComponentsStyled";
+import { MainPageBg, PageContainer } from "../../ui/ComponentsStyled";
+import { TitlePage } from "../../ui/TitlesComponents";
 import { getPostsByType } from "../../lib/api";
-import { ButtonContainer, CopyButton, Layout } from "../../ui/lugs";
+import { ButtonContainer, CopyButton, Layout } from "../../ui/BasicDivs";
 import HomeBoxes from "../../components/HomeBoxes";
 import ResponsiveSidebar from "../../components/SideBar";
 import {
@@ -65,6 +62,7 @@ const Latex = async ({ params }) => {
             {trans("cta_advanced")}
           </MdParagraph> */}
 
+          <HomeBoxes props={latexBlogPost} />
           <MdParagraph>{trans("copy_text.p1")}</MdParagraph>
           <MdUnorderedList>
             <MdListItem>{trans("copy_text.item1")}</MdListItem>
@@ -92,7 +90,7 @@ const Latex = async ({ params }) => {
           {/* 
           <MdHead>Aprende LaTeX</MdHead>
           */}
-          <HomeBoxes props={latexBlogPost} />
+
           {/* <HomeBoxes props={latexCoursePost} /> */}
         </MainPageBg>
       </PageContainer>

@@ -13,30 +13,30 @@ const QuoteBack = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: 660px) {
-    font-size: 0.8em;
+    font-size: var(--text-small);
     padding: 0.5rem 1rem;
   }
 `;
 
 const QuoteText = styled.div`
   line-height: 1.5;
-  font-size: 1.05rem;
+  font-size: var(--text-base);
   @media (max-width: 660px) {
-    font-size: normal;
+    font-size: var(--text-small);
     margin: 5px auto;
   }
-  /* border: 1px solid red; */
+  /* border: 2px solid red; */
 `;
 
-const QuoteLeftIcon = styled.div`
-  font-size: 1.25rem;
+export const QuoteLeftIcon = styled.div`
+  font-size: var(--text-base);
   color: var(--accent);
   text-align: left;
   margin-bottom: -0.7rem;
 `;
 
-const QuoteRightIcon = styled.div`
-  font-size: 1.25rem;
+export const QuoteRightIcon = styled.div`
+  font-size: var(--text-base);
   color: var(--accent);
   text-align: right;
   margin-top: -1.25rem;
@@ -46,12 +46,12 @@ const AuthorContainer = styled.div`
   margin-top: -0.5rem;
   text-align: right;
   font-weight: bold;
-  font-size: normal;
+  font-size: var(--text-base);
 `;
 
 const SourceContainer = styled.div`
   text-align: right;
-  font-size: small;
+  font-size: var(--text-small);
 `;
 
 export const QuotationAndAuthor = ({ quote, author, source }) => {

@@ -17,7 +17,7 @@ export const LogosBox = styled(motion.div)`
   flex-direction: row;
   margin: 1rem auto;
   flex-wrap: wrap;
-  font-size: small;
+  font-size: var(--text-small);
   color: var(--accent);
   background-color: var(--quote-bg);
 

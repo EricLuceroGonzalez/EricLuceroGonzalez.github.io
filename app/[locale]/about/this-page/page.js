@@ -16,7 +16,7 @@ import {
 // import styled from "styled-components";
 // import Link from "next/link";
 import ShowPath from "@/app/components/showPath";
-import { Article, Layout } from "@/app/ui/lugs";
+import { Article, Layout } from "@/app/ui/BasicDivs";
 import { MdHead } from "@/app/ui/MarkDownComponents";
 import { useTranslations } from "next-intl";
 import { FaFontAwesome, FaGithub } from "react-icons/fa";

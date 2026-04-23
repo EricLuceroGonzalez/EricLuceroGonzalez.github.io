@@ -35,20 +35,17 @@ const StatCard = styled.div`
 `;
 
 const StatValue = styled.h2`
-  font-size: 1.05rem;
   font-weight: 800;
   margin: 0;
   letter-spacing: -1px;
-  @media (min-width: 1024px) {
-    font-size: 1.25rem;
-  }
 `;
 
 const StatLabel = styled.p`
-  font-size: small;
+  font-size: var(--text-small);
   color: var(--quote-fg);
   margin: 0.5rem 0 0 0;
   font-weight: 500;
+  text-align: left;
   &:hover {
     color: var(--bg);
   }

@@ -1,10 +1,7 @@
-import {
-  MainPageBg,
-  PageContainer,
-  TitlePage,
-} from "../../../ui/ComponentsStyled";
+import { MainPageBg, PageContainer } from "../../../ui/ComponentsStyled";
+import { TitlePage } from "../../../ui/TitlesComponents";
 import { getLatexPosts, getPostsByType } from "../../../lib/api";
-import { Layout } from "../../../ui/lugs";
+import { Layout } from "../../../ui/BasicDivs";
 import HomeBoxes from "../../../components/HomeBoxes";
 import ResponsiveSidebar from "../../../components/SideBar";
 import {
@@ -21,7 +18,7 @@ const Latex = ({ params }) => {
 
   // Filtra solo los posts que tienen "curso"
   const latexPosts = AllLatexPosts.posts.filter(
-    (post) => post.doctype.includes("latex") && post.doctype.includes("curso")
+    (post) => post.doctype.includes("latex") && post.doctype.includes("curso"),
   );
   // console.log("AllLatexPosts");
   // console.log(AllLatexPosts);

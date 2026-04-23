@@ -7,10 +7,6 @@ export const PageContainer = styled.div`
   flex-direction: column;
   background-color: var(--bg);
   min-height: 99vh;
-  font-size: xx-small;
-  @media (min-width: 1080px) {
-    font-size: 1.05rem;
-  }
 `;
 
 export const Main = styled.main`
@@ -38,6 +34,7 @@ export const MainPageBg = styled(motion.div)`
   max-width: 100%;
   text-align: justify;
   margin: 0 auto;
+  z-index: 10;
 
   @media (0px <= width < 401px) {
     width: 99%;
@@ -51,7 +48,6 @@ export const MainPageBg = styled(motion.div)`
     min-width: 80%;
     padding: 5px;
     box-shadow: none;
-    font-size: small;
   }
   @media (min-width: 1080px) {
     width: 65%;
@@ -70,66 +66,22 @@ export const HomePageCover = styled.div`
   flex-direction: row;
   color: var(--fg);
   padding: 0.5rem 0;
+  background-color: var(--bg);
 `;
 export const HomePageCoverText = styled.div`
   width: 100%;
   padding: 0.6rem 0;
-  /* border: 1px dashed var(--accent); */
+  z-index: 10;
 `;
 export const HomePageCoverImage = styled.div`
   border-left: 1px solid var(--strong-fg);
   width: 50%;
 `;
 
-export const CoverTitle = styled.h1`
-  color: var(--fg);
-  font-size: 2rem;
-  @media (max-width: 728px) {
-    text-align: justify;
-  }
-`;
-export const TitlePage = styled.h1`
-  display: flex;
-  flex-direction: row;
-  font-size: 1.25rem;
-  @media (max-width: 728px) {
-    text-align: justify;
-  }
-
-  @media (min-width: 660px) {
-    font-size: 1.33rem;
-  }
-`;
-
-export const SubTitlePage = styled.h2`
-  color: var(--heading-3);
-  font-size: 1.15rem;
-
-  @media (max-width: 728px) {
-    text-align: justify;
-    /* padding: 1rem 1rem; */
-  }
-
-  @media (min-width: 660px) {
-    font-size: 1.15rem;
-  }
-
-  /* border: 2px dashed orange; */
-  /* background-color: var(--emphasis-bg); */
-  color: var(--fg);
-  margin-top: 2rem;
-`;
-
 export const Section = styled.section`
   color: blue;
 `;
 
-export const NotFoundTitle = styled.h1`
-  font-size: 6rem;
-  padding: 2rem 0;
-  /* font-family: var(--font-alexandria); */
-  /* font-family: var(--font-parkisans); */
-`;
 export const NotFoundText = styled.p`
   padding: 0.5rem 0;
   text-align: justify;

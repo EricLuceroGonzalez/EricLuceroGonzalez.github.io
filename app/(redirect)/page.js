@@ -2,7 +2,8 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { MainPageBg, PageContainer, TitlePage } from "../ui/ComponentsStyled";
+import { MainPageBg, PageContainer } from "../ui/ComponentsStyled";
+import { TitlePage } from "../ui/TitlesComponents";
 import BackgroundDots from "../components/BgMovingDots";
 import LoadingThreeDotsJumping from "../remotion/LoadingThreeDotsJumping";
 

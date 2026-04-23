@@ -14,13 +14,12 @@ const StyledAnchor = styled(motion.div)`
   color: var(--fg);
   transition: background-color 0.3s ease;
   padding: 8px 6px;
-  margin: 2px 2px;
   font-weight: bold;
 
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   @media (min-width: 660px) {
-    font-size: 1.05rem;
-    margin: 2px 12px;
+    font-size: var(--text-base);
+    margin: 2px 1rem;
   }
   &:hover {
     background-color: var(--fg);

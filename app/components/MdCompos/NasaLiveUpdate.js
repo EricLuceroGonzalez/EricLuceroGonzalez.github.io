@@ -32,7 +32,7 @@ const Header = styled.div`
 const Title = styled.h4`
   margin: 0;
   color: #f8fafc;
-  font-size: 14px;
+  font-size: var(--text-base);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -51,14 +51,14 @@ const LiveDot = styled.span`
 
 const Timestamp = styled.span`
   font-family: "JetBrains Mono", monospace;
-  font-size: 12px;
+  font-size: var(--text-base);
   color: #fbbf24;
   font-weight: bold;
 `;
 
 const Content = styled.p`
   margin: 0;
-  font-size: 14px;
+  font-size: var(--text-base);
   color: #cbd5e1;
   line-height: 1.6;
   white-space: pre-wrap;
@@ -67,7 +67,7 @@ const Content = styled.p`
 const SourceLink = styled.a`
   display: inline-block;
   margin-top: 12px;
-  font-size: 11px;
+  font-size: var(--text-small);
   color: #38bdf8;
   text-decoration: none;
 

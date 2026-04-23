@@ -54,7 +54,7 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
       canvas.width = width;
       canvas.height = height;
       dotsRef.current = Array.from({ length: numDots }, () =>
-        createDot(width, height)
+        createDot(width, height),
       );
       linesRef.current = [];
     };
@@ -118,7 +118,7 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
           const g = isDark ? 51 : 119;
           const b = isDark ? 102 : 255;
           ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
-          ctx.lineWidth = 2;
+          ctx.lineWidth = 1;
           ctx.stroke();
         }
 
@@ -151,7 +151,7 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: 0,
+        zIndex: -1,
         pointerEvents: "none",
       }}
     />

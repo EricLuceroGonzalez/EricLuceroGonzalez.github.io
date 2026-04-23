@@ -9,7 +9,7 @@ import {
   Layout,
   LinkList,
   PhotoAvatar,
-} from "../../ui/lugs";
+} from "../../ui/BasicDivs";
 import Image from "next/image";
 import ShowPath from "../../components/showPath";
 import { FaSquareXTwitter } from "react-icons/fa6";

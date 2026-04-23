@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Excerpt = styled.p`
   margin: 5px 0 0;
-  font-size: small;
+  font-size: var(--text-small);
   font-weight: 300;
 `;
 const NavCard = styled(Link)`
@@ -54,10 +54,10 @@ const PostInfo = styled.div`
 const Title = styled.h4`
   margin: 0;
   padding: 0.3rem 0;
-  font-size: small;
+  font-size: var(--text-small);
   text-align: left;
   @media (min-width: 660px) {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     text-align: left;
   }
 `;

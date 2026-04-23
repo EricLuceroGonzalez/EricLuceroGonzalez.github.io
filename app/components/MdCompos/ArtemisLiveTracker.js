@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { MainBg } from "../../ui/ComponentsStyled";
-import { Layout } from "../../ui/lugs";
+import { Layout } from "../../ui/BasicDivs";
 import ShowPath from "../../components/showPath";
 import LikeButton from "../../components/Likes";
 
@@ -61,7 +61,6 @@ const HeaderTop = styled.div`
 
 const Title = styled.h3`
   margin: 0;
-  font-size: 18px;
   color: #cbd5e1;
   display: flex;
   align-items: center;
@@ -79,7 +78,7 @@ const ToolButton = styled.button`
   border: 1px solid #334155;
   padding: 6px 10px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: var(--text-base);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -97,7 +96,7 @@ const InputGroup = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: 13px;
+  font-size: var(--text-h3);
   display: block;
   /* margin-bottom: 6px; */
   color: #94a3b8;
@@ -168,7 +167,6 @@ const LiveDot = styled.span`
 
 const Clock = styled.h2`
   margin: 0;
-  font-size: 32px;
   font-family: "JetBrains Mono", monospace;
   color: ${(props) => (props.$isPre ? "#fcd34d" : "#38bdf8")};
 `;
@@ -192,7 +190,6 @@ const CardHeader = styled.div`
 `;
 
 const CardBadge = styled.span`
-  font-size: 11px;
   color: #94a3b8;
   text-transform: uppercase;
   font-weight: 700;
@@ -201,12 +198,11 @@ const CardBadge = styled.span`
 const EventTitle = styled.h3`
   margin: 0 0 8px 0;
   color: ${(props) => (props.$isRoutine ? "#cbd5e1" : "#f1f5f9")};
-  font-size: 18px;
 `;
 
 const EventDesc = styled.p`
   margin: 0;
-  font-size: 14px;
+  font-size: var(--text-base);
   color: #94a3b8;
   line-height: 1.6;
 `;
@@ -223,7 +219,7 @@ const TelemetryBadges = styled.div`
 const TechBadge = styled.span`
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: var(--text-base);
   font-weight: 600;
   letter-spacing: 0.5px;
   background-color: ${(props) =>
@@ -240,7 +236,7 @@ const TechBadge = styled.span`
 
 const NextEvent = styled.div`
   margin-top: 20px;
-  font-size: 13px;
+  font-size: var(--text-base);
   color: #94a3b8;
   text-align: left;
   background-color: rgba(255, 255, 255, 0.03);
@@ -262,7 +258,7 @@ const ActionButton = styled.button`
   border: none;
   padding: 8px 12px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: var(--text-base);
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.2s;
@@ -297,12 +293,12 @@ const DefinitionItem = styled.div`
   strong {
     display: block;
     color: #f1f5f9;
-    font-size: 12px;
+    font-size: var(--text-base);
     margin-bottom: 4px;
   }
   span {
     color: #94a3b8;
-    font-size: 11px;
+    font-size: var(--text-base);
     line-height: 1.4;
     display: block;
   }
@@ -310,7 +306,7 @@ const DefinitionItem = styled.div`
 
 const SourceLink = styled.a`
   display: block;
-  font-size: 11px;
+  font-size: var(--text-base);
   color: #64748b;
   text-decoration: none;
   text-align: center;
@@ -333,7 +329,7 @@ const FeedbackSection = styled.div`
 `;
 
 const FeedbackText = styled.p`
-  font-size: 14px;
+  font-size: var(--text-base);
   color: #94a3b8;
   margin: 0;
   font-weight: 500;
@@ -362,7 +358,7 @@ const TimeLabelGroup = styled.div`
 `;
 
 const LabelSmall = styled.span`
-  font-size: 10px;
+  font-size: var(--text-small);
   color: #94a3b8;
   text-transform: uppercase;
   font-weight: 700;
@@ -371,7 +367,7 @@ const LabelSmall = styled.span`
 `;
 
 const DisplayValue = styled.span`
-  font-size: 13px;
+  font-size: var(--text-base);
   color: #f1f5f9;
   font-family: "JetBrains Mono", monospace;
 `;
