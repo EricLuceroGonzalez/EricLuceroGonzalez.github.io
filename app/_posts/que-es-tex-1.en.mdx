@@ -30,12 +30,12 @@ It could be said that $\TeX$ was born at the _Stanford Artificial Intelligence L
 >It was a monumental work, filled with complex mathematical formulas and intricate diagrams. Knuth, a perfectionist obsessed with typographic quality, was delighted with the book's printing.
 
 Until those years, the creation of high-quality mathematical documents depended on a technology that had reached its peak in the late 19th century: hot metal composition using two types of machines.
-The **Monotype** machine<CitationSup id={1}/> (machines that cast individual characters, allowing greater flexibility for mathematical notation) produced the highest quality mathematical texts until then.
+The **Monotype** machine<CitationSup id="1"/> (machines that cast individual characters, allowing greater flexibility for mathematical notation) produced the highest quality mathematical texts until then.
 
 Unfortunately for Knuth and fortunately for $\TeX$, in the 1970s, this technology became obsolete for economic reasons and was replaced by phototypesetting.
 >This drop in visual quality (beauty, according to Knuth) was what "horrified" Knuth when he saw the proofs for Volume 2 of *The Art of Computer Programming*, driving him to create TeX to digitally restore the quality of the old master craftsmen.
 
-Knuth himself recounts this in a speech titled *Digital Typography* <CitationSup id={2}/> at the Kyoto Prize lecture in 1996.
+Knuth himself recounts this in a speech titled *Digital Typography* <CitationSup id="2"/> at the Kyoto Prize lecture in 1996.
 
 ![caption=Knuth's extensive work: "The Art of Computer Programming" which made TeX possible.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767290081/elCronopio/Blog-posts/2880px-The_Art_of_Computer_Programming__vol._1-4B_-2807_d4lvyt.jpg)
 
@@ -43,11 +43,11 @@ Knuth himself recounts this in a speech titled *Digital Typography* <CitationSup
 
 ## The Obsession with Typographic Quality and Composition
 
-A famous anecdote from his youth<CitationSup id={3}/> is when he won a contest from the Ziegler's Giant Bar candy company.
+A famous anecdote from his youth<CitationSup id="3"/> is when he won a contest from the Ziegler's Giant Bar candy company.
 The challenge was to form as many words as possible from the letters in the phrase "Ziegler's Giant Bar".
 While the judges expected a few dozen, the 13-year-old Knuth, feigning a stomach ache to stay home and work on it, methodically found over 4,700 words, demonstrating his early obsession with combinatorics, lists, and systematic data processing (even before owning a computer).
 
-Another anecdote told in his Kyoto Prize speech <CitationSup id={2}/> speaks of his interest in letters and typography from a very young age.
+Another anecdote told in his Kyoto Prize speech <CitationSup id="2"/> speaks of his interest in letters and typography from a very young age.
 <QuoteAndAuthor quote="In fact, not only have I always loved books, but I am also fascinated by individual letters. Here is a page from the first alphabet book I had as a child. Interestingly, I marked each serif with a small x and counted them: the letter K has 7 serifs. The letter P has 4; the letter O has none." author="Donald Knuth" source="Notes from Kyoto Prize Lecture (1996)" />
 
 ![caption=Knuth's annotations on his childhood books, pointing out the serifs of the typography. Notes from Donald Knuth's Kyoto Prize Lecture (1996)](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767468485/elCronopio/Blog-posts/knuth_kid-serif_iyt0mp.png)
@@ -55,9 +55,9 @@ Another anecdote told in his Kyoto Prize speech <CitationSup id={2}/> speaks of 
 ### Knuth Decides to Solve the (Typographic) Problem Himself
 After the disappointment of receiving the galleys typeset with the new technologies of the era, he began looking for an editorial solution, finding some people in Poland who still used the old typographic technology, but this proved almost impossible.
 <QuoteAndAuthor quote="My whole book had been completely retypeset with a different technology. The new fonts looked terrible! The subscripts were in a different style from the large letters, for example, and the spacing was very bad. You can look at books printed in the early 70s and it turns out that if it wasn't simple -- well, almost everything looked atrocious in those days.  I couldn't stand to see my books so ugly." author="Donald Knuth" source="An Interview with Donald Knuth (2007)" />
-At that time, Knuth was already working at the *Stanford Artificial Intelligence Laboratory* (SAIL), led by none other than John McCarthy. There, they had a Xerox XGP printer<CitationSup id={4}/> capable of printing with a density of *120 dots per inch*, much better than the common dot matrix printers of that era, though not sufficient to produce the typefaces Knuth wanted.
-In the midst of this search, in February 1977, he stumbled upon the proofs of the first edition of Patrick Winston's *Artificial Intelligence* book<CitationSup id={5}/>, which had been composed with a high-resolution matrix printer at the company Information International, Inc. (III), with a density of 1000 dots per inch.
-Knuth was impressed by the print quality, and above all by the technique. The method of composition used was based on pixels; it was totally digital, using dots of ink. Instead of photographic images, the printer used algorithms to calculate the exact position of each dot of ink on the page. Bits, as Knuth says in: <CitationSup id={6}/>.
+At that time, Knuth was already working at the *Stanford Artificial Intelligence Laboratory* (SAIL), led by none other than John McCarthy. There, they had a Xerox XGP printer<CitationSup id="4"/> capable of printing with a density of *120 dots per inch*, much better than the common dot matrix printers of that era, though not sufficient to produce the typefaces Knuth wanted.
+In the midst of this search, in February 1977, he stumbled upon the proofs of the first edition of Patrick Winston's *Artificial Intelligence* book<CitationSup id="5"/>, which had been composed with a high-resolution matrix printer at the company Information International, Inc. (III), with a density of 1000 dots per inch.
+Knuth was impressed by the print quality, and above all by the technique. The method of composition used was based on pixels; it was totally digital, using dots of ink. Instead of photographic images, the printer used algorithms to calculate the exact position of each dot of ink on the page. Bits, as Knuth says in: <CitationSup id="6"/>.
 
 ![caption=Example of a series of LISP instructions (left). Database operation diagram (right). Pages 300 and 374, Artificial Intelligence, Patrick H. Winston (1977)](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768512499/elCronopio/Blog-posts/AI-tex-2_zp9uxc.png)
 
@@ -69,19 +69,19 @@ At this moment, Knuth abandoned everything he was doing (he was about 100 pages 
 
 At this point, Knuth realized several problems. First, no one else was working on this problem. Second, a typesetting machine was expensive for a university budget. Third, one could not think about a typographic printing system without having the necessary fonts and symbols. Knuth had to design mathematical formulas to describe the shape of the fonts and characters.
 He tried to seek help from Xerox, but the condition was that the usage rights of the fonts he developed would belong to Xerox.
-Knuth disagreed with this, thinking that a mathematical formula could not be owned by anyone<CitationSup id={6}/>.
+Knuth disagreed with this, thinking that a mathematical formula could not be owned by anyone<CitationSup id="6"/>.
 
 He attempted to work with the technologies available at SAIL, but they weren't enough. It involved capturing the image of typographic fonts with the greatest possible precision using television cameras.
 This was to trace the fonts and characters as accurately as possible. He also tried with the help of his wife, photographing printed letters with a high-resolution camera and projecting them onto a wall to trace the curves freehand; however, they weren't clear enough.
 In this attempt, he realized something simple: that *fonts were designed by people*, and he realized that if people do it, he could write a computer program to do it.
-Thus **METAFONT** was born, the system for designing typographic fonts through mathematical algorithms<CitationSup id={7}/>, seeking to find what Knuth called *the most pleasing curve*, which he found using cubic expressions.
+Thus **METAFONT** was born, the system for designing typographic fonts through mathematical algorithms<CitationSup id="7"/>, seeking to find what Knuth called *the most pleasing curve*, which he found using cubic expressions.
 
-In typographic font design, it is important to mention Hermann Zapf, a German typographer who designed classic fonts like Palatino, Optima, and Zapfino, who collaborated with Knuth in the 80s on the design of the **Computer Modern** font, the default font of TeX<CitationSup id={8}/>.
+In typographic font design, it is important to mention Hermann Zapf, a German typographer who designed classic fonts like Palatino, Optima, and Zapfino, who collaborated with Knuth in the 80s on the design of the **Computer Modern** font, the default font of TeX<CitationSup id="8"/>.
 
 In mid-1977, while working on the TeX prototype, Knuth wrote a preliminary note describing the system, explaining the name and purpose of TeX. In May 1977, Knuth stated:
 <QuoteAndAuthor quote="TEX is for technical text. Insiders pronounce the X as a Greek Chi (cf. the Scottish `ch' sound in `Loch Ness') since the word `technical' stems from a Greek root meaning art as well as technology. I am preparing the system   primarily for use in publishing my series The Art of Computer Programming-- the initial system will be tuned for my books, but it will not be difficult to extend it for other purposes if anybody wants to do so." author="Donald Knuth" source="Preliminary preliminary description of TEX (1977)" />
 
-Today, $\TeX$ is used by major publishers like Addison-Wesley (the publisher of *The Art of Computer Programming*), Elsevier, Oxford, and Springer<CitationSup id={9}/>. Hundreds of books have been published using this system, along with thousands of scientific articles worldwide. Even universities have their theses in this format.
+Today, $\TeX$ is used by major publishers like Addison-Wesley (the publisher of *The Art of Computer Programming*), Elsevier, Oxford, and Springer<CitationSup id="9"/>. Hundreds of books have been published using this system, along with thousands of scientific articles worldwide. Even universities have their theses in this format.
 
 ## But How Can TeX Print?
 First, METAFONT defined equations for the curves (cubic Bézier curves) and the stroke width. This created an "ideal letter" that was resolution-independent; it existed only as pure mathematics (coordinates).

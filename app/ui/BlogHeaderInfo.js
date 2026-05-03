@@ -23,7 +23,9 @@ export const Date = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--quote-fg);
 `;
 
 export const SideInfo = styled.div`

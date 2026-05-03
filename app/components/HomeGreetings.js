@@ -27,7 +27,7 @@ export default function HomeGreeting({ defaultGreeting }) {
     // Cambiamos la palabra cada 2.5 segundos
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % greetings.length);
-    }, 2500);
+    }, 3500);
     return () => clearInterval(timer);
   }, []);
 

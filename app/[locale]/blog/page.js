@@ -42,9 +42,8 @@ const BlogPage = async ({ params }) => {
           }}
         >
           <TitlePage>{t("title")}</TitlePage>
-          <MdParagraph>{t("copy_text.p1")}</MdParagraph>
-
-          <MdParagraph>{t("copy_text.p2")}</MdParagraph>
+          {/* <MdParagraph>{t("copy_text.p1")}</MdParagraph> */}
+          {/* <MdParagraph>{t("copy_text.p2")}</MdParagraph> */}
           <HomeBoxes props={blogPosts.posts} locale={locale} />
         </MainPageBg>
       </PageContainer>

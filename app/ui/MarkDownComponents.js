@@ -4,9 +4,9 @@ import styled from "styled-components";
 export const MdParagraph = styled.div`
   margin: 1.15rem 0;
   font-size: var(--text-base);
-  background-color: var(--bg);
   text-align: left;
   z-index: 100;
+  max-width: 70ch;
 `;
 
 export const MdListItem = styled.li`
@@ -57,6 +57,7 @@ export const MdSubHeadA = styled.h2`
   padding-top: 1rem;
   margin-top: 2rem;
   color: var(--accent);
+  text-align: left;
   a {
     color: var(--bg);
   }
@@ -70,6 +71,7 @@ export const MdSubHeadA = styled.h2`
 export const MdSubHeadB = styled.h3`
   color: var(--heading-3);
   margin-top: 2rem;
+  text-align: left;
   a {
     color: var(--bg);
   }

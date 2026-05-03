@@ -1,0 +1,86 @@
+---
+slug: 'online-local'
+id: 'latex-002'
+date: "2026-05-06"
+order: 0
+author: "Eric Lucero"
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509748/elCronopio/Thumbnails/g39930_x2tfyv.png
+webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
+coverImageAlt: 'Imagen de cover con el logo de TeX en su tipografía clásica, con un efecto hecho a mano.'
+title: "LaTeX, online o local: ¿Cuál es la mejor opción para escribir documentos científicos?"
+shortTitle: "LaTeX, online o local"
+entryType: "latex"
+excerpt: ""
+doctype: ["latex"]
+categories: ["LaTeX","TeX"]
+keywords: ["blog","LaTeX","TeX","Knuth","latex","overleaf","editor","online","local","compilación","documentos científicos"]
+isPublic: false
+---
+
+## Contenido
+
+# Entrada 1: Las dos almas de LaTeX: ¿Compilar en tu máquina o en la nube?
+
+Si vienes de leer la historia de Donald Knuth y la creación de TeX, seguramente ya te pican los dedos por escribir tu primer `\documentclass{article}`. Pero antes de escribir una sola línea de código, te enfrentas a la primera gran decisión de todo arquitecto de documentos: ¿Dónde va a vivir tu compilador?
+
+Actualmente, existen dos formas principales de operar LaTeX. Ambas son válidas, pero responden a necesidades (y niveles de paranoia) muy diferentes.
+
+## 1. La Vía Tradicional: Instalación Local
+
+Instalar LaTeX en tu propio ordenador significa descargar una distribución (los motores de compilación, las fuentes y los miles de paquetes disponibles) y un editor de texto. Es la forma en la que los puristas y los profesionales operan.
+
+**Ventajas absolutas:**
+* **Privacidad y Control:** Tus documentos (y tus datos de investigación no publicados) no salen de tu disco duro.
+* **Cero dependencias:** No necesitas conexión a Internet. Puedes compilar tu tesis en un refugio de montaña.
+* **Velocidad sin límites:** No hay "tiempos máximos de compilación" impuestos por un servidor ajeno. Si tu documento tiene 200 gráficos en TikZ de alta resolución, tu procesador se encargará de sudar la gota gorda hasta terminar.
+* **Ecosistema de Hackers:** Puedes integrar la compilación con herramientas de terminal como `latexmk`, scripts de Python, o usar editores hiper-personalizados como VS Code, Vim o Emacs.
+
+**La cara oscura:**
+* Las instalaciones completas son pesadas (pueden ocupar entre 4 GB y 8 GB de tu disco duro).
+* Configurar el entorno por primera vez y mantener los paquetes actualizados requiere perderle el miedo a la consola.
+
+## 2. La Vía Moderna: Compiladores Online (La Nube)
+
+En la última década, plataformas como **Overleaf** han democratizado LaTeX llevándolo al navegador. Básicamente, te prestan un ordenador que ya tiene LaTeX perfectamente configurado para que tú solo te preocupes por escribir.
+
+**Ventajas absolutas:**
+* **Cero fricción:** Te registras, abres un documento y empiezas a teclear. Sin instalaciones de 8 GB ni configuraciones de rutas del sistema.
+* **Colaboración en tiempo real:** Es el "Google Docs" de LaTeX. Varios autores pueden editar el mismo documento simultáneamente y dejar comentarios.
+* **Portabilidad total:** Puedes editar tu tesis desde el ordenador de la biblioteca, tu iPad o el portátil del trabajo.
+* **Control de versiones integrado:** Llevan un registro automático de los cambios, lo que te salva la vida si borras un párrafo por error.
+
+**La cara oscura:**
+* Las cuentas gratuitas tienen límites estrictos de tiempo de compilación (suele ser 1 minuto). Si tu documento es muy complejo o tu bibliografía muy extensa, la compilación fallará por "Time Out" y te pedirán que pagues la versión Premium.
+* Requieres conexión a Internet permanente.
+
+**El veredicto del Diablo:** Si estás empezando o trabajas en un *paper* colaborativo, usa la nube (Overleaf). Si estás escribiendo un libro, una tesis doctoral pesada, o simplemente valoras tu soberanía digital, instala LaTeX en local.
+
+---
+
+# Entrada 2: Forjando el anillo: Instalación de TeX Live (y MacTeX) paso a paso
+
+Si has decidido tomar el control de tu entorno y compilar en local, tu mejor opción es **TeX Live**. Es la distribución oficial del TeX Users Group (TUG), el estándar absoluto de la industria y la opción más segura. 
+
+*Nota técnica importante:* **MacTeX** no es un programa distinto. Es simplemente TeX Live empaquetado específicamente para instalarse en macOS con las herramientas nativas de Apple. 
+
+Aquí tienes cómo instalar al gigante de 8 GB en los tres ecosistemas.
+
+## En Linux (Ubuntu/Debian y derivados)
+
+Los usuarios de Linux tienen la vida más fácil gracias a los gestores de paquetes. Abre tu terminal e invoca el comando de instalación completa:
+```bash
+sudo apt update
+sudo apt install texlive-full
+```
+## Referencias
+<ReferenceList>
+  <ReferenceItem id="1" text="Monotype System" url="https://en.wikipedia.org/wiki/Monotype_system" />
+  <ReferenceItem id="2" text="Conferencia del Premio Kyoto de Donald Knuth (1996)" url="https://www.kyotoprize.org/en/lectures/the-1996-kyoto-prize/" />
+  <ReferenceItem id="3" text="The Computer Scientist Who Cant Stop Telling Stories" url="https://www.quantamagazine.org/computer-scientist-donald-knuth-cant-stop-telling-stories-20200416/" />
+  <ReferenceItem id="4" text="Xerox Graphics Printer (XGP)" url="https://gunkies.org/wiki/Xerox_Graphics_Printer" />
+  <ReferenceItem id="5" text="Artificial Intelligence, Patrick H. Winston (1977)" url="https://en.wikipedia.org/wiki/Artificial_Intelligence_(book)" />
+  <ReferenceItem id="6" text="An Interview with Donald Knuth 1974 ACM Turing Award Recipient (2007)" url="https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf" />
+  <ReferenceItem id="7" text="METAFONT en Wikipedia" url="https://en.wikipedia.org/wiki/Metafont" />
+  <ReferenceItem id="8" text="Mathematical Typography, D. E. Knuth, Bulletin of the American Mathematical Society, Volume 1, Number 2, 1979, pp. 337-372." url="https://projecteuclid.org/journalArticle/Download?urlId=bams%2F1183544082&isResultClick=False" />
+  <ReferenceItem id="9" text="25 Years of TeX and METAFONT: Looking Back and Looking Forward, Nelson Beebe (2003)" url="https://www.tug.org/TUGboat/Articles/tb25-1/beebe-2003keynote.pdf" />
+</ReferenceList>

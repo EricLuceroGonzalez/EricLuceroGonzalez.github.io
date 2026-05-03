@@ -1,0 +1,127 @@
+---
+slug: 'instalacion'
+id: 'latex-003'
+date: "2026-01-06"
+order: 0
+author: "Eric Lucero"
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509745/elCronopio/Thumbnails/g39902_asgbej.png
+webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
+coverImageAlt: 'Cover image featuring the TeX logo in its classic typography, with a hand-drawn effect.'
+title: "Instalación de TeX Live (y MacTeX) paso a paso"
+shortTitle: "Instalación de TeX Live"
+entryType: "latex"
+excerpt: "Aprende cómo instalar TeX Live en tus sistemas operativos favoritos."
+doctype: ["latex"]
+categories: ["LaTeX","TeX","Knuth"]
+keywords: ["blog","LaTeX","TeX","Knuth","latex"]
+isPublic: false
+---
+Pending...
+
+## Content
+
+Si has decidido tomar el control de tu entorno y compilar en local, tu mejor opción es **TeX Live**. Es la distribución oficial del TeX Users Group (TUG), el estándar absoluto de la industria académica y la opción más robusta. 
+
+*Nota técnica importante antes de empezar:* **MacTeX** no es un programa distinto con un motor diferente. Es exactamente la misma distribución de TeX Live, pero empaquetada específicamente para instalarse en macOS con las herramientas nativas de Apple y algunos programas extra para el ecosistema Mac.
+
+Preparar tu máquina para LaTeX es un proceso que requiere paciencia (estamos hablando de descargar miles de pequeños paquetes que suman varios gigabytes), así que prepárate un buen café. Aquí tienes el paso a paso definitivo para los tres grandes sistemas operativos.
+
+## 🐧 En Linux (Ubuntu/Debian y derivados)
+
+Los usuarios de Linux tienen, como casi siempre en temas de desarrollo, la vida más fácil gracias a sus gestores de paquetes nativos. No necesitas navegar por webs ni descargar instaladores manuales.
+
+### Paso 1: Actualiza tus repositorios
+Abre tu terminal y asegúrate de que tu sistema tiene la lista de paquetes al día.
+```bash
+sudo apt update
+```
+
+### Paso 2: Descarga e instala la distribución completa
+Ejecuta el siguiente comando. Te pedirá tu contraseña de administrador y confirmación para descargar varios gigabytes de datos.
+```bash
+sudo apt install texlive-full
+```
+
+>(Nota del Diablo: texlive-full descarga absolutamente todo el ecosistema de LaTeX. Si tienes muy poco espacio en disco, puedes intentar con sudo apt install texlive-base texlive-latex-extra, pero la experiencia nos dice que a la larga siempre echarás en falta algún paquete de fuentes, bibliografía o matemáticas raras).
+
+### Paso 3: Verifica la instalación
+
+Una vez termine el largo proceso, puedes comprobar que el motor está vivo escribiendo:
+```bash
+tex --version
+```
+Si te devuelve información sobre la versión de TeX, ¡ya tienes el poder en tus manos!
+
+## 🍏 En macOS (Instalando MacTeX)
+Apple no utiliza el instalador estándar de red de TeX Live. Para macOS, el TUG (TeX Users Group) crea un paquete autoinstalable con todo lo necesario.
+
+### Paso 1: Ve a la web oficial
+Dirígete a la página oficial del MacTeX Working Group:
+🔗 URL: https://tug.org/mactex/
+
+### Paso 2: Descarga el archivo de instalación
+Haz clic en el enlace para descargar el archivo MacTeX.pkg. Ten mucha paciencia, ya que es un archivo que supera los 5 GB de peso. Es recomendable que estés conectado por cable o cerca de tu router Wi-Fi.
+
+### Paso 3: Ejecuta el instalador nativo
+Haz doble clic en el archivo .pkg descargado. Esto abrirá el clásico asistente de instalación de macOS.
+
+Haz clic en "Continuar" y lee (o finge leer) la licencia.
+
+Acepta los términos.
+
+Haz clic en "Instalar" (te pedirá tu contraseña de usuario del Mac o Touch ID).
+
+### Paso 4: Conoce tus nuevas herramientas
+Además del motor invisible de LaTeX, MacTeX te instalará aplicaciones muy útiles en tu carpeta de Aplicaciones (dentro de una subcarpeta llamada "TeX"):
+
+- TeXShop: Un editor de código LaTeX nativo y muy minimalista para Mac.
+
+- BibDesk: Uno de los mejores gestores gráficos de bibliografía que existen.
+
+- TeX Live Utility: Una interfaz gráfica brillante para mantener todos tus paquetes de LaTeX actualizados sin tocar la terminal.
+
+## 🪟 En Microsoft Windows
+En Windows, la instalación se realiza mediante un pequeño programa que se encarga de conectar con los servidores del TUG y descargar la distribución paquete a paquete.
+
+### Paso 1: Descarga el instalador de red oficial
+Ve a la página oficial de adquisición de TeX Live:
+🔗 URL: https://tug.org/texlive/acquire-netinstall.html
+Haz clic en el enlace que dice `install-tl-windows.exe` para descargar el ejecutable.
+
+### Paso 2: Ejecuta como Administrador (¡Crítico!)
+Busca el archivo descargado en tu carpeta de Descargas, haz clic derecho sobre él y selecciona "Ejecutar como administrador". Si no haces esto, LaTeX no podrá añadir sus rutas al sistema (las famosas variables de entorno) y tu ordenador no sabrá que LaTeX existe.
+
+### Paso 3: El asistente de instalación (GUI)
+
+Al abrirse, primero desempaquetará el instalador. Luego verás una interfaz gráfica (TeX Live Installer).
+
+Se te presentarán varias opciones. En la mayoría de los casos, la configuración por defecto es la correcta. Verás que te sugiere instalarlo en tu disco principal (por ejemplo, `C:\texlive\2024`).
+
+Asegúrate de que abajo indique que va a realizar una instalación completa (el tamaño estimado debe superar los 7 GB).
+
+Haz clic en el botón "Instalar".
+
+### Paso 4: La espera del Espejo (Mirror)
+Aquí es donde te tomas el café. El instalador se conectará a un servidor espejo (mirror) cercano a tu ubicación geográfica y empezará a descargar e instalar miles de archivos .sty y ejecutables. Puede tardar desde 30 minutos hasta un par de horas dependiendo de tu conexión a internet y de la saturación del servidor del TUG.
+
+### Paso 5: Comprobación final
+Cuando la barra llegue al final y te diga "Welcome to TeX Live!", cierra el instalador. Abre el "Símbolo del sistema" (escribe cmd en el menú inicio) y teclea:
+
+```DOS
+pdflatex --version
+```
+
+Si te responde con la versión actual de pdfTeX, tu ordenador de Windows se ha convertido oficialmente en una máquina de procesar textos científicos.
+
+## References
+<ReferenceList>
+  <ReferenceItem id="1" text="Monotype System" url="https://en.wikipedia.org/wiki/Monotype_system" />
+  <ReferenceItem id="2" text="Donald Knuth Kyoto Prize Lecture (1996)" url="https://www.kyotoprize.org/en/lectures/the-1996-kyoto-prize/" />
+  <ReferenceItem id="3" text="The Computer Scientist Who Cant Stop Telling Stories" url="https://www.quantamagazine.org/computer-scientist-donald-knuth-cant-stop-telling-stories-20200416/" />
+  <ReferenceItem id="4" text="Xerox Graphics Printer (XGP)" url="https://gunkies.org/wiki/Xerox_Graphics_Printer" />
+  <ReferenceItem id="5" text="Artificial Intelligence, Patrick H. Winston (1977)" url="https://en.wikipedia.org/wiki/Artificial_Intelligence_(book)" />
+  <ReferenceItem id="6" text="An Interview with Donald Knuth 1974 ACM Turing Award Recipient (2007)" url="https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf" />
+  <ReferenceItem id="7" text="METAFONT on Wikipedia" url="https://en.wikipedia.org/wiki/Metafont" />
+  <ReferenceItem id="8" text="Mathematical Typography, D. E. Knuth, Bulletin of the American Mathematical Society, Volume 1, Number 2, 1979, pp. 337-372." url="https://projecteuclid.org/journalArticle/Download?urlId=bams%2F1183544082&isResultClick=False" />
+  <ReferenceItem id="9" text="25 Years of TeX and METAFONT: Looking Back and Looking Forward, Nelson Beebe (2003)" url="https://www.tug.org/TUGboat/Articles/tb25-1/beebe-2003keynote.pdf" />
+</ReferenceList>
