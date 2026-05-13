@@ -1,7 +1,7 @@
 ---
 slug: 'instalacion'
-id: 'latex-003'
-date: "2026-01-06"
+id: 'latex-000'
+date: "2026-05-20"
 order: 0
 author: "Eric Lucero"
 socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509745/elCronopio/Thumbnails/g39902_asgbej.png
@@ -18,7 +18,7 @@ isPublic: false
 ---
 Pending...
 
-## Content
+## Contenido
 
 Si has decidido tomar el control de tu entorno y compilar en local, tu mejor opción es **TeX Live**. Es la distribución oficial del TeX Users Group (TUG), el estándar absoluto de la industria académica y la opción más robusta. 
 
@@ -42,7 +42,7 @@ Ejecuta el siguiente comando. Te pedirá tu contraseña de administrador y confi
 sudo apt install texlive-full
 ```
 
->(Nota del Diablo: texlive-full descarga absolutamente todo el ecosistema de LaTeX. Si tienes muy poco espacio en disco, puedes intentar con sudo apt install texlive-base texlive-latex-extra, pero la experiencia nos dice que a la larga siempre echarás en falta algún paquete de fuentes, bibliografía o matemáticas raras).
+>(Nota: `texlive-full` descarga absolutamente todo el ecosistema de LaTeX. Si tienes muy poco espacio en disco, puedes intentar con `sudo apt install texlive-base texlive-latex-extra`, pero la experiencia nos dice que a la larga siempre echarás en falta algún paquete de fuentes, bibliografía o matemáticas raras).
 
 ### Paso 3: Verifica la instalación
 
@@ -50,7 +50,20 @@ Una vez termine el largo proceso, puedes comprobar que el motor está vivo escri
 ```bash
 tex --version
 ```
-Si te devuelve información sobre la versión de TeX, ¡ya tienes el poder en tus manos!
+Si te devuelve información sobre la versión de TeX, ¡ya lo tienes!
+
+Por ejemplo, deberías ver algo como (mira la proyección de $\pi$ en la versión de TeX):
+```bash
+TeX 3.141592653 (TeX Live 2026)
+kpathsea version 6.4.2
+Copyright 2026 D.E. Knuth.
+There is NO warranty.  Redistribution of this software is
+covered by the terms of both the TeX copyright and
+the Lesser GNU General Public License.
+For more information about these matters, see the file
+named COPYING and the TeX source.
+Primary author of TeX: D.E. Knuth.
+```
 
 ## 🍏 En macOS (Instalando MacTeX)
 Apple no utiliza el instalador estándar de red de TeX Live. Para macOS, el TUG (TeX Users Group) crea un paquete autoinstalable con todo lo necesario.
@@ -85,7 +98,7 @@ En Windows, la instalación se realiza mediante un pequeño programa que se enca
 
 ### Paso 1: Descarga el instalador de red oficial
 Ve a la página oficial de adquisición de TeX Live:
-🔗 URL: https://tug.org/texlive/acquire-netinstall.html
+🔗 URL: https://tug.org/texlive/windows.html
 Haz clic en el enlace que dice `install-tl-windows.exe` para descargar el ejecutable.
 
 ### Paso 2: Ejecuta como Administrador (¡Crítico!)

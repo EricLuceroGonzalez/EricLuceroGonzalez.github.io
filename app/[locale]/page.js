@@ -7,6 +7,7 @@ import {
 } from "../ui/ComponentsStyled";
 import { TitlePage, SubTitle, SubSubTitle } from "../ui/TitlesComponents";
 import HomeBoxes from "../components/HomeBoxes";
+import GeneticSimulation from "../components/algorithms/GeneticSimulation";
 import { MdParagraph } from "../ui/MarkDownComponents";
 import ScrollDiv from "../components/navigation/ScrollDiv";
 import { getPostsByType } from "../lib/api";
@@ -54,7 +55,7 @@ export default async function Home({ params }) {
         </HomePageCover>
         <SubSubTitle>{t("copy_text.p1")}</SubSubTitle>
         <MdParagraph>{t("copy_text.p2")}</MdParagraph>
-
+        {/* <GeneticSimulation /> */}
         <SubTitle>Blog</SubTitle>
         <HomeBoxes props={allPostsData.posts} />
         {allLatexPosts.posts.length > 0 ? (

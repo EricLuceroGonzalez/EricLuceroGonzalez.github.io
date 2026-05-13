@@ -30,10 +30,10 @@ const Latex = async ({ params }) => {
   );
 
   // Filtra solo los posts que tienen "curso"
-  const latexCoursePost = AllLatexPosts.posts.filter(
-    (post) => post.doctype.includes("latex") && post.doctype.includes("curso"),
-  );
-  if (!latexBlogPost && !latexCoursePost) {
+  // const latexCoursePost = AllLatexPosts.posts.filter(
+  //   (post) => post.doctype.includes("latex") && post.doctype.includes("curso"),
+  // );
+  if (!latexBlogPost) {
     return notFound();
   }
   return (
