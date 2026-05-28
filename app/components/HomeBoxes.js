@@ -23,7 +23,7 @@ const HomeBoxes = ({ props, locale }) => {
             doctype,
             categories,
             keywords,
-            webThumbnail,
+            coverImage,
             coverImageAlt,
           }) => (
             <AllPosts
@@ -36,7 +36,7 @@ const HomeBoxes = ({ props, locale }) => {
               doctype={doctype}
               categories={categories}
               keywords={keywords}
-              coverImage={webThumbnail}
+              coverImage={coverImage}
               coverImageAlt={coverImageAlt}
               locale={locale}
             />
