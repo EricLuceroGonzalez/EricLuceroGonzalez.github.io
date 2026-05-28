@@ -5,26 +5,43 @@ date: "2026-05-20"
 order: 0
 author: "Eric Lucero"
 socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509745/elCronopio/Thumbnails/g39902_asgbej.png
-webThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
+coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
 coverImageAlt: 'Cover image featuring the TeX logo in its classic typography, with a hand-drawn effect.'
 title: "Instalación de TeX Live (y MacTeX) paso a paso"
 shortTitle: "Instalación de TeX Live"
 entryType: "latex"
-excerpt: "Aprende cómo instalar TeX Live en tus sistemas operativos favoritos."
+excerpt: "Cómo instalar TeX Live en tu sistema operativo."
 doctype: ["latex"]
 categories: ["LaTeX","TeX","Knuth"]
 keywords: ["blog","LaTeX","TeX","Knuth","latex"]
-isPublic: false
+isPublic: true
 ---
-Pending...
+Para poder utilizar LaTeX o TeX en nuestro computador es necesario instalarlo, y esto en algunos casos puede ser una tarea complicada dependiendo del sistema operativo. A continuación los pasos necesarios para instalarlo en los sistemas operativos comunes.
 
 ## Contenido
 
-Si has decidido tomar el control de tu entorno y compilar en local, tu mejor opción es **TeX Live**. Es la distribución oficial del TeX Users Group (TUG), el estándar absoluto de la industria académica y la opción más robusta. 
+## Detalles a tener en cuenta antes de cualquier instalación
+
+Si has decidido tomar el control de tu entorno y compilar en local, tu mejor opción es **TeX Live** (o la versión de Mac: **MacTex**). Es la distribución oficial del _TeX Users Group (TUG)_, el estándar absoluto de la industria académica y la opción más robusta. 
+<DataGrid>
+  <DataCard value="TUG" label="TeX Users Group" />
+  <DataCard value="+8 GB" label="El peso de instalación completa en disco." />
+  <DataCard value="Overleaf" label="Plataforma online mas extensa con más de 25 millones de usuarios." />
+</DataGrid>
+
 
 *Nota técnica importante antes de empezar:* **MacTeX** no es un programa distinto con un motor diferente. Es exactamente la misma distribución de TeX Live, pero empaquetada específicamente para instalarse en macOS con las herramientas nativas de Apple y algunos programas extra para el ecosistema Mac.
+<DataGrid>
+  <DataCard value="1984" label="Leslie Lamport publica la versión de LaTeX" />
+  <DataCard value="1982" label="Knuth lanza la versión estable de TeX " />
+  <DataCard value="1984" label="BibTeX (Oren Patashnik)" />
+  <DataCard value="1996" label="1996 : pdfTeX (Hàn Thế Thành)" />
+  <DataCard value="1996" label="Nace TexLive por iniciativa de Sebastian Rahtz y el TeX Users Group (TUG)." />
+  <DataCard value="2007" label="Se lanza MacTeX, integrando TeX Live con herramientas nativas de macOS." />
+</DataGrid>
 
-Preparar tu máquina para LaTeX es un proceso que requiere paciencia (estamos hablando de descargar miles de pequeños paquetes que suman varios gigabytes), así que prepárate un buen café. Aquí tienes el paso a paso definitivo para los tres grandes sistemas operativos.
+{/* https://tobi.oetiker.ch/lshort/lshort.pdf */}
+Preparar tu máquina para LaTeX es un proceso que requiere paciencia ya que estamos hablando que descargará miles de pequeños paquetes que suman varios gigabytes. Aquí tienes el paso a paso para los tres grandes sistemas operativos.
 
 ## 🐧 En Linux (Ubuntu/Debian y derivados)
 
