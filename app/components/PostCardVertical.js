@@ -62,7 +62,8 @@ const CardTitle = styled.h3`
   color: var(--accent);
   font-size: var(--text-base);
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.05;
+  text-align: left;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

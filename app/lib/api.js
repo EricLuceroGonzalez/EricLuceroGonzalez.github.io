@@ -108,7 +108,28 @@ function getPostsByType(types = [], orderNum = 0, locale = "es") {
     nextPost,
   };
 }
+// Returns only posts flagged with isTop: true in their frontmatter.
+// Used by the landing page to show curated/featured content.
+function getTopPosts(types = [], locale = "es") {
+  const allFiles = getPostSlugs();
 
+  const posts = allFiles
+    .filter((file) => file.endsWith(`.${locale}.mdx`))
+    .map((file) => {
+      const cleanSlug = file.replace(`.${locale}.mdx`, "");
+      return getPostBySlug(cleanSlug, [], locale);
+    })
+    .filter((post) => post !== null)
+    .filter((post) => post.isPublic === true)
+    .filter((post) => post.isTop === true)
+    .filter((post) => {
+      if (!post.doctype) return false;
+      return types.length === 0 || types.some((t) => post.doctype.includes(t));
+    })
+    .sort((post1, post2) => new Date(post2.date.iso) - new Date(post1.date.iso));
+
+  return { posts };
+}
 // Funciones específicas para tipos de posts
 function getLatexPosts(orderNum = 0) {
   return getPostsByType(["latex"], orderNum);
@@ -175,6 +196,7 @@ module.exports = {
   getAllPosts,
   getLatexPosts,
   getBlogPosts,
+  getTopPosts,
   getPostsByType,
   getSurroundingPosts,
 };

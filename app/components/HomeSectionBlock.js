@@ -105,7 +105,7 @@ const HomeSectionBlock = ({
       <Divider />
       <Grid>
         {posts.slice(0, 3).map((post) => (
-          console.log("Rendering post in HomeSectionBlock:", post),
+          console.log("Rendering post in HomeSectionBlock:", post.isTop),
           <PostCardVertical
             key={post.id || post.slug}
             {...post}

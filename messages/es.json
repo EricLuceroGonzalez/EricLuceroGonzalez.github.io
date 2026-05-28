@@ -191,54 +191,7 @@
         "latex_cta_title": "Plantillas y Recursos Gratuitos",
         "latex_cta_text": "Pentagramas, papel cuadriculado, figuras TikZ y más — todo maquetado en LaTeX y listo para usar.",
         "latex_cta_button": "Ver todos los recursos →",
-        "items": [
-            {
-                "id": "pentagram",
-                "title": "Papel de Pentagramas",
-                "description": "Papel de pentagramas / pautado musical generado íntegramente con LaTeX. Personaliza el número de pentagramas y el espaciado.",
-                "tag": "Música",
-                "previewUrl": "https://www.overleaf.com/latex/templates/blank-manuscript-paper/bkpqvfqnnscx",
-                "comingSoon": false
-            },
-            {
-                "id": "graph-square",
-                "title": "Papel Cuadriculado",
-                "description": "Papel cuadriculado clásico para matemáticas e ingeniería. Ajusta el tamaño de la cuadrícula, los márgenes y los colores en el fuente.",
-                "tag": "Papel cuadriculado",
-                "previewUrl": "https://www.overleaf.com/latex/templates/graph-paper/rftmpvdxzhnx",
-                "comingSoon": false
-            },
-            {
-                "id": "graph-iso",
-                "title": "Papel Isométrico",
-                "description": "Cuadrícula isométrica triangular, ideal para bocetos 3D y planificación de pixel art.",
-                "tag": "Papel cuadriculado",
-                "comingSoon": true
-            },
-            {
-                "id": "tikz-circuits",
-                "title": "Circuitos con TikZ",
-                "description": "Esquemas de circuitos de ejemplo dibujados con TikZ y el paquete circuitikz — listos para copiar en tu documento.",
-                "tag": "TikZ",
-                "previewUrl": "https://www.overleaf.com/gallery/tagged/tikz",
-                "comingSoon": false
-            },
-            {
-                "id": "tikz-flowchart",
-                "title": "Diagrama de Flujo con TikZ",
-                "description": "Diagrama de flujo con nodos de decisión, flechas y estilos personalizados. Ideal para algoritmos y diagramas de proceso.",
-                "tag": "TikZ",
-                "comingSoon": true
-            },
-            {
-                "id": "beamer-template",
-                "title": "Presentación Beamer Minimalista",
-                "description": "Plantilla de presentación Beamer limpia y minimalista con un tema de color personalizado. Lista para usar.",
-                "tag": "Presentación",
-                "previewUrl": "https://www.overleaf.com/latex/templates/a-minimal-beamer-theme/cvrkmbbjrjmq",
-                "comingSoon": false
-            }
-        ]
+        "items": []
     },
     "LatexPage": {
         "other_posts": "Otros posts",
@@ -288,5 +241,9 @@
         "shareText": "Sigue la misión Artemis II en tiempo real desde este simulador interactivo.",
         "copiedText": "¡Enlace copiado al portapapeles!",
         "btnDownloadAll": "⬇️ Descargar Calendario Completo (.ics)"
+    },
+    "TableOfContents":{
+        "label": "Contenido",
+        "entries": "entradas"
     }
 }

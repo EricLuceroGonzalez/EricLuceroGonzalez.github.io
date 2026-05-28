@@ -1,7 +1,7 @@
 "use client";
 import styled from "styled-components";
 import { Link } from "@/i18n/navigation";
-
+import { useTranslations } from "next-intl";
 const TocWrapper = styled.aside`
   display: none;
 
@@ -62,18 +62,20 @@ const TocCount = styled.span`
   border-top: 1px solid var(--primary-border);
 `;
 
-export default function TableOfContentsAside({ items = [], label = "Contents" }) {
+export default function TableOfContentsAside({ items = [] }) {
+  const t = useTranslations("TableOfContents");
+
   if (!items.length) return null;
 
   return (
     <TocWrapper aria-label="Table of contents">
-      <TocTitle>{label}</TocTitle>
+      <TocTitle>{t("label")}</TocTitle>
       {items.map(({ slug, title, href }) => (
         <TocLink key={slug} href={href || `#${slug}`}>
           {title}
         </TocLink>
       ))}
-      <TocCount>{items.length} entries</TocCount>
+      <TocCount>{items.length} {t("entries")}</TocCount>
     </TocWrapper>
   );
 }

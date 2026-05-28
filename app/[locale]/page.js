@@ -16,7 +16,7 @@ import HomeBoxes from "../components/HomeBoxes";
 import GeneticSimulation from "../components/algorithms/GeneticSimulation";
 import { MdParagraph } from "../ui/MarkDownComponents";
 import ScrollDiv from "../components/navigation/ScrollDiv";
-import { getPostsByType } from "../lib/api";
+import { getTopPosts } from "../lib/api";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "../components/BgMovingDots";
 import HomeGreeting from "../components/HomeGreetings";
@@ -29,8 +29,8 @@ export default async function Home({ params }) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "HomePage" });
   // const allPostsData = getAllPosts([], locale);
-  const allPostsData = getPostsByType(["blog"], 0, locale);
-  const allLatexPosts = getPostsByType(["latex"], 0, locale);
+  const allPostsData = getTopPosts(["blog"], locale);
+  const allLatexPosts = getTopPosts(["latex"], locale);
 
   return (
     <PageContainer>
@@ -99,11 +99,11 @@ export default async function Home({ params }) {
         )}
 
         {/* ── Resources preview ────────────────────────────────────── */}
-        <ResourcesPreviewBlock
+        {/* <ResourcesPreviewBlock
           title={t("resources_preview_title")}
           seeAllHref="/recursos"
           seeAllLabel={t("see_all_resources")}
-        />
+        /> */}
       </MainPageBg>
     </PageContainer>
   );
