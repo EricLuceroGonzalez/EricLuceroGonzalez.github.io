@@ -16,6 +16,12 @@
             "p2": "A repository of practical tutorials, academic paper reviews, optimization problems, and ready-to-use TeX templates."
         },
         "about": "PhD Student based in Spain",
+        "about_role": "PhD Student · Artificial Intelligence · Optimization · UPM · Spain",
+        "about_cta": "About me",
+        "see_all_blog": "All articles →",
+        "see_all_latex": "All LaTeX posts →",
+        "see_all_resources": "All resources →",
+        "resources_preview_title": "Free LaTeX Resources",
         "metaTitle": "Home: My Journey in AI",
         "metaDescription": "Welcome to my personal space where I share my research, algorithms, and code."
     },
@@ -24,6 +30,7 @@
         "home": "Home",
         "blog": "Blog",
         "papers": "Papers",
+        "resources": "Resources",
         "theme_switch_toggle": "Switch theme dark/white",
         "language_switch_toggle": "Switch language to"
     },
@@ -44,6 +51,9 @@
         "license_terms": "All content on this blog is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). You are free to share and adapt the material as long as you provide appropriate credit, do not use it for commercial purposes, and indicate if changes were made.",
         "page_content_title": "About this Page",
         "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research.",
+         "research_interests_title": "Research Interests",
+        "research_interests": ["Evolutionary Algorithms", "Genetic Algorithms", "Metaheuristics", "Combinatorial Optimization", "Machine Learning", "Scientific Typesetting"],
+        "institution": "Polytechnic University of Madrid (UPM) · PhD in AI",
         "metaTitle": "About Me | Eric Lucero",
         "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",
         "thumbnailImage": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509763/elCronopio/Thumbnails/portada-en_htnuoq.png",
@@ -168,6 +178,62 @@
                 "content": "Unless otherwise stated, the content of this blog (articles, code, and tutorials) is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)**. You are free to use and adapt my code by citing the source."
             }
         }
+    },
+        "Resources": {
+        "title": "Free LaTeX Resources",
+        "subtitle": "Open-source LaTeX templates — download or open directly in Overleaf. Free for everyone.",
+        "nav_label": "Resources",
+        "latex_cta_title": "Free Templates & Resources",
+        "latex_cta_text": "Pentagrams, graph paper, TikZ figures and more — all typeset in LaTeX and ready to use.",
+        "latex_cta_button": "Browse all resources →",
+        "items": [
+            {
+                "id": "pentagram",
+                "title": "Music Staff Paper",
+                "description": "Printable pentagram / music staff paper generated entirely with LaTeX. Customise stave count and spacing.",
+                "tag": "Music",
+                "previewUrl": "https://www.overleaf.com/latex/templates/blank-manuscript-paper/bkpqvfqnnscx",
+                "comingSoon": false
+            },
+            {
+                "id": "graph-square",
+                "title": "Square Graph Paper",
+                "description": "Classic square-grid paper for maths and engineering. Adjust grid size, margins and colours in the source.",
+                "tag": "Graph Paper",
+                "previewUrl": "https://www.overleaf.com/latex/templates/graph-paper/rftmpvdxzhnx",
+                "comingSoon": false
+            },
+            {
+                "id": "graph-iso",
+                "title": "Isometric Graph Paper",
+                "description": "Triangular isometric grid paper perfect for 3-D sketching and pixel art planning.",
+                "tag": "Graph Paper",
+                "comingSoon": true
+            },
+            {
+                "id": "tikz-circuits",
+                "title": "TikZ Circuit Diagrams",
+                "description": "Sample circuit schematics drawn with TikZ and the circuitikz package — ready to copy into your document.",
+                "tag": "TikZ",
+                "previewUrl": "https://www.overleaf.com/gallery/tagged/tikz",
+                "comingSoon": false
+            },
+            {
+                "id": "tikz-flowchart",
+                "title": "TikZ Flowchart Template",
+                "description": "Flowchart with decision nodes, arrows and custom styles. Ideal for algorithms and process diagrams.",
+                "tag": "TikZ",
+                "comingSoon": true
+            },
+            {
+                "id": "beamer-template",
+                "title": "Minimal Beamer Slides",
+                "description": "Clean, minimal Beamer presentation template with a custom colour theme. Works out of the box.",
+                "tag": "Presentation",
+                "previewUrl": "https://www.overleaf.com/latex/templates/a-minimal-beamer-theme/cvrkmbbjrjmq",
+                "comingSoon": false
+            }
+        ]
     },
     "LatexPage": {
         "other_posts": "Other posts",
