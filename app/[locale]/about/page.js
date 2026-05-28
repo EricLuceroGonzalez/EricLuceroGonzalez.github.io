@@ -5,10 +5,15 @@ import {
   AboutMeParaph,
   AboutWrapper,
   BioTextContainer,
+  ChipsRow,
   IconLink,
+  InstitutionBadge,
   Layout,
   LinkList,
   PhotoAvatar,
+  ResearchChip,
+  ResearchSection,
+  ResearchTitle,
 } from "../../ui/BasicDivs";
 import Image from "next/image";
 import ShowPath from "../../components/showPath";
@@ -89,6 +94,16 @@ export default async function About({ params }) {
               </AboutMeParaph>
             </BioTextContainer>
           </AboutMePanel>
+           {/* ── Research interests ───────────────────────────── */}
+          <ResearchSection>
+            <InstitutionBadge>🎓 {t("institution")}</InstitutionBadge>
+            <ResearchTitle>{t("research_interests_title")}</ResearchTitle>
+            <ChipsRow>
+              {t.raw("research_interests").map((interest) => (
+                <ResearchChip key={interest}>{interest}</ResearchChip>
+              ))}
+            </ChipsRow>
+          </ResearchSection>
           <LinkList>
             <IconLink
               href="https://github.com/EricLuceroGonzalez"

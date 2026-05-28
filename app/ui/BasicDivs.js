@@ -397,3 +397,47 @@ const ReactIcon = styled(Link)`
     color: var(--fg);
   }
 `;
+
+// Research / About page extras
+export const ResearchSection = styled.div`
+  margin: 2rem 0 1rem;
+`;
+
+export const ResearchTitle = styled.h3`
+  font-size: var(--text-h3);
+  color: var(--heading);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+`;
+
+export const ChipsRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+export const ResearchChip = styled.span`
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  font-size: var(--text-small);
+  font-family: monospace;
+  font-weight: 600;
+  background: var(--accent-transparent, rgba(0, 119, 255, 0.1));
+  color: var(--accent);
+  border: 1px solid var(--accent);
+`;
+
+export const InstitutionBadge = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  font-size: var(--text-small);
+  font-family: monospace;
+  color: var(--quote-fg);
+  background: var(--quote-bg);
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+`;

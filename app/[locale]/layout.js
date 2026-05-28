@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
       google: "eVlOcpMqZW3--b3rPPmcJRQ4FHLq6o0flgliTMuWNsk",
     },
   };
-}
+} 
 
 const NaviBar = nextDynamic(
   () => import("../components/navigation/navbar/NaviBar"),

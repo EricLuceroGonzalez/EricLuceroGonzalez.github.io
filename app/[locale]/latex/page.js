@@ -4,6 +4,11 @@ import { getPostsByType } from "../../lib/api";
 import { ButtonContainer, CopyButton, Layout } from "../../ui/BasicDivs";
 import HomeBoxes from "../../components/HomeBoxes";
 import ResponsiveSidebar from "../../components/SideBar";
+import TableOfContentsAside from "../../components/ToCAside";
+// import LatexResourcesSection from "../../components/LatexResourcesSection";
+import ResourcesTeaser from "../../components/ResourcesTeaser";
+
+
 import {
   MdHead,
   MdListItem,
@@ -36,6 +41,11 @@ const Latex = async ({ params }) => {
   if (!latexBlogPost) {
     return notFound();
   }
+   const tocItems = latexBlogPost.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    href: `/latex/${post.slug}`,
+  }));
   return (
     <Layout>
       <PageContainer>
@@ -73,6 +83,7 @@ const Latex = async ({ params }) => {
 
           <MdParagraph>{trans("donald_text")}</MdParagraph>
           <MdParagraph>{trans("advanced_text")}</MdParagraph>
+          <ResourcesTeaser />
           {/* <ButtonContainer>
             <Link href={"/latex/curso"}>
               <CopyButton
@@ -92,6 +103,7 @@ const Latex = async ({ params }) => {
           */}
 
           {/* <HomeBoxes props={latexCoursePost} /> */}
+          <TableOfContentsAside items={tocItems} label="Articles" />
         </MainPageBg>
       </PageContainer>
     </Layout>

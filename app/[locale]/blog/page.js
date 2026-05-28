@@ -14,6 +14,7 @@ import ScrollDiv from "../../components/navigation/ScrollDiv";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "@/app/components/BgMovingDots";
 import ViewportSize from "@/app/components/viewPortViewer";
+import TableOfContentsAside from "../../components/ToCAside";
 
 const BlogPage = async ({ params }) => {
   // 1. Obtener idioma
@@ -25,6 +26,12 @@ const BlogPage = async ({ params }) => {
   if (!blogPosts.posts) {
     return notFound();
   }
+
+  const tocItems = blogPosts.posts.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    href: `/blog/${post.slug}`,
+  }));
   return (
     <Layout>
       <PageContainer>
@@ -42,10 +49,11 @@ const BlogPage = async ({ params }) => {
           }}
         >
           <TitlePage>{t("title")}</TitlePage>
-          {/* <MdParagraph>{t("copy_text.p1")}</MdParagraph> */}
-          {/* <MdParagraph>{t("copy_text.p2")}</MdParagraph> */}
+          <MdParagraph style={{ opacity: 0.75 }}>{t("copy_text.p1")}</MdParagraph>
           <HomeBoxes props={blogPosts.posts} locale={locale} />
         </MainPageBg>
+        <TableOfContentsAside items={tocItems} label="Posts" />
+
       </PageContainer>
     </Layout>
   );

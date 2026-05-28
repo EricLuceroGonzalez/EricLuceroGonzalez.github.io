@@ -65,8 +65,10 @@ export const HomePageCover = styled.div`
   display: flex;
   flex-direction: row;
   color: var(--fg);
-  padding: 0.5rem 0;
+  padding: 1.5rem 0 2rem;
   background-color: var(--bg);
+  border-bottom: 1px solid var(--primary-border);
+  margin-bottom: 1.5rem;
 `;
 export const HomePageCoverText = styled.div`
   width: 100%;
@@ -89,4 +91,54 @@ export const NotFoundText = styled.p`
 
 export const LatexSection = styled.section`
   margin: 10px auto;
+`;
+
+export const HeroTagline = styled.p`
+  font-size: var(--text-small);
+  color: var(--quote-fg);
+  letter-spacing: 0.04em;
+  margin: 0.4rem 0 1.25rem;
+  font-family: monospace;
+`;
+
+export const HeroCTARow = styled.div`
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+`;
+
+export const HeroCTAPrimary = styled.span`
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.3rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: var(--text-small);
+  transition: opacity 0.15s, transform 0.15s;
+
+  &:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+`;
+
+export const HeroCTASecondary = styled.span`
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.3rem;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: var(--text-small);
+  border: 1px solid var(--accent);
+  transition: background-color 0.15s, color 0.15s;
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+  }
 `;

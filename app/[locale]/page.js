@@ -1,10 +1,16 @@
 import {
   HomePageCover,
   HomePageCoverText,
-  LatexSection,
+  HeroCTAPrimary,
+  HeroCTASecondary,
+  HeroCTARow,
+  HeroTagline,
   MainPageBg,
   PageContainer,
 } from "../ui/ComponentsStyled";
+import HomeSectionBlock from "../components/HomeSectionBlock";
+import ResourcesPreviewBlock from "../components/ResourcesPreviewBlock";
+
 import { TitlePage, SubTitle, SubSubTitle } from "../ui/TitlesComponents";
 import HomeBoxes from "../components/HomeBoxes";
 import GeneticSimulation from "../components/algorithms/GeneticSimulation";
@@ -15,6 +21,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "../components/BgMovingDots";
 import HomeGreeting from "../components/HomeGreetings";
 import EmojiContainer from "../ui/EmojiContainer";
+import { Link } from "@/i18n/navigation";
 
 export default async function Home({ params }) {
   // 1. Obtener idioma
@@ -30,6 +37,8 @@ export default async function Home({ params }) {
       <ScrollDiv />
       {/* <BackgroundDots numDots={90} /> */}
       <MainPageBg>
+
+       {/* ── Hero ─────────────────────────────────────────────────── */}
         <HomePageCover>
           <HomePageCoverText>
             <TitlePage>
@@ -44,26 +53,57 @@ export default async function Home({ params }) {
               >
                 {t("title")}
               </span>
-
               <span aria-hidden="true" style={{ display: "flex", gap: "2px" }}>
                 <EmojiContainer />
                 <HomeGreeting defaultGreeting={t("title")} />
               </span>
             </TitlePage>
+
+            <HeroTagline>{t("about_role")}</HeroTagline>
+
+            <HeroCTARow>
+              <Link href="/blog">
+                <HeroCTAPrimary>Blog</HeroCTAPrimary>
+              </Link>
+              <Link href="/recursos">
+                <HeroCTASecondary>{t("resources_preview_title")}</HeroCTASecondary>
+              </Link>
+              <Link href="/about">
+                <HeroCTASecondary>{t("about_cta")}</HeroCTASecondary>
+              </Link>
+            </HeroCTARow>
           </HomePageCoverText>
           <BackgroundDots numDots={40} />
         </HomePageCover>
-        <SubSubTitle>{t("copy_text.p1")}</SubSubTitle>
-        <MdParagraph>{t("copy_text.p2")}</MdParagraph>
-        {/* <GeneticSimulation /> */}
-        <SubTitle>Blog</SubTitle>
-        <HomeBoxes props={allPostsData.posts} />
-        {allLatexPosts.posts.length > 0 ? (
-          <LatexSection>
-            <SubTitle>LaTeX</SubTitle>
-            <HomeBoxes props={allLatexPosts.posts} />
-          </LatexSection>
-        ) : null}
+
+        {/* ── Blog section ─────────────────────────────────────────── */}
+        <HomeSectionBlock
+          title="Blog"
+          seeAllHref="/blog"
+          seeAllLabel={t("see_all_blog")}
+          posts={allPostsData.posts}
+          accentColor="var(--accent)"
+          locale={locale}
+        />
+
+        {/* ── LaTeX section ────────────────────────────────────────── */}
+        {allLatexPosts.posts.length > 0 && (
+          <HomeSectionBlock
+            title="LaTeX"
+            seeAllHref="/latex"
+            seeAllLabel={t("see_all_latex")}
+            posts={allLatexPosts.posts}
+            accentColor="var(--latex-green)"
+            locale={locale}
+          />
+        )}
+
+        {/* ── Resources preview ────────────────────────────────────── */}
+        <ResourcesPreviewBlock
+          title={t("resources_preview_title")}
+          seeAllHref="/recursos"
+          seeAllLabel={t("see_all_resources")}
+        />
       </MainPageBg>
     </PageContainer>
   );
@@ -71,8 +111,6 @@ export default async function Home({ params }) {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-
-  // Obtenemos las traducciones del servidor para la sección "Metadata"
   const t = await getTranslations({ locale, namespace: "Metadata" });
   const URLbase = "https://ericlucero.dev";
 
@@ -80,7 +118,6 @@ export async function generateMetadata({ params }) {
     title: t("defaultTitle"),
     description: t("description"),
     keywords: t("keywords"),
-    // Configuración vital para SEO Multilingüe
     alternates: {
       canonical: `${URLbase}/${locale}`,
       languages: {
@@ -91,17 +128,17 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: t("defaultTitle"),
       description: t("description"),
-      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      url: `${URLbase}/${locale}`,
       siteName: "Eric Lucero González",
       images: [
         {
           url: t("thumbnailImage"),
           width: 1200,
           height: 630,
-          alt: t("defaultTitle"), // Texto alternativo traducido
+          alt: t("defaultTitle"),
         },
       ],
-      locale: locale,
+      locale,
       type: "website",
       logo: t("metaLogo"),
     },

@@ -27,6 +27,9 @@ export const GridHeroImage = styled.div`
   /* height: 125px; */
   aspect-ratio: 16 / 9;
   position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+
   @media (max-width: 660px) {
     display: none;
   }
@@ -71,20 +74,23 @@ export const TextContainer = styled.div`
 // }
 
 export const GridContainer = styled(motion.div)`
-  margin: 0.33rem auto;
+  margin: 0.5rem auto;
   background-color: var(--bg);
-  padding: 1px 4px;
+  padding: 2px 6px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   border: 1px solid var(--gray-light);
   width: 100%;
   z-index: 10;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+
   @media (min-width: 660px) {
     width: 100%;
   }
   &:hover {
-    border: 2px solid var(--box-border-hover);
-    transition: border 0.15s;
+    border-color: var(--box-border-hover);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
   }
 `;
 
