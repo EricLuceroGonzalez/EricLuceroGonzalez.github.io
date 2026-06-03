@@ -69,7 +69,7 @@ const LatexPost = async ({ params }) => {
   return (
     <Layout>
       <MainBg>
-        <ConditionalKaTeXLoader loadKaTeX={needsKaTeX} />
+        {/* <ConditionalKaTeXLoader loadKaTeX={needsKaTeX} /> */}
         <ScrollDiv />
         <ShowPath title={post.title} />
         <Article

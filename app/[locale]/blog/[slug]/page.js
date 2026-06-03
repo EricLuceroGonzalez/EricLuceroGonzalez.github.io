@@ -1,5 +1,5 @@
 import { FaClock, FaPencilAlt } from "react-icons/fa";
-// import "katex/dist/katex.min.css";
+import "katex/dist/katex.min.css";
 import {
   getAllPosts,
   getPostBySlug,

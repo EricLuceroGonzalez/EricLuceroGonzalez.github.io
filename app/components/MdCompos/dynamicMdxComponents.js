@@ -27,7 +27,8 @@ const LazyReferenceItem = lazy(() =>
   import("./ReferenceList").then((mod) => ({ default: mod.ReferenceItem })),
 );
 const LazyPlotlyCharts = lazy(() => import("../PlotlyChart"));
-
+const LazyTexShowcase = lazy(() => import("../TexShowcase"));
+const LazyPDFViewer = lazy(() => import("../PDFViewer"));
 // Wrapper con traducciones
 const SorteoMundialWithTranslations = () => {
   const t = useTranslations("sorteo");
@@ -127,22 +128,14 @@ export const dynamicMdxComponents = {
       <LazyReferenceItem {...props} />
     </Suspense>
   ),
-  // PDFViewer: (props) => (
-  //   <Suspense fallback={<div>Cargando PDF...</div>}>
-  //     <PDFViewer {...props} />
-  //   </Suspense>
-  // ),
-  //   props // Fixed: Added return and Suspense
-  // ) => (
-  // (
-  // <Suspense fallback={<div>Cargando...</div>}>
-  // </Suspense>
-  // )
-  // <Suspense fallback={<div>Cargando...</div>}>
-  // </Suspense>;
-  //   AnotherComponent: (props) => (
-  //     <Suspense fallback={<div>Cargando...</div>}>
-  //       <AnotherComponent {...props} />
-  //     </Suspense>
-  //   ),
+   PDFViewer: (props) => (
+    <Suspense fallback={<div>Cargando PDF...</div>}>
+      <LazyPDFViewer {...props} />
+    </Suspense>
+  ),
+  TexShowcase: (props) => (
+    <Suspense fallback={<div style={{ padding: "2rem", color: "gray" }}>Cargando showcase...</div>}>
+      <LazyTexShowcase {...props} />
+    </Suspense>
+  ),
 };
