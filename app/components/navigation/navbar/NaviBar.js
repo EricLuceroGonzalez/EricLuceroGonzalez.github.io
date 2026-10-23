@@ -22,7 +22,7 @@ const NaviBar = () => {
   const t = useTranslations("Navigation");
 
   return (
-    <Bar>
+    <Bar aria-label="Main navigation">
       <MainNavLogo>
         <StyledLink actualPath={primaryPath} pathName={"/"} href={"/"}>
           <Image
