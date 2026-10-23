@@ -9,12 +9,7 @@ import {
   PageContainer,
 } from "../ui/ComponentsStyled";
 import HomeSectionBlock from "../components/HomeSectionBlock";
-import ResourcesPreviewBlock from "../components/ResourcesPreviewBlock";
-
-import { TitlePage, SubTitle, SubSubTitle } from "../ui/TitlesComponents";
-import HomeBoxes from "../components/HomeBoxes";
-import GeneticSimulation from "../components/algorithms/GeneticSimulation";
-import { MdParagraph } from "../ui/MarkDownComponents";
+import { TitlePage } from "../ui/TitlesComponents";
 import ScrollDiv from "../components/navigation/ScrollDiv";
 import { getTopPosts } from "../lib/api";
 import { getTranslations, setRequestLocale } from "next-intl/server";
