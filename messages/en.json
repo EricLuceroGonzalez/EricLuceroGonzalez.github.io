@@ -52,7 +52,7 @@
         "page_content_title": "About this Page",
         "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research.",
          "research_interests_title": "Research Interests",
-        "research_interests": ["Evolutionary Algorithms", "Genetic Algorithms", "Metaheuristics", "Combinatorial Optimization", "Machine Learning", "Scientific Typesetting"],
+        "research_interests": ["Evolutionary Algorithms", "Genetic Algorithms", "Metaheuristics", "Combinatorial Optimization"],
         "institution": "Polytechnic University of Madrid (UPM) · PhD in AI",
         "metaTitle": "About Me | Eric Lucero",
         "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",

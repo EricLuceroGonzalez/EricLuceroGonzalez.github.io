@@ -57,7 +57,7 @@
         "page_content_title": "Acerca de esta Página",
         "page_content": "Este blog está construido utilizando Next.js y Next-Intl para la internacionalización. Presenta publicaciones escritas tanto en inglés como en español, atendiendo a una audiencia diversa interesada en la investigación en IA.",
          "research_interests_title": "Líneas de Investigación",
-        "research_interests": ["Algoritmos Evolutivos", "Algoritmos Genéticos", "Metaheurísticas", "Optimización Combinatoria", "Aprendizaje Automático", "Tipografía Científica"],
+        "research_interests": ["Algoritmos Evolutivos", "Algoritmos Genéticos", "Metaheurísticas", "Optimización Combinatoria"],
         "institution": "Universidad Politécnica de Madrid (UPM) · Doctorado en IA",
         "metaTitle": "Sobre Mí",
         "metaLogo": "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765839287/elCronopio/Thumbnails/logo-ball_isbsul.png",
