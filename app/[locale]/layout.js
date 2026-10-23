@@ -13,6 +13,7 @@ import { parkinsans } from "../ui/fonts.js";
 // import NaviBar from "./components/navigation/navbar/NaviBar";
 import { Analytics } from "@vercel/analytics/next";
 import nextDynamic from "next/dynamic";
+import SkipLink from "../components/SkipLink";
 // import ViewportSize from "../components/viewPortViewer";
 // import ArtemisBanner from "../components/ArtemisBanner";
 
@@ -99,15 +100,15 @@ export default async function LocaleLayout({ children, params }) {
       <body
         style={{ width: "100%" }}
         className={parkinsans.className}
-        antialiased="true"
       >
         <Analytics />
         <NextIntlClientProvider messages={messages}>
           <Providers>
+            <SkipLink/>
             <NaviBar />
             {/* <ArtemisBanner /> */}
             {/* <ViewportSize /> */}
-            <main>{children}</main>
+            <main id="main-content">{children}</main>
             <Footer />
           </Providers>
         </NextIntlClientProvider>

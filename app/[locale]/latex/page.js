@@ -8,7 +8,6 @@ import TableOfContentsAside from "../../components/ToCAside";
 // import LatexResourcesSection from "../../components/LatexResourcesSection";
 import ResourcesTeaser from "../../components/ResourcesTeaser";
 
-
 import {
   MdHead,
   MdListItem,
@@ -41,7 +40,7 @@ const Latex = async ({ params }) => {
   if (!latexBlogPost) {
     return notFound();
   }
-   const tocItems = latexBlogPost.map((post) => ({
+  const tocItems = latexBlogPost.map((post) => ({
     slug: post.slug,
     title: post.title,
     href: `/latex/${post.slug}`,
@@ -117,30 +116,45 @@ export async function generateMetadata({ params }) {
 
   const metadata = await getTranslations({ locale, namespace: "Metadata" });
   const URLbase = "https://ericlucero.dev";
+
+  return {
+    title: metadata("defaultTitle"),
+    description: metadata("description"),
+    keywords: metadata("keywords"),
+    // Configuración vital para SEO Multilingüe
+    alternates: {
+      canonical: `${URLbase}/${locale}/latex`,
+      languages: {
+        es: `${URLbase}/es`,
+        en: `${URLbase}/en`,
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      title: metadata("defaultTitle"),
+      description: metadata("description"),
+      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      siteName: "Eric Lucero González",
+      images: [
+        {
+          url: metadata("thumbnailImage"),
+          width: 1200,
+          height: 630,
+          alt: metadata("defaultTitle"), // Texto alternativo traducido
+        },
+      ],
+      locale: locale,
+      type: "website",
+      logo: metadata("metaLogo"),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata("defaultTitle"),
+      description: metadata("description"),
+      image: metadata("thumbnailImage"),
+    },
+  };
 }
-// export const metadata = {
-//   title: "Tutoriales LaTeX | Eric Lucero González",
-//   description:
-//     "Descubre guías y tutoriales detallados sobre LaTeX, desde lo básico hasta técnicas avanzadas para crear documentos impecables.",
-//   openGraph: {
-//     title: "Tutoriales de LaTeX",
-//     description:
-//       "Guías prácticas para dominar LaTeX, incluyendo tips avanzados y ejemplos paso a paso para documentos académicos y más.",
-//     images: [
-//       {
-//         url: "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png", // Imagen temática de LaTeX
-//         width: 1200,
-//         height: 630,
-//         alt: "Tutoriales y tips de LaTeX",
-//       },
-//     ],
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Tutoriales de LaTeX",
-//     description:
-//       "Aprende LaTeX desde lo básico hasta lo avanzado con tutoriales claros y ejemplos prácticos.",
-//     image:
-//       "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732970163/elCronopio/elcronopio_eewxj0.png",
-//   },
-// };
