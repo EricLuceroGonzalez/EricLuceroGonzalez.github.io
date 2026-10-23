@@ -36,7 +36,7 @@ import ViewportSize from "@/app/components/viewPortViewer";
 import rehypeSlug from "rehype-slug";
 import remarkToc from "remark-toc";
 import ConditionalKaTeXLoader from "@/app/components/MdCompos/ConditionalKaTeXLoader";
-
+import { BlogPostingJsonLd } from "@/app/components/JsonLd";
 const BlogPost = async ({ params }) => {
   const { locale, slug } = await params;
   // Importamos los idiomas:
@@ -72,6 +72,7 @@ const BlogPost = async ({ params }) => {
   return (
     <Layout>
       <MainBg>
+        <BlogPostingJsonLd post={post} locale={locale} />
         <ConditionalKaTeXLoader needsKaTeX={needsKaTeX} />
 
         <ScrollDiv />

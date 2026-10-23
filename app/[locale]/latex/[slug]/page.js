@@ -30,7 +30,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import ConditionalKaTeXLoader from "@/app/components/MdCompos/ConditionalKaTeXLoader";
-
+import { LatexArticleJsonLd } from "@/app/components/JsonLd";
 // import ShowPath from "@/app/components/showPath";
 const LatexPost = async ({ params }) => {
   const { locale, slug } = await params;
@@ -69,6 +69,7 @@ const LatexPost = async ({ params }) => {
   return (
     <Layout>
       <MainBg>
+        <LatexArticleJsonLd post={post} locale={locale} />
         {/* <ConditionalKaTeXLoader loadKaTeX={needsKaTeX} /> */}
         <ScrollDiv />
         <ShowPath title={post.title} />

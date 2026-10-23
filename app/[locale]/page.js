@@ -17,6 +17,7 @@ import BackgroundDots from "../components/BgMovingDots";
 import HomeGreeting from "../components/HomeGreetings";
 import EmojiContainer from "../ui/EmojiContainer";
 import { Link } from "@/i18n/navigation";
+import { PersonJsonLd, WebSiteJsonLd } from "../components/JsonLd";
 
 export default async function Home({ params }) {
   // 1. Obtener idioma
@@ -29,6 +30,8 @@ export default async function Home({ params }) {
 
   return (
     <PageContainer>
+      <PersonJsonLd locale={locale} />
+      <WebSiteJsonLd locale={locale} />
       <ScrollDiv />
       {/* <BackgroundDots numDots={90} /> */}
       <MainPageBg>
