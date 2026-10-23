@@ -225,7 +225,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     shortTitle: post.shortTitle,
     // Configuración vital para SEO Multilingüe
     alternates: {
-      canonical: `${URLbase}/${locale}`,
+      canonical: `${URLbase}/${locale}/blog`,
       languages: {
         es: `${URLbase}/es`,
         en: `${URLbase}/en`,

@@ -74,7 +74,7 @@ export async function generateMetadata({ params }) {
     keywords: metadata("keywords"),
     // Configuración vital para SEO Multilingüe
     alternates: {
-      canonical: `${URLbase}/${locale}`,
+      canonical: `${URLbase}/${locale}/blog`,
       languages: {
         es: `${URLbase}/es`,
         en: `${URLbase}/en`,
