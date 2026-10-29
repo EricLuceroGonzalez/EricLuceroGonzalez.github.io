@@ -61,11 +61,10 @@ const TagRow = styled.div`
 const CardTitle = styled.h3`
   color: var(--accent);
   font-size: var(--text-base);
-  font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.25;
   text-align: left;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
@@ -74,10 +73,10 @@ const CardTitle = styled.h3`
 const CardExcerpt = styled.p`
   color: var(--fg);
   font-size: var(--text-small);
-  opacity: 0.72;
-  line-height: 1.55;
+  opacity: 0.75;
+  line-height: 1.25;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;

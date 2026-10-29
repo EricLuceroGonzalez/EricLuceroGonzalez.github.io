@@ -96,8 +96,7 @@ export const LatexSection = styled.section`
 export const HeroTagline = styled.p`
   font-size: var(--text-small);
   color: var(--quote-fg);
-  letter-spacing: 0.04em;
-  margin: 0.4rem 0 1.25rem;
+  margin: 0.25rem 0 1.25rem;
   font-family: monospace;
 `;
 

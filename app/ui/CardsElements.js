@@ -9,13 +9,13 @@ export const CardContainer = styled.div`
   @media (max-width: 660px) {
     flex-direction: column;
   }
+/* border: 2px solid red; */
 `;
 
 export const ImageContainer = styled.div`
   padding: 0px 3px;
   /* flex-grow: 1; */
   width: 30%;
-  /* border: 2px solid red; */
 `;
 
 export const GridHeroImage = styled.div`
@@ -99,6 +99,7 @@ export const ExcerptContainer = styled.p`
   margin: 0.5rem 0 0.5rem 0;
   color: var(--fg);
   font-size: var(--text-small);
+  text-align: left;
   @media (min-width: 660px) {
     /* color: red; */
   }
@@ -113,5 +114,7 @@ export const CardTitle = styled.h3`
   color: var(--accent);
   text-align: left;
   padding: 12px 0;
-  /* border: 2px solid red; */
+  font-size: clamp(1.15rem, 1rem + 1vw, 1.4rem);
+  line-height: 1.25;
+/* border: 2px solid red; */
 `;

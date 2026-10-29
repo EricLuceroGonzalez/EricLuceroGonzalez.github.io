@@ -18,9 +18,9 @@
         "about": "PhD Student based in Spain",
         "about_role": "PhD Student · Artificial Intelligence · Optimization · UPM",
         "about_cta": "About me",
-        "see_all_blog": "All articles →",
-        "see_all_latex": "All LaTeX posts →",
-        "see_all_resources": "All resources →",
+        "see_all_blog": "All articles ->",
+        "see_all_latex": "All LaTeX posts ->",
+        "see_all_resources": "All resources ->",
         "resources_preview_title": "Free LaTeX Resources",
         "metaTitle": "Home: My Journey in AI",
         "metaDescription": "Welcome to my personal space where I share my research, algorithms, and code."
@@ -180,13 +180,12 @@
         }
     },
         "Resources": {
-        "landing_title": "🥶 Coming soon.",
-        "title": "Free LaTeX Resources.",
+        "title": "🥶 Coming soon.",
         "subtitle": "Open-source LaTeX templates — download or open directly in Overleaf. Free for everyone.",
         "nav_label": "Resources",
         "latex_cta_title": "Free Templates & Resources",
         "latex_cta_text": "Pentagrams, graph paper, TikZ figures and more — all typeset in LaTeX and ready to use.",
-        "latex_cta_button": "Browse all resources →",
+        "latex_cta_button": "Browse all resources ->",
         "items": []
     },
     "LatexPage": {

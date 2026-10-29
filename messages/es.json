@@ -18,9 +18,9 @@
         "about": "Estudiante de doctorado en IA",
         "about_role": "Estudiante de Doctorado · Inteligencia Artificial · Optimización · UPM",
         "about_cta": "Sobre mí",
-        "see_all_blog": "Todos los artículos →",
-        "see_all_latex": "Todos los posts de LaTeX →",
-        "see_all_resources": "Todos los recursos →",
+        "see_all_blog": "Todos los artículos ->",
+        "see_all_latex": "Todos los posts de LaTeX ->",
+        "see_all_resources": "Todos los recursos ->",
         "resources_preview_title": "Recursos LaTeX Gratuitos",
         "metaTitle": "Inicio: Mi viaje en la IA",
         "metaDescription": "Bienvenido a mi espacio personal donde comparto mis investigaciones, lecturas y demás curiosidades."
@@ -185,12 +185,13 @@
         }
     },
         "Resources": {
-        "title": "Recursos LaTeX Gratuitos",
+        "title": "🥶 Coming soon.",
+        "landing_title": "🥶 Coming soon.",
         "subtitle": "Plantillas LaTeX de código abierto — descarga o abre directamente en Overleaf. Gratis para todos.",
         "nav_label": "Recursos",
         "latex_cta_title": "Plantillas y Recursos Gratuitos",
         "latex_cta_text": "Pentagramas, papel cuadriculado, figuras TikZ y más — todo maquetado en LaTeX y listo para usar.",
-        "latex_cta_button": "Ver todos los recursos →",
+        "latex_cta_button": "Ver todos los recursos ->",
         "items": []
     },
     "LatexPage": {

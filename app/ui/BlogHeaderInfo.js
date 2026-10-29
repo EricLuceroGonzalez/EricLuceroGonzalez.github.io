@@ -37,13 +37,13 @@ export const SideInfo = styled.div`
 export const SectionType = styled.div`
   font-weight: bold;
   color: var(--bg);
-  padding: 1px 6px;
-  border-radius: 2px;
+  padding: 3px 6px;
+  border-radius: 6px;
   display: inline-block;
   margin-left: 0.33rem;
 
   font-size: var(--text-very-small);
-  font-family: monospace;
+  /* font-family: monospace; */
   ${(props) => {
     // tag a minúsculas
     const tagKey = props.$tag ? props.$tag.toLowerCase() : "default";

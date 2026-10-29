@@ -27,7 +27,7 @@ const ResourcesPage = async ({ params }) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          <TitlePage>{t("landing_title")}</TitlePage>
+          <TitlePage>{t("title")}</TitlePage>
            <SubSubTitle style={{ opacity: 0.75, marginBottom: "1.5rem" }}>
             {t("subtitle")}
           </SubSubTitle>
