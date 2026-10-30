@@ -51,17 +51,8 @@ const LatexPost = async ({ params }) => {
 
   // const next = coursePosts.next;
   // const previous = coursePosts.previousPost;
-  const readingTime = (post) => {
-    const WORDS_PER_MINUTE = 200;
-    let result = {};
-    const regex = /\w+/g;
-    result.wordCount = (post || "").match(regex).length;
 
-    result.readingTime = Math.ceil(result.wordCount / WORDS_PER_MINUTE);
-
-    return result;
-  };
-  const readT = readingTime(post.content);
+  const readT = post.readingTime;
 
   const needsKaTeX = post.keywords?.some((cat) =>
     ["math", "latex", "mathematics", "algorithm"].includes(cat.toLowerCase()),
@@ -94,8 +85,8 @@ const LatexPost = async ({ params }) => {
             <Date style={{ marginLeft: "10px" }}>
               <FaClock style={{ marginRight: "5px" }} />
               {readT.readingTime < 2
-                ? `${readT.readingTime} minuto`
-                : `${readT.readingTime} minutos`}{" "}
+                ? `${readT} minuto`
+                : `${readT} minutos`}{" "}
             </Date>
             <SideInfo>
               <Link href={`/${post.doctype[0]}`}>

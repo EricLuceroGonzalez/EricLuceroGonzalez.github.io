@@ -51,20 +51,8 @@ const BlogPost = async ({ params }) => {
     return notFound();
   }
 
-  const readingTime = (post) => {
-    const WORDS_PER_MINUTE = 200;
-    let result = {};
-    //Matches words
-    //See
-    //https://regex101.com/r/q2Kqjg/6
-    const regex = /\w+/g;
-    result.wordCount = (post || "").match(regex).length;
-    result.readingTime = Math.ceil(result.wordCount / WORDS_PER_MINUTE);
-
-    return result;
-  };
-
-  const readT = readingTime(post.content);
+  const readT = post.readingTime;
+  console.log(`readT = ${readT}`)
   const needsKaTeX = post.keywords?.some((cat) =>
     ["math", "latex", "mathematics", "algorithm"].includes(cat.toLowerCase()),
   );
@@ -121,8 +109,8 @@ const BlogPost = async ({ params }) => {
             <Date style={{ marginLeft: "10px" }}>
               <FaClock style={{ marginRight: "5px" }} />
               {readT.readingTime < 2
-                ? `${readT.readingTime} ${t("minute")}`
-                : `${readT.readingTime} ${t("minutes")}`}{" "}
+                ? `${readT} ${t("minute")}`
+                : `${readT} ${t("minutes")}`}{" "}
             </Date>
             <SideInfo>
               {/* TODO: Renderizar post del mismo tag al hacer click */}

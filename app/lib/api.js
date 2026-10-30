@@ -10,7 +10,11 @@ const postsBlogDirectory = join(process.cwd(), "/app/_posts/blog/");
 function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
-
+const WORDS_PER_MINUTE = 200;
+function readingTime(content = "") {
+  const words = content.match(/\w+/g)?.length ?? 0;
+  return Math.max(1, Math.ceil(words / WORDS_PER_MINUTE));
+}
 // Obtener un post por su slug
 function getPostBySlug(slug, fields = [], locale = "es") {
   const fullPath = join(postsDirectory, `${slug}.${locale}.mdx`);
@@ -26,6 +30,7 @@ function getPostBySlug(slug, fields = [], locale = "es") {
     ...data,
     slug: slug,
     content,
+    readingTime: readingTime(content),
     date: {
       iso: data.date, // Conserva el formato original 'YYYY-MM-DD'
       formatted: formatDateForSSR(data.date), // Formateado inicial en español
