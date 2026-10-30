@@ -60,7 +60,7 @@ export default async function Home({ params }) {
           <HeroStack>
             <HeroBadge>
               <EmojiContainer />
-              <HomeGreeting defaultGreeting={t("hello_badge")} />
+              <HomeGreeting/>
             </HeroBadge>
             <HeroTitle>{t("hero_title")}</HeroTitle>
             <HeroSubtitle>{t("hero_subtitle")}</HeroSubtitle>

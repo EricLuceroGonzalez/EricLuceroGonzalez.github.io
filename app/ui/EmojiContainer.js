@@ -3,12 +3,14 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const EmojiContainers = styled(motion.div)`
+const EmojiContainers = styled(motion.button)`
   font-size: larger;
   /* width: 50px; */
-  margin-right: 6px;
+  /* margin-right: 6px; */
   font-size: var(--text-h3);
-  /* background-color: var(--fg); */
+  line-height: 1;
+  border: none;
+  background-color: var(--primary-transparent);
 `;
 const RANDOM_EMOJIS = [
   "👋🏼",

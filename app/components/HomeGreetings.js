@@ -52,7 +52,7 @@ export default function HomeGreeting({ defaultGreeting }) {
           exit={{ opacity: 0, y: -35 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           style={{
-            position: "absolute",
+            // position: "absolute",
             // left: 0,
             // bottom: 0,
             fontSize: 'large',

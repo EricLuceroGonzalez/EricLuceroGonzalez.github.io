@@ -151,6 +151,7 @@ export const HeroBadge = styled.div`
   color: var(--accent);
   font-weight: 600;
   font-size: var(--text-small);
+  line-height: 1;
   display: inline-flex;
   align-items: center;
   gap: 6px;
