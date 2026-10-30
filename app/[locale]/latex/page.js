@@ -1,107 +1,92 @@
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { MainPageBg, PageContainer } from "../../ui/ComponentsStyled";
 import { TitlePage } from "../../ui/TitlesComponents";
-import { getPostsByType } from "../../lib/api";
-import { ButtonContainer, CopyButton, Layout } from "../../ui/BasicDivs";
-import HomeBoxes from "../../components/HomeBoxes";
-import ResponsiveSidebar from "../../components/SideBar";
-import TableOfContentsAside from "../../components/ToCAside";
-import ResourcesTeaser from "../../components/ResourcesTeaser";
-
+import { Layout } from "../../ui/BasicDivs";
 import {
-  MdHead,
-  MdListItem,
+  MdBlockQuote,
   MdParagraph,
-  MdSubHeadC,
-  MdUnorderedList,
+  MdSubHeadA,
 } from "../../ui/MarkDownComponents";
-import Link from "next/link";
+import { getPostsByType } from "../../lib/api";
+import HomeBoxes from "../../components/HomeBoxes";
+import LatexBlock from "../../components/LatexBlock";
+import TableOfContentsAside from "../../components/ToCAside";
 import ShowPath from "../../components/showPath";
 import ScrollDiv from "../../components/navigation/ScrollDiv";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import BackgroundDots from "@/app/components/BgMovingDots";
+
+const URL_BASE = "https://ericlucero.dev";
+const toCard = ({ content, ...post }) => post;
+const sectionTitle = { color: "var(--heading)", marginTop: "3rem" };
 
 const Latex = async ({ params }) => {
   const { locale } = await params;
   setRequestLocale(locale);
-  const trans = await getTranslations({ locale, namespace: "LatexPage" });
-  // const AllLatexPosts = getLatexPosts();
-  const AllLatexPosts = getPostsByType(["latex", "LaTeX"], 0, locale);
+  const t = await getTranslations({ locale, namespace: "LatexPage" });
+  const home = await getTranslations({ locale, namespace: "HomePage" });
 
-  // Filtra solo los posts que tienen "curso"
-  const latexBlogPost = AllLatexPosts.posts.filter(
-    (post) => post.doctype.includes("latex") || post.doctype.includes("LaTeX"),
-  );
+  const { posts } = getPostsByType(["latex"], 0, locale);
+  if (!posts) notFound();
+  const cards = posts.map(toCard);
 
-  // Filtra solo los posts que tienen "curso"
-  // const latexCoursePost = AllLatexPosts.posts.filter(
-  //   (post) => post.doctype.includes("latex") && post.doctype.includes("curso"),
-  // );
-  if (!latexBlogPost) {
-    return notFound();
-  }
-  const tocItems = latexBlogPost.map((post) => ({
+  const tocItems = cards.map((post) => ({
     slug: post.slug,
     title: post.title,
     href: `/latex/${post.slug}`,
   }));
+
   return (
     <Layout>
       <PageContainer>
         <ScrollDiv />
-        <BackgroundDots numDots={95} />
-        <ShowPath title={latexBlogPost.title} />
+        <ShowPath />
         <MainPageBg
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.2,
-            delay: 0.0,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25, ease: [0, 0.71, 0.2, 1.01] }}
         >
-          <TitlePage>{trans("title")}</TitlePage>
-          <MdSubHeadC>{trans("subtitle")}</MdSubHeadC>
-          {/* TODO: Create the feeling here...(and in suscribe, but later) */}
-          {/* <MdParagraph>{trans("intro_text")}</MdParagraph>
+          <TitlePage>{t("title")}</TitlePage>
+          <MdParagraph style={{ fontSize: "1.1rem", color: "var(--subheading)", maxWidth: "40rem" }}>
+            {t("subtitle")}
+          </MdParagraph>
 
-          <MdParagraph>{trans("advanced_text")}</MdParagraph>
-          <MdParagraph>
-            {trans("cta_beginner")}
-            {trans("cta_advanced")}
-          </MdParagraph> */}
+          <MdSubHeadA style={sectionTitle}>
+            {t("templates_title")}
+          </MdSubHeadA>
+          <MdParagraph style={{ color: "var(--subheading)" }}>
+            {home("latex_subtitle")}
+          </MdParagraph>
+          <LatexBlock
+            id="plantillas"
+            showHead={false}
+            locale={locale}
+            labels={{
+              title: t("templates_title"),
+              subtitle: home("latex_subtitle"),
+              all: home("latex_all"),
+              fromBlog: home("latex_from_blog"),
+              filterAll: home("latex_filter_all"),
+              soonTitle: home("latex_soon_title"),
+              soonText: home("latex_soon_text"),
+              categories: home.raw("latex_categories"),
+              minRead: home.raw("min_read"),
+            }}
+          />
 
-          <HomeBoxes props={latexBlogPost} />
-          <MdParagraph>{trans("copy_text.p1")}</MdParagraph>
-          <MdUnorderedList>
-            <MdListItem>{trans("copy_text.item1")}</MdListItem>
-            <MdListItem>{trans("copy_text.item2")}</MdListItem>
-            <MdListItem>{trans("copy_text.item3")}</MdListItem>
-          </MdUnorderedList>
-          <MdParagraph>{trans("copy_text.p2")}</MdParagraph>
+          {cards.length > 0 && (
+            <>
+              <MdSubHeadA style={sectionTitle}>{t("articles_title")}</MdSubHeadA>
+              <HomeBoxes props={cards} locale={locale} />
+            </>
+          )}
 
-          <MdParagraph>{trans("donald_text")}</MdParagraph>
-          <MdParagraph>{trans("advanced_text")}</MdParagraph>
-          <ResourcesTeaser />
-          {/* <ButtonContainer>
-            <Link href={"/latex/curso"}>
-              <CopyButton
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.4,
-                  scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-                }}
-              >
-                Ir al curso
-              </CopyButton>
-            </Link>
-          </ButtonContainer> */}
-          {/* 
-          <MdHead>Aprende LaTeX</MdHead>
-          */}
+          <MdBlockQuote style={{ margin: "3rem 0 1.5rem", padding: "1.25rem 1.5rem" }}>
+            <p style={{ margin: 0, fontSize: "1.1rem", lineHeight: 1.6 }}>{t("donald_text")}</p>
+            <footer style={{ marginTop: "0.75rem", fontSize: "0.9rem" }}>— Donald E. Knuth</footer>
+          </MdBlockQuote>
+          <MdParagraph>{t("advanced_text")}</MdParagraph>
 
-          {/* <HomeBoxes props={latexCoursePost} /> */}
-          <TableOfContentsAside items={tocItems} label="Articles" />
+          <TableOfContentsAside items={tocItems} label={t("articles_title")} />
         </MainPageBg>
       </PageContainer>
     </Layout>
@@ -112,48 +97,38 @@ export default Latex;
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "LatexPage" });
+  const meta = await getTranslations({ locale, namespace: "Metadata" });
 
-  const metadata = await getTranslations({ locale, namespace: "Metadata" });
-  const URLbase = "https://ericlucero.dev";
+  const title = `${t("meta_title")} | Eric Lucero González`;
+  const description = t("meta_description");
+  const url = `${URL_BASE}/${locale}/latex`;
 
   return {
-    title: metadata("defaultTitle"),
-    description: metadata("description"),
-    keywords: metadata("keywords"),
-    // Configuración vital para SEO Multilingüe
+    title,
+    description,
     alternates: {
-      canonical: `${URLbase}/${locale}/latex`,
+      canonical: url,
       languages: {
-        es: `${URLbase}/es`,
-        en: `${URLbase}/en`,
+        es: `${URL_BASE}/es/latex`,
+        en: `${URL_BASE}/en/latex`,
+        "x-default": `${URL_BASE}/es/latex`,
       },
     },
-    robots: {
-      index: true,
-      follow: true,
-    },
     openGraph: {
-      title: metadata("defaultTitle"),
-      description: metadata("description"),
-      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      title,
+      description,
+      url,
       siteName: "Eric Lucero González",
-      images: [
-        {
-          url: metadata("thumbnailImage"),
-          width: 1200,
-          height: 630,
-          alt: metadata("defaultTitle"), // Texto alternativo traducido
-        },
-      ],
-      locale: locale,
+      images: [{ url: meta("thumbnailImage"), width: 1200, height: 630, alt: title }],
+      locale,
       type: "website",
-      logo: metadata("metaLogo"),
     },
     twitter: {
       card: "summary_large_image",
-      title: metadata("defaultTitle"),
-      description: metadata("description"),
-      image: metadata("thumbnailImage"),
+      title,
+      description,
+      images: [meta("thumbnailImage")],
     },
   };
 }

@@ -17,6 +17,7 @@ const Panel = styled.section`
   flex-direction: column;
   gap: 1.6rem;
   text-align: left;
+  scroll-margin-top: 5rem; /* el ancla #plantillas no queda bajo la navbar */
 `;
 
 const Head = styled.div`
@@ -364,7 +365,14 @@ function TemplateActions({ t }) {
   );
 }
 
-export default function LatexBlock({ locale, labels, posts = [] }) {
+export default function LatexBlock({
+  locale,
+  labels,
+  posts = [],
+  id,
+  showHead = true,
+  allHref = "/latex#plantillas",
+}) {
   const templates = latexTemplates.map((t) => ({
     ...t,
     title: t.title[locale] ?? t.title.es,
@@ -380,7 +388,12 @@ export default function LatexBlock({ locale, labels, posts = [] }) {
   const current = visible.find((t) => t.id === selected) ?? visible[0];
 
   return (
-    <Panel aria-labelledby="latex-title">
+    <Panel
+      id={id}
+      aria-labelledby={showHead ? "latex-title" : undefined}
+      aria-label={showHead ? undefined : labels.title}
+    >
+      {showHead && (
       <Head>
         <div>
           <Logo aria-hidden="true">
@@ -389,8 +402,9 @@ export default function LatexBlock({ locale, labels, posts = [] }) {
           <Title id="latex-title">{labels.title}</Title>
           <Sub>{labels.subtitle}</Sub>
         </div>
-        <AllLink href="/recursos">{labels.all}</AllLink>
+        <AllLink href={allHref}>{labels.all}</AllLink>
       </Head>
+      )}
 
       {categories.length > 1 && (
         <Filters role="group" aria-label={labels.filterAll}>
