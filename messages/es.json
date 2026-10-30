@@ -71,10 +71,23 @@
         "language_switch_toggle": "Cambiar idioma a"
     },
     "Footer": {
-        "made_with": "Hecho desde cero con:",
+        "tagline": "IA, algoritmos y datos explicados con código, desde la UPM.",
+        "social_label": "Redes sociales",
+        "social": {
+            "github": "GitHub de Eric Lucero",
+            "linkedin": "LinkedIn de Eric Lucero",
+            "instagram": "Instagram de Eric Lucero",
+            "email": "Escribir un correo a Eric Lucero"
+        },
+        "explore": "Explorar",
+        "site": "Sitio",
+        "about": "Sobre mí",
+        "content": "Contenido",
+        "code": "Código",
+        "made_with": "Hecho con",
         "contact": "Contacto",
-        "about_page": "Acerca de esta página y su contenido.",
-        "licenses": "Términos legales y política de privacidad"
+        "about_page": "Acerca de esta web",
+        "licenses": "Términos y privacidad"
     },
     "Chuchu": {
         "title": "Acerca de mí",

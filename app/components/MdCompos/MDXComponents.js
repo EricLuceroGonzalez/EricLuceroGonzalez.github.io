@@ -28,7 +28,8 @@ import { Link } from "@/i18n/navigation";
 import Mermaid from "./Mermaid";
 
 const MdxComponents = {
-  h1: (props) => <MdHead {...props}>{props.children}</MdHead>,
+  // El h1 de la página es el título del post: un título de nivel 1 en el MDX pasa a h2.
+  h1: (props) => <H2Header {...props} />,
   h2: (props) => <H2Header {...props} />,
   h3: (props) => <H3Header {...props} />,
   h4: (props) => <MdSubHeadC {...props}>{props.children}</MdSubHeadC>,

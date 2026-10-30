@@ -31,6 +31,7 @@ import {
 } from "@/app/components/about/AboutStyled";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ScrollDiv from "@/app/components/navigation/ScrollDiv";
+import { alternatesFor, pageUrl } from "@/app/lib/seo";
 
 // Configuración para el contenedor padre
 const containerVariants = {
@@ -89,8 +90,8 @@ const AboutThisPage = async ({ params }) => {
           >
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://nextjs.org"}>
-                  <RiNextjsFill />
+                <ReactIcon href={"https://nextjs.org"} aria-label="Next JS" target="_blank" rel="noopener noreferrer">
+                  <RiNextjsFill aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Next JS</LogosTitle>
               </LogosHead>
@@ -100,8 +101,11 @@ const AboutThisPage = async ({ params }) => {
               <LogosHead>
                 <ReactIcon
                   href={"https://simple.wikipedia.org/wiki/JavaScript"}
+                  aria-label="Javascript (ES6+)"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <IoLogoJavascript />
+                  <IoLogoJavascript aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Javascript (ES6+)</LogosTitle>
               </LogosHead>
@@ -111,8 +115,11 @@ const AboutThisPage = async ({ params }) => {
               <LogosHead>
                 <ReactIcon
                   href={"https://en.wikipedia.org/wiki/React_(software)"}
+                  aria-label="React framework"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <RiReactjsLine />
+                  <RiReactjsLine aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>React framework</LogosTitle>
               </LogosHead>
@@ -121,8 +128,8 @@ const AboutThisPage = async ({ params }) => {
 
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://www.github.com"}>
-                  <FaGithub />
+                <ReactIcon href={"https://www.github.com"} aria-label="Github" target="_blank" rel="noopener noreferrer">
+                  <FaGithub aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Github</LogosTitle>
               </LogosHead>
@@ -131,8 +138,8 @@ const AboutThisPage = async ({ params }) => {
 
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://vercel.com/"}>
-                  <SiVercel />
+                <ReactIcon href={"https://vercel.com/"} aria-label="Vercel" target="_blank" rel="noopener noreferrer">
+                  <SiVercel aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Vercel</LogosTitle>
               </LogosHead>
@@ -140,8 +147,8 @@ const AboutThisPage = async ({ params }) => {
             </LogosBox>
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://www.i18next.com"}>
-                  <SiI18Next />
+                <ReactIcon href={"https://www.i18next.com"} aria-label="i18n" target="_blank" rel="noopener noreferrer">
+                  <SiI18Next aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>i18n</LogosTitle>
               </LogosHead>
@@ -150,8 +157,8 @@ const AboutThisPage = async ({ params }) => {
 
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://styled-components.com"}>
-                  <SiStyledcomponents />
+                <ReactIcon href={"https://styled-components.com"} aria-label="Styled-components" target="_blank" rel="noopener noreferrer">
+                  <SiStyledcomponents aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Styled-components</LogosTitle>
               </LogosHead>
@@ -160,8 +167,8 @@ const AboutThisPage = async ({ params }) => {
 
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://remark.js.org"}>
-                  <SiRemark />
+                <ReactIcon href={"https://remark.js.org"} aria-label="Remark-js" target="_blank" rel="noopener noreferrer">
+                  <SiRemark aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Remark-js</LogosTitle>
               </LogosHead>
@@ -172,8 +179,11 @@ const AboutThisPage = async ({ params }) => {
               <LogosHead>
                 <ReactIcon
                   href={"https://unifiedjs.com/explore/package/rehype-raw/"}
+                  aria-label="rehype"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <SiRemark />
+                  <SiRemark aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>rehype</LogosTitle>
               </LogosHead>
@@ -183,8 +193,11 @@ const AboutThisPage = async ({ params }) => {
               <LogosHead>
                 <ReactIcon
                   href={"https://github.com/jonschlinkert/gray-matter"}
+                  aria-label="gray-matter"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <SiMdx />
+                  <SiMdx aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>gray-matter</LogosTitle>
               </LogosHead>
@@ -193,8 +206,8 @@ const AboutThisPage = async ({ params }) => {
 
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://mdxjs.com"}>
-                  <SiMdx />
+                <ReactIcon href={"https://mdxjs.com"} aria-label="MDX JS" target="_blank" rel="noopener noreferrer">
+                  <SiMdx aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>MDX JS</LogosTitle>
               </LogosHead>
@@ -202,8 +215,8 @@ const AboutThisPage = async ({ params }) => {
             </LogosBox>
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://www.latex-project.org"}>
-                  <SiLatex />
+                <ReactIcon href={"https://www.latex-project.org"} aria-label="LaTeX (vía KaTeX/MathJax)" target="_blank" rel="noopener noreferrer">
+                  <SiLatex aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>LaTeX (vía KaTeX/MathJax)</LogosTitle>
               </LogosHead>
@@ -211,8 +224,8 @@ const AboutThisPage = async ({ params }) => {
             </LogosBox>
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://motion.dev"}>
-                  <RiEmotionUnhappyFill />
+                <ReactIcon href={"https://motion.dev"} aria-label="motion" target="_blank" rel="noopener noreferrer">
+                  <RiEmotionUnhappyFill aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>motion</LogosTitle>
               </LogosHead>
@@ -220,8 +233,8 @@ const AboutThisPage = async ({ params }) => {
             </LogosBox>
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://mermaid.js.org"}>
-                  <SiMermaid />
+                <ReactIcon href={"https://mermaid.js.org"} aria-label="Mermaid JS" target="_blank" rel="noopener noreferrer">
+                  <SiMermaid aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Mermaid JS</LogosTitle>
               </LogosHead>
@@ -230,8 +243,8 @@ const AboutThisPage = async ({ params }) => {
 
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://fontawesome.com"}>
-                  <FaFontAwesome />
+                <ReactIcon href={"https://fontawesome.com"} aria-label="Font Awesome" target="_blank" rel="noopener noreferrer">
+                  <FaFontAwesome aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Font Awesome</LogosTitle>
               </LogosHead>
@@ -240,8 +253,8 @@ const AboutThisPage = async ({ params }) => {
 
             <LogosBox variants={itemVariants}>
               <LogosHead>
-                <ReactIcon href={"https://www.chartjs.org/docs/latest/"}>
-                  <SiChartdotjs />
+                <ReactIcon href={"https://www.chartjs.org/docs/latest/"} aria-label="Chart.js" target="_blank" rel="noopener noreferrer">
+                  <SiChartdotjs aria-hidden="true" focusable="false" />
                 </ReactIcon>
                 <LogosTitle>Chart.js</LogosTitle>
               </LogosHead>
@@ -267,13 +280,7 @@ export async function generateMetadata({ params }) {
     description: t("metadata.description"),
     keywords: t("metadata.keywords"),
     // Configuración vital para SEO Multilingüe
-    alternates: {
-      canonical: `${URLbase}/${locale}`,
-      languages: {
-        es: `${URLbase}/es`,
-        en: `${URLbase}/en`,
-      },
-    },
+    alternates: alternatesFor(locale, "/about/this-page"),
     robots: {
       index: false,
       follow: true,
@@ -281,7 +288,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: t("metadata.title"),
       description: t("metadata.description"),
-      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      url: pageUrl(locale, "/about/this-page"),
       siteName: "Eric Lucero González",
       images: [
         {
@@ -299,7 +306,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      image: t("thumbnailImage"),
+      images: [t("thumbnailImage")],
     },
   };
 }

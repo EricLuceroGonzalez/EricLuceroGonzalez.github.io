@@ -22,8 +22,8 @@ const Rss = styled.a`
   align-items: center;
   gap: 8px;
   border-radius: 10px;
-  background: var(--primary);
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   font-weight: 700;
   &:hover { opacity: 0.9; }
 `;

@@ -34,6 +34,16 @@ export default async function About({ params }) {
         <BackgroundDots numDots={90} />
         <ShowPath title={""} />
         <AboutWrapper>
+          {/* La página no tenía h1. Oculto visualmente para no cambiar el diseño;
+              si prefieres que se vea, quita el style. */}
+          <h1
+            style={{
+              position: "absolute", width: 1, height: 1, padding: 0, margin: -1,
+              overflow: "hidden", clip: "rect(0 0 0 0)", whiteSpace: "nowrap", border: 0,
+            }}
+          >
+            Eric Lucero González · {t("title")}
+          </h1>
           <AboutMePanel>
             <PhotoAvatar
               initial={{ opacity: 0, scale: 0, x: -50 }}

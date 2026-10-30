@@ -19,6 +19,7 @@ import {
   FaCreativeCommonsNcEu,
   FaCreativeCommonsSa,
 } from "react-icons/fa";
+import { alternatesFor, pageUrl } from "@/app/lib/seo";
 
 const LegalPage = async ({ params }) => {
   const { locale } = await params;
@@ -76,13 +77,15 @@ const LegalPage = async ({ params }) => {
                 ),
               }}
             />
-            <MdParagraph
-              dangerouslySetInnerHTML={{
-                __html: parseText(
-                  t("sections.copyright.content_license_list.text_slice"),
-                ),
-              }}
-            />
+          </MdUnorderedList>
+          <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(
+                t("sections.copyright.content_license_list.text_slice"),
+              ),
+            }}
+          />
+          <MdUnorderedList>
 
             <MdListItem
               dangerouslySetInnerHTML={{
@@ -197,17 +200,11 @@ export async function generateMetadata({ params }) {
     description: t("metadata.description"),
     keywords: t("metadata.keywords"),
     // Configuración vital para SEO Multilingüe
-    alternates: {
-      canonical: `${URLbase}/${locale}`,
-      languages: {
-        es: `${URLbase}/es`,
-        en: `${URLbase}/en`,
-      },
-    },
+    alternates: alternatesFor(locale, "/about/terminos-legales"),
     openGraph: {
       title: t("metadata.title"),
       description: t("metadata.description"),
-      url: `${URLbase}/${locale}`, // URL canónica para compartir
+      url: pageUrl(locale, "/about/terminos-legales"),
       siteName: "Eric Lucero González",
       images: [
         {
@@ -225,7 +222,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t("metadata.title"),
       description: t("metadata.description"),
-      image: t("metadata.thumbnailImage"),
+      images: [t("metadata.thumbnailImage")],
     },
   };
 }

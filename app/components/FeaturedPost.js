@@ -46,8 +46,8 @@ const Badges = styled.div`
 export const InteractiveBadge = styled.span`
   padding: 4px 10px;
   border-radius: 6px;
-  background: var(--primary);
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   font-size: 0.75rem;
   font-weight: 700;
 `;

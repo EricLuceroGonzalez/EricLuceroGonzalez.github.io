@@ -44,11 +44,12 @@ const BlogPost = async ({ params }) => {
   // const t = useTranslations("About");
   const t = await getTranslations({ locale, namespace: "Blog" });
   const post = getPostBySlug(slug, [], locale);
+  // 404 si no existe, si es privado o si es un post de otra sección (/latex)
+  if (!post || post.isPublic !== true || post.doctype?.[0] !== "blog") {
+    notFound();
+  }
 
   const { previous, next } = getSurroundingPosts("blog", post.order, locale);
-  if (!post) {
-    return notFound();
-  }
 
   const readT = post.readingTime;
   console.log(`readT = ${readT}`)
@@ -91,15 +92,12 @@ const BlogPost = async ({ params }) => {
                 : `${readT} ${t("minutes")}`}{" "}
             </Date>
             <SideInfo>
-              <Link href={`/${locale}/${post.doctype[0]}`}>
-                {post.categories.map((type, index) => (
-                  <SectionType key={index} $tag={type}>
-                    {type}
-                    {/* Agrega una coma si no es el último elemento */}
-                    {index < post.doctype.length - 1}
-                  </SectionType>
-                ))}
-              </Link>
+              {/* TODO: Renderizar post del mismo tag al hacer click */}
+              {post.categories.map((type) => (
+                <SectionType key={type} $tag={type}>
+                  {type}
+                </SectionType>
+              ))}
             </SideInfo>
             <LikesButton slug={post.slug} />
           </MetaInfo>
@@ -132,7 +130,7 @@ const BlogPost = async ({ params }) => {
                 marginTop: "10rem",
               }}
             >
-              <h1>{t("other_posts")}:</h1>
+              <h2>{t("other_posts")}</h2>
               <div
                 style={{
                   display: "flex",

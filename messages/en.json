@@ -71,10 +71,23 @@
         "language_switch_toggle": "Switch language to"
     },
     "Footer": {
-        "made_with": "Built from scratch with:",
+        "tagline": "AI, algorithms and data explained with code, from UPM.",
+        "social_label": "Social media",
+        "social": {
+            "github": "Eric Lucero on GitHub",
+            "linkedin": "Eric Lucero on LinkedIn",
+            "instagram": "Eric Lucero on Instagram",
+            "email": "Email Eric Lucero"
+        },
+        "explore": "Explore",
+        "site": "Site",
+        "about": "About me",
+        "content": "Content",
+        "code": "Code",
+        "made_with": "Built with",
         "contact": "Contact",
-        "about_page": "About this page and the content.",
-        "licenses": "Legal Terms & Privacy Policy"
+        "about_page": "About this site",
+        "licenses": "Terms & privacy"
     },
     "About": {
         "title": "About Me",

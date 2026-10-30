@@ -17,10 +17,12 @@ const H3Header = ({ children, id, ...props }) => {
   return (
     <MdSubHeadB id={id} {...props}>
       {children}
-      <a href={link}>
+      {id && (
+        <a href={link} aria-labelledby={id}>
         {" "}
-        <FaLink />
+        <FaLink aria-hidden="true" focusable="false" />
       </a>
+      )}
     </MdSubHeadB>
   );
 };

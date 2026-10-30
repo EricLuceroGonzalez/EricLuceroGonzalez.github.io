@@ -30,13 +30,11 @@ a {
     --text-h2: clamp(1.5rem, 1.3rem + 1vw, 2rem);
     --text-h3: clamp(1.15rem, 1.05rem + 0.35vw, 1.5rem);
 
-    h1 { font-size: var(--text-h1); font-weight: 800; letter-spacing: -0.02em; }
-    h2 { font-size: var(--text-h2); font-weight: 700; }
-    h3 { font-size: var(--text-h3); font-weight: 600; }
     /* BASE */
     --bg: #F8F9FA;
     --fg: #1A1A1A;
-    --accent: #0077FF;
+    --accent: #0062D1;            /* antes #0077FF: 3.9:1 como texto; ahora 5.4:1 */
+    --on-accent: #FFFFFF;         /* texto sobre fondo --accent */
     --primary: #ff3366;
     --accent-transparent: rgba(0, 119, 255, 0.1);
     --primary-transparent: rgba(255, 51, 102, 0.1);
@@ -47,6 +45,13 @@ a {
     --latex-border: #B7E9E9;
     --card-bg: #FFFFFF;
     --muted: #5A6470;             /* metadatos, 5.7:1 */
+    /* Footer: oscuro en los dos temas */
+    --footer-bg: #1A1A1A;
+    --footer-fg: #E9ECEF;
+    --footer-muted: #B4B9BF;
+    --footer-accent: #5EA8FF;
+    --footer-line: rgba(255, 255, 255, 0.14);
+    --footer-hover-bg: rgba(255, 255, 255, 0.08);
     
     /* TIPOGRAFÍA */
   
@@ -54,20 +59,20 @@ a {
     --subheading: #444444;
     
     /* INTERACCIÓN*/
-    --primary-btn-bg: #0077FF; 
+    --primary-btn-bg: #0062D1;
     --primary-btn-fg: white;
-    --primary-btn-hover: #0056b3;
+    --primary-btn-hover: #004EA8;
     
     --secondary-btn-bg: #E2E6EA; 
     --secondary-btn-fg: #0077FF;
     --secondary-btn-hover: rgb(255, 255, 255);
 
     /* ENLACES */
-    --link-fg: #0077FF; 
+    --link-fg: #0062D1;
     --link-bg: transparent;
     
     /* ÉNFASIS Y CÓDIGO */
-    --strong-fg: #0077FF;
+    --strong-fg: #0062D1;
     --emphasis-bg: rgb(255, 224, 123);
     --emphasis-fg: #1A1A1A;
     /* HEADERS */
@@ -102,6 +107,7 @@ a {
     --bg: #002332; 
     --fg: #E0E6ED; 
     --accent: #FF3366;
+    --on-accent: #00222F;         /* blanco sobre #FF3366 = 3.5:1; esto = 4.7:1 */
     --primary: #0077FF;
 
     --primary-transparent: rgba(0, 119, 255, 0.1);
@@ -113,6 +119,12 @@ a {
     --latex-border: #0B5566;
     --card-bg: #002B3D;
     --muted: #9FB0BC;
+    --footer-bg: #001721;
+    --footer-fg: #E0E6ED;
+    --footer-muted: #9FB0BC;
+    --footer-accent: #FF6B8E;
+    --footer-line: rgba(255, 255, 255, 0.12);
+    --footer-hover-bg: rgba(255, 255, 255, 0.06);
     
     /* TIPOGRAFÍA */
     --heading: #FFFFFF; 
@@ -120,7 +132,7 @@ a {
 
     /* INTERACCIÓN */
     --primary-btn-bg: #FF3366; /* Rosa */
-    --primary-btn-fg: white;
+    --primary-btn-fg: #00222F;
     --primary-btn-hover: #E62E5C; /* Rosa un poco más oscuro */
 
     --secondary-btn-bg: #00364D; /* Un tono más claro que el fondo */
@@ -128,11 +140,11 @@ a {
     --secondary-btn-hover: #c3c7cdff;
 
     /* ENLACES - CORRECCIÓN CRÍTICA */
-    --link-fg: #FF3366; 
+    --link-fg: #FF6B8E;           /* legible también sobre --quote-bg/--code-bg */
     --link-bg: transparent;
 
     /* ÉNFASIS Y CÓDIGO */
-    --strong-fg: #FF3366;
+    --strong-fg: #FF6B8E;
     --emphasis-bg: #fceaaeff; /* Rosa con transparencia */
     --emphasis-fg: #00364D;
 
@@ -152,6 +164,13 @@ a {
     --gray-light: #919ca2ff;
     --green-go: #00cc66;
   }
+
+  /* Tamaños base de títulos. Fuera de :root y con :where() (especificidad 0):
+     antes estaban dentro de :root, que equivale a ":root h2" y ganaba a
+     cualquier styled-component, así que ningún título podía cambiar de tamaño. */
+  :where(h1) { font-size: var(--text-h1); font-weight: 800; letter-spacing: -0.02em; }
+  :where(h2) { font-size: var(--text-h2); font-weight: 700; }
+  :where(h3) { font-size: var(--text-h3); font-weight: 600; }
 
   /* Utilidades */
   [data-theme='dark'] [data-hide-on-theme='dark'],

@@ -23,9 +23,9 @@ const Header = styled.div`
   margin-bottom: 2rem;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-weight: bold;
-  color: var(--primary);
+  color: #9B1C40; /* sobre el fondo amarillo del componente, 6:1 */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.p`
-  color: #718096;
+  color: #4A5568;
   font-size: var(--text-base);
 `;
 
@@ -52,7 +52,7 @@ const Button = styled.button`
   padding: 0.875rem 1.5rem;
   background: ${(props) =>
     props.disabled ? "#cbd5e0" : "var(--primary-btn-bg)"};
-  color: white;
+  color: var(--primary-btn-fg);
   border: none;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -194,7 +194,7 @@ const RankTag = styled.span`
 
 const EmptyState = styled.div`
   text-align: center;
-  color: #a0aec0;
+  color: #4A5568;
   padding: 3rem 0;
 
   svg {
@@ -668,7 +668,7 @@ export default function SorteoMundialGA(props) {
       <Header>
         <Title>
           {t.title}
-          <SiFifa style={{ fontSize: "65px" }} />
+          <SiFifa aria-hidden="true" focusable="false" style={{ fontSize: "65px" }} />
         </Title>
         <Subtitle>{t.subtitle}</Subtitle>
       </Header>

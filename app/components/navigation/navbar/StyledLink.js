@@ -1,53 +1,46 @@
-// StyledLink.js
-// import Link from "next/link";
 import { Link } from "@/i18n/navigation";
 import styled from "styled-components";
 import { usePathname } from "next/navigation";
-import { motion } from "motion/react";
 
-// Define the styled component for the anchor tag
-const StyledAnchor = styled(motion.div)`
+// El estilo va en el propio <a>. Antes había un motion.div con whileTap dentro
+// del enlace: Framer le añadía tabindex="0" y cada pestaña recibía el foco dos veces.
+const StyledAnchor = styled(Link)`
   display: flex;
-  flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: var(--fg);
-  transition: background-color 0.3s ease;
   padding: 8px 6px;
   font-weight: bold;
-
   font-size: var(--text-base);
+  border-radius: 8px;
+  color: ${(p) => (p.$active ? "var(--on-accent)" : "var(--fg)")};
+  background-color: ${(p) => (p.$active ? "var(--accent)" : "transparent")};
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+
   @media (min-width: 660px) {
-    font-size: var(--text-base);
     margin: 2px 1rem;
   }
   &:hover {
     background-color: var(--fg);
     color: var(--bg);
-    cursor: pointer;
   }
-  background-color: ${(props) =>
-    props.$activePath ? "var(--accent)" : "var(--bg)"};
-  border-radius: 8px;
+  &:active {
+    transform: scale(0.94);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
 `;
 
 const StyledLink = ({ actualPath, pathName, href, children }) => {
   const currentPath = usePathname();
+  const [, locale, section] = currentPath.split("/");
+  const active = `/${locale}/${section}` === `${actualPath}${pathName}`;
+
   return (
-    <Link href={href} passHref>
-      <StyledAnchor
-        $activePath={
-          `/${currentPath.split("/")[1]}/${currentPath.split("/")[2]}` ===
-          `${actualPath}${pathName}`
-            ? true
-            : false
-        }
-        whileTap={{ scale: 0.65 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-      >
-        {children}
-      </StyledAnchor>
-    </Link>
+    <StyledAnchor href={href} $active={active} aria-current={active ? "page" : undefined}>
+      {children}
+    </StyledAnchor>
   );
 };
 
