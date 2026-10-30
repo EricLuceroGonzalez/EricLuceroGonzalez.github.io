@@ -49,7 +49,7 @@ const RefTex = styled.a`
   gap: 2px;
   opacity: 0.7;
   transition: opacity 0.2s;
-  color: var(--emphasis-bg);
+  color: var(--accent-ink);
   &:hover {
     opacity: 1;
   }

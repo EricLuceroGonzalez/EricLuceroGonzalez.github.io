@@ -1,5 +1,6 @@
 import { FaClock, FaPencilAlt } from "react-icons/fa";
 import "katex/dist/katex.min.css"; // Carga global de KaTeX (Aunque afecte Performance)
+import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug, getSurroundingPosts } from "@/app/lib/api";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import MdxComponents from "@/app/components/MdCompos/MDXComponents";
@@ -41,8 +42,8 @@ const LatexPost = async ({ params }) => {
   const t = await getTranslations({ locale, namespace: "LatexPage" });
 
   const post = getPostBySlug(slug, [], locale);
-  if (!post) {
-    return notFound();
+  if (!post || post.isPublic !== true || post.doctype?.[0] !== "latex") {
+    notFound();
   }
 
   const { previous, next } = getSurroundingPosts("latex", post.order, locale);
@@ -90,14 +91,11 @@ const LatexPost = async ({ params }) => {
                 : `${readT} minutos`}{" "}
             </Date>
             <SideInfo>
-              <Link href={`/${post.doctype[0]}`}>
-                {post.categories.map((type, index) => (
-                  <SectionType key={index} $tag={type}>
-                    {type}
-                    {index < post.doctype.length - 1}
-                  </SectionType>
-                ))}
-              </Link>
+              {post.categories.map((type) => (
+                <SectionType key={type} $tag={type}>
+                  {type}
+                </SectionType>
+              ))}
             </SideInfo>
             <LikesButton slug={post.slug} />
           </MetaInfo>
@@ -154,7 +152,7 @@ const LatexPost = async ({ params }) => {
                 justifyContent: "space-between",
               }}
             >
-              <h1 style={{ marginTop: "6rem" }}>{t("other_posts")}:</h1>
+              <h2 style={{ marginTop: "6rem" }}>{t("other_posts")}</h2>
               {previous === "null" ? (
                 ""
               ) : (
@@ -182,7 +180,7 @@ export async function generateStaticParams({ params }) {
   // Ya no hace falta devolver "locale" en el objeto, porque Next.js ya sabe
   // que estamos dentro de ese locale. Solo devolvemos el slug.
   return posts
-    .filter((post) => post.doctype && post.doctype.includes("blog"))
+    .filter((post) => post.doctype && post.doctype[0] === "latex")
     .map((post) => ({
       slug: post.slug,
     }));

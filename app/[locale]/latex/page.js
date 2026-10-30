@@ -83,7 +83,7 @@ const Latex = async ({ params }) => {
 
           <MdBlockQuote style={{ margin: "3rem 0 1.5rem", padding: "1.25rem 1.5rem" }}>
             <p style={{ margin: 0, fontSize: "1.1rem", lineHeight: 1.6 }}>{t("donald_text")}</p>
-            <footer style={{ marginTop: "0.75rem", fontSize: "0.9rem" }}>— Donald E. Knuth</footer>
+            {/* <footer style={{ marginTop: "0.75rem", fontSize: "0.9rem" }}>— Donald E. Knuth</footer> */}
           </MdBlockQuote>
           <MdParagraph>{t("advanced_text")}</MdParagraph>
 

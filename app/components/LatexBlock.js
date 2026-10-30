@@ -358,7 +358,7 @@ function TemplateActions({ t }) {
           rel="noopener noreferrer"
           aria-label={`Overleaf: ${t.title}`}
         >
-          <SiOverleaf/>
+          <SiOverleaf aria-hidden="true" focusable="false" />
         </Action>
       )}
     </Actions>

@@ -25,8 +25,8 @@
         "metaTitle": "Home: My Journey in AI",
         "metaDescription": "Welcome to my personal space where I share my research, algorithms, and code.",
         "hello_badge": "Olá, I'm Eric",
-        "hero_title": "AI, algorithms and data, explained through experiments you can play with.",
-        "hero_subtitle": "A blog for people curious about science and technology. Plus free LaTeX templates, ready to use.",
+        "hero_title": "Curious questions, answered with data and algorithms.",
+"hero_subtitle": "Is Stack Overflow dying? How do you draw a 48-team World Cup? Analyses with code, charts and free LaTeX templates.",
         "cta_blog": "Explore the blog",
         "cta_latex": "LaTeX templates",
         "featured_label": "Featured",
@@ -71,10 +71,23 @@
         "language_switch_toggle": "Switch language to"
     },
     "Footer": {
-        "made_with": "Built from scratch with:",
+        "tagline": "AI, algorithms and data explained with code, from UPM.",
+        "social_label": "Social media",
+        "social": {
+            "github": "Eric Lucero on GitHub",
+            "linkedin": "Eric Lucero on LinkedIn",
+            "instagram": "Eric Lucero on Instagram",
+            "email": "Email Eric Lucero"
+        },
+        "explore": "Explore",
+        "site": "Site",
+        "about": "About me",
+        "content": "Content",
+        "code": "Code",
+        "made_with": "Built with",
         "contact": "Contact",
-        "about_page": "About this page and the content.",
-        "licenses": "Legal Terms & Privacy Policy"
+        "about_page": "About this site",
+        "licenses": "Terms & privacy"
     },
     "About": {
         "title": "About Me",

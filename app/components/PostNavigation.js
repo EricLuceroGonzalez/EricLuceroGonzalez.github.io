@@ -51,7 +51,7 @@ const PostInfo = styled.div`
   }
 `;
 
-const Title = styled.h4`
+const Title = styled.h3`
   margin: 0;
   padding: 0.3rem 0;
   font-size: var(--text-small);

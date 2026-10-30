@@ -403,7 +403,7 @@ export const ResearchSection = styled.div`
   margin: 2rem 0 1rem;
 `;
 
-export const ResearchTitle = styled.h3`
+export const ResearchTitle = styled.h2`
   font-size: var(--text-h3);
   color: var(--heading);
   margin-bottom: 0.75rem;
@@ -424,7 +424,7 @@ export const ResearchChip = styled.span`
   font-family: monospace;
   font-weight: 600;
   background: var(--accent-transparent, rgba(0, 119, 255, 0.1));
-  color: var(--accent);
+  color: var(--accent-ink);
   border: 1px solid var(--accent);
 `;
 

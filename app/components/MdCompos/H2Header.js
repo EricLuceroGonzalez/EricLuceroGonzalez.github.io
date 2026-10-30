@@ -37,10 +37,12 @@ const H2Header = ({ children, id, ...props }) => {
   return (
     <MdSubHeadA id={id} {...props}>
       {children}
-      <a href={link}>
+      {id && (
+        <a href={link} aria-labelledby={id}>
         {" "}
-        <FaLink />
+        <FaLink aria-hidden="true" focusable="false" />
       </a>
+      )}
     </MdSubHeadA>
   );
 };

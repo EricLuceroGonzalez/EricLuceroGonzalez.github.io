@@ -105,7 +105,7 @@ export const ExcerptContainer = styled.p`
   }
 `;
 
-export const CardTitle = styled.h3`
+export const CardTitle = styled.h2`
   line-height: 0.95;
 
   a {
