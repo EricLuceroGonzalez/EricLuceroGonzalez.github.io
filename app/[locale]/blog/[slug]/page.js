@@ -3,7 +3,6 @@ import "katex/dist/katex.min.css";
 import {
   getAllPosts,
   getPostBySlug,
-  getPostsByType,
   getSurroundingPosts,
 } from "@/app/lib/api";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -26,13 +25,12 @@ import ScrollDiv from "@/app/components/navigation/ScrollDiv.js";
 import DateDisplay from "@/app/components/DateDisplay.js";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-// import rehypeMathjax from "rehype-mathjax";
 import rehypeKatex from "rehype-katex";
 import supersub from "remark-supersub";
 import rehypeHighlight from "rehype-highlight";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import ViewportSize from "@/app/components/viewPortViewer";
+// import ViewportSize from "@/app/components/viewPortViewer";
 import rehypeSlug from "rehype-slug";
 import remarkToc from "remark-toc";
 import ConditionalKaTeXLoader from "@/app/components/MdCompos/ConditionalKaTeXLoader";
@@ -77,27 +75,6 @@ const BlogPost = async ({ params }) => {
           }}
         >
           <MdHead>{post.title}</MdHead>
-          {/* No Thumbnail for now...too much */}
-          {/* {post.socialThumbnail && (
-            <CoverImageContainer
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.3,
-                scale: { type: "spring", visualDuration: 0.3, bounce: 0.5 },
-              }}
-            >
-              <img
-                src={post.socialThumbnail}
-                alt={post.coverImageAlt || `Cover image for ${post.title}`}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "8px",
-                }}
-              />
-            </CoverImageContainer>
-          )} */}
           <MetaInfo>
             <Date>
               <FaPencilAlt style={{ marginRight: "5px" }} />
@@ -114,9 +91,7 @@ const BlogPost = async ({ params }) => {
                 : `${readT} ${t("minutes")}`}{" "}
             </Date>
             <SideInfo>
-              {/* TODO: Renderizar post del mismo tag al hacer click */}
               <Link href={`/${locale}/${post.doctype[0]}`}>
-                {/* Renderiza todos los elementos del array como categorías */}
                 {post.categories.map((type, index) => (
                   <SectionType key={index} $tag={type}>
                     {type}

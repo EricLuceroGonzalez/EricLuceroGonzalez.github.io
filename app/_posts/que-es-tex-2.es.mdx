@@ -13,7 +13,7 @@ entryType: "latex"
 categories: ["LaTeX","TeX","Knuth"]
 excerpt: "Descubre por qué la E de TeX está caída, la diferencia entre WYSIWYG y WYSIWYM, y cómo este sistema domina la impresión más allá de las matemáticas."
 doctype: ["latex"]
-isPublic: false
+isPublic: true
 isFeatured: false        # solo UN post a la vez: el destacado del hero
 interactive: false       # muestra la etiqueta "Interactivo"
 topic: "latex"     # ia | algoritmos | datos | espacio | latex
@@ -24,7 +24,7 @@ Descubre por qué la E de TeX está caída, la diferencia entre WYSIWYG y WYSIWY
 
 ## ¿Qué es TeX realmente?
 
-TeX no es un procesador de textos convencional, es un sistema de **composición tipográfica** (*typesetting*). 
+TeX no es el procesador de textos convencional tipo Word sino más bien todo un sistema de **composición tipográfica** (*typesetting*). 
 
 El estilo de su programación fue el paradigma de programación literada (*literate programming*), 
 que consiste en escribir la lógica del programa en un lenguaje humano con fragmentos de código y macros incluidos (separados por un marcado primitivo), y los más importante
@@ -39,7 +39,7 @@ Su objetivo no es simplemente poner letras en una página, sino hacerlo con la m
 >Cualquier puede usar $\TeX$ libremente, para uso tanto personal como comercial con la única condición de no cambiar el código fuente. Y si se hacen cambios, se debe usar otro nombre.
 
 
-## El Nombre y el Logo: Una Declaración de Principios
+## El Nombre y el Logo
 
 Quizás hayas visto el nombre escrito de una forma peculiar:
 ![caption=Logo de TeX](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg)
@@ -50,7 +50,7 @@ El nombre proviene de la raíz griega **$\tau\epsilon\chi$** (*tau*, *epsilon*, 
 
 ### La 'E' Caída
 
-El logo con la 'E' desplazada hacia abajo no es un adorno. Es una demostración técnica. En las máquinas de escribir antiguas, las letras estaban atrapadas en una línea fija. TeX demostró desde su propio logo que tenía el control absoluto para mover cualquier elemento a cualquier lugar de la página, rompiendo la rigidez de los sistemas anteriores. Donald Knuth 
+El logo con la 'E' desplazada hacia abajo cumple una demostración técnica. En las máquinas de escribir antiguas, las letras estaban atrapadas en una línea fija, la pauta. TeX demostró desde su propio logo que tenía el control absoluto para mover cualquier elemento a cualquier lugar de la página, rompiendo la rigidez de los sistemas anteriores. Donald Knuth 
 dice que esta "E" fuera de lugar nos recuerda que TeX se trata de composición tipográfica y distingue el nombre TeX de los demás sistemas<CitationSup id="1"/>.
 
 Citando a Knuth en The TeXBook<CitationSup id="1"/>: Los expertos pronuncian la $X$ de $TeX$ como una _chi griega_, y no como una 'x', por lo que $TeX$ rima 
@@ -81,10 +81,10 @@ composición de texto actual, los caracteres disponibles en el teclado son algo 
     \end{aligned}
     $$
 
-Knuth, en The TeXBook<CitationSup id="1"/> usa este argumento de los caracteres limitado para introducir una de las claves de 
+Knuth, en The TeXBook<CitationSup id="1"/> usa este argumento de los caracteres limitados para introducir una de las claves de 
 TeX (en aquella época previa a las computadoras modernas): el uso del carácter de escape `\` para introducir comandos especiales que van más allá de los caracteres disponibles en el teclado.
 
-La elección del carácter de escape `\` no fue arbitraria. En los sistemas de composición de la época, este carácter no se usaba para nada especial además que esta tecla se ubicaba cerca de la barra espaciadora en teclados de los 70's (actualmente está en una ubicación mucho mas conveniente en los teclados en inglés), por lo que Knuth lo eligió para evitar conflictos con otros caracteres. 
+La elección del carácter de escape `\` no fue arbitraria. En los sistemas de composición de la época, este carácter no se usaba para nada especial, además que esta tecla se ubicaba cerca de la barra espaciadora en teclados de los 70's (actualmente está en una ubicación mucho mas conveniente en los teclados en inglés), por lo que Knuth lo eligió para evitar conflictos con otros caracteres. 
 
 >Después de teclear el carácter de escape `\`, TeX interpreta la siguiente secuencia de caracteres como un __comando especial__. 
 
