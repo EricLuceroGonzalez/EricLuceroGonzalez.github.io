@@ -142,7 +142,7 @@ const PostCardVertical = ({
           <CardTitle>{title}</CardTitle>
           <CardExcerpt>{excerpt}</CardExcerpt>
           <CardDate>
-            {readingTime && labels && `${labels.minRead.replace("{n}", readingTime)} `}
+            {readingTime && labels && `${labels.minRead.replace("{n}", readingTime)} · `}
             <DateDisplay
               isoDate={date.iso}
               defaultFormatted={date.formatted}

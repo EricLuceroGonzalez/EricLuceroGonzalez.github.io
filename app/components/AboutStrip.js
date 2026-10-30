@@ -35,7 +35,7 @@ export default function AboutStrip({ labels, photo }) {
       </div>
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
         <Btn href="/about">{labels.about}</Btn>
-        <Btn href="/about#research">{labels.research}</Btn>
+        {/* <Btn href="/about#research">{labels.research}</Btn> */}
       </div>
     </Box>
   );

@@ -87,7 +87,7 @@ export function buildFeed({ locale, posts = [], templates = [], topics = {} }) {
 
   const newest = items.find((it) => it.date)?.date;
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
+  return `<?xml-stylesheet type="text/xsl" href="/rss.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>${esc(channel.title)}</title>
@@ -101,4 +101,6 @@ ${items.map(itemXml).join("\n")}
 `;
 }
 
-export const RSS_HEADERS = { "Content-Type": "application/rss+xml; charset=utf-8" };
+// application/xml (y no application/rss+xml): con este tipo los navegadores
+// aplican /rss.xsl en vez de descargar el archivo. Los lectores RSS lo aceptan igual.
+export const RSS_HEADERS = { "Content-Type": "application/xml; charset=utf-8" };
