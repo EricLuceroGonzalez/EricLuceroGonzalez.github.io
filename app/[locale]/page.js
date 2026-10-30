@@ -7,6 +7,7 @@ import {
   HeroTagline,
   MainPageBg,
   PageContainer,
+  HeroBadge,
 } from "../ui/ComponentsStyled";
 import HomeSectionBlock from "../components/HomeSectionBlock";
 import { TitlePage } from "../ui/TitlesComponents";
@@ -52,8 +53,10 @@ export default async function Home({ params }) {
                 {t("title")}
               </span>
               <span aria-hidden="true" style={{ display: "flex", gap: "2px" }}>
+                {/* <HeroBadge> */}
                 <EmojiContainer />
                 <HomeGreeting defaultGreeting={t("title")} />
+                {/* </HeroBadge> */}
               </span>
             </TitlePage>
 
@@ -82,6 +85,7 @@ export default async function Home({ params }) {
           posts={allPostsData.posts}
           accentColor="var(--accent)"
           locale={locale}
+          // labels={labels}
         />
 
         {/* ── LaTeX section ────────────────────────────────────────── */}

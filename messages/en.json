@@ -40,7 +40,8 @@
         "datos": "Data analysis",
         "espacio": "Space",
         "latex": "LaTeX"
-        },
+    },
+        "latex_categories": { "papel": "Paper", "musica": "Music", "tikz": "TikZ" },
         "latest_title": "Latest articles",
         "latex_title": "Stop fighting the formatting",
         "latex_subtitle": "Free, open-source templates: download the PDF, copy the .tex or open it in Overleaf.",

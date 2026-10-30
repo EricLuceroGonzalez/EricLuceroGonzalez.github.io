@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-
+import Link from "next/link";
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,9 +70,8 @@ export const HomePageCover = styled.div`
   color: var(--fg);
   padding: 1.5rem 0 2rem;
   background-color: var(--bg);
-  border-bottom: 1px solid var(--primary-border);
-  margin-bottom: 1.5rem;
 `;
+
 export const HomePageCoverText = styled.div`
   width: 100%;
   padding: 0.6rem 0;
@@ -114,9 +113,9 @@ export const HeroCTARow = styled.div`
 export const HeroCTAPrimary = styled.span`
   display: inline-flex;
   align-items: center;
-  padding: 0.55rem 1.3rem;
+  padding: 0.8rem 1.4rem;
   border-radius: 8px;
-  background: var(--accent);
+  background: var(--accent-ink);
   color: var(--bg);
   font-weight: 700;
   font-size: var(--text-small);

@@ -5,7 +5,6 @@ import { ButtonContainer, CopyButton, Layout } from "../../ui/BasicDivs";
 import HomeBoxes from "../../components/HomeBoxes";
 import ResponsiveSidebar from "../../components/SideBar";
 import TableOfContentsAside from "../../components/ToCAside";
-// import LatexResourcesSection from "../../components/LatexResourcesSection";
 import ResourcesTeaser from "../../components/ResourcesTeaser";
 
 import {

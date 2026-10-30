@@ -41,6 +41,7 @@
         "espacio": "Divulgación espacial",
         "latex": "LaTeX"
         },
+        "latex_categories": { "papel": "Papel", "musica": "Música", "tikz": "TikZ" },
         "latest_title": "Últimos artículos",
         "latex_title": "Deja de pelear con el formato",
         "latex_subtitle": "Plantillas gratis y de código abierto: descarga el PDF, copia el .tex o ábrelo en Overleaf.",

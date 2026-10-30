@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { SectionType } from "../ui/BlogHeaderInfo.js";
 import DateDisplay from "./DateDisplay.js";
+import { InteractiveBadge } from "./FeaturedPost.js";
+import { read } from "gray-matter";
 
 // ── Styled components ──────────────────────────────────────────────────────────
 
@@ -59,7 +61,7 @@ const TagRow = styled.div`
 `;
 
 const CardTitle = styled.h3`
-  color: var(--accent);
+  color: var(--accent-ink);
   font-size: var(--text-base);
   line-height: 1.25;
   text-align: left;
@@ -103,6 +105,11 @@ const PostCardVertical = ({
   coverImage,
   coverImageAlt,
   locale,
+  interactive,
+  readingTime,
+  labels,
+  variant = "default",
+  accent
 }) => {
   return (
     <Wrapper
@@ -125,6 +132,7 @@ const PostCardVertical = ({
         </ImageArea>
         <Body>
           <TagRow>
+            {interactive && labels && <InteractiveBadge>{labels.interactive}</InteractiveBadge>}
             {categories.slice(0, 2).map((cat) => (
               <SectionType key={cat} $tag={cat}>
                 {cat}
@@ -134,6 +142,7 @@ const PostCardVertical = ({
           <CardTitle>{title}</CardTitle>
           <CardExcerpt>{excerpt}</CardExcerpt>
           <CardDate>
+            {readingTime && labels && `${labels.minRead.replace("{n}", readingTime)} `}
             <DateDisplay
               isoDate={date.iso}
               defaultFormatted={date.formatted}

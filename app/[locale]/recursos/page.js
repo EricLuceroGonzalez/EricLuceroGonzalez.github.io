@@ -1,7 +1,7 @@
 import { MainPageBg, PageContainer } from "../../ui/ComponentsStyled";
 import { TitlePage, SubSubTitle } from "../../ui/TitlesComponents";
 import { Layout } from "../../ui/BasicDivs";
-import LatexResourcesSection from "../../components/LatexResourcesSection";
+// import LatexResourcesSection from "../../components/LatexResourcesSection";
 import ShowPath from "../../components/showPath";
 import ScrollDiv from "../../components/navigation/ScrollDiv";
 import BackgroundDots from "@/app/components/BgMovingDots";
@@ -31,7 +31,8 @@ const ResourcesPage = async ({ params }) => {
            <SubSubTitle style={{ opacity: 0.75, marginBottom: "1.5rem" }}>
             {t("subtitle")}
           </SubSubTitle>
-          <LatexResourcesSection />
+          {/* <latexTemplates/> */}
+          {/* <LatexResourcesSection /> */}
         </MainPageBg>
       </PageContainer>
     </Layout>
