@@ -148,7 +148,7 @@ export const HeroBadge = styled.div`
   padding: 12px 18px;
   border-radius: 999px;
   background: var(--primary-transparent);
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 600;
   font-size: var(--text-small);
   line-height: 1;
