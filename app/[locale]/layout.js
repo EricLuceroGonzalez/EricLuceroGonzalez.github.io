@@ -37,6 +37,7 @@ export async function generateMetadata({ params }) {
         es: `${URLbase}/es`,
         en: `${URLbase}/en`,
       },
+      types: { "application/rss+xml": `${URLbase}/feed.xml` },
     },
     openGraph: {
       title: t("defaultTitle"),
