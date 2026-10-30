@@ -194,8 +194,20 @@ function getSurroundingPosts(type, currentOrder, locale = "es") {
       : "null";
   return { previous, next };
 }
+
+// Devuelve el post marcado con isFeatured: true (el más reciente si hay varios).
+function getFeaturedPost(locale = "es") {
+  return (
+    getPostSlugs()
+      .filter((file) => file.endsWith(`.${locale}.mdx`))
+      .map((file) => getPostBySlug(file.replace(`.${locale}.mdx`, ""), [], locale))
+      .filter((post) => post?.isPublic && post?.isFeatured)
+      .sort((a, b) => new Date(b.date.iso) - new Date(a.date.iso))[0] ?? null
+  );
+}
 // Exportar funciones
 module.exports = {
+  getFeaturedPost,
   getPostSlugs,
   getPostBySlug,
   getAllPosts,
