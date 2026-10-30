@@ -145,3 +145,57 @@ export const HeroCTASecondary = styled.span`
     color: var(--bg);
   }
 `;
+export const HeroBadge = styled.span`
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--primary-transparent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  font-size: var(--text-small);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+`;
+
+export const HeroTitle = styled.h1`
+  margin: 0;
+  font-size: clamp(2.1rem, 1.4rem + 3vw, 3.5rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--heading);
+  max-width: 18ch;
+  text-wrap: balance;
+`;
+
+export const HeroSubtitle = styled.p`
+  margin: 0;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.2rem);
+  line-height: 1.55;
+  color: var(--subheading);
+  max-width: 38rem;
+`;
+
+export const HeroRole = styled.p`
+  margin: 0;
+  font-size: var(--text-small);
+  color: var(--muted);
+`;
+
+export const HeroStack = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 4rem 0 3.5rem;
+`;
+
+export const HeroTextLink = styled(Link)`   // Link de "@/i18n/navigation"
+  padding: 0.7rem 0.5rem;
+  font-weight: 600;
+  font-size: var(--text-small);
+  color: var(--subheading);
+  &:hover { color: var(--accent-ink); }
+`;

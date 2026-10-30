@@ -41,6 +41,14 @@ a {
     --primary: #ff3366;
     --accent-transparent: rgba(0, 119, 255, 0.1);
     --primary-transparent: rgba(255, 51, 102, 0.1);
+      
+    --accent-ink: #0062D1;        /* texto/botones azules, 5.6:1 */
+    --latex-ink: #07706F;         /* texto verde LaTeX, 5.9:1 */
+    --latex-soft: #E8F8F8;        /* fondo del panel LaTeX */
+    --latex-border: #B7E9E9;
+    --card-bg: #FFFFFF;
+    --muted: #5A6470;             /* metadatos, 5.7:1 */
+    
     /* TIPOGRAFÍA */
   
     --heading: #111111; 
@@ -99,6 +107,14 @@ a {
 
     --primary-transparent: rgba(0, 119, 255, 0.1);
     --accent-transparent: rgba(255, 51, 102, 0.1);
+
+    --accent-ink: #FF6B8E;        /* sobre #002332 */
+    --latex-ink: #5FE3E3;
+    --latex-soft: #003040;
+    --latex-border: #0B5566;
+    --card-bg: #002B3D;
+    --muted: #9FB0BC;
+    
     /* TIPOGRAFÍA */
     --heading: #FFFFFF; 
     --subheading: #B0BEC5;
