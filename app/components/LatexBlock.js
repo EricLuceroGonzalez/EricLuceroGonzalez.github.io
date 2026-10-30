@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "@/i18n/navigation";
 import { latexTemplates, overleafUrl } from "@/app/lib/latexTemplates";
+import { SiOverleaf } from "react-icons/si";
 
 // ── Contenedor ────────────────────────────────────────────────────────────────
 
@@ -111,6 +112,7 @@ const Grid = styled.div`
 `;
 
 const Card = styled.article`
+  container-type: inline-size;
   background: var(--card-bg);
   border: 1px solid var(--latex-border);
   border-radius: 14px;
@@ -130,6 +132,10 @@ const PickBtn = styled.button`
   gap: 0.5rem;
   border-radius: 8px;
 
+  &:hover [data-thumb] {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 10px 22px rgba(0, 0, 0, 0.1);
+  }
   &:focus-visible {
     outline: 2px solid var(--latex-ink);
     outline-offset: 3px;
@@ -137,54 +143,83 @@ const PickBtn = styled.button`
 `;
 
 // Cada patrón: sus capas de gradiente y el tamaño de cada capa.
+// ── Miniaturas ────────────────────────────────────────────────────────────────
+// Tamaños en cqw (ancho del contenedor = la tarjeta): la densidad del patrón
+// es la misma en móvil y escritorio.
+const h = (c) => `linear-gradient(${c} 1px, transparent 1px)`;
+const v = (c) => `linear-gradient(90deg, ${c} 1px, transparent 1px)`;
+const sq = (n) => `calc(100cqw / ${n}) calc(100cqw / ${n})`;
+
+// Cada línea: 1px de gris y transparente HASTA la siguiente línea.
+// (Si el transparente fuera un solo punto, el navegador difuminaría
+//  hasta la línea siguiente y saldrían bandas grises.)
+const STAFF_Y = [30, 38, 46, 54, 62];
+const staffLines = STAFF_Y.map(
+  (y, i) =>
+    `#555 ${y}% calc(${y}% + 1px), transparent calc(${y}% + 1px) ${STAFF_Y[i + 1] ?? 100}%`,
+).join(", ");
+
 const PATTERNS = {
   grid: {
-    layers: [
-      "linear-gradient(#C9DDF2 1px, transparent 1px)",
-      "linear-gradient(90deg, #C9DDF2 1px, transparent 1px)",
-    ],
-    sizes: ["10px 10px", "10px 10px"],
+    layers: [h("#B9D2EE"), v("#B9D2EE")],
+    sizes: [sq(16), sq(16)],
   },
   mm: {
-    layers: [
-      "linear-gradient(#F0A9A0 1px, transparent 1px)",
-      "linear-gradient(90deg, #F0A9A0 1px, transparent 1px)",
-      "linear-gradient(#F8DAD6 1px, transparent 1px)",
-      "linear-gradient(90deg, #F8DAD6 1px, transparent 1px)",
-    ],
-    sizes: ["25px 25px", "25px 25px", "5px 5px", "5px 5px"],
+    layers: [h("#E8958B"), v("#E8958B"), h("#F6D3CE"), v("#F6D3CE")],
+    sizes: [sq(9), sq(9), sq(45), sq(45)],
   },
   staff: {
+    layers: [`linear-gradient(180deg, transparent 0 30%, ${staffLines})`],
+    sizes: ["100% calc(100cqw / 4)"],
+  },
+  figure: {
     layers: [
-      "repeating-linear-gradient(180deg, transparent 0 10px, #555 10px 11px, transparent 11px 14px, #555 14px 15px, transparent 15px 18px, #555 18px 19px, transparent 19px 22px, #555 22px 23px, transparent 23px 26px, #555 26px 27px, transparent 27px 36px)",
+      "linear-gradient(transparent calc(50% - 1px), #555 calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px))",
     ],
-    sizes: ["100% 36px"],
+    sizes: ["100% 100%"],
   },
 };
 
-// La miniatura real va en la capa de arriba y el patrón CSS debajo:
-// si el PNG no existe (404), se sigue viendo el patrón.
+// Arriba la miniatura real (si existe); debajo el patrón como respaldo.
+// La miniatura ocupa toda la hoja porque ya incluye sus márgenes;
+// el patrón se dibuja dentro del padding, que hace de margen.
 const thumbStyle = (t) => {
   const p = PATTERNS[t.pattern] ?? PATTERNS.grid;
-  const layers = t.thumb ? [`url("${t.thumb}")`, ...p.layers] : p.layers;
-  const sizes = t.thumb ? ["cover", ...p.sizes] : p.sizes;
-  const repeats = t.thumb
-    ? ["no-repeat", ...p.layers.map(() => "repeat")]
-    : p.layers.map(() => "repeat");
+  const each = (value) => p.layers.map(() => value);
+  const list = (thumbValue, patternValues) =>
+    (t.thumb ? [thumbValue, ...patternValues] : patternValues).join(", ");
+
   return {
     backgroundColor: "#fff",
-    backgroundImage: layers.join(", "),
-    backgroundSize: sizes.join(", "),
-    backgroundRepeat: repeats.join(", "),
-    backgroundPosition: "center top",
+    backgroundImage: list(`url("${t.thumb}")`, p.layers),
+    backgroundSize: list(t.fit === "contain" ? "contain" : "100% 100%", p.sizes),
+    backgroundRepeat: list("no-repeat", each("repeat")),
+    backgroundPosition: list("center", each("left top")),
+    backgroundOrigin: list("border-box", each("content-box")),
+    backgroundClip: list("border-box", each("content-box")),
   };
 };
 
 const Thumb = styled.div`
   aspect-ratio: 1 / 1.414;
-  border: 1px solid var(--primary-border);
-  border-radius: 4px;
+  padding: 7%;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.18s, box-shadow 0.18s;
+  opacity: ${(p) => (p.$muted ? 0.55 : 1)};
 `;
+
+const SoonBadge = styled.span`
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--latex-ink);
+  border: 1px dashed var(--latex-ink);
+`;
+
+const isReady = (t) => Boolean(t.pdf || t.source);
 
 const CardTitle = styled.h3`
   margin: 0;
@@ -294,7 +329,8 @@ const PostLink = styled(Link)`
 // ── Componentes ───────────────────────────────────────────────────────────────
 
 function TemplateActions({ t }) {
-  const count = [t.pdf, t.tex, t.tex].filter(Boolean).length;
+  const count = [t.pdf, t.source, t.source].filter(Boolean).length;
+  const ext = t.sourceType === "zip" ? ".zip" : ".tex";
   if (!count) return null;
   return (
     <Actions $count={count}>
@@ -309,19 +345,19 @@ function TemplateActions({ t }) {
           PDF
         </Action>
       )}
-      {t.tex && (
-        <Action href={t.tex} download aria-label={`.tex: ${t.title}`}>
-          .tex
+      {t.source && (
+        <Action href={t.source} download aria-label={`${ext}: ${t.title}`}>
+          {ext}
         </Action>
       )}
-      {t.tex && (
+      {t.source && (
         <Action
-          href={overleafUrl(t.tex)}
+          href={overleafUrl(t.source)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Overleaf: ${t.title}`}
         >
-          Overleaf
+          <SiOverleaf/>
         </Action>
       )}
     </Actions>
@@ -333,7 +369,7 @@ export default function LatexBlock({ locale, labels, posts = [] }) {
     ...t,
     title: t.title[locale] ?? t.title.es,
     description: t.description[locale] ?? t.description.es,
-  }));
+  })).sort((a, b) => isReady(b) - isReady(a));
   const categories = [...new Set(templates.map((t) => t.category))];
 
   const [filter, setFilter] = useState("all");
@@ -388,9 +424,10 @@ export default function LatexBlock({ locale, labels, posts = [] }) {
               onClick={() => setSelected(t.id)}
               aria-pressed={t.id === current?.id}
             >
-              <Thumb style={thumbStyle(t)} role="img" aria-label={t.title} />
+              <Thumb data-thumb aria-hidden="true" $muted={!isReady(t)} style={thumbStyle(t)} />
               <CardTitle>{t.title}</CardTitle>
               <CardMeta>{t.meta}</CardMeta>
+              {!isReady(t) && <SoonBadge>{labels.soonTitle}</SoonBadge>}
             </PickBtn>
             <DesktopOnly>
               <TemplateActions t={t} />
