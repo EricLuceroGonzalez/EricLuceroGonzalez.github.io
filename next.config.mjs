@@ -35,6 +35,17 @@ const nextConfig = {
   basePath: "",
   assetPrefix: "",
   trailingSlash: false,
+  // /recursos se unificó con /latex (plantillas + artículos)
+  async redirects() {
+    return [
+      {
+        source: "/:locale(es|en)/recursos",
+        destination: "/:locale/latex",
+        permanent: true,
+      },
+      { source: "/recursos", destination: "/es/latex", permanent: true },
+    ];
+  },
   // Cabeceras de seguridad
   async headers() {
     return [

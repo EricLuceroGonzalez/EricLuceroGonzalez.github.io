@@ -235,6 +235,10 @@
     },
     "LatexPage": {
         "other_posts": "Other posts",
+        "templates_title": "Templates",
+        "articles_title": "Articles",
+        "meta_title": "LaTeX: free templates and articles",
+        "meta_description": "Free LaTeX templates (millimetre paper, TikZ…) ready to download or open in Overleaf, plus articles to learn TeX and LaTeX.",
         "title": "Things about LaTeX",
         "subtitle": "From your first equation to complex editorial design. Stop fighting with formatting and start structuring your ideas.",
         "copy_text": {

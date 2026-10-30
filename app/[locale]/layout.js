@@ -37,7 +37,11 @@ export async function generateMetadata({ params }) {
         es: `${URLbase}/es`,
         en: `${URLbase}/en`,
       },
-      types: { "application/rss+xml": `${URLbase}/feed.xml` },
+      types: {
+        "application/rss+xml": [
+          { url: `${URLbase}/${locale}/feed.xml`, title: "Eric Lucero González" },
+        ],
+      },
     },
     openGraph: {
       title: t("defaultTitle"),

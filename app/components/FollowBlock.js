@@ -1,5 +1,6 @@
 "use client";
 import styled from "styled-components";
+import { useLocale } from "next-intl";
 
 const Box = styled.section`
   margin-bottom: 5rem;
@@ -28,13 +29,14 @@ const Rss = styled.a`
 `;
 
 export default function FollowBlock({ labels }) {
+  const locale = useLocale();
   return (
     <Box aria-labelledby="follow-title">
       <div style={{ flex: "1 1 340px", display: "flex", flexDirection: "column", gap: 6 }}>
         <h2 id="follow-title" style={{ margin: 0, fontSize: "1.5rem", fontWeight: 800, color: "inherit" }}>{labels.title}</h2>
         <p style={{ margin: 0, opacity: 0.8 }}>{labels.text}</p>
       </div>
-      <Rss href="/feed.xml">
+      <Rss href={`/${locale}/feed.xml`}>
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
           <path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" />
         </svg>

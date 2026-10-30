@@ -69,7 +69,7 @@ export default async function Home({ params }) {
               <Link href="/blog">
                 <HeroCTAPrimary>{t("cta_blog")}</HeroCTAPrimary>
               </Link>
-              <Link href="/recursos">
+              <Link href="/latex#plantillas">
                 <HeroCTASecondary>{t("cta_latex")}</HeroCTASecondary>
               </Link>
               <HeroTextLink href="/about">{t("about_cta")} →</HeroTextLink>

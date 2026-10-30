@@ -241,6 +241,10 @@
     },
     "LatexPage": {
         "other_posts": "Otros posts",
+        "templates_title": "Plantillas",
+        "articles_title": "Artículos",
+        "meta_title": "LaTeX: plantillas gratis y artículos",
+        "meta_description": "Plantillas LaTeX gratuitas (papel milimetrado, TikZ…) listas para descargar o abrir en Overleaf, y artículos para aprender TeX y LaTeX.",
         "title": "Cosas sobre LaTeX",
         "subtitle": "Desde tu primera ecuación hasta el diseño editorial complejo. Deja de pelear con el formato y empieza a estructurar tus ideas.",
         "copy_text": {
