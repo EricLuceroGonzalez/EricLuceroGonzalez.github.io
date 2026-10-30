@@ -35,13 +35,17 @@
         "min_read": "{n} min",
         "topics_label": "Explore by topic",
         "topics": {
-        "ia": "Artificial Intelligence",
-        "algoritmos": "Genetic algorithms",
-        "datos": "Data analysis",
-        "espacio": "Space",
-        "latex": "LaTeX"
-    },
-        "latex_categories": { "papel": "Paper", "musica": "Music", "tikz": "TikZ" },
+            "ia": "Artificial Intelligence",
+            "algoritmos": "Genetic algorithms",
+            "datos": "Data analysis",
+            "ciencia": "Science",
+            "latex": "LaTeX"
+        },
+        "latex_categories": {
+            "papel": "Paper",
+            "musica": "Music",
+            "tikz": "TikZ"
+        },
         "latest_title": "Latest articles",
         "latex_title": "Stop fighting the formatting",
         "latex_subtitle": "Free, open-source templates: download the PDF, copy the .tex or open it in Overleaf.",
@@ -83,8 +87,13 @@
         "license_terms": "All content on this blog is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). You are free to share and adapt the material as long as you provide appropriate credit, do not use it for commercial purposes, and indicate if changes were made.",
         "page_content_title": "About this Page",
         "page_content": "This blog is built using Next.js and Next-Intl for internationalization. It features posts written in both English and Spanish, catering to a diverse audience interested in AI research.",
-         "research_interests_title": "Research Interests",
-        "research_interests": ["Evolutionary Algorithms", "Genetic Algorithms", "Metaheuristics", "Combinatorial Optimization"],
+        "research_interests_title": "Research Interests",
+        "research_interests": [
+            "Evolutionary Algorithms",
+            "Genetic Algorithms",
+            "Metaheuristics",
+            "Combinatorial Optimization"
+        ],
         "institution": "Polytechnic University of Madrid (UPM) · PhD in AI",
         "metaTitle": "About Me | Eric Lucero",
         "metaDescription": "Learn more about my academic background, professional career, and research interests in AI.",
@@ -122,7 +131,11 @@
         "readingTime": "Reading time",
         "minutes": "minutes",
         "minute": "minute",
-        "other_posts": "Other posts"
+        "other_posts": "Other posts",
+        "filter_label": "Filter by topic",
+        "filter_all": "All",
+        "filter_showing": "Showing {n} articles about {topic}",
+        "filter_empty": "No articles on this topic yet."
     },
     "sorteo": {
         "title": "World Cup 2026 Draw",
@@ -211,7 +224,7 @@
             }
         }
     },
-        "Resources": {
+    "Resources": {
         "title": "🥶 Coming soon.",
         "subtitle": "Open-source LaTeX templates — download or open directly in Overleaf. Free for everyone.",
         "nav_label": "Resources",
@@ -274,7 +287,7 @@
         "copiedText": "Link copied to clipboard!",
         "btnDownloadAll": "⬇️ Download Full Timeline (.ics)"
     },
-    "TableOfContents":{
+    "TableOfContents": {
         "label": "Contents",
         "entries": "entries"
     }

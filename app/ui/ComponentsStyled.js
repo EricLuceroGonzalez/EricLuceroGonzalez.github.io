@@ -130,17 +130,16 @@ export const HeroCTAPrimary = styled.span`
 export const HeroCTASecondary = styled.span`
   display: inline-flex;
   align-items: center;
-  padding: 0.55rem 1.3rem;
+  padding: 0.8rem 1.4rem;
   border-radius: 8px;
   background: transparent;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 700;
   font-size: var(--text-small);
-  border: 1px solid var(--accent);
   transition: background-color 0.15s, color 0.15s;
 
   &:hover {
-    background-color: var(--accent);
+    background-color: var(--accent-ink);
     color: var(--bg);
   }
 `;

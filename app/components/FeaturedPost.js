@@ -2,14 +2,14 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { AccentBar, SectionTitle, TitleWrap } from "./HomeSectionBlock";
 
 const Label = styled.h2`
   margin: 0 0 1rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: var(--text-h2);
   color: var(--muted);
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 `;
 
 const Card = styled.article`

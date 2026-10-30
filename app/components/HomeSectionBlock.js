@@ -17,13 +17,13 @@ const Header = styled.div`
   gap: 1rem;
 `;
 
-const TitleWrap = styled.div`
+export const TitleWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 0.65rem;
 `;
 
-const AccentBar = styled.span`
+export const AccentBar = styled.span`
   display: inline-block;
   width: 4px;
   height: 1.4em;
@@ -32,7 +32,7 @@ const AccentBar = styled.span`
   flex-shrink: 0;
 `;
 
-const SectionTitle = styled.h2`
+export const SectionTitle = styled.h2`
   font-size: var(--text-h2);
   font-weight: 800;
   margin: 0;

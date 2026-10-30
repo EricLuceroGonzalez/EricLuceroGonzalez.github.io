@@ -4,11 +4,14 @@ export const latexTemplates = [
   {
     id: "cuadriculada",
     category: "papel",
-    tex: "/tex/cuadriculada.tex",
-    pdf: "/pdfs/cuadriculada.pdf",          // FALTA en public/pdfs
-    thumb: "/thumbs/cuadriculada.png",      // opcional, ver 9.4
+    tex: null,
+    // tex: "/tex/cuadriculada.tex",
+    // pdf: "/pdfs/cuadriculada.pdf",          // FALTA en public/pdfs
+    // thumb: "/thumbs/cuadriculada.png",      // opcional, ver 9.4
+    pdf: null,
+    thumb: null,
     pattern: "grid",
-    meta: "A4 · 5 mm",
+    meta: "A4 | 5 mm",
     title: { es: "Papel cuadriculado", en: "Square grid paper" },
     description: {
       es: "Cuadrícula de 5 mm con márgenes configurables.",
@@ -21,7 +24,7 @@ export const latexTemplates = [
     tex: "/tex/milimetrada.tex",            // FALTA en public/tex
     pdf: "/pdfs/milimetrada.pdf",
     pattern: "mm",
-    meta: "A4 · 1 mm / 1 cm",
+    meta: "A4 | 1 mm / 1 cm",
     title: { es: "Papel milimetrado", en: "Millimetre paper" },
     description: {
       es: "Rejilla de 1 mm con líneas mayores cada centímetro.",
@@ -31,10 +34,12 @@ export const latexTemplates = [
   {
     id: "pentagramas",
     category: "musica",
-    tex: "/tex/pentagramas.tex",            // FALTA
-    pdf: "/pdfs/pentagramas.pdf",           // FALTA
+    // tex: "/tex/pentagramas.tex",            // FALTA
+    // pdf: "/pdfs/pentagramas.pdf",           // FALTA
+    tex: null,
+    pdf: null,
     pattern: "staff",
-    meta: "A4 · 12 pautas",
+    meta: "A4 | 12 pautas",
     title: { es: "Pentagramas", en: "Music staff paper" },
     description: {
       es: "Papel pautado con número de pentagramas configurable.",

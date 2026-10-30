@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import BlogTopicFilter from "@/app/components/BlogTopicFilter";
 import { MainPageBg, PageContainer } from "../../ui/ComponentsStyled";
 import { TitlePage } from "../../ui/TitlesComponents";
 import { getPostsByType } from "../../lib/api";
@@ -16,16 +18,20 @@ import BackgroundDots from "@/app/components/BgMovingDots";
 import ViewportSize from "@/app/components/viewPortViewer";
 import TableOfContentsAside from "../../components/ToCAside";
 
+const toCard = ({ content, ...post }) => post;
 const BlogPage = async ({ params }) => {
   // 1. Obtener idioma
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Blog" });
+  const home = await getTranslations({ locale, namespace: "HomePage" });
   // const blogPosts = getBlogPosts();
   const blogPosts = getPostsByType(["blog"], 1, locale);
   if (!blogPosts.posts) {
     return notFound();
   }
+  const posts = blogPosts.posts.map(toCard);
+  const topics = home.raw("topics");
 
   const tocItems = blogPosts.posts.map((post) => ({
     slug: post.slug,
@@ -49,11 +55,24 @@ const BlogPage = async ({ params }) => {
           }}
         >
           <TitlePage>{t("title")}</TitlePage>
-          <MdParagraph style={{ opacity: 0.75 }}>{t("copy_text.p1")}</MdParagraph>
-          <HomeBoxes props={blogPosts.posts} locale={locale} />
+          <MdParagraph style={{ opacity: 0.75 }}>
+            {t("copy_text.p1")}
+          </MdParagraph>
+          <Suspense fallback={<HomeBoxes props={posts} locale={locale} />}>
+            <BlogTopicFilter
+              posts={posts}
+              topics={topics}
+              locale={locale}
+              labels={{
+                filterLabel: t("filter_label"),
+                all: t("filter_all"),
+                showing: t.raw("filter_showing"),
+                empty: t("filter_empty"),
+              }}
+            />
+          </Suspense>
         </MainPageBg>
         <TableOfContentsAside items={tocItems} label="Posts" />
-
       </PageContainer>
     </Layout>
   );
