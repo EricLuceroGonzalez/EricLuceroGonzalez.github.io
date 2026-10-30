@@ -143,12 +143,12 @@ export const HeroCTASecondary = styled.span`
     color: var(--bg);
   }
 `;
-export const HeroBadge = styled.span`
+export const HeroBadge = styled.div`
   align-self: flex-start;
-  padding: 6px 12px;
+  padding: 12px 18px;
   border-radius: 999px;
   background: var(--primary-transparent);
-  color: var(--accent-ink);
+  color: var(--accent);
   font-weight: 600;
   font-size: var(--text-small);
   display: inline-flex;

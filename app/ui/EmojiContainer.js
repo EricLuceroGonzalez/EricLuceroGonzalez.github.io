@@ -5,9 +5,9 @@ import styled from "styled-components";
 
 const EmojiContainers = styled(motion.div)`
   font-size: larger;
-  width: 50px;
-  margin-right: 16px;
-  font-size: var(--text-h1);
+  /* width: 50px; */
+  margin-right: 6px;
+  font-size: var(--text-h3);
   /* background-color: var(--fg); */
 `;
 const RANDOM_EMOJIS = [

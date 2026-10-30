@@ -27,7 +27,7 @@ export default function HomeGreeting({ defaultGreeting }) {
     // Cambiamos la palabra cada 2.5 segundos
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % greetings.length);
-    }, 3500);
+    }, 2500);
     return () => clearInterval(timer);
   }, []);
 
@@ -40,8 +40,8 @@ export default function HomeGreeting({ defaultGreeting }) {
       aria-hidden="true"
       style={{
         display: "inline-block",
-        minWidth: "260px",
-        position: "relative",
+        minWidth: "160px",
+        position: "relative"
       }}
     >
       <AnimatePresence mode="wait">
@@ -49,12 +49,13 @@ export default function HomeGreeting({ defaultGreeting }) {
           key={index}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          exit={{ opacity: 0, y: -35 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           style={{
             position: "absolute",
-            left: 0,
-            color: "var(--accent)",
+            // left: 0,
+            // bottom: 0,
+            fontSize: 'large',
           }} // absolute evita que la salida empuje a la entrada
         >
           {greetings[index]}
