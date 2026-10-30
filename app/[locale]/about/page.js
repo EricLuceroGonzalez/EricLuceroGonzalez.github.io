@@ -20,6 +20,7 @@ import ShowPath from "../../components/showPath";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "@/app/components/BgMovingDots";
+import { alternatesFor, pageUrl, SITE_NAME } from "@/app/lib/seo";
 
 export default async function About({ params }) {
   const { locale } = await params;
@@ -195,45 +196,27 @@ export default async function About({ params }) {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-
-  // Obtenemos las traducciones del servidor para la sección "Metadata"
   const t = await getTranslations({ locale, namespace: "About" });
-  const URLbase = "https://ericlucero.dev";
 
   return {
     title: t("title"),
     description: t("description"),
     keywords: t("keywords"),
-    // Configuración vital para SEO Multilingüe
-    alternates: {
-      canonical: `${URLbase}/${locale}/about`,
-      languages: {
-        es: `${URLbase}/es`,
-        en: `${URLbase}/en`,
-      },
-    },
+    alternates: alternatesFor(locale, "/about"),
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: `${URLbase}/${locale}`, // URL canónica para compartir
-      siteName: "Eric Lucero González",
-      images: [
-        {
-          url: t("thumbnailImage"),
-          width: 1200,
-          height: 630,
-          alt: t("description"), // Texto alternativo traducido
-        },
-      ],
-      locale: locale,
-      type: "website",
-      logo: t("metaLogo"),
+      url: pageUrl(locale, "/about"),
+      siteName: SITE_NAME,
+      images: [{ url: t("thumbnailImage"), width: 1200, height: 630, alt: t("description") }],
+      locale,
+      type: "profile",
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      image: t("thumbnailImage"),
+      images: [t("thumbnailImage")],
     },
   };
 }

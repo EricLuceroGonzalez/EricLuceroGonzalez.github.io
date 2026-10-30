@@ -14,6 +14,7 @@ import LatexBlock from "../../components/LatexBlock";
 import TableOfContentsAside from "../../components/ToCAside";
 import ShowPath from "../../components/showPath";
 import ScrollDiv from "../../components/navigation/ScrollDiv";
+import { alternatesFor } from "@/app/lib/seo";
 
 const URL_BASE = "https://ericlucero.dev";
 const toCard = ({ content, ...post }) => post;
@@ -107,14 +108,7 @@ export async function generateMetadata({ params }) {
   return {
     title,
     description,
-    alternates: {
-      canonical: url,
-      languages: {
-        es: `${URL_BASE}/es/latex`,
-        en: `${URL_BASE}/en/latex`,
-        "x-default": `${URL_BASE}/es/latex`,
-      },
-    },
+    alternates: alternatesFor(locale, "/latex"),
     openGraph: {
       title,
       description,

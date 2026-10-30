@@ -1,5 +1,5 @@
 "use client";
-import { motion, useSpring, useTransform } from "framer-motion";
+import { motion, useSpring, useTransform } from "motion/react";
 import { useScroll } from "motion/react";
 import styled from "styled-components";
 

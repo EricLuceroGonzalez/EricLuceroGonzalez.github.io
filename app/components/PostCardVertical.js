@@ -1,12 +1,11 @@
 "use client";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { SectionType } from "../ui/BlogHeaderInfo.js";
 import DateDisplay from "./DateDisplay.js";
 import { InteractiveBadge } from "./FeaturedPost.js";
-import { read } from "gray-matter";
 
 // ── Styled components ──────────────────────────────────────────────────────────
 

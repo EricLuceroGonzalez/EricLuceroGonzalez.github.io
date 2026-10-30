@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { FaHeart, FaRegHeart } from "react-icons/fa"; // Importamos los iconos sólido y regular
 
 export default function LikeButton({ slug }) {

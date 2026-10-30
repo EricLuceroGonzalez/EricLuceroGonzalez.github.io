@@ -26,6 +26,7 @@ import { getTopPosts, getFeaturedPost } from "../lib/api";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PersonJsonLd, WebSiteJsonLd } from "../components/JsonLd";
+import { alternatesFor, pageUrl, SITE_NAME } from "@/app/lib/seo";
 
 const PHOTO =
   "https://res.cloudinary.com/dcvnw6hvt/image/upload/v1732922346/elCronopio/Web-communication/owsftbzp6mn5iuvkogrl.jpg";
@@ -132,41 +133,26 @@ export default async function Home({ params }) {
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
-  const URLbase = "https://ericlucero.dev";
 
   return {
     title: t("defaultTitle"),
     description: t("description"),
     keywords: t("keywords"),
-    alternates: {
-      canonical: `${URLbase}/${locale}`,
-      languages: {
-        es: `${URLbase}/es`,
-        en: `${URLbase}/en`,
-      },
-    },
+    alternates: alternatesFor(locale),
     openGraph: {
       title: t("defaultTitle"),
       description: t("description"),
-      url: `${URLbase}/${locale}`,
-      siteName: "Eric Lucero González",
-      images: [
-        {
-          url: t("thumbnailImage"),
-          width: 1200,
-          height: 630,
-          alt: t("defaultTitle"),
-        },
-      ],
+      url: pageUrl(locale),
+      siteName: SITE_NAME,
+      images: [{ url: t("thumbnailImage"), width: 1200, height: 630, alt: t("defaultTitle") }],
       locale,
       type: "website",
-      logo: t("metaLogo"),
     },
     twitter: {
       card: "summary_large_image",
       title: t("defaultTitle"),
       description: t("description"),
-      image: t("thumbnailImage"),
+      images: [t("thumbnailImage")],
     },
   };
 }

@@ -31,6 +31,7 @@ import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import ConditionalKaTeXLoader from "@/app/components/MdCompos/ConditionalKaTeXLoader";
 import { LatexArticleJsonLd } from "@/app/components/JsonLd";
+import { alternatesFor, pageUrl, LOCALES, SITE_NAME } from "@/app/lib/seo";
 // import ShowPath from "@/app/components/showPath";
 const LatexPost = async ({ params }) => {
   const { locale, slug } = await params;
@@ -187,43 +188,42 @@ export async function generateStaticParams({ params }) {
     }));
 }
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params }) {
   const { locale, slug } = await params;
-  const post = getPostBySlug(slug, ["title", "excerpt", "coverImage"], locale);
-  if (!post) {
-    return {
-      title: "Post not found",
-    };
-  }
+  const post = getPostBySlug(slug, [], locale);
+  if (!post) return { title: "Post not found", robots: { index: false } };
+
+  const path = `/latex/${slug}`;
+  // hreflang solo hacia los idiomas en los que el post existe y es público
+  const available = LOCALES.filter(
+    (l) => l === locale || getPostBySlug(slug, [], l)?.isPublic === true,
+  );
+  const title = `${post.title} | LaTeX`;
+  const image = post.socialThumbnail || post.coverImage;
+  const meta = await getTranslations({ locale, namespace: "Metadata" });
+  const ogImage = image || meta("thumbnailImage");
+
   return {
-    title: `${post.title} | LaTeX`,
+    title,
     description: post.excerpt,
-    slug: post.slug,
     keywords: post.keywords,
-    shortTitle: post.shortTitle,
-    robots: {
-      index: true,
-      follow: true,
-    },
-    // Importante que el post.slug coincida con el nombre del archivo MDX
+    alternates: alternatesFor(locale, path, available),
     openGraph: {
-      title: `${post.title} | LaTeX`,
+      title,
       description: post.excerpt,
-      url: `https://ericlucero.dev/latex/${locale}/${post.slug}`,
-      images: [
-        {
-          url: post.socialThumbnail,
-          width: 1200,
-          height: 630,
-          alt: "Vista previa del sitio web de Eric",
-        },
-      ],
+      url: pageUrl(locale, path),
+      siteName: SITE_NAME,
+      type: "article",
+      publishedTime: post.date?.iso,
+      authors: [pageUrl(locale, "/about")],
+      locale,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.coverImageAlt || post.title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.description,
-      image: post.socialThumbnail,
+      title,
+      description: post.excerpt,
+      images: [ogImage],
     },
   };
 }

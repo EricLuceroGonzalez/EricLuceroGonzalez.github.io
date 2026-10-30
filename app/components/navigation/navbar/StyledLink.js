@@ -3,7 +3,7 @@
 import { Link } from "@/i18n/navigation";
 import styled from "styled-components";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 // Define the styled component for the anchor tag
 const StyledAnchor = styled(motion.div)`

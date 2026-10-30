@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import GlobalStyleWrapper from "./themes/GlobalStyleWrapper.js";
 import StyledComponentsRegistry from "./lib/registry.js";
+import { MotionConfig } from "motion/react";
 
 const Providers = ({ children }) => {
   const { theme } = useTheme();
@@ -24,7 +25,9 @@ const Providers = ({ children }) => {
         theme={{ mode: theme }}
       >
         <GlobalStyleWrapper />
-        {children}
+        {/* Respeta "reducir movimiento" del sistema también en Framer Motion,
+            que no usa transiciones CSS y no le afecta la media query global. */}
+        <MotionConfig reducedMotion="user">{children}</MotionConfig>
       </ThemeProvider>
     </StyledComponentsRegistry>
   );

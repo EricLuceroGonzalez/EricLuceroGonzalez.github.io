@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import styled from "styled-components";
 import Link from "next/link";
 export const PageContainer = styled.div`

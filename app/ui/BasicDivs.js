@@ -1,6 +1,6 @@
 "use client";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "next/link";
 
 // Contenedor principal para manejar diseño responsivo

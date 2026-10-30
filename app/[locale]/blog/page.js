@@ -17,6 +17,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import BackgroundDots from "@/app/components/BgMovingDots";
 import ViewportSize from "@/app/components/viewPortViewer";
 import TableOfContentsAside from "../../components/ToCAside";
+import { alternatesFor, pageUrl, SITE_NAME } from "@/app/lib/seo";
 
 const toCard = ({ content, ...post }) => post;
 const BlogPage = async ({ params }) => {
@@ -82,49 +83,31 @@ export default BlogPage;
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Blog" });
+  const meta = await getTranslations({ locale, namespace: "Metadata" });
 
-  // Obtenemos las traducciones del servidor para la sección "Metadata"
-  const metadata = await getTranslations({ locale, namespace: "Metadata" });
-  const URLbase = "https://ericlucero.dev";
+  const title = `${t("title")} | ${SITE_NAME}`;
+  const description = t("copy_text.p1");
 
   return {
-    title: metadata("defaultTitle"),
-    description: metadata("description"),
-    keywords: metadata("keywords"),
-    // Configuración vital para SEO Multilingüe
-    alternates: {
-      canonical: `${URLbase}/${locale}/blog`,
-      languages: {
-        es: `${URLbase}/es`,
-        en: `${URLbase}/en`,
-      },
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
+    title,
+    description,
+    keywords: meta("keywords"),
+    alternates: alternatesFor(locale, "/blog"),
     openGraph: {
-      title: metadata("defaultTitle"),
-      description: metadata("description"),
-      url: `${URLbase}/${locale}`, // URL canónica para compartir
-      siteName: "Eric Lucero González",
-      images: [
-        {
-          url: metadata("thumbnailImage"),
-          width: 1200,
-          height: 630,
-          alt: metadata("defaultTitle"), // Texto alternativo traducido
-        },
-      ],
-      locale: locale,
+      title,
+      description,
+      url: pageUrl(locale, "/blog"),
+      siteName: SITE_NAME,
+      images: [{ url: meta("thumbnailImage"), width: 1200, height: 630, alt: title }],
+      locale,
       type: "website",
-      logo: metadata("metaLogo"),
     },
     twitter: {
       card: "summary_large_image",
-      title: metadata("defaultTitle"),
-      description: metadata("description"),
-      image: metadata("thumbnailImage"),
+      title,
+      description,
+      images: [meta("thumbnailImage")],
     },
   };
 }

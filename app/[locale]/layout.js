@@ -30,13 +30,10 @@ export async function generateMetadata({ params }) {
     title: t("defaultTitle"),
     description: t("description"),
     keywords: t("keywords"),
-    // Configuración vital para SEO Multilingüe
+    // Sin canonical aquí: lo heredarían las páginas sin metadatos propios
+    // (p. ej. /about/license) y todas apuntarían a la home.
+    // Cada página declara el suyo con alternatesFor().
     alternates: {
-      canonical: `${URLbase}/${locale}`,
-      languages: {
-        es: `${URLbase}/es`,
-        en: `${URLbase}/en`,
-      },
       types: {
         "application/rss+xml": [
           { url: `${URLbase}/${locale}/feed.xml`, title: "Eric Lucero González" },
@@ -64,7 +61,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t("defaultTitle"),
       description: t("description"),
-      image: t("thumbnailImage"),
+      images: [t("thumbnailImage")],
     },
     verification: {
       google: "eVlOcpMqZW3--b3rPPmcJRQ4FHLq6o0flgliTMuWNsk",

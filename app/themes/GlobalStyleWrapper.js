@@ -1,6 +1,5 @@
 "use client";
 import { createGlobalStyle } from "styled-components";
-import { useEffect, useState } from "react";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -170,8 +169,10 @@ a {
   }
 `;
 
+// Se renderiza también en el servidor: así las variables CSS (--bg, --fg…)
+// y los estilos base llegan en el HTML inicial, sin parpadeo ni saltos de
+// diseño mientras carga JavaScript. El tema lo aplica next-themes con
+// [data-theme] antes de pintar, así que no hay desajuste de hidratación.
 export default function GlobalStyleWrapper() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  return mounted ? <GlobalStyle /> : null;
+  return <GlobalStyle />;
 }

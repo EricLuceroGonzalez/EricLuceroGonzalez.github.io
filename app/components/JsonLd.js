@@ -46,11 +46,6 @@ export function WebSiteJsonLd({ locale }) {
       "@type": "Person",
       name: "Eric Lucero González",
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `https://ericlucero.dev/${locale}/blog?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 
   return (
