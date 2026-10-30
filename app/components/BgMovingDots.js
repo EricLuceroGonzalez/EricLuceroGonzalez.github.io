@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 
-const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
+const BackgroundDots = ({ numDots = 50, speed = 0.5, contained = false }) => {
   const canvasRef = useRef(null);
   const dotsRef = useRef([]);
   const linesRef = useRef([]);
@@ -38,8 +38,11 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    // let width = window.innerWidth;
+    // let height = window.innerHeight;
+    const target = contained ? canvas.parentElement : null;
+    const measure = () => target ? [target.clientWidth, target.innerHeight] : [window.innerWidth, window.innerHeight];
+    let [width, height] = measure();
 
     // 3. DEFINIR COLORES RGB SEGÚN EL TEMA
     // Si es dark, usamos Blanco (255,255,255). Si es light, usamos Gris Oscuro (20,20,20)
@@ -49,8 +52,7 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
     const b = isDark ? 255 : 20;
 
     const handleResize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
+      [width, height] = measure();
       canvas.width = width;
       canvas.height = height;
       dotsRef.current = Array.from({ length: numDots }, () =>
@@ -59,7 +61,9 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
       linesRef.current = [];
     };
 
-    window.addEventListener("resize", handleResize);
+    // window.addEventListener("resize", handleResize);
+    const ro = target ? new ResizeObserver(handleResize) : null;
+    ro ? ro.observe(target) : window.addEventListener("resize", handleResize);
     handleResize();
 
     const animate = () => {
@@ -132,12 +136,14 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
     requestRef.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      // window.removeEventListener("resize", handleResize);
+      ro ? ro.disconnect() : window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(requestRef.current);
     };
     // 4. AGREGAMOS resolvedTheme A LAS DEPENDENCIAS
     // Esto hace que el canvas se reinicie con nuevos colores cuando cambias el tema
-  }, [numDots, speed, resolvedTheme, mounted]);
+
+  }, [numDots, speed, resolvedTheme, mounted, contained]);
 
   // Si no está montado, devolvemos null para evitar parpadeos
   if (!mounted) return null;
@@ -146,12 +152,12 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5 }) => {
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed",
+        position: contained ? "absolute" : "fixed",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: -1,
+        zIndex: contained ? 0 : -1,
         pointerEvents: "none",
       }}
     />

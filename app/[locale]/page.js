@@ -71,7 +71,7 @@ export default async function Home({ params }) {
               </Link>
             </HeroCTARow>
           </HomePageCoverText>
-          <BackgroundDots numDots={40} />
+          <BackgroundDots numDots={25} contained/>
         </HomePageCover>
 
         {/* ── Blog section ─────────────────────────────────────────── */}

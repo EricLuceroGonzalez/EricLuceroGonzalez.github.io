@@ -22,7 +22,7 @@ export const MainBg = styled.div`
   background-color: var(--bg);
   min-height: 100vh;
   @media (max-width: 728px) {
-    text-align: justify;
+    /* text-align: justify; */
     padding: 1rem 5px;
   }
 `;
@@ -32,7 +32,7 @@ export const MainPageBg = styled(motion.div)`
   background-color: var(--bg);
   min-height: 100vh;
   max-width: 100%;
-  text-align: justify;
+  /* text-align: justify; */
   margin: 0 auto;
   z-index: 10;
 
@@ -61,7 +61,10 @@ export const MainPageBg = styled(motion.div)`
 `;
 
 export const HomePageCover = styled.div`
+  
   /* height: 15vh; */
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   color: var(--fg);
@@ -73,6 +76,7 @@ export const HomePageCover = styled.div`
 export const HomePageCoverText = styled.div`
   width: 100%;
   padding: 0.6rem 0;
+  position: relative;
   z-index: 10;
 `;
 export const HomePageCoverImage = styled.div`
