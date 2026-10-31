@@ -1,0 +1,163 @@
+---
+slug: 'papel-milimetrado-tikz'
+id: 'latex-005'
+date: "2026-10-31"
+order: 2
+author: "Eric Lucero"
+socialThumbnail: /posts/papel-milimetrado-tikz/og-en.jpg
+coverImage: /posts/papel-milimetrado-tikz/cover.jpg
+coverImageAlt: 'First page of the millimetre paper generated with TikZ: an 18 by 25 centimetre grid with lines in four weights.'
+title: "Millimetre paper with TikZ, line by line"
+shortTitle: "Millimetre paper"
+entryType: "latex"
+excerpt: "Twenty lines of LaTeX produce a sheet of millimetre graph paper ready to print. I go through them one by one and show you how to change the size, the colour and the kind of grid."
+doctype: ["latex"]
+categories: ["LaTeX","TikZ"]
+keywords: ["millimetre paper", "graph paper", "LaTeX", "TikZ", "template", "grid", "siunitx"]
+isPublic: true
+isFeatured: false
+interactive: false
+topic: "latex"
+isTop: true
+---
+I made the first version of this sheet of millimetre paper in 2020, with LaTeX and TikZ<CitationSup id="1" />. The whole document is twenty lines long, and in this post I go through them one by one so you can adapt it: a different size, a different colour, or a different kind of paper altogether.
+
+## Contents
+
+## The result
+
+On the left is the full source and on the right the PDF it produces. You can copy the code with the button in the corner.
+
+<TexShowcase
+  texSource="/latex/milimetrada/milimetrada.tex"
+  compiledPdf="/latex/milimetrada/milimetrada.pdf"
+  title="milimetrada.tex"
+/>
+
+If you just want the sheet, it is in [the templates section](/en/latex#plantillas) as a PDF, as a `.tex` file, or opened straight in Overleaf. The rest of this post is about what each part does.
+
+## The document
+
+```latex
+\documentclass[a4paper]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{tikz}
+\usepackage{siunitx}
+\pagestyle{empty}
+```
+
+The `article` class with the `a4paper` option sets the page size: 21 x 29.7 cm.
+
+The `geometry`<CitationSup id="2" /> package controls the margins. LaTeX's default margins are huge, designed for text rather than for a grid. With `margin=1cm` the usable area is 19 x 27.7 cm, so the 18 x 25 cm grid fits with room for the labels on the side.
+
+`tikz` is the drawing package, and `siunitx`<CitationSup id="3" /> typesets units properly: `\SI{18}{cm}` prints the number, a thin space and the unit in upright type, without you having to remember any of it.
+
+Finally, `\pagestyle{empty}` removes the page number. On a sheet of graph paper, that "1" at the bottom centre is just in the way.
+
+## The variables
+
+```latex
+\def\widthSqrt{18}      % ancho de la rejilla (cm)
+\def\heightSqrt{25}     % alto de la rejilla (cm)
+\def\smallSubDiv{0.5}
+\def\bigSubDiv{1.0}
+\def\biggerSubDiv{5.0}
+```
+
+`\def` defines a command that is replaced by its contents. Every time `\widthSqrt` appears, LaTeX writes `18`. That way the grid size is changed in one place.
+
+There is a catch worth knowing before you change anything. The three subdivision variables **are only used in the label text**. The line spacing is hard-coded in each `\draw` (you will see it in the next section). If you set `\bigSubDiv` to `2.0`, the label will say "2 cm", but the lines will still be one centimetre apart. Further down I show how to connect them.
+
+## Four grids, one on top of another
+
+```latex
+\begin{tikzpicture}[x=1cm, y=1cm, semitransparent]
+  \draw[step=1mm, line width=0.1mm, black!20!white] (0,0) grid (\widthSqrt,\heightSqrt);
+  \draw[step=5mm, line width=0.2mm, black!50!white] (0,0) grid (\widthSqrt,\heightSqrt);
+  \draw[step=1cm, line width=0.3mm, black!80!white] (0,0) grid (\widthSqrt,\heightSqrt);
+  \draw[step=5cm, line width=0.5mm, black!90!white] (0,0) grid (\widthSqrt,\heightSqrt);
+```
+
+The whole drawing lives inside a `tikzpicture` environment. Its options apply to everything inside it:
+
+- `x=1cm, y=1cm` makes one coordinate unit equal to one centimetre, so `(18,25)` is a point 18 cm to the right of and 25 cm above the origin. That is the default, but writing it out makes the units explicit.
+- `semitransparent` draws everything at 50% opacity. That is why the lines look softer than their colours suggest; remove it if you want a higher-contrast sheet.
+
+Each `\draw ... grid` draws a grid over the rectangle from `(0,0)` to `(\widthSqrt,\heightSqrt)`. The `step` option is the distance between lines. The four layers are:
+
+| Layer | `step` | Weight | Colour |
+|---|---|---|---|
+| Millimetres | 1 mm | 0.1 mm | 20% black |
+| Half centimetres | 5 mm | 0.2 mm | 50% black |
+| Centimetres | 1 cm | 0.3 mm | 80% black |
+| Five centimetres | 5 cm | 0.5 mm | 90% black |
+
+The `black!20!white` notation comes from the `xcolor` package<CitationSup id="4" />, which TikZ loads for you, and means "20% black, the rest white": a light grey.
+
+Order matters: TikZ draws in the order you write, and each layer covers the previous one. That is why the thin lines come first and the thick ones last. Reverse the order and the millimetre grid would sit on top of the centimetre lines and wash them out.
+
+## The labels
+
+```latex
+\node[below right, color=red, rotate=90] at (\widthSqrt,1)
+{\small Papel milimetrado de $\SI{\widthSqrt}{cm} \times \SI{\heightSqrt}{cm}$};
+```
+
+A `\node` is a piece of text placed at a position, here `(18,1)`: the right-hand edge of the grid, one centimetre above the bottom. `rotate=90` turns the text so it reads from bottom to top, and `below right` shifts it so it does not overlap the grid.
+
+The second label is the same, 0.35 cm further to the right so the two lines of text do not overlap. If you want the labels in English, translate the text inside the braces.
+
+## Making it your own
+
+The three most useful changes:
+
+**A different size.** Change the first two variables. For US Letter, change the class option too:
+
+```latex
+\documentclass[letterpaper]{article}
+% ...
+\def\widthSqrt{18}
+\def\heightSqrt{24}
+```
+
+**A different colour.** Classic engineering graph paper is green or orange. Define the colour once and use it in all four layers:
+
+```latex
+\colorlet{rejilla}{orange!80!black}
+% ...
+\draw[step=1mm, line width=0.1mm, rejilla!20!white] (0,0) grid (\widthSqrt,\heightSqrt);
+\draw[step=5mm, line width=0.2mm, rejilla!50!white] (0,0) grid (\widthSqrt,\heightSqrt);
+% ... and the same for the other two
+```
+
+**Make the variables move the lines.** Because `x=1cm`, a unitless number in TikZ is already in centimetres, so `step=\bigSubDiv` works as it is. Add a variable for the millimetre and use them in all four `\draw` commands:
+
+```latex
+\def\tinySubDiv{0.1}
+% ...
+\draw[step=\tinySubDiv,   line width=0.1mm, black!20!white] (0,0) grid (\widthSqrt,\heightSqrt);
+\draw[step=\smallSubDiv,  line width=0.2mm, black!50!white] (0,0) grid (\widthSqrt,\heightSqrt);
+\draw[step=\bigSubDiv,    line width=0.3mm, black!80!white] (0,0) grid (\widthSqrt,\heightSqrt);
+\draw[step=\biggerSubDiv, line width=0.5mm, black!90!white] (0,0) grid (\widthSqrt,\heightSqrt);
+```
+
+Now setting `\def\smallSubDiv{0.25}` really changes the intermediate grid, and the label says so.
+
+If you delete the 1 mm and 5 cm layers and keep only the 5 mm one, darker, you get squared notebook paper. If you would rather have it ready-made, it is in [the templates](/en/latex#plantillas) as "Square grid paper".
+
+## Download it
+
+- [Print-ready PDF](/latex/milimetrada/milimetrada.pdf)
+- [Source code (.tex)](/latex/milimetrada/milimetrada.tex)
+- [Open in Overleaf](https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fericlucero.dev%2Flatex%2Fmilimetrada%2Fmilimetrada.tex), which creates an editable copy in your account
+
+When you print, choose "actual size" or "100%" in the print dialog. If the printer scales the page to fit its printable area, your millimetres stop being millimetres.
+
+## References
+
+<ReferenceList>
+<ReferenceItem id="1" text="Till Tantau, The TikZ and PGF Packages, official manual. The 'Grid' section covers every option of `\draw ... grid`" url="https://ctan.org/pkg/pgf" />
+<ReferenceItem id="2" text="The `geometry` package on CTAN" url="https://ctan.org/pkg/geometry"/>
+<ReferenceItem id="3" text="The `siunitx` package on CTAN" url="https://ctan.org/pkg/siunitx"/>
+<ReferenceItem id="4" text="The `xcolor` package on CTAN, for the `colour!percentage!othercolour` syntax`" url="https://ctan.org/pkg/xcolor"/>
+</ReferenceList>

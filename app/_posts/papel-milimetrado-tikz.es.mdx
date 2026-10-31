@@ -1,0 +1,163 @@
+---
+slug: 'papel-milimetrado-tikz'
+id: 'latex-005'
+date: "2026-10-31"
+order: 2
+author: "Eric Lucero"
+socialThumbnail: /posts/papel-milimetrado-tikz/og.jpg
+coverImage: /posts/papel-milimetrado-tikz/cover.jpg
+coverImageAlt: 'Primera página del papel milimetrado generado con TikZ: una rejilla de 18 por 25 centímetros con líneas de cuatro grosores.'
+title: "Papel milimetrado con TikZ, línea a línea"
+shortTitle: "Papel milimetrado"
+entryType: "latex"
+excerpt: "Veinte líneas de LaTeX generan una hoja de papel milimetrado lista para imprimir. Las recorro una por una y te enseño a cambiar tamaño, color y tipo de cuadrícula."
+doctype: ["latex"]
+categories: ["LaTeX","TikZ"]
+keywords: ["papel milimetrado", "LaTeX", "TikZ", "plantilla", "grid", "siunitx"]
+isPublic: true
+isFeatured: false
+interactive: false
+topic: "latex"
+isTop: true
+---
+La primera versión de esta hoja de papel milimetrado la hice en 2020, con LaTeX y TikZ<CitationSup id="1" />. El documento entero son veinte líneas, y en este post las recorro una por una para que puedas adaptarlo: otro tamaño, otro color o directamente otro tipo de papel.
+
+## Contenido
+
+## El resultado
+
+A la izquierda está el código completo y a la derecha el PDF que genera. Puedes copiar el código con el botón de la esquina.
+
+<TexShowcase
+  texSource="/latex/milimetrada/milimetrada.tex"
+  compiledPdf="/latex/milimetrada/milimetrada.pdf"
+  title="milimetrada.tex"
+/>
+
+Si solo quieres la hoja, la tienes en [la sección de plantillas](/es/latex#plantillas) en PDF, en `.tex` o abierta directamente en Overleaf. Lo que sigue es para entender qué hace cada parte.
+
+## El documento
+
+```latex
+\documentclass[a4paper]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{tikz}
+\usepackage{siunitx}
+\pagestyle{empty}
+```
+
+La clase `article` con la opción `a4paper` fija el tamaño de la hoja: 21 x 29,7 cm.
+
+El paquete `geometry`<CitationSup id="2" /> controla los márgenes. Por defecto, LaTeX deja unos márgenes enormes, pensados para texto y no para una rejilla. Con `margin=1cm` queda un área útil de 19 x 27,7 cm, donde la rejilla de 18 x 25 cm cabe con espacio para las etiquetas del lateral.
+
+`tikz` es el paquete de dibujo<CitationSup id="1" />, y `siunitx`<CitationSup id="3" /> escribe las unidades bien: `\SI{18}{cm}` pone el número, un espacio fino y la unidad en redonda, sin que tengas que acordarte de nada.
+
+Por último, `\pagestyle{empty}` quita el número de página. En una hoja de papel milimetrado, ese "1" abajo en el centro sobra.
+
+## Las variables
+
+```latex
+\def\widthSqrt{18}      % ancho de la rejilla (cm)
+\def\heightSqrt{25}     % alto de la rejilla (cm)
+\def\smallSubDiv{0.5}
+\def\bigSubDiv{1.0}
+\def\biggerSubDiv{5.0}
+```
+
+`\def` define un comando que se sustituye por su contenido. Cada vez que aparece `\widthSqrt`, LaTeX escribe `18`. Así el tamaño de la rejilla se cambia en un solo sitio.
+
+Aquí hay una trampa que conviene conocer antes de tocar nada. Las tres variables de subdivisión **solo se usan en el texto de las etiquetas**. El espaciado de las líneas está escrito a mano en cada `\draw` (lo verás en la sección siguiente). Si cambias `\bigSubDiv` a `2.0`, la etiqueta dirá "2 cm", pero las líneas seguirán cada centímetro. Más abajo explico cómo conectarlas.
+
+## Cuatro rejillas, una encima de otra
+
+```latex
+\begin{tikzpicture}[x=1cm, y=1cm, semitransparent]
+  \draw[step=1mm, line width=0.1mm, black!20!white] (0,0) grid (\widthSqrt,\heightSqrt);
+  \draw[step=5mm, line width=0.2mm, black!50!white] (0,0) grid (\widthSqrt,\heightSqrt);
+  \draw[step=1cm, line width=0.3mm, black!80!white] (0,0) grid (\widthSqrt,\heightSqrt);
+  \draw[step=5cm, line width=0.5mm, black!90!white] (0,0) grid (\widthSqrt,\heightSqrt);
+```
+
+Todo el dibujo está dentro de un entorno `tikzpicture`<CitationSup id="1"/>. Sus opciones afectan a todo lo que hay dentro:
+
+- `x=1cm, y=1cm` hace que una unidad de coordenada sea un centímetro. Así, `(18,25)` es un punto a 18 cm a la derecha y 25 cm arriba del origen. Es el valor por defecto, pero escribirlo deja claro en qué unidades está todo.
+- `semitransparent` dibuja todo con un 50 % de opacidad. Por eso las líneas se ven más suaves de lo que dirían sus colores; si quieres una hoja más contrastada, quítalo.
+
+Cada `\draw ... grid` dibuja una rejilla en el rectángulo que va de `(0,0)` a `(\widthSqrt,\heightSqrt)`. La opción `step` es la distancia entre líneas. Las cuatro capas son:
+
+| Capa | `step` | Grosor | Color |
+|---|---|---|---|
+| Milímetros | 1 mm | 0,1 mm | 20 % negro |
+| Medio centímetro | 5 mm | 0,2 mm | 50 % negro |
+| Centímetros | 1 cm | 0,3 mm | 80 % negro |
+| Cinco centímetros | 5 cm | 0,5 mm | 90 % negro |
+
+La notación `black!20!white` viene del paquete `xcolor`<CitationSup id="4" />, que TikZ carga solo, y significa "20 % de negro y el resto blanco". Es decir, un gris claro.
+
+El orden importa: TikZ dibuja en el orden en que escribes, y cada capa tapa a la anterior. Por eso las líneas finas van primero y las gruesas al final. Si inviertes el orden, la rejilla de milímetros quedaría encima de las de centímetro y las aclararía.
+
+## Las etiquetas
+
+```latex
+\node[below right, color=red, rotate=90] at (\widthSqrt,1)
+{\small Papel milimetrado de $\SI{\widthSqrt}{cm} \times \SI{\heightSqrt}{cm}$};
+```
+
+Un `\node` es un texto colocado en una posición, aquí `(18,1)`: el borde derecho de la rejilla, un centímetro por encima de la base. Con `rotate=90` el texto se gira para leerse de abajo arriba, y `below right` lo desplaza para que no pise la rejilla.
+
+La segunda etiqueta es igual, pero 0,35 cm más a la derecha, para que las dos líneas de texto no se solapen.
+
+## Cambiarla a tu gusto
+
+Los tres cambios más útiles:
+
+**Otro tamaño.** Cambia las dos primeras variables. Para papel carta, cambia también la clase:
+
+```latex
+\documentclass[letterpaper]{article}
+% ...
+\def\widthSqrt{18}
+\def\heightSqrt{24}
+```
+
+**Otro color.** El papel milimetrado clásico de ingeniería es verde o naranja. Define el color una vez y úsalo en las cuatro capas:
+
+```latex
+\colorlet{rejilla}{orange!80!black}
+% ...
+\draw[step=1mm, line width=0.1mm, rejilla!20!white] (0,0) grid (\widthSqrt,\heightSqrt);
+\draw[step=5mm, line width=0.2mm, rejilla!50!white] (0,0) grid (\widthSqrt,\heightSqrt);
+% ... y lo mismo en las otras dos
+```
+
+**Que las variables muevan las líneas.** Como `x=1cm`, en TikZ un número sin unidad ya son centímetros, así que `step=\bigSubDiv` funciona directamente. Añade una variable para el milímetro y úsalas en los cuatro `\draw`:
+
+```latex
+\def\tinySubDiv{0.1}
+% ...
+\draw[step=\tinySubDiv,   line width=0.1mm, black!20!white] (0,0) grid (\widthSqrt,\heightSqrt);
+\draw[step=\smallSubDiv,  line width=0.2mm, black!50!white] (0,0) grid (\widthSqrt,\heightSqrt);
+\draw[step=\bigSubDiv,    line width=0.3mm, black!80!white] (0,0) grid (\widthSqrt,\heightSqrt);
+\draw[step=\biggerSubDiv, line width=0.5mm, black!90!white] (0,0) grid (\widthSqrt,\heightSqrt);
+```
+
+Con esto, poner `\def\smallSubDiv{0.25}` cambia de verdad la rejilla intermedia, y la etiqueta lo dice.
+
+Si borras las capas de 1 mm y 5 cm y dejas solo la de 5 mm, más oscura, tienes papel cuadriculado de cuaderno. Si lo prefieres hecho, está en [las plantillas](/es/latex#plantillas) como "Papel cuadriculado".
+
+## Descárgala
+
+- [PDF listo para imprimir](/latex/milimetrada/milimetrada.pdf)
+- [Código fuente (.tex)](/latex/milimetrada/milimetrada.tex)
+- [Abrir en Overleaf](https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fericlucero.dev%2Flatex%2Fmilimetrada%2Fmilimetrada.tex), que crea una copia editable en tu cuenta
+
+Al imprimir, elige "tamaño real" o "100 %" en el diálogo de impresión. Si la impresora ajusta la página al área imprimible, los milímetros dejan de ser milímetros.
+
+## Referencias
+<ReferenceList>
+<ReferenceItem id="1" text="Till Tantau, The TikZ and PGF Packages, manual oficial. La sección 'Grid' explica todas las opciones de `\draw ... grid`, cosa que se hará en este blog sin duda" url="https://ctan.org/pkg/pgf" />
+<ReferenceItem id="2" text="Paquete `geometry` en CTAN" url="https://ctan.org/pkg/geometry"/>
+<ReferenceItem id="3" text="Paquete `siunitx` en CTAN" url="https://ctan.org/pkg/siunitx"/>
+<ReferenceItem id="4" text="Paquete `xcolor` en CTAN, para la sintaxis `color!porcentaje!otrocolor`" url="https://ctan.org/pkg/xcolor"/>
+</ReferenceList>
+
