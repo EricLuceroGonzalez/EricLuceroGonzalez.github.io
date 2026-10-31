@@ -58,6 +58,8 @@ export default async function Home({ params }) {
         {/* ── Hero ─────────────────────────────────────────────────── */}
         <HomePageCover>
           <BackgroundDots numDots={25} contained />
+        <div style={{paddingTop: "1200px"}}></div>
+        {/* 
           <HeroStack>
             <HeroBadge>
               <EmojiContainer />
@@ -76,7 +78,8 @@ export default async function Home({ params }) {
               <HeroTextLink href="/about">{t("about_cta")} →</HeroTextLink>
             </HeroCTARow>
           </HeroStack>
-        </HomePageCover>
+          */}
+          </HomePageCover> 
 
         {/* Featured post */}
         <FeaturedPost
