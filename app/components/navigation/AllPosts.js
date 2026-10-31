@@ -17,6 +17,7 @@ import {
   CardTitle,
 } from "@/app/ui/CardsElements.js";
 import DateDisplay from "../DateDisplay.js";
+import { useTranslations } from "next-intl";
 
 // JSX Component
 const AllPosts = ({
@@ -30,8 +31,8 @@ const AllPosts = ({
   coverImageAlt,
   locale,
   readingTime,
-  labels
 }) => {
+  const t = useTranslations("HomePage");
   return (
     <GridContainer
       initial={{ opacity: 0, scale: 0 }}
@@ -66,9 +67,10 @@ const AllPosts = ({
             <MetaInfo>
               <SideInfo>
                   {readingTime && labels && `${labels.minRead.replace("{n}", readingTime)} · `}
-                  {readingTime} min \ 
+                  {readingTime}
                   {/* {labels.minRead.replace("{n}", readingTime)} */}
                 <Date>
+                  {readingTime ? `${t("min_read", { n: readingTime })} · ` : null}
                   <DateDisplay
                     isoDate={date.iso}
                     defaultFormatted={date.formatted}
