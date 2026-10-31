@@ -7,7 +7,7 @@ author: "Eric Lucero"
 socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
 coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
 coverImageAlt: 'Imagen de cover con el logo de TeX en su tipografía clásica, con un efecto hecho a mano.'
-title: "TeX: Más que un Software, una Filosofía (Parte II)"
+title: "TeX (Parte II): su nombre, la E caída y Word."
 shortTitle: "TeX"
 entryType: "latex"
 categories: ["LaTeX","TeX","Knuth"]
@@ -19,7 +19,7 @@ interactive: false       # muestra la etiqueta "Interactivo"
 topic: "latex"     # ia | algoritmos | datos | espacio | latex
 isTop: false
 ---
-Descubre por qué la E de TeX está caída, la diferencia entre WYSIWYG y WYSIWYM, y cómo este sistema domina la impresión más allá de las matemáticas.
+Por qué la E de TeX va caída, qué es WYSIWYM y para qué más sirve TeX además de las matemáticas.
 ## Contenido 
 
 ## ¿Qué es TeX realmente?
@@ -50,14 +50,14 @@ El nombre proviene de la raíz griega **$\tau\epsilon\chi$** (*tau*, *epsilon*, 
 
 ### La 'E' Caída
 
-El logo con la 'E' desplazada hacia abajo cumple una demostración técnica. En las máquinas de escribir antiguas, las letras estaban atrapadas en una línea fija, la pauta. TeX demostró desde su propio logo que tenía el control absoluto para mover cualquier elemento a cualquier lugar de la página, rompiendo la rigidez de los sistemas anteriores. Donald Knuth 
+El logo con la 'E' desplazada hacia abajo cumple una demostración técnica: TeX puede poner cualquier carácter en cualquier posición, cosa que una máquina de escribir no podía. En las máquinas de escribir antiguas, las letras estaban atrapadas en una línea fija, la pauta. TeX demostró desde su propio logo que tenía el control absoluto para mover cualquier elemento a cualquier lugar de la página, rompiendo la rigidez de los sistemas anteriores. Donald Knuth 
 dice que esta "E" fuera de lugar nos recuerda que TeX se trata de composición tipográfica y distingue el nombre TeX de los demás sistemas<CitationSup id="1"/>.
 
 Citando a Knuth en The TeXBook<CitationSup id="1"/>: Los expertos pronuncian la $X$ de $TeX$ como una _chi griega_, y no como una 'x', por lo que $TeX$ rima 
 con la palabra inglesa _blechhh_. Es el sonido de la 'ch' en palabras escocesas como _loch_ o en palabras alemanas como _ach_; es una 'j' española y una 'kh' rusa.
 Y culmina el párrafo con el humor característico de <CitationSup id="1"/> con: "Al hablar correctamente con el ordenador, la terminal podría humedecerse ligeramente."
 
-### Las versiones de TeX: Un estándar inmutable
+### Las versiones de TeX
 Donald Knuth decidió congelar el código fuente de TeX en 1990 (versión $\TeX\, 3.0$) para evitar que futuros cambios rompieran la compatibilidad con documentos antiguos y poder tener los mismos resultados que produce hoy, en 100 años.
 A partir de esta version, las actualizaciones cambiarán el último decimal (si son necesarias las correcciones) de manera que se este numero converge hacia $\pi$.  
 
@@ -94,10 +94,10 @@ $$\huge\frac{a}{b}$$
 
 Los `comandos especiales` de $TeX$ son el primer paso a la comprensión de su filosofía y su uso: **separar el contenido del formato visual**.
 
-## Una Filosofía Diferente: WYSIWYM
+## WYSIWYG frente a WYSIWYM
 
 Programas conocidos como Word, que siguen la filosofía **WYSIWYG** (*What You See Is What You Get* - Lo que ves es lo que obtienes). Si pones algo en negrita, lo ves al instante.
-El paradigma más conocido y "cómodo" de trabajar es sin duda el __WYSIWYG__. Parece útil, pero mezcla dos procesos que deberían estar separados: la **autoría** y la **edición**.
+El paradigma más conocido y "cómodo" de trabajar es sin duda el __WYSIWYG__. Parece útil, pero mezcla dos procesos que deberían estar separados: la **autoría** y la **edición**, es decir editas/escribes y maquetas al mismo tiempo.
 
 ![caption=Paradigma WYSIWYG. Entre el documento de salida y el que modificamos en un editor de texto no hay casi diferencia. Modificamos el documento tal cual lo queremos.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767297024/elCronopio/Blog-posts/IMG_0052_wuw4dw.jpg)
 
@@ -114,7 +114,7 @@ En el caso de TeX, usamos los comandos predefinidos (o incluso los definimos nos
 
 >En muchos casos, como las revistas científicas, tesis o documentos corporativos, los editores o diseñadores se encargan de la parte visual, y los autores solo deben preocuparse por el contenido. En este contexto, WYSIWYM es la herramienta ideal para garantizar que el documento final cumpla con los estándares de calidad sin que el autor tenga que ser un experto en diseño.
 
-## Más Allá de las Matemáticas: La Versatilidad de TeX
+## La Versatilidad de TeX más allá de las matemáticas
 
 Aunque TeX nació para salvar la impresión de libros de matemáticas (es insuperable componiendo ecuaciones complejas), su motor es tan robusto que hoy se usa para todo tipo de documentos impresos de alta calidad:
 
@@ -133,15 +133,15 @@ Aunque TeX nació para salvar la impresión de libros de matemáticas (es insupe
 
 La plataforma Overleaf<CitationSup id="4"/> (una plataforma en línea para escribir documentos TeX), tiene una extensa galería con todo tipo de documentos de TeX. Puedes ver todas estas plantillas en línea [haciendo clic aquí.](https://www.overleaf.com/gallery/)
 
-### El Ecosistema Actual, los motores: TeX Live y MiKTeX
+### El Ecosistema Actual, TeX Live y MiKTeX
 
 Aunque el código fuente original de Knuth es la base inmutable (literalmente "congelada" para evitar cambios que rompan la compatibilidad histórica), hoy en día interactuamos con TeX a través de distribuciones modernas.
 Nadie usa el TeX original "puro" hoy en día sin ayuda. 
 
 Utilizamos (e instalamos en nuestros ordenadores) "distribuciones" que facilitan su uso: **TeX-Live:** y **MiKTeX:**
 
-* **TeX Live:** Es el estándar *de facto* en el mundo Linux y Unix (y Mac a través de MacTeX). Es una distribución completa, robusta y mantenida por una comunidad vibrante (TUG). Si quieres tener "todo" el universo TeX instalado y listo, esta es tu elección.
-* **MiKTeX:** Muy popular entre los usuarios de Windows. Su genialidad radica en su capacidad de "instalación bajo demanda". ¿Tu documento pide un paquete de fuentes exótico que no tienes? MiKTeX lo descarga e instala automáticamente mientras compila.
+* **TeX Live:** Es el estándar *de facto* en el mundo Linux y Unix (y Mac a través de MacTeX). Es una distribución completa, robusta y mantenida por mantenida por el TUG (TeX Users Group)<CitationSup id="5"/>. Si quieres tener "todo" el universo TeX instalado y listo, esta es tu elección.
+* **MiKTeX:** Muy popular entre los usuarios de Windows. MiKTeX instala los paquetes que faltan la primera vez que compilas un documento que los necesita.
 
 Ambos son los "chasis" modernos para el motor clásico que Knuth diseñó.
 
@@ -156,4 +156,5 @@ TeX es la respuesta de un programador a la fealdad. Es la herramienta definitiva
 <ReferenceItem id= "2" text="The Future of TeX and METAFONT, TUGboat, Volume 11 (1990), No. 4" url="https://www.tug.org/TUGboat/tb11-4/tb30knut.pdf"/>
 <ReferenceItem id= "3" text="Donald Knuth, The TeXBook (1991)" url="https://web.math.ucsb.edu/~bigelow/books/texbook.pdf"/>
 <ReferenceItem id="4" text= "Overleaf - Online LaTeX Editor" url= "https://www.overleaf.com/"/>
+<ReferenceItem id="5" text= "TUG: Tex Users Group." url= "https://tug.org"/>
 </ReferenceList>
