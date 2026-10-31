@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T15:40:18.135Z",
+  "generatedAt": "2026-10-31T14:58:57.038Z",
   "templates": [
     {
       "id": "milimetrada",
@@ -7,7 +7,7 @@
       "category": "papel",
       "pattern": "mm",
       "fit": null,
-      "meta": "A4 · 18 x 25 cm",
+      "meta": "A4 · 18 × 25 cm",
       "title": {
         "es": "Papel milimetrado",
         "en": "Millimetre paper"
@@ -22,10 +22,10 @@
       "thumb": "/latex/milimetrada/milimetrada.png",
       "pages": 1,
       "bytes": {
-        "source": 1395,
+        "source": 1401,
         "pdf": 35026
       },
-      "updatedAt": "2026-10-30"
+      "updatedAt": "2026-10-31"
     },
     {
       "id": "recta_real",
@@ -48,10 +48,10 @@
       "thumb": "/latex/recta_real/recta_real.png",
       "pages": 1,
       "bytes": {
-        "source": 1776,
+        "source": 1782,
         "pdf": 45480
       },
-      "updatedAt": "2026-10-30"
+      "updatedAt": "2026-10-31"
     },
     {
       "id": "cuadriculada",
@@ -74,10 +74,30 @@
       "thumb": "/latex/cuadriculada/cuadriculada.png",
       "pages": 1,
       "bytes": {
-        "source": 1400,
+        "source": 1406,
         "pdf": 31178
       },
-      "updatedAt": "2026-10-30"
+      "updatedAt": "2026-10-31"
+    },
+    {
+      "id": "ruled",
+      "order": 3,
+      "category": "papel",
+      "pattern": "grid",
+      "fit": null,
+      "meta": "A4 · 5 mm",
+      "title": {
+        "es": "Papel rayado",
+        "en": "Ruled paper"
+      },
+      "description": {
+        "es": "Cuadrícula de 5 mm con márgenes configurables.",
+        "en": "5 mm grid with configurable margins."
+      },
+      "source": null,
+      "sourceType": null,
+      "pdf": null,
+      "thumb": null
     }
   ]
 }

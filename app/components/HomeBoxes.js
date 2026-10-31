@@ -19,6 +19,7 @@ const HomeBoxes = ({ props, locale }) => {
             keywords,
             coverImage,
             coverImageAlt,
+            readingTime,
           }) => (
             <AllPosts
               key={id}
@@ -32,6 +33,7 @@ const HomeBoxes = ({ props, locale }) => {
               keywords={keywords}
               coverImage={coverImage}
               coverImageAlt={coverImageAlt}
+              readingTime={readingTime}
               locale={locale}
             />
           ),

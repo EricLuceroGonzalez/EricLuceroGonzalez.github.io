@@ -11,7 +11,8 @@ export const MetaInfo = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
-  width: 75%;
+  width: 90%;
+  padding: 6px 2px;
   @media (0px <= width <=401px) {
     width: 99%;
     flex-direction: row;

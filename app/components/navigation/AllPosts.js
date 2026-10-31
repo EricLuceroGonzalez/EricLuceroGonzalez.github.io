@@ -66,9 +66,6 @@ const AllPosts = ({
             <CardTitle>{title}</CardTitle>
             <MetaInfo>
               <SideInfo>
-                  {readingTime && labels && `${labels.minRead.replace("{n}", readingTime)} · `}
-                  {readingTime}
-                  {/* {labels.minRead.replace("{n}", readingTime)} */}
                 <Date>
                   {readingTime ? `${t("min_read", { n: readingTime })} · ` : null}
                   <DateDisplay

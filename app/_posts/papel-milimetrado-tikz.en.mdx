@@ -50,7 +50,7 @@ The `article` class with the `a4paper` option sets the page size: 21 x 29.7 cm.
 
 The `geometry`<CitationSup id="2" /> package controls the margins. LaTeX's default margins are huge, designed for text rather than for a grid. With `margin=1cm` the usable area is 19 x 27.7 cm, so the 18 x 25 cm grid fits with room for the labels on the side.
 
-`tikz` is the drawing package, and `siunitx`<CitationSup id="3" /> typesets units properly: `\SI{18}{cm}` prints the number, a thin space and the unit in upright type, without you having to remember any of it.
+`tikz` is the drawing package<CitationSup id="1" />, and `siunitx`<CitationSup id="3" /> typesets units properly: `\SI{18}{cm}` prints the number, a thin space and the unit in upright type, without you having to remember any of it.
 
 Finally, `\pagestyle{empty}` removes the page number. On a sheet of graph paper, that "1" at the bottom centre is just in the way.
 
@@ -78,7 +78,7 @@ There is a catch worth knowing before you change anything. The three subdivision
   \draw[step=5cm, line width=0.5mm, black!90!white] (0,0) grid (\widthSqrt,\heightSqrt);
 ```
 
-The whole drawing lives inside a `tikzpicture` environment. Its options apply to everything inside it:
+The whole drawing lives inside a `tikzpicture`<CitationSup id="1" /> environment. Its options apply to everything inside it:
 
 - `x=1cm, y=1cm` makes one coordinate unit equal to one centimetre, so `(18,25)` is a point 18 cm to the right of and 25 cm above the origin. That is the default, but writing it out makes the units explicit.
 - `semitransparent` draws everything at 50% opacity. That is why the lines look softer than their colours suggest; remove it if you want a higher-contrast sheet.
