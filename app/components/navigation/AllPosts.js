@@ -29,6 +29,8 @@ const AllPosts = ({
   coverImage,
   coverImageAlt,
   locale,
+  readingTime,
+  labels
 }) => {
   return (
     <GridContainer
@@ -63,6 +65,9 @@ const AllPosts = ({
             <CardTitle>{title}</CardTitle>
             <MetaInfo>
               <SideInfo>
+                  {readingTime && labels && `${labels.minRead.replace("{n}", readingTime)} · `}
+                  {readingTime} min \ 
+                  {/* {labels.minRead.replace("{n}", readingTime)} */}
                 <Date>
                   <DateDisplay
                     isoDate={date.iso}

@@ -39,6 +39,10 @@ const BlogPage = async ({ params }) => {
     title: post.title,
     href: `/blog/${post.slug}`,
   }));
+
+  const cardLabels = {
+    minRead: home.raw("min_read"),
+  };
   return (
     <Layout>
       <PageContainer>
@@ -59,7 +63,12 @@ const BlogPage = async ({ params }) => {
           <MdParagraph style={{ opacity: 0.75 }}>
             {t("copy_text.p1")}
           </MdParagraph>
-          <Suspense fallback={<HomeBoxes props={posts} locale={locale} />}>
+          <Suspense fallback={
+            <HomeBoxes props={posts} locale={locale} 
+            labels={cardLabels}
+            />
+          }
+            >
             <BlogTopicFilter
               posts={posts}
               topics={topics}

@@ -41,7 +41,7 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5, contained = false }) => {
     // let width = window.innerWidth;
     // let height = window.innerHeight;
     const target = contained ? canvas.parentElement : null;
-    const measure = () => target ? [target.clientWidth, target.innerHeight] : [window.innerWidth, window.innerHeight];
+    const measure = () => target ? [target.clientWidth, target.clientHeight] : [window.innerWidth, window.innerHeight];
     let [width, height] = measure();
 
     // 3. DEFINIR COLORES RGB SEGÚN EL TEMA

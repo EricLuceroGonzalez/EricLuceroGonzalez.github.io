@@ -1,13 +1,7 @@
 "use client";
 import AllPosts from "./navigation/AllPosts";
 import { BoxGrid } from "../ui/BasicDivs";
-// const BoxGrid = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   max-width: 100%;
-//   flex-wrap: wrap;
-// `;
+
 const HomeBoxes = ({ props, locale }) => {
   return (
     <>
@@ -25,6 +19,8 @@ const HomeBoxes = ({ props, locale }) => {
             keywords,
             coverImage,
             coverImageAlt,
+            readingTime,
+            labels
           }) => (
             <AllPosts
               key={id}
@@ -39,6 +35,8 @@ const HomeBoxes = ({ props, locale }) => {
               coverImage={coverImage}
               coverImageAlt={coverImageAlt}
               locale={locale}
+              readingTime={readingTime}
+            labels={labels}
             />
           ),
         )}

@@ -18,7 +18,8 @@ export const LogosBox = styled(motion.div)`
   margin: 1rem auto;
   flex-wrap: wrap;
   font-size: var(--text-small);
-  color: var(--accent);
+  /* color: var(--accent); */
+  
   background-color: var(--quote-bg);
 
   @media (max-width: 390px) {
@@ -41,12 +42,14 @@ export const LogosBox = styled(motion.div)`
 export const LogosText = styled.div`
   width: 99%;
   padding: 3px 8px;
+  color: var(--accent-ink);
   /* border: 1px solid red; */
 `;
 
 export const LogosTitle = styled.h3`
   font-size: larger;
-`;
+  color: var(--accent-ink);
+  `;
 export const LogosHead = styled.div`
   display: flex;
   flex-direction: row;
@@ -63,6 +66,6 @@ export const ReactIcon = styled(Link)`
   font-size: 4rem;
   margin: 5px;
   svg {
-    color: var(--accent);
+    color: var(--accent-ink);
   }
 `;

@@ -13,6 +13,13 @@ html,body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* El fondo de la página va en <body>. Los contenedores (Layout, PageContainer,
+   MainBg, MainPageBg) son transparentes: si tuvieran fondo opaco taparían el
+   canvas de BgMovingDots, que va detrás con z-index: -1. */
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
 a {
   text-decoration: none;
   color: inherit;

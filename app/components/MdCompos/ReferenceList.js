@@ -47,12 +47,7 @@ const RefTex = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
   color: var(--accent-ink);
-  &:hover {
-    opacity: 1;
-  }
 
   svg {
     font-size: 1.2em;
