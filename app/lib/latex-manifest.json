@@ -7,7 +7,7 @@
       "category": "papel",
       "pattern": "mm",
       "fit": null,
-      "meta": "A4 · 18 × 25 cm",
+      "meta": "A4 · 18 x 25 cm",
       "title": {
         "es": "Papel milimetrado",
         "en": "Millimetre paper"
@@ -78,26 +78,6 @@
         "pdf": 31178
       },
       "updatedAt": "2026-10-31"
-    },
-    {
-      "id": "ruled",
-      "order": 3,
-      "category": "papel",
-      "pattern": "grid",
-      "fit": null,
-      "meta": "A4 · 5 mm",
-      "title": {
-        "es": "Papel rayado",
-        "en": "Ruled paper"
-      },
-      "description": {
-        "es": "Cuadrícula de 5 mm con márgenes configurables.",
-        "en": "5 mm grid with configurable margins."
-      },
-      "source": null,
-      "sourceType": null,
-      "pdf": null,
-      "thumb": null
     }
   ]
 }
