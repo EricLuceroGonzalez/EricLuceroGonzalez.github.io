@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import styled from "styled-components";
 import HomeBoxes from "./HomeBoxes";
@@ -57,7 +58,12 @@ export default function BlogTopicFilter({ posts, topics, labels, locale }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const requested = searchParams.get("tema");
+  // La página es estática: el HTML se genera sin ?tema=. Si se leyera el
+  // parámetro en el primer render, el cliente pintaría otra lista y React
+  // daría un error de hidratación (#418). Se aplica justo después de montar.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const requested = mounted ? searchParams.get("tema") : null;
   const active = requested && topics[requested] ? requested : null;
 
   // Solo se muestran los temas que tienen al menos un post.

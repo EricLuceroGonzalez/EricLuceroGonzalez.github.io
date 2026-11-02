@@ -148,8 +148,9 @@ export const MdImage = styled.div`
 export const MdImageCaption = styled.p`
   color: var(--bg);
   padding: 12px 0;
+  font-weight: 500;
   text-align: justify;
-  max-width: 95%;
+  max-width: 90%;
   font-size: var(--text-small);
 `;
 export const MdImageCaptionNumber = styled.span`

@@ -10,7 +10,7 @@ coverImageAlt: "Emojis with flags of the participating countries in the FIFA Wor
 title: "A Genetic Algorithm to Generate the FIFA World Cup Group Draw"
 shortTitle: "World Cup Groups with Genetic Algorithms"
 entryType: "blog"
-excerpt: "Hacking the 2026 World Cup: How Genetic Algorithms solve what brute force cannot."
+excerpt: "A genetic algorithm finds valid draws for the 2026 World Cup in seconds; a brute-force approach would take 10²² years."
 doctype: ["blog"]
 categories: ["python", "javascript"]
 keywords: ["blog", "python", "javascript","metaheuristics", "genetic algorithms","Artificial intelligence"]
@@ -242,7 +242,7 @@ For each violation, it assigns a penalty to that individual—an unfavorable val
 
 ![number=5caption=Evaluation of two individuals. Individual A has a fitness of 900 because it violates the confederation repetition rule in groups C, D, and E. Additionally, it fails to separate the itineraries of Spain and Argentina.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043190/elCronopio/Blog-posts/fitness-11_y0fggo.jpg)
 
-The algorithm seeks to minimize this number. A fitness of 1400 is a disaster; a fitness of 0 is a valid draw.
+The algorithm seeks to minimize this number, the less, the better. A fitness of 1400 is a disaster; a fitness of 0 is a valid draw.
 
 The function `calcularFitness(sorteo)` is the engine of the algorithm. Its goal is to reach zero, meaning it has found an individual whose evaluation violates none of the restrictions.
 
@@ -533,7 +533,7 @@ If we only cross parents, eventually all children will look alike, and we will s
 
 ![number=7caption=Example of the mutation operator.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1765043192/elCronopio/Blog-posts/Fifa-mutar-7_grtdqh.jpg)
 
-The `mutar(individuo)` function introduces controlled chaos. With a 20% probability, we take a draw, pick two random groups, and swap two teams from the same pot.
+The `mutar(individuo)` function introduces variation. With a 20% probability, we take a draw, pick two random groups, and swap two teams from the same pot.
 
 If it mutates:
   - Pick 2 random groups

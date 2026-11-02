@@ -13,6 +13,13 @@ html,body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* El fondo de la página va en <body>. Los contenedores (Layout, PageContainer,
+   MainBg, MainPageBg) son transparentes: si tuvieran fondo opaco taparían el
+   canvas de BgMovingDots, que va detrás con z-index: -1. */
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -106,8 +113,8 @@ a {
     /* BASE */
     --bg: #002332; 
     --fg: #E0E6ED; 
-    --accent: #FF3366;
-    --on-accent: #00222F;         /* blanco sobre #FF3366 = 3.5:1; esto = 4.7:1 */
+    --accent: #FF6B8E;
+    --on-accent: #00222F;         /* blanco sobre #FF6B8E = 3.5:1; esto = 4.7:1 */
     --primary: #0077FF;
 
     --primary-transparent: rgba(0, 119, 255, 0.1);
@@ -131,12 +138,12 @@ a {
     --subheading: #B0BEC5;
 
     /* INTERACCIÓN */
-    --primary-btn-bg: #FF3366; /* Rosa */
+    --primary-btn-bg: #FF6B8E; /* Rosa */
     --primary-btn-fg: #00222F;
     --primary-btn-hover: #E62E5C; /* Rosa un poco más oscuro */
 
     --secondary-btn-bg: #00364D; /* Un tono más claro que el fondo */
-    --secondary-btn-fg: #FF3366;
+    --secondary-btn-fg: #FF6B8E;
     --secondary-btn-hover: #c3c7cdff;
 
     /* ENLACES - CORRECCIÓN CRÍTICA */
@@ -160,7 +167,7 @@ a {
 
     --warning: #eac626;
     --primary-border: #004966;
-    --box-border-hover: #FF3366;
+    --box-border-hover: #FF6B8E;
     --gray-light: #919ca2ff;
     --green-go: #00cc66;
   }

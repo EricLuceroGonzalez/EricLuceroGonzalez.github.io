@@ -41,12 +41,16 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5, contained = false }) => {
     // let width = window.innerWidth;
     // let height = window.innerHeight;
     const target = contained ? canvas.parentElement : null;
-    const measure = () => target ? [target.clientWidth, target.innerHeight] : [window.innerWidth, window.innerHeight];
+    const measure = () =>
+      target
+        ? [target.clientWidth, target.clientHeight]
+        : [window.innerWidth, window.innerHeight];
     let [width, height] = measure();
 
     // 3. DEFINIR COLORES RGB SEGÚN EL TEMA
     // Si es dark, usamos Blanco (255,255,255). Si es light, usamos Gris Oscuro (20,20,20)
     const isDark = resolvedTheme === "dark";
+    const fontFamily = getComputedStyle(document.body).fontFamily;
     const r = isDark ? 255 : 20;
     const g = isDark ? 255 : 20;
     const b = isDark ? 255 : 20;
@@ -112,18 +116,40 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5, contained = false }) => {
         const dy = line.dot1.y - line.dot2.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 300) {
-          const opacity = (line.life / line.maxLife) * 0.4;
-          ctx.beginPath();
-          ctx.moveTo(line.dot1.x, line.dot1.y);
-          ctx.lineTo(line.dot2.x, line.dot2.y);
-          // Usamos las mismas variables r, g, b para las líneas
+        if (dist < 450) {
+          const opacity = (line.life / line.maxLife) * 0.7;
+ // Usamos las mismas variables r, g, b para las líneas
           const r = isDark ? 255 : 0;
           const g = isDark ? 51 : 119;
           const b = isDark ? 102 : 255;
-          ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+          const color = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+
+          // Línea
+          ctx.beginPath();
+          ctx.moveTo(line.dot1.x, line.dot1.y);
+          ctx.lineTo(line.dot2.x, line.dot2.y);
+          ctx.strokeStyle = color;
           ctx.lineWidth = 1;
           ctx.stroke();
+
+          // Distancia en el punto medio, alineada con la línea
+          const midX = (line.dot1.x + line.dot2.x) / 2;
+          const midY = (line.dot1.y + line.dot2.y) / 2;
+          let angle = Math.atan2(
+            line.dot2.y - line.dot1.y,
+            line.dot2.x - line.dot1.x,
+          );
+          if (angle > Math.PI / 2 || angle < -Math.PI / 2) angle += Math.PI; // nunca boca abajo
+
+          ctx.save();
+          ctx.translate(midX, midY);
+          ctx.rotate(angle);
+          ctx.font = `11px ${fontFamily}`;
+          ctx.fillStyle = color;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "bottom";
+          ctx.fillText(`${Math.round(dist)} px`, 0, -3); // 3 px por encima de la línea
+          ctx.restore();
         }
 
         line.life--;
@@ -142,7 +168,6 @@ const BackgroundDots = ({ numDots = 50, speed = 0.5, contained = false }) => {
     };
     // 4. AGREGAMOS resolvedTheme A LAS DEPENDENCIAS
     // Esto hace que el canvas se reinicie con nuevos colores cuando cambias el tema
-
   }, [numDots, speed, resolvedTheme, mounted, contained]);
 
   // Si no está montado, devolvemos null para evitar parpadeos

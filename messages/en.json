@@ -148,7 +148,8 @@
         "filter_label": "Filter by topic",
         "filter_all": "All",
         "filter_showing": "Showing {n} articles about {topic}",
-        "filter_empty": "No articles on this topic yet."
+        "filter_empty": "No articles on this topic yet.",
+        "min_read": "{n} min"
     },
     "sorteo": {
         "title": "World Cup 2026 Draw",

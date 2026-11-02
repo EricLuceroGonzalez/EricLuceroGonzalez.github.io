@@ -5,7 +5,7 @@ import Link from "next/link";
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--bg);
+  background-color: transparent;
   min-height: 99vh;
 `;
 
@@ -19,7 +19,7 @@ export const Main = styled.main`
 export const MainBg = styled.div`
   flex: 1;
   padding: 0 2.5rem;
-  background-color: var(--bg);
+  background-color: transparent;
   min-height: 100vh;
   @media (max-width: 728px) {
     /* text-align: justify; */
@@ -29,7 +29,7 @@ export const MainBg = styled.div`
 export const MainPageBg = styled(motion.div)`
   /* border: 2px solid blue; */
   flex: 1;
-  background-color: var(--bg);
+  background-color: transparent;
   min-height: 100vh;
   max-width: 100%;
   /* text-align: justify; */

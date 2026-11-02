@@ -153,7 +153,8 @@
         "filter_label": "Filtrar por tema",
         "filter_all": "Todos",
         "filter_showing": "Mostrando {n} artículos de {topic}",
-        "filter_empty": "Aún no hay artículos de este tema."
+        "filter_empty": "Aún no hay artículos de este tema.",
+        "min_read": "{n} min"
     },
     "sorteo": {
         "title": "Sorteo de Mundial 2026",

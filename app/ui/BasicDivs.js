@@ -10,7 +10,7 @@ export const Layout = styled.div`
   height: 100%;
   width: 100%;
   font-size: var(--text-small);
-  background-color: var(--bg);
+  background-color: transparent;
   @media (max-width: 768px) {
     flex-direction: column; /* Cambia a vertical en pantallas pequeñas */
   }
