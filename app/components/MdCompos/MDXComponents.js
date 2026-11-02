@@ -25,7 +25,7 @@ import Image from "next/image";
 import H2Header from "./H2Header";
 import H3Header from "./H3Header";
 import { Link } from "@/i18n/navigation";
-import Mermaid from "./Mermaid";
+import { Mermaid } from "./lazyClient";
 
 const MdxComponents = {
   // El h1 de la página es el título del post: un título de nivel 1 en el MDX pasa a h2.

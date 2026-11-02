@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, lazy, Suspense } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { tomorrowNightBright } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import SyntaxHighlighter, { codeTheme as tomorrowNightBright } from "./MdCompos/highlighter";
 import styled from "styled-components";
 import { LuCopy, LuCopyCheck, LuFileText, LuFileOutput } from "react-icons/lu";
 
