@@ -7,10 +7,16 @@ import { useTranslations } from "next-intl";
 import { RepoFooter } from "./RepoShare";
 
 const EventCard = lazy(() => import("../EventCard"));
-const LazyManim = lazy(() => import("./Videos"));
-const ArtemisLiveTracker = lazy(() => import("./ArtemisLiveTracker"));
-const BarChart = lazy(() => import("./BarChartsMDX"));
-const SorteoMundial = lazy(() => import("./SorteoMundial"));
+// Interactivos pesados: módulo de cliente con next/dynamic (ver lazyClient.js)
+import {
+  Videos as LazyManim,
+  ArtemisLiveTracker,
+  BarChart,
+  SorteoMundial,
+  PlotlyChart as LazyPlotlyCharts,
+  TexShowcase as LazyTexShowcase,
+  PDFViewer as LazyPDFViewer,
+} from "./lazyClient";
 // Borra el import viejo de DataCard y pon estos dos:
 const LazyDataGrid = lazy(() =>
   import("./DataCards").then((mod) => ({ default: mod.DataGrid })),
@@ -26,9 +32,6 @@ const LazyReferenceList = lazy(() =>
 const LazyReferenceItem = lazy(() =>
   import("./ReferenceList").then((mod) => ({ default: mod.ReferenceItem })),
 );
-const LazyPlotlyCharts = lazy(() => import("../PlotlyChart"));
-const LazyTexShowcase = lazy(() => import("../TexShowcase"));
-const LazyPDFViewer = lazy(() => import("../PDFViewer"));
 // Wrapper con traducciones
 const SorteoMundialWithTranslations = () => {
   const t = useTranslations("sorteo");

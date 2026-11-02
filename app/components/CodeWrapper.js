@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import SyntaxHighlighter, { codeTheme as tomorrowNightBright } from "./MdCompos/highlighter";
 import styled from "styled-components";
 import { LuCopy, LuCopyCheck } from "react-icons/lu";
-import { tomorrowNightBright } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const CodeBlockWrapper = styled.div`
   position: relative;
