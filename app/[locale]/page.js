@@ -58,7 +58,6 @@ export default async function Home({ params }) {
         {/* ── Hero ─────────────────────────────────────────────────── */}
         <HomePageCover>
           <BackgroundDots numDots={25} contained />
-        <div style={{paddingTop: "1200px"}}></div>
           <HeroStack>
             <HeroBadge>
               <EmojiContainer />
@@ -78,7 +77,6 @@ export default async function Home({ params }) {
             </HeroCTARow>
           </HeroStack>
           </HomePageCover> 
-
         {/* Featured post */}
         <FeaturedPost
           post={featured && toCard(featured)}
