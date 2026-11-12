@@ -5,10 +5,10 @@ import { FaHeart, FaRegHeart } from "react-icons/fa"; // Importamos los iconos s
 
 // Identificador aleatorio de este navegador para votar una sola vez por post.
 // No es una cookie ni identifica a la persona; se queda en localStorage.
-function getVoterId() {
+function getVoterId({ create = false } = {}) {
   try {
     let id = localStorage.getItem("voter-id");
-    if (!id) {
+    if (!id && create) {
       id = crypto.randomUUID();
       localStorage.setItem("voter-id", id);
     }
@@ -54,7 +54,7 @@ export default function LikeButton({ slug }) {
     // Creamos un nuevo temporizador que esperará 1 segundo (1000ms) de inactividad
     debounceTimer.current = setTimeout(async () => {
       try {
-        const voter = getVoterId();
+        const voter = getVoterId({ create: true });
         if (!voter) return;
         // Se envía el ESTADO final ("me gusta" o no), no "suma"/"resta":
         // así, like + quitar like en menos de 1 s ya no resta un like ajeno.

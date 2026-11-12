@@ -183,7 +183,7 @@
     },
     "Legal": {
         "title": "Aviso Legal y Privacidad",
-        "lastUpdated": "Última actualización: Diciembre 2025",
+        "lastUpdated": "Última actualización: noviembre de 2026",
         "metadata": {
             "title": "Aviso Legal y Política de Privacidad | Eric Lucero",
             "description": "Información legal, cumplimiento del RGPD, política de privacidad y detalles sobre las licencias Creative Commons y MIT de este sitio.",
@@ -198,8 +198,10 @@
                 "content": "El responsable de este sitio web es **Eric Lucero González** (en adelante, 'el Titular'). Puedes contactarme para cualquier cuestión relacionada con este sitio en: **ericlucerogonzalez@gmail.com**."
             },
             "data": {
-                "title": "2. Protección de Datos (RGPD) y Analíticas Anónimas",
-                "content": "Este sitio web **no recopila datos personales** de sus visitantes. No hay formularios de registro, ni comentarios, ni rastreadores de análisis intrusivos (como Google Analytics). Tu navegación es completamente anónima. Las interacciones con el contenido (como el conteo de 'vistas de página' o los 'Me gusta' en los artículos) se registran de forma estrictamente agregada y anónima en nuestra base de datos, sin asociarse en ningún momento a tu dirección IP, dispositivo o identidad personal."
+                "title": "2. Protección de Datos (RGPD) y Analítica Anónima",
+                "content": "Este sitio **no utiliza cookies de analítica ni de publicidad**. Para saber qué contenidos se leen, al visitar una página se registran de forma agregada la página visitada, la fecha, el tipo de dispositivo (móvil o escritorio) y, si existe, el dominio del sitio desde el que llegas (por ejemplo, google.com). Para contar visitantes únicos se calcula una huella cifrada a partir de tu dirección IP, tu navegador y un valor que cambia cada día. Esa huella no permite conocer tu IP, no se puede relacionar con tus visitas de otros días y **se elimina automáticamente a las 48 horas**. Tu dirección IP no se almacena. Si tu navegador tiene activada la opción 'No rastrear' (Do Not Track), no se registra tu visita.",
+                "likes": "Si pulsas 'Me gusta' en un artículo, se guarda en tu navegador (almacenamiento local, no una cookie) un **identificador aleatorio** que no contiene datos personales. Sirve únicamente para que cada persona pueda votar una vez por artículo y para recordar tu voto, y se conserva junto al voto mientras este exista. Puedes eliminarlo borrando los datos de este sitio en tu navegador; si además quieres que se elimine tu voto, escríbeme.",
+                "legal": "La base legal de este tratamiento es el interés legítimo en conocer, de forma anónima y agregada, el uso del blog para mejorarlo (art. 6.1.f del RGPD). El identificador de voto solo se almacena cuando lo solicitas al pulsar el botón (art. 22.2 de la LSSI). Los datos se guardan en **MongoDB Atlas**, en servidores ubicados en Estados Unidos (Virginia del Norte), y el sitio está alojado en **Vercel**. Ambos proveedores actúan como encargados del tratamiento y están adheridos al **Marco de Privacidad de Datos UE-EE. UU.**, que garantiza un nivel de protección adecuado para estas transferencias. Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición y limitación escribiendo a **ericlucerogonzalez@gmail.com**, y presentar una reclamación ante la Agencia Española de Protección de Datos (aepd.es)."
             },
             "copyright": {
                 "title": "3. Copyright y Licencias",
@@ -234,7 +236,7 @@
                 "list": [
                     "Recordar el idioma seleccionado (Español/Inglés).",
                     "Recordar tu preferencia de tema visual (Claro/Oscuro).",
-                    "Registrar localmente los artículos a los que has dado 'Me gusta' (para reflejar tu interacción en la interfaz y evitar peticiones duplicadas a la base de datos)."
+                    "Guardar un identificador aleatorio de voto, solo cuando pulsas 'Me gusta', para que cada persona vote una vez por artículo (ver sección 2)."
                 ]
             },
             "license": {

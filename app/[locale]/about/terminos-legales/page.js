@@ -50,7 +50,16 @@ const LegalPage = async ({ params }) => {
               __html: parseText(t("sections.data.content")),
             }}
           />
-
+          <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(t("sections.data.likes")),
+            }}
+          />
+          <MdParagraph
+            dangerouslySetInnerHTML={{
+              __html: parseText(t("sections.data.legal")),
+            }}
+          />
           <H2Header>{t("sections.copyright.title")}</H2Header>
           <MdParagraph
             dangerouslySetInnerHTML={{
@@ -86,7 +95,6 @@ const LegalPage = async ({ params }) => {
             }}
           />
           <MdUnorderedList>
-
             <MdListItem
               dangerouslySetInnerHTML={{
                 __html: parseText(
@@ -165,6 +173,7 @@ const LegalPage = async ({ params }) => {
           <MdUnorderedList>
             <MdListItem>{t("sections.cookies.list.0")}</MdListItem>
             <MdListItem>{t("sections.cookies.list.1")}</MdListItem>
+            <MdListItem>{t("sections.cookies.list.2")}</MdListItem>
           </MdUnorderedList>
 
           <H2Header>{t("sections.license.title")}</H2Header>

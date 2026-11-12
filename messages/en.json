@@ -26,7 +26,7 @@
         "metaDescription": "Welcome to my personal space where I share my research, algorithms, and code.",
         "hello_badge": "Olá, I'm Eric",
         "hero_title": "Curious questions, answered with data and algorithms.",
-"hero_subtitle": "Is Stack Overflow dying? How do you draw a 48-team World Cup? Analyses with code, charts and free LaTeX templates.",
+        "hero_subtitle": "Is Stack Overflow dying? How do you draw a 48-team World Cup? Analyses with code, charts and free LaTeX templates.",
         "cta_blog": "Explore the blog",
         "cta_latex": "LaTeX templates",
         "featured_label": "Featured",
@@ -178,7 +178,7 @@
     },
     "Legal": {
         "title": "Legal Notice & Privacy",
-        "lastUpdated": "Last updated: December 2025",
+        "lastUpdated": "Last updated: November 2026",
         "metadata": {
             "title": "Legal Notice & Privacy Policy | Eric Lucero",
             "description": "Legal terms, GDPR compliance, privacy policy, and details regarding the Creative Commons and MIT licenses of this website.",
@@ -194,7 +194,9 @@
             },
             "data": {
                 "title": "2. Data Protection (GDPR) & Anonymous Analytics",
-                "content": "This website **does not collect personal data** from its visitors. There are no registration forms, comments, or invasive analytics trackers (like Google Analytics). Your browsing is completely anonymous. Content interactions (such as 'page views' tracking or 'Likes' on articles) are recorded in a strictly aggregated and anonymous manner in our database, without ever being linked to your IP address, device, or personal identity."
+                "content": "This site **does not use analytics or advertising cookies**. To know which content is read, each page visit is recorded in aggregate form: the page visited, the date, the device type (mobile or desktop) and, if available, the domain of the site you came from (for example, google.com). To count unique visitors, an encrypted fingerprint is calculated from your IP address, your browser and a value that changes every day. This fingerprint cannot reveal your IP address, cannot be linked to your visits on other days and is **automatically deleted after 48 hours**. Your IP address is never stored. If your browser has the 'Do Not Track' option enabled, your visit is not recorded.",
+                "likes": "If you click 'Like' on an article, a **random identifier** that contains no personal data is stored in your browser (local storage, not a cookie). It is used only so that each person can vote once per article and to remember your vote, and it is kept together with the vote for as long as the vote exists. You can delete it by clearing this site's data in your browser; if you also want your vote removed, just write to me.",
+                "legal": "The legal basis for this processing is the legitimate interest in understanding, anonymously and in aggregate, how the blog is used in order to improve it (Art. 6(1)(f) GDPR). The vote identifier is only stored when you request it by clicking the button (Art. 22.2 of the Spanish LSSI). The data is stored in **MongoDB Atlas**, on servers located in the United States (Northern Virginia), and the site is hosted by **Vercel**. Both providers act as data processors and participate in the **EU-U.S. Data Privacy Framework**, which ensures an adequate level of protection for these transfers. You can exercise your rights of access, rectification, erasure, objection and restriction by writing to **ericlucerogonzalez@gmail.com**, and you may lodge a complaint with the Spanish Data Protection Agency (aepd.es)."
             },
             "copyright": {
                 "title": "3. Copyright & Licensing",
@@ -229,7 +231,7 @@
                 "list": [
                     "Remembering your selected language (Spanish/English).",
                     "Remembering your visual theme preference (Light/Dark mode).",
-                    "Locally recording the articles you have 'Liked' (to reflect your interaction in the interface and prevent duplicate database requests)."
+                    "Storing a random vote identifier, only when you click 'Like', so that each person votes once per article (see section 2)."
                 ]
             },
             "license": {
