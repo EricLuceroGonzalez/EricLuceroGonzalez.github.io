@@ -3,6 +3,21 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FaHeart, FaRegHeart } from "react-icons/fa"; // Importamos los iconos sólido y regular
 
+// Identificador aleatorio de este navegador para votar una sola vez por post.
+// No es una cookie ni identifica a la persona; se queda en localStorage.
+function getVoterId() {
+  try {
+    let id = localStorage.getItem("voter-id");
+    if (!id) {
+      id = crypto.randomUUID();
+      localStorage.setItem("voter-id", id);
+    }
+    return id;
+  } catch {
+    return null; // modo privado estricto: se puede leer, pero no votar
+  }
+}
+
 export default function LikeButton({ slug }) {
   const [likes, setLikes] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
@@ -11,13 +26,13 @@ export default function LikeButton({ slug }) {
   const debounceTimer = useRef(null);
   // Verificamos el estado guardado al montar el componente
   useEffect(() => {
-    if (localStorage.getItem(`liked-${slug}`)) {
-      setIsLiked(true);
-    }
-    fetch(`/api/likes/${slug}`)
+    const voter = getVoterId();
+    fetch(`/api/likes/${slug}${voter ? `?voter=${voter}` : ""}`)
       .then((res) => res.json())
       .then((data) => {
-        setLikes(data.likes);
+        setLikes(data.likes ?? 0);
+        // El servidor sabe si este navegador ya votó (antes solo localStorage)
+        setIsLiked(Boolean(data.liked));
         setHasLoaded(true);
       })
       .catch((err) => {
@@ -31,11 +46,6 @@ export default function LikeButton({ slug }) {
     setIsLiked(newState);
     setLikes((prev) => (newState ? prev + 1 : prev - 1));
 
-    if (newState) {
-      localStorage.setItem(`liked-${slug}`, "true");
-    } else {
-      localStorage.removeItem(`liked-${slug}`);
-    }
     // Enviamos el cambio a MongoDB sin bloquear la UI
     if (debounceTimer.current) {
       clearTimeout(debounceTimer.current);
@@ -44,22 +54,24 @@ export default function LikeButton({ slug }) {
     // Creamos un nuevo temporizador que esperará 1 segundo (1000ms) de inactividad
     debounceTimer.current = setTimeout(async () => {
       try {
-        await fetch(`/api/likes/${slug}`, {
+        const voter = getVoterId();
+        if (!voter) return;
+        // Se envía el ESTADO final ("me gusta" o no), no "suma"/"resta":
+        // así, like + quitar like en menos de 1 s ya no resta un like ajeno.
+        const res = await fetch(`/api/likes/${slug}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          // Solo enviamos la decisión FINAL después de que dejó de hacer clic
-          body: JSON.stringify({
-            action: newState ? "increment" : "decrement",
-          }),
+          body: JSON.stringify({ liked: newState, voter }),
         });
-        console.log("Petición enviada a Mongo exitosamente");
+        if (res.ok) setLikes((await res.json()).likes);
       } catch (error) {
         console.error("Error al guardar el like en BD", error);
       }
     }, 1000);
   };
 
-  if (!hasLoaded) return null; // O un pequeño skeleton loader
+  // Reserva el hueco mientras carga, para que la cabecera no salte.
+  if (!hasLoaded) return <div aria-hidden="true" style={{ width: 72, height: 44 }} />;
 
   return (
     <div
@@ -73,7 +85,8 @@ export default function LikeButton({ slug }) {
     >
       <motion.button
         onClick={handleLike}
-        aria-label="Dar me gusta"
+        aria-label={isLiked ? "Quitar me gusta" : "Me gusta"}
+        aria-pressed={isLiked}
         // Magia de Framer Motion: Efectos al hacer hover y al hacer clic (tap)
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.85 }}

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 // Asegúrate de tener tu función de conexión a Mongo adaptada para Next.js
 // import { getMongoCollection } from "@/lib/mongodb";
-import dbChuchu from "../../lib/dbChuchu";
+import { getConnection } from "../../lib/mongo";
 
 export async function GET(request) {
   try {
@@ -24,7 +24,7 @@ export async function GET(request) {
     }
 
     // 2. Nos conectamos a la base de datos
-    const collection = await dbChuchu();
+    const collection = (await getConnection("MONGODB_CHUCHU")).db.collection("Chuchu");
 
     // 3. ARMAMOS LA MAGIA DE LA CONSULTA
     // Dependiendo de cómo guardaste la fecha, el query cambia un poquito:

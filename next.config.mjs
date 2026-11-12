@@ -90,6 +90,12 @@ const nextConfig = {
 
   // Oculta uso de Next.js (seguridad por oscuridad básica)
   poweredByHeader: false,
+  // Las rutas de la API leen app/_posts para validar slugs: hay que incluir
+  // esos archivos en la función serverless (Next no los detecta solo).
+  outputFileTracingIncludes: {
+    "/api/track": ["./app/_posts/**/*"],
+    "/api/likes/[slug]": ["./app/_posts/**/*"],
+  },
   allowedDevOrigins: ["192.168.0.14"],
 };
 

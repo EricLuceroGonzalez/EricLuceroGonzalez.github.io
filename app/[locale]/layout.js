@@ -14,6 +14,7 @@ import { parkinsans } from "../ui/fonts.js";
 import { Analytics } from "@vercel/analytics/next";
 import nextDynamic from "next/dynamic";
 import SkipLink from "../components/SkipLink";
+import PageViewTracker from "../components/PageViewTracker";
 // import ViewportSize from "../components/viewPortViewer";
 // import ArtemisBanner from "../components/ArtemisBanner";
 
@@ -104,6 +105,7 @@ export default async function LocaleLayout({ children, params }) {
         className={parkinsans.className}
       >
         <Analytics />
+        <PageViewTracker />
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <SkipLink/>

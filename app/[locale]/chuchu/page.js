@@ -1,6 +1,5 @@
 import React from "react";
-import dbChuchu from "../../lib/dbChuchu.js";
-import Chuchu from "../../models/Chuchu.js";
+import { getChuchu } from "../../models/Chuchu.js";
 import mongoose from "mongoose";
 import { MainBg } from "../../ui/ComponentsStyled";
 import { TitlePage, SubSubTitle } from "../../ui/TitlesComponents";
@@ -19,6 +18,10 @@ import ShowPath from "../../components/showPath";
 import TextCard from "../../ui/TextCards";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+// Lee de MongoDB en cada petición: así el build no depende de que la base
+// esté accesible, y los versos nuevos aparecen sin volver a desplegar.
+export const dynamic = "force-dynamic";
+
 export default async function ChuchuVersos({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -27,7 +30,7 @@ export default async function ChuchuVersos({ params }) {
   const t = await getTranslations({ locale, namespace: "Chuchu" });
 
   // Conectamos a la BD
-  await dbChuchu();
+  const Chuchu = await getChuchu();
   const fechaDesde = new Date("2024-03-01T00:00:00Z");
   const rawTweets = await Chuchu.find({
     fecha_ultimo_post: { $gte: fechaDesde },
