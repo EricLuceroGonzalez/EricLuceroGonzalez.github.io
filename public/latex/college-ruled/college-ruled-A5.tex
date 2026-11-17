@@ -1,0 +1,36 @@
+% Rayado college de 7 mm (A5) — Eric Lucero González — https://ericlucero.dev
+% Licencia CC BY-NC-SA 4.0. Compilar con pdfLaTeX (dos pasadas: latexmk lo hace solo).
+\documentclass[a5paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{tikz}
+\pagestyle{empty}
+
+% ── Configuración (mm) ─────────────────────────────────────
+% El college ruled original es de 9/32 in (7,14 mm); aquí, 7 mm.
+\def\anchoPapel{148}
+\def\altoPapel{210}
+\def\abajo{14}        % espacio libre bajo la última línea
+\def\cabecera{24}     % espacio libre arriba (título, fecha)
+\def\paso{7}          % distancia entre líneas
+\def\margenIzq{22}     % posición de la línea roja de margen
+
+\begin{document}
+\begin{tikzpicture}[
+    remember picture, overlay, shift={(current page.south west)},
+    x=1mm, y=1mm,
+    rule lines/.style={cyan!60!gray, very thin},
+    margin line/.style={red!60!gray, thin}
+  ]
+  % Número de renglones que caben entre \abajo y la cabecera
+  \pgfmathtruncatemacro{\n}{(\altoPapel - \abajo - \cabecera) / \paso}
+
+  \foreach \i in {0,...,\n} {
+    \draw[rule lines] (0, \abajo + \i*\paso) -- (\anchoPapel, \abajo + \i*\paso);
+  }
+
+  % Línea de margen
+  \draw[margin line] (\margenIzq, 0) -- (\margenIzq, \altoPapel);
+\end{tikzpicture}
+\end{document}

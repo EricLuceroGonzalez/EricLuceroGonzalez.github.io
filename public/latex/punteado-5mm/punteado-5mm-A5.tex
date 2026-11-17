@@ -1,0 +1,35 @@
+% Papel punteado de 5 mm (A5) — Eric Lucero González — https://ericlucero.dev
+% Licencia CC BY-NC-SA 4.0. Compilar con pdfLaTeX (dos pasadas: latexmk lo hace solo).
+\documentclass[a5paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{tikz}
+\pagestyle{empty}
+
+% ── Configuración (mm) ─────────────────────────────────────
+\def\anchoPapel{148}
+\def\altoPapel{210}
+\def\margenMin{8}   % margen mínimo alrededor de los puntos
+\def\paso{5}         % distancia entre puntos
+\def\radio{0.5pt}     % tamaño del punto (0.35pt = más tenue)
+
+\begin{document}
+\begin{tikzpicture}[
+    remember picture, overlay, shift={(current page.south west)},
+    x=1mm, y=1mm,
+    dot/.style={gray!65}
+  ]
+  % Intervalos enteros que caben; los puntos quedan centrados en la hoja
+  \pgfmathtruncatemacro{\nx}{(\anchoPapel - 2*\margenMin) / \paso}
+  \pgfmathtruncatemacro{\ny}{(\altoPapel  - 2*\margenMin) / \paso}
+  \pgfmathsetmacro{\x}{(\anchoPapel - \nx*\paso) / 2}
+  \pgfmathsetmacro{\y}{(\altoPapel  - \ny*\paso) / 2}
+
+  \foreach \i in {0,...,\nx} {
+    \foreach \j in {0,...,\ny} {
+      \fill[dot] (\x + \i*\paso, \y + \j*\paso) circle (\radio);
+    }
+  }
+\end{tikzpicture}
+\end{document}

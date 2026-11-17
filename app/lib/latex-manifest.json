@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T14:38:19.653Z",
+  "generatedAt": "2026-11-17T15:00:00.818Z",
   "templates": [
     {
       "id": "milimetrada",
@@ -116,13 +116,45 @@
         "en": "College ruled"
       },
       "description": {
-        "es": "PENDIENTE: describe la plantilla.",
-        "en": "TODO: describe the template."
+        "es": "Papel rayado college de 7 mm.",
+        "en": "College ruled paper with 7 mm spacing."
       },
-      "source": null,
-      "sourceType": null,
-      "pdf": null,
-      "thumb": null
+      "source": "/latex/college-ruled/college-ruled-A4.tex",
+      "sourceType": "tex",
+      "pdf": "/latex/college-ruled/college-ruled-A4.pdf",
+      "thumb": "/latex/college-ruled/college-ruled-A4.png",
+      "pages": 1,
+      "bytes": {
+        "source": 1386,
+        "pdf": 1491
+      },
+      "updatedAt": "2026-11-17",
+      "variants": [
+        {
+          "name": "A4",
+          "source": "/latex/college-ruled/college-ruled-A4.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/college-ruled/college-ruled-A4.pdf",
+          "thumb": "/latex/college-ruled/college-ruled-A4.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1386,
+            "pdf": 1491
+          }
+        },
+        {
+          "name": "A5",
+          "source": "/latex/college-ruled/college-ruled-A5.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/college-ruled/college-ruled-A5.pdf",
+          "thumb": "/latex/college-ruled/college-ruled-A5.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1386,
+            "pdf": 1387
+          }
+        }
+      ]
     },
     {
       "id": "cornell-cuadricula",
@@ -186,17 +218,49 @@
       "meta": "A4 · A5",
       "overleaf": null,
       "title": {
-        "es": "Cuadricula 5mm",
-        "en": "Cuadricula 5mm"
+        "es": "Papel cuadriculado de 5 mm.",
+        "en": "5 mm grid paper."
       },
       "description": {
-        "es": "PENDIENTE: describe la plantilla.",
-        "en": "TODO: describe the template."
+        "es": "Papel cuadriculado de 5 mm.",
+        "en": "5 mm grid paper."
       },
-      "source": null,
-      "sourceType": null,
-      "pdf": null,
-      "thumb": null
+      "source": "/latex/cuadricula-5mm/cuadricula-5mm-A4.tex",
+      "sourceType": "tex",
+      "pdf": "/latex/cuadricula-5mm/cuadricula-5mm-A4.pdf",
+      "thumb": "/latex/cuadricula-5mm/cuadricula-5mm-A4.png",
+      "pages": 1,
+      "bytes": {
+        "source": 1281,
+        "pdf": 1967
+      },
+      "updatedAt": "2026-11-17",
+      "variants": [
+        {
+          "name": "A4",
+          "source": "/latex/cuadricula-5mm/cuadricula-5mm-A4.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/cuadricula-5mm/cuadricula-5mm-A4.pdf",
+          "thumb": "/latex/cuadricula-5mm/cuadricula-5mm-A4.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1281,
+            "pdf": 1967
+          }
+        },
+        {
+          "name": "A5",
+          "source": "/latex/cuadricula-5mm/cuadricula-5mm-A5.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/cuadricula-5mm/cuadricula-5mm-A5.pdf",
+          "thumb": "/latex/cuadricula-5mm/cuadricula-5mm-A5.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1281,
+            "pdf": 1717
+          }
+        }
+      ]
     },
     {
       "id": "cuadricula-margenes",
@@ -207,17 +271,49 @@
       "meta": "A4 · A5",
       "overleaf": null,
       "title": {
-        "es": "Cuadricula margenes",
-        "en": "Cuadricula margenes"
+        "es": "Papel cuadriculado con margenes 5 mm.",
+        "en": "Grid paper with 5 mm margins"
       },
       "description": {
-        "es": "PENDIENTE: describe la plantilla.",
-        "en": "TODO: describe the template."
+        "es": "Papel cuadriculado con margenes 5 mm en ambos lados.",
+        "en": "Grid paper with 5 mm margins in both sides."
       },
-      "source": null,
-      "sourceType": null,
-      "pdf": null,
-      "thumb": null
+      "source": "/latex/cuadricula-margenes/cuadricula-margenes-A4.tex",
+      "sourceType": "tex",
+      "pdf": "/latex/cuadricula-margenes/cuadricula-margenes-A4.pdf",
+      "thumb": "/latex/cuadricula-margenes/cuadricula-margenes-A4.png",
+      "pages": 1,
+      "bytes": {
+        "source": 1816,
+        "pdf": 1984
+      },
+      "updatedAt": "2026-11-17",
+      "variants": [
+        {
+          "name": "A4",
+          "source": "/latex/cuadricula-margenes/cuadricula-margenes-A4.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/cuadricula-margenes/cuadricula-margenes-A4.pdf",
+          "thumb": "/latex/cuadricula-margenes/cuadricula-margenes-A4.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1816,
+            "pdf": 1984
+          }
+        },
+        {
+          "name": "A5",
+          "source": "/latex/cuadricula-margenes/cuadricula-margenes-A5.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/cuadricula-margenes/cuadricula-margenes-A5.pdf",
+          "thumb": "/latex/cuadricula-margenes/cuadricula-margenes-A5.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1816,
+            "pdf": 1743
+          }
+        }
+      ]
     },
     {
       "id": "milimetrado-basico",
@@ -228,17 +324,49 @@
       "meta": "A4 · A5",
       "overleaf": null,
       "title": {
-        "es": "Milimetrado basico",
-        "en": "Milimetrado basico"
+        "es": "Papel milimetrado.",
+        "en": "Basic ruled paper."
       },
       "description": {
-        "es": "PENDIENTE: describe la plantilla.",
-        "en": "TODO: describe the template."
+        "es": "Papel milimetrado con separaciones de 1 mm, 1 cm y 10 cm.",
+        "en": "Basic ruled paper with 1 mm, 1 cm and 10 cm separations."
       },
-      "source": null,
-      "sourceType": null,
-      "pdf": null,
-      "thumb": null
+      "source": "/latex/milimetrado-basico/milimetrado-basico-A4.tex",
+      "sourceType": "tex",
+      "pdf": "/latex/milimetrado-basico/milimetrado-basico-A4.pdf",
+      "thumb": "/latex/milimetrado-basico/milimetrado-basico-A4.png",
+      "pages": 1,
+      "bytes": {
+        "source": 1457,
+        "pdf": 5395
+      },
+      "updatedAt": "2026-11-17",
+      "variants": [
+        {
+          "name": "A4",
+          "source": "/latex/milimetrado-basico/milimetrado-basico-A4.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/milimetrado-basico/milimetrado-basico-A4.pdf",
+          "thumb": "/latex/milimetrado-basico/milimetrado-basico-A4.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1457,
+            "pdf": 5395
+          }
+        },
+        {
+          "name": "A5",
+          "source": "/latex/milimetrado-basico/milimetrado-basico-A5.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/milimetrado-basico/milimetrado-basico-A5.pdf",
+          "thumb": "/latex/milimetrado-basico/milimetrado-basico-A5.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1457,
+            "pdf": 3959
+          }
+        }
+      ]
     },
     {
       "id": "punteado-5mm",
@@ -249,17 +377,49 @@
       "meta": "A4 · A5",
       "overleaf": null,
       "title": {
-        "es": "Punteado 5mm",
-        "en": "Punteado 5mm"
+        "es": "Papel punteado 5mm",
+        "en": "Dotted paper 5mm"
       },
       "description": {
-        "es": "PENDIENTE: describe la plantilla.",
-        "en": "TODO: describe the template."
+        "es": "Papel punteado con separaciones de 5 mm.",
+        "en": "Dotted paper with 5 mm separations."
       },
-      "source": null,
-      "sourceType": null,
-      "pdf": null,
-      "thumb": null
+      "source": "/latex/punteado-5mm/punteado-5mm-A4.tex",
+      "sourceType": "tex",
+      "pdf": "/latex/punteado-5mm/punteado-5mm-A4.pdf",
+      "thumb": "/latex/punteado-5mm/punteado-5mm-A4.png",
+      "pages": 1,
+      "bytes": {
+        "source": 1308,
+        "pdf": 116578
+      },
+      "updatedAt": "2026-11-17",
+      "variants": [
+        {
+          "name": "A4",
+          "source": "/latex/punteado-5mm/punteado-5mm-A4.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/punteado-5mm/punteado-5mm-A4.pdf",
+          "thumb": "/latex/punteado-5mm/punteado-5mm-A4.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1308,
+            "pdf": 116578
+          }
+        },
+        {
+          "name": "A5",
+          "source": "/latex/punteado-5mm/punteado-5mm-A5.tex",
+          "sourceType": "tex",
+          "pdf": "/latex/punteado-5mm/punteado-5mm-A5.pdf",
+          "thumb": "/latex/punteado-5mm/punteado-5mm-A5.png",
+          "pages": 1,
+          "bytes": {
+            "source": 1307,
+            "pdf": 56121
+          }
+        }
+      ]
     },
     {
       "id": "ruled-9mm",

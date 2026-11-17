@@ -1,0 +1,37 @@
+% Papel milimetrado (A5) — Eric Lucero González — https://ericlucero.dev
+% Licencia CC BY-NC-SA 4.0. Compilar con pdfLaTeX (dos pasadas: latexmk lo hace solo).
+\documentclass[a5paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{tikz}
+\pagestyle{empty}
+
+% ── Configuración (mm) ─────────────────────────────────────
+\def\anchoPapel{148}
+\def\altoPapel{210}
+\def\margenMin{10}   % margen mínimo alrededor de la rejilla
+
+\begin{document}
+\begin{tikzpicture}[
+    remember picture, overlay, shift={(current page.south west)},
+    x=1mm, y=1mm,
+    mm lines/.style={orange!35, ultra thin},
+    half cm lines/.style={orange!55, very thin},
+    cm lines/.style={orange!80!black, thin}
+  ]
+  % Centímetros enteros que caben; la rejilla queda centrada en la hoja
+  \pgfmathtruncatemacro{\nx}{(\anchoPapel - 2*\margenMin) / 10}
+  \pgfmathtruncatemacro{\ny}{(\altoPapel  - 2*\margenMin) / 10}
+  \pgfmathsetmacro{\ancho}{\nx * 10}
+  \pgfmathsetmacro{\alto}{\ny * 10}
+  \pgfmathsetmacro{\x}{(\anchoPapel - \ancho) / 2}
+  \pgfmathsetmacro{\y}{(\altoPapel  - \alto) / 2}
+
+  \begin{scope}[shift={(\x,\y)}]
+    \draw[step=1,  mm lines]      (0,0) grid (\ancho,\alto);
+    \draw[step=5,  half cm lines] (0,0) grid (\ancho,\alto);
+    \draw[step=10, cm lines]      (0,0) grid (\ancho,\alto);
+  \end{scope}
+\end{tikzpicture}
+\end{document}
