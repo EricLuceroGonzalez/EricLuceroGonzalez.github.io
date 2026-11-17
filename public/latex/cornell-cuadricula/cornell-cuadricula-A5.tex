@@ -1,0 +1,62 @@
+% Hoja Cornell con cuadrícula (A5) — Eric Lucero González — https://ericlucero.dev
+% Licencia CC BY-NC-SA 4.0. Compilar con pdfLaTeX (dos pasadas: latexmk lo hace solo).
+\documentclass[a5paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{tikz}
+\pagestyle{empty}
+
+% ── Configuración (mm) ─────────────────────────────────────
+% Papel A5: 148 x 210 mm. Con estos valores el área de notas mide
+% 90 x 145 mm: un número exacto de cuadros de 5 mm.
+\def\anchoPapel{148}
+\def\altoPapel{210}
+\def\margen{9}        % margen exterior del marco
+\def\cabecera{12}      % franja superior (título y fecha)
+\def\columna{40}       % columna izquierda (ideas clave, preguntas)
+\def\resumen{35}       % franja inferior (resumen)
+\def\paso{5}           % lado de cada cuadro de la cuadrícula
+
+% Etiquetas de cada zona: \etiquetasfalse para una hoja limpia.
+\newif\ifetiquetas
+\etiquetastrue
+
+\begin{document}
+\begin{tikzpicture}[
+    remember picture, overlay, shift={(current page.south west)},
+    x=1mm, y=1mm,
+    grid lines/.style={gray!45, very thin},
+    structure lines/.style={black!75, thick},
+    label/.style={gray!70, font=\sffamily\scriptsize, anchor=north west, inner sep=1.5mm}
+  ]
+  % Coordenadas de las cuatro zonas
+  \pgfmathsetmacro{\xIzq}{\margen}
+  \pgfmathsetmacro{\xDer}{\anchoPapel - \margen}
+  \pgfmathsetmacro{\yAbajo}{\margen}
+  \pgfmathsetmacro{\yArriba}{\altoPapel - \margen}
+  \pgfmathsetmacro{\xNotas}{\margen + \columna}
+  \pgfmathsetmacro{\yNotas}{\margen + \resumen}
+  \pgfmathsetmacro{\yCabecera}{\altoPapel - \margen - \cabecera}
+
+  % Cuadrícula del área de notas
+  \draw[step=\paso, grid lines, shift={(\xNotas,\yNotas)}]
+    (0,0) grid (\xDer-\xNotas, \yCabecera-\yNotas);
+
+  % Marco exterior
+  \draw[structure lines] (\xIzq,\yAbajo) rectangle (\xDer,\yArriba);
+  % Cabecera (título / fecha)
+  \draw[structure lines] (\xIzq,\yCabecera) -- (\xDer,\yCabecera);
+  % Columna izquierda (ideas clave / preguntas)
+  \draw[structure lines] (\xNotas,\yNotas) -- (\xNotas,\yCabecera);
+  % Resumen
+  \draw[structure lines] (\xIzq,\yNotas) -- (\xDer,\yNotas);
+
+  \ifetiquetas
+    \node[label] at (\xIzq,\yArriba)   {Título};
+    \node[label] at (\xDer-40,\yArriba) {Fecha};
+    \node[label] at (\xIzq,\yCabecera) {Ideas clave};
+    \node[label] at (\xIzq,\yNotas)    {Resumen};
+  \fi
+\end{tikzpicture}
+\end{document}

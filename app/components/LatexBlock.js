@@ -179,6 +179,14 @@ const PATTERNS = {
     ],
     sizes: ["100% 100%"],
   },
+  ruled: {
+    layers: [h("#B9D2EE")],
+    sizes: ["100% calc(100cqw / 14)"],
+  },
+  dots: {
+    layers: ["radial-gradient(circle, #8A96A3 1px, transparent 1.4px)"],
+    sizes: [sq(16)],
+  },
 };
 
 // Arriba la miniatura real (si existe); debajo el patrón como respaldo.
@@ -327,11 +335,63 @@ const PostLink = styled(Link)`
   }
 `;
 
+const Sizes = styled.div`
+  display: flex;
+  gap: 0.3rem;
+`;
+
+const SizeBtn = styled.button`
+  min-height: 32px;
+  min-width: 44px;
+  padding: 0 0.6rem;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--latex-ink);
+  background: ${(p) => (p.$active ? "var(--latex-ink)" : "transparent")};
+  color: ${(p) => (p.$active ? "var(--bg)" : "var(--latex-ink)")};
+
+  &:focus-visible {
+    outline: 2px solid var(--latex-ink);
+    outline-offset: 2px;
+  }
+`;
+
 // ── Componentes ───────────────────────────────────────────────────────────────
+
+// Plantillas con variantes (p. ej. A4 / A5): devuelve la plantilla con los
+// archivos (pdf, source, thumb…) de la variante elegida.
+function withVariant(t, chosen) {
+  if (!t.variants?.length) return t;
+  const v = t.variants.find((x) => x.name === chosen) ?? t.variants[0];
+  return { ...t, ...v, variantName: v.name, overleaf: null };
+}
+
+function SizePicker({ t, value, onChange, label }) {
+  if (!t.variants || t.variants.length < 2) return null;
+  return (
+    <Sizes role="group" aria-label={`${label}: ${t.title}`}>
+      {t.variants.map((v) => (
+        <SizeBtn
+          type="button"
+          key={v.name}
+          $active={v.name === value}
+          aria-pressed={v.name === value}
+          onClick={() => onChange(v.name)}
+        >
+          {v.name}
+        </SizeBtn>
+      ))}
+    </Sizes>
+  );
+}
 
 function TemplateActions({ t }) {
   const count = [t.pdf, t.source, t.source].filter(Boolean).length;
   const ext = t.sourceType === "zip" ? ".zip" : ".tex";
+  const name = t.variantName ? `${t.title} (${t.variantName})` : t.title;
   if (!count) return null;
   return (
     <Actions $count={count}>
@@ -341,22 +401,22 @@ function TemplateActions({ t }) {
           href={t.pdf}
           target="_blank"
           rel="noopener"
-          aria-label={`PDF: ${t.title}`}
+          aria-label={`PDF: ${name}`}
         >
           PDF
         </Action>
       )}
       {t.source && (
-        <Action href={t.source} download aria-label={`${ext}: ${t.title}`}>
+        <Action href={t.source} download aria-label={`${ext}: ${name}`}>
           {ext}
         </Action>
       )}
       {t.source && (
         <Action
-          href={overleafUrl(t.source)}
+          href={t.overleaf ?? overleafUrl(t.source)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Overleaf: ${t.title}`}
+          aria-label={`Overleaf: ${name}`}
         >
           <SiOverleaf aria-hidden="true" focusable="false" />
         </Action>
@@ -382,6 +442,11 @@ export default function LatexBlock({
 
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState(templates[0]?.id);
+  // Variante elegida por plantilla: { "cuadricula-5mm": "A5" }
+  const [sizes, setSizes] = useState({});
+  const sizeLabel = labels.size ?? (locale === "en" ? "Size" : "Tamaño");
+  const pick = (t) => withVariant(t, sizes[t.id]);
+  const choose = (tid) => (name) => setSizes((prev) => ({ ...prev, [tid]: name }));
 
   const visible =
     filter === "all" ? templates : templates.filter((t) => t.category === filter);
@@ -431,23 +496,27 @@ export default function LatexBlock({
       )}
 
       <Grid>
-        {visible.map((t) => (
-          <Card key={t.id} $selected={t.id === current?.id}>
-            <PickBtn
-              type="button"
-              onClick={() => setSelected(t.id)}
-              aria-pressed={t.id === current?.id}
-            >
-              <Thumb data-thumb aria-hidden="true" $muted={!isReady(t)} style={thumbStyle(t)} />
-              <CardTitle>{t.title}</CardTitle>
-              <CardMeta>{t.meta}</CardMeta>
-              {!isReady(t) && <SoonBadge>{labels.soonTitle}</SoonBadge>}
-            </PickBtn>
-            <DesktopOnly>
-              <TemplateActions t={t} />
-            </DesktopOnly>
-          </Card>
-        ))}
+        {visible.map((raw) => {
+          const t = pick(raw);
+          return (
+            <Card key={t.id} $selected={t.id === current?.id}>
+              <PickBtn
+                type="button"
+                onClick={() => setSelected(t.id)}
+                aria-pressed={t.id === current?.id}
+              >
+                <Thumb data-thumb aria-hidden="true" $muted={!isReady(t)} style={thumbStyle(t)} />
+                <CardTitle>{t.title}</CardTitle>
+                <CardMeta>{t.meta}</CardMeta>
+                {!isReady(t) && <SoonBadge>{labels.soonTitle}</SoonBadge>}
+              </PickBtn>
+              <SizePicker t={t} value={t.variantName} onChange={choose(t.id)} label={sizeLabel} />
+              <DesktopOnly>
+                <TemplateActions t={t} />
+              </DesktopOnly>
+            </Card>
+          );
+        })}
         <Soon>
           <strong style={{ color: "var(--latex-ink)" }}>{labels.soonTitle}</strong>
           <span style={{ fontSize: "0.8rem", lineHeight: 1.45 }}>
@@ -464,7 +533,8 @@ export default function LatexBlock({
           <p style={{ margin: 0, lineHeight: 1.5, color: "var(--subheading)" }}>
             {current.description}
           </p>
-          <TemplateActions t={current} />
+          <SizePicker t={pick(current)} value={pick(current).variantName} onChange={choose(current.id)} label={sizeLabel} />
+          <TemplateActions t={pick(current)} />
         </Detail>
       )}
 
