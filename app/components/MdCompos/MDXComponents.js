@@ -25,6 +25,7 @@ import Image from "next/image";
 import H2Header from "./H2Header";
 import H3Header from "./H3Header";
 import { Link } from "@/i18n/navigation";
+import NextLink from "next/link";
 import { Mermaid } from "./lazyClient";
 
 const MdxComponents = {
@@ -85,9 +86,15 @@ const MdxComponents = {
     // .replace(/[^a-z0-9]/g, "-") // Recomiendo usar guiones en lugar de nada para separar palabras
     // .replace(/^-+|-+$/g, ""); // Elimina guiones al inicio o final
     if (isAnchor || isInternal) {
+      // El Link de next-intl antepone siempre el idioma actual: "/blog/x" → "/en/blog/x".
+      // No debe hacerlo si el enlace ya lo lleva ("/es/latex" → "/es/es/latex", 404)
+      // ni si apunta a un archivo de public/ ("/latex/a/a.pdf" → "/en/latex/a/a.pdf", 404).
+      const hasLocale = /^\/(es|en)(\/|#|\?|$)/.test(props.href);
+      const isFile = /\/[^/?#]+\.[a-z0-9]+([?#].*)?$/i.test(props.href);
+      const LinkComponent = hasLocale || isFile ? NextLink : Link;
       // Retornamos un link limpio para que el scroll funcione
       return (
-        <Link
+        <LinkComponent
           {...props}
           style={{
             textDecoration: "none",
@@ -97,7 +104,7 @@ const MdxComponents = {
           }}
         >
           {props.children}
-        </Link>
+        </LinkComponent>
       );
     }
     return (
