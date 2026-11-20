@@ -1,0 +1,125 @@
+% overleaf-overcharge.tex — Prueba de esfuerzo para el compilador
+% Eric Lucero González — https://ericlucero.dev — Licencia CC BY-NC-SA 4.0
+%
+% Dibuja el conjunto de Mandelbrot píxel a píxel con TikZ. Cada píxel repite
+% z = z^2 + c hasta \iteraciones veces, y TeX hace esas cuentas con macros:
+% es lentísimo a propósito. El tiempo crece con el cuadrado de \resolucion.
+%
+% Cómo usarlo:
+%   1. Compila con pdfLaTeX (en Overleaf es el compilador por defecto).
+%   2. Al final del PDF aparece cuánto ha tardado la compilación.
+%   3. Cambia \resolucion y mira dónde se rinde cada plan de Overleaf.
+%   El tiempo crece con el cuadrado: el doble de resolución, el cuádruple de tiempo.
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\pagestyle{empty}
+
+% ── Carga: cambia solo estas dos líneas ──────────────────────────
+\def\resolucion{100}   % píxeles por lado (60 = 3.600 píxeles)
+\def\iteraciones{30}  % iteraciones máximas por píxel
+
+% ── Región del plano complejo que se dibuja ──────────────────────
+\def\xmin{-2.2} \def\xmax{0.8}
+\def\ymin{-1.5} \def\ymax{1.5}
+\def\lado{14cm}       % tamaño del dibujo
+
+% ── Iteración de un píxel ────────────────────────────────────────
+% Deja en \iter cuántas iteraciones hacen falta para que |z| > 2
+% (o \iteraciones si el punto parece estar dentro del conjunto).
+\newcount\iter
+\newif\ifsigue
+\newcommand\mandelbrot[2]{% #1 = parte real de c, #2 = parte imaginaria
+  \def\zr{0}\def\zi{0}\iter=0 \siguetrue
+  \loop
+  \pgfmathsetmacro\zrr{\zr*\zr}%
+  \pgfmathsetmacro\zii{\zi*\zi}%
+  \pgfmathsetmacro\modulo{\zrr+\zii}%
+  \ifdim\modulo pt>4pt \siguefalse \else
+  \ifnum\iter<\iteraciones\relax
+  \pgfmathsetmacro\zi{2*\zr*\zi+#2}%
+  \pgfmathsetmacro\zr{\zrr-\zii+#1}%
+  \advance\iter by 1
+  \else \siguefalse \fi
+  \fi
+  \ifsigue \repeat
+}
+
+\begin{document}
+
+\section*{Prueba de esfuerzo: el conjunto de Mandelbrot hecho con \TeX}
+
+Este dibujo tiene \(\resolucion \times \resolucion\) píxeles y hasta
+\iteraciones{} iteraciones por píxel. Cada cuadrado se calcula con macros de
+\TeX{} y Ti\textit{k}Z, sin programas externos: el compilador hace todas las
+cuentas. Cambia \verb|\resolucion| en el preámbulo para aumentar la carga.
+
+\begin{center}
+  \begin{tikzpicture}
+    % ── Preparación ───────────────────────────────────────────────
+    % La rejilla tiene \resolucion × \resolucion píxeles cuadrados.
+    % \paso: lado de cada píxel en el papel (\lado / \resolucion, en pt).
+    \pgfmathsetmacro\paso{\lado/\resolucion}
+    % \dx, \dy: cuánto avanza c (en el plano complejo) de un píxel al siguiente.
+    \pgfmathsetmacro\dx{(\xmax-\xmin)/\resolucion}
+    \pgfmathsetmacro\dy{(\ymax-\ymin)/\resolucion}
+    % Índice del último píxel: los bucles van de 0 a \resolucion - 1.
+    \pgfmathtruncatemacro\ultimo{\resolucion-1}
+
+    % ── Recorrido de la rejilla: \i = columna (eje real), \j = fila (eje imaginario)
+    \foreach \i in {0,...,\ultimo} {
+      \foreach \j in {0,...,\ultimo} {
+        % c = \cr + i·\ci, tomado en el centro del píxel (de ahí el +0.5).
+        \pgfmathsetmacro\cr{\xmin+(\i+0.5)*\dx}
+        \pgfmathsetmacro\ci{\ymin+(\j+0.5)*\dy}
+        % Itera z_{n+1} = z_n^2 + c y deja en \iter cuántas vueltas aguantó.
+        \mandelbrot{\cr}{\ci}
+        % ── Color del píxel ───────────────────────────────────────
+        \ifnum\iter=\iteraciones\relax
+        % No escapó en \iteraciones vueltas: lo damos por dentro de M.
+        \def\relleno{black}%
+        \else
+        % Escapó en la vuelta \iter: el tono va de 0 (blanco, escapa al
+        % instante) a 100 (cian puro, casi no escapa).
+        \pgfmathtruncatemacro\tono{100*\iter/\iteraciones}
+        \edef\relleno{cyan!\tono!white}%
+        \fi
+        % ── Dibujo del píxel ──────────────────────────────────────
+        % Cuadrado con esquina inferior izquierda en (\i·\paso, \j·\paso).
+        % Los +0.1pt solapan un poco los píxeles para que no se vean
+        % líneas blancas finas entre ellos en algunos visores de PDF.
+        \fill[\relleno] (\i*\paso pt, \j*\paso pt) rectangle ++(\paso pt+0.1pt, \paso pt+0.1pt);
+      }
+    }
+  \end{tikzpicture}
+\end{center}
+
+\ifdefined\pdfelapsedtime
+\bigskip
+\noindent\textbf{Tiempo de compilación hasta aquí:}
+\fpeval{round(\pdfelapsedtime/65536, 1)}~segundos
+(pdf\LaTeX{}, \(\resolucion \times \resolucion\) píxeles, \iteraciones{} iteraciones).
+\fi
+
+% ── La idea matemática ──────────────────────────────────────────
+\paragraph{Qué se dibuja.} Para cada punto \(c = x + iy\) del plano complejo se
+repite, empezando en \(z_0 = 0\),
+\[
+  z_{n+1} = z_n^2 + c .
+\]
+Si la sucesión se mantiene acotada, \(c\) pertenece al conjunto de Mandelbrot
+\(\mathcal{M}\); en cuanto \(\lvert z_n\rvert > 2\), se sabe que escapará al
+infinito. Separando partes real e imaginaria, \(z = a + bi\):
+\[
+  a_{n+1} = a_n^2 - b_n^2 + x, \qquad
+  b_{n+1} = 2\,a_n b_n + y, \qquad
+  \text{escapa si } a_n^2 + b_n^2 > 4 .
+\]
+Los puntos que no escapan en \iteraciones{} iteraciones se pintan de negro; el
+resto, más claros cuanto antes escapan.
+
+\end{document}

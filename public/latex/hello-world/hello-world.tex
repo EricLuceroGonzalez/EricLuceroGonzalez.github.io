@@ -1,0 +1,62 @@
+\documentclass[11pt, a4paper]{article}
+
+% --- Paquetes básicos ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx} % Para insertar imágenes
+\usepackage{lipsum}   % Para generar texto de relleno
+\usepackage{amsmath}  % Para fórmulas matemáticas
+\usepackage{hyperref} % Para enlaces clicables en el índice y referencias
+
+% --- Metadatos del documento ---
+\title{Mi Primer Documento en \LaTeX}
+\author{Tu Nombre}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  Este es un documento mínimo de prueba («Hello World») que demuestra la estructura básica de un artículo en \LaTeX: secciones, texto simulado, ecuaciones, una figura estándar y referencias bibliográficas.
+\end{abstract}
+
+\section{Introducción}
+\label{sec:intro}
+
+Bienvenido a \LaTeX. A diferencia de un procesador de textos tradicional, aquí escribes la estructura lógica del documento y el motor tipográfico se encarga del diseño. Por ejemplo, podemos escribir ecuaciones en línea como $E = mc^2$, o centradas y numeradas:
+
+\begin{equation}
+  \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
+  \label{eq:gauss}
+\end{equation}
+
+Como se observa en la Ecuación~\eqref{eq:gauss} de la Sección~\ref{sec:intro}, \LaTeX{} gestiona automáticamente la numeración y las referencias cruzadas.
+
+\section{Texto de ejemplo y figuras}
+
+A continuación se muestra un párrafo generado automáticamente mediante el paquete \texttt{lipsum}, junto con una referencia al manual clásico de \LaTeX~\cite{lamport1994}:
+
+\lipsum[1]
+
+En la Figura~\ref{fig:ejemplo} se incluye una imagen de prueba incluida por defecto en Overleaf, por lo que no necesitas subir ningún archivo adicional para compilar este ejemplo:
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\textwidth]{example-image-a}
+  \caption{Imagen de ejemplo integrada en la distribución TeX Live.}
+  \label{fig:ejemplo}
+\end{figure}
+
+% --- Bibliografía autocontenida ---
+\begin{thebibliography}{9}
+
+  \bibitem{lamport1994}
+  Leslie Lamport,
+  \textit{\LaTeX: A Document Preparation System},
+  2.\textsuperscript{a} edición, Addison-Wesley, 1994.
+
+\end{thebibliography}
+
+\end{document}
