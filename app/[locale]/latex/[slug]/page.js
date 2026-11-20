@@ -124,6 +124,7 @@ const LatexPost = async ({ params }) => {
             source={post.content}
             components={{ ...MdxComponents, ...dynamicMdxComponents }}
             options={{
+              blockJS: false,
               mdxOptions: {
                 remarkPlugins: [
                   remarkGfm,
