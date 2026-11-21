@@ -163,25 +163,31 @@ const LatexPost = async ({ params }) => {
             label={t("last_updated")}
           />
 
-          {(!next == "null" || !previous == "null") && (
+          {(next !== null || previous !== null) && (
             <div
               style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
+                marginTop: "10rem",
               }}
             >
-              <h2 style={{ marginTop: "6rem" }}>{t("other_posts")}</h2>
-              {previous === "null" ? (
-                ""
-              ) : (
-                <PostNavigationCard type={"prev"} post={previous} />
-              )}
-              {next === "null" ? (
-                ""
-              ) : (
-                <PostNavigationCard type={"next"} post={next} />
-              )}
+              <h2>{t("other_posts")}</h2>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                {previous === "null" ? (
+                  ""
+                ) : (
+                  <PostNavigationCard type={"prev"} post={previous} />
+                )}
+                {next === "null" ? (
+                  ""
+                ) : (
+                  <PostNavigationCard type={"next"} post={next} />
+                )}
+              </div>
             </div>
           )}
         </Article>
