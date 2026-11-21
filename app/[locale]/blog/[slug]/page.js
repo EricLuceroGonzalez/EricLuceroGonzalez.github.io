@@ -6,6 +6,9 @@ import {
   getSurroundingPosts,
 } from "@/app/lib/api";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import LastUpdated from "@/app/components/LastUpdated";
+import TableOfContentsAside from "@/app/components/ToCAside";
+import { getHeadings } from "@/app/lib/headings";
 import MdxComponents from "@/app/components/MdCompos/MDXComponents";
 import { dynamicMdxComponents } from "@/app/components/MdCompos/dynamicMdxComponents";
 import { Article, Layout } from "@/app/ui/BasicDivs.js";
@@ -43,6 +46,7 @@ const BlogPost = async ({ params }) => {
   setRequestLocale(locale);
   // const t = useTranslations("About");
   const t = await getTranslations({ locale, namespace: "Blog" });
+  const tocT = await getTranslations({ locale, namespace: "TableOfContents" });
   const post = getPostBySlug(slug, [], locale);
   // 404 si no existe, si es privado o si es un post de otra sección (/latex)
   if (!post || post.isPublic !== true || post.doctype?.[0] !== "blog") {
@@ -124,6 +128,19 @@ const BlogPost = async ({ params }) => {
                 rehypePlugins: [rehypeKatex, rehypeHighlight, rehypeSlug],
               },
             }}
+          />
+          {/* Índice lateral: h2 y h3 del post, visible a partir de 1280 px */}
+          <TableOfContentsAside
+            items={getHeadings(post.content)}
+            label={tocT("on_this_page")}
+            showCount={false}
+            trackActive
+          />
+          <LastUpdated
+            iso={post.updated?.iso}
+            formatted={post.updated?.formatted}
+            note={post.updated?.note}
+            label={t("last_updated")}
           />
           {(next !== null || previous !== null) && (
             <div

@@ -154,7 +154,8 @@
         "filter_all": "Todos",
         "filter_showing": "Mostrando {n} artículos de {topic}",
         "filter_empty": "Aún no hay artículos de este tema.",
-        "min_read": "{n} min"
+        "min_read": "{n} min",
+        "last_updated": "Última actualización"
     },
     "sorteo": {
         "title": "Sorteo de Mundial 2026",
@@ -271,7 +272,8 @@
             "p2": "LaTeX no es solo para matemáticos o científicos; es la herramienta definitiva para quienes aman la precisión."
         },
         "donald_text": "Parafraseando a Donald Knuth (creador de TeX), con TeX, si quieres crear algo realmente bello, de la mejor calidad posible y de lo que puedas sentirte plenamente orgulloso, esto es lo que debes usar.",
-        "advanced_text": "Para los usuarios avanzados y curiosos: LaTeX es mucho más que papers académicos. Adéntrate en la creación de pósters científicos de alto impacto, diseña poemarios con tipografías exquisitas o automatiza diagramas complejos. Descubre paquetes que transforman código simple en arte visual y lleva la maquetación profesional al siguiente nivel."
+        "advanced_text": "Para los usuarios avanzados y curiosos: LaTeX es mucho más que papers académicos. Adéntrate en la creación de pósters científicos de alto impacto, diseña poemarios con tipografías exquisitas o automatiza diagramas complejos. Descubre paquetes que transforman código simple en arte visual y lleva la maquetación profesional al siguiente nivel.",
+        "last_updated": "Última actualización"
     },
     "mdxComponents": {
         "Reference_back": "Volver arriba"
@@ -310,6 +312,7 @@
     },
     "TableOfContents": {
         "label": "Contenido",
-        "entries": "entradas"
+        "entries": "entradas",
+        "on_this_page": "En este artículo"
     }
 }

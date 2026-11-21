@@ -3,6 +3,9 @@ import "katex/dist/katex.min.css"; // Carga global de KaTeX (Aunque afecte Perfo
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug, getSurroundingPosts } from "@/app/lib/api";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import LastUpdated from "@/app/components/LastUpdated";
+import TableOfContentsAside from "@/app/components/ToCAside";
+import { getHeadings } from "@/app/lib/headings";
 import MdxComponents from "@/app/components/MdCompos/MDXComponents";
 import { dynamicMdxComponents } from "@/app/components/MdCompos/dynamicMdxComponents";
 
@@ -40,6 +43,8 @@ const LatexPost = async ({ params }) => {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "LatexPage" });
+
+  const tocT = await getTranslations({ locale, namespace: "TableOfContents" });
 
   const post = getPostBySlug(slug, [], locale);
   if (!post || post.isPublic !== true || post.doctype?.[0] !== "latex") {
@@ -143,6 +148,19 @@ const LatexPost = async ({ params }) => {
                 rehypePlugins: [rehypeKatex, rehypeHighlight, rehypeSlug],
               },
             }}
+          />
+          {/* Índice lateral: h2 y h3 del post, visible a partir de 1280 px */}
+          <TableOfContentsAside
+            items={getHeadings(post.content)}
+            label={tocT("on_this_page")}
+            showCount={false}
+            trackActive
+          />
+          <LastUpdated
+            iso={post.updated?.iso}
+            formatted={post.updated?.formatted}
+            note={post.updated?.note}
+            label={t("last_updated")}
           />
 
           {(!next == "null" || !previous == "null") && (

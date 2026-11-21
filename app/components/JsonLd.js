@@ -64,7 +64,7 @@ export function BlogPostingJsonLd({ post, locale }) {
     description: post.excerpt || post.description || "",
     url: `https://ericlucero.dev/${locale}/blog/${post.slug}`,
     datePublished: post.date?.iso || "",
-    dateModified: post.date?.iso || "",
+    dateModified: post.updated?.iso || post.date?.iso || "",
     inLanguage: locale,
     author: {
       "@type": "Person",
@@ -106,7 +106,7 @@ export function LatexArticleJsonLd({ post, locale }) {
     description: post.excerpt || post.description || "",
     url: `https://ericlucero.dev/${locale}/latex/${post.slug}`,
     datePublished: post.date?.iso || "",
-    dateModified: post.date?.iso || "",
+    dateModified: post.updated?.iso || post.date?.iso || "",
     inLanguage: locale,
     author: {
       "@type": "Person",

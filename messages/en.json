@@ -149,7 +149,8 @@
         "filter_all": "All",
         "filter_showing": "Showing {n} articles about {topic}",
         "filter_empty": "No articles on this topic yet.",
-        "min_read": "{n} min"
+        "min_read": "{n} min",
+        "last_updated": "Last updated"
     },
     "sorteo": {
         "title": "World Cup 2026 Draw",
@@ -265,7 +266,8 @@
             "p2": "LaTeX isn't just for mathematicians or scientists; it is the ultimate tool for those who love precision."
         },
         "donald_text": "To paraphrase Donald Knuth (creator of TeX): if you want to create something truly beautiful, of the highest possible quality, and something you can be fully proud of, this is what you should use.",
-        "advanced_text": "For advanced and curious users: LaTeX is much more than academic papers. Dive into creating high-impact scientific posters, design poetry collections with exquisite typefaces, or automate complex diagrams. Discover packages that transform simple code into visual art and take professional typesetting to the next level."
+        "advanced_text": "For advanced and curious users: LaTeX is much more than academic papers. Dive into creating high-impact scientific posters, design poetry collections with exquisite typefaces, or automate complex diagrams. Discover packages that transform simple code into visual art and take professional typesetting to the next level.",
+        "last_updated": "Last updated"
     },
     "mdxComponents": {
         "Reference_back": "Back to text"
@@ -309,6 +311,7 @@
     },
     "TableOfContents": {
         "label": "Contents",
-        "entries": "entries"
+        "entries": "entries",
+        "on_this_page": "On this page"
     }
 }

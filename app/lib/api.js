@@ -15,6 +15,26 @@ function readingTime(content = "") {
   const words = content.match(/\w+/g)?.length ?? 0;
   return Math.max(1, Math.ceil(words / WORDS_PER_MINUTE));
 }
+// gray-matter convierte una fecha sin comillas (updated: 2026-11-21) en un objeto Date:
+// la devolvemos siempre como texto "AAAA-MM-DD", o null si no es válida.
+function toIsoDay(value) {
+  if (value instanceof Date && !isNaN(value)) return value.toISOString().slice(0, 10);
+  if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value.trim())) return value.trim();
+  return null;
+}
+
+// Fecha de última actualización: solo si existe y es posterior a la de publicación
+function getUpdated(data, locale) {
+  const updated = toIsoDay(data.updated);
+  const published = toIsoDay(data.date);
+  if (!updated || (published && updated <= published)) return null;
+  return {
+    iso: updated,
+    formatted: formatDateForSSR(updated, locale),
+    note: typeof data.updatedNote === "string" ? data.updatedNote.trim() : "",
+  };
+}
+
 // Obtener un post por su slug
 function getPostBySlug(slug, fields = [], locale = "es") {
   const fullPath = join(postsDirectory, `${slug}.${locale}.mdx`);
@@ -35,6 +55,7 @@ function getPostBySlug(slug, fields = [], locale = "es") {
       iso: data.date, // Conserva el formato original 'YYYY-MM-DD'
       formatted: formatDateForSSR(data.date), // Formateado inicial en español
     },
+    updated: getUpdated(data, locale), // { iso, formatted, note } o null
   };
 }
 

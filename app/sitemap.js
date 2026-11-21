@@ -27,7 +27,7 @@ export default function sitemap() {
   const newest = (filter) =>
     LOCALES.flatMap((l) => byLocale[l])
       .filter(filter)
-      .map((p) => validDate(p.date?.iso))
+      .map((p) => validDate(p.updated?.iso ?? p.date?.iso))
       .filter(Boolean)
       .sort((a, b) => b - a)[0];
   const lastBySection = {
@@ -57,7 +57,7 @@ export default function sitemap() {
         );
         return {
           url: pageUrl(locale, path),
-          lastModified: validDate(post.updatedAt ?? post.date?.iso),
+          lastModified: validDate(post.updated?.iso ?? post.date?.iso),
           changeFrequency: "monthly",
           priority: 0.7,
           alternates: { languages: languagesFor(path, locales) },

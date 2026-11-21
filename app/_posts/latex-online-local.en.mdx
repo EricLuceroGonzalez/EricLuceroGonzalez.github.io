@@ -108,8 +108,13 @@ Over the past decade, platforms like **Overleaf** have brought $\LaTeX$ beyond m
 ### Taking Overleaf for a Spin
 
 When you first open a free Overleaf account, the onboarding experience is remarkably fast. Within seconds of signing up, you can compile `.tex` files without worrying about missing packages—Overleaf's servers already have virtually everything preinstalled. You create a blank project, paste in a minimal document, and in roughly a second and a half, a crisp PDF renders on the right-hand pane.
-To see this in action—and to give you a ready-made starter template if you have never touched $\LaTeX$ before—try compiling [this self-contained minimal document](https://www.overleaf.com/docs%3Fsnip_uri%3Dhttps%253A%252F%252Fericlucero.dev%252Flatex%252Fhello-world%252Fhello-world.tex%26engine%3Dpdflatex%26snip_name%3DHello%2520de%2520world%2520Overleaf) that packs all the building blocks of a standard paper (sections, math equations, placeholder text, a figure, and references):
+To see this in action—and to give you a ready-made starter template if you have never touched $\LaTeX$ before—try compiling [this self-contained minimal document](https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fericlucero.dev%2Flatex%2Fhello-world%2Fhello-world.tex&engine=pdflatex&snip_name=Hello%20de%20world%20Overleaf) that packs all the building blocks of a standard paper (sections, math equations, placeholder text, a figure, and references):
 
+<TexShowcase
+  texSource="/latex/hello-world/hello-world.tex"
+  compiledPdf="/latex/hello-world/hello-world.pdf"
+  title="hello-world.tex"
+/>
 This snippet compiles in the blink of an eye because the workload we are handing the typesetting engine is trivial: a single page, zero heavy vector math, and a single fast pass. In this scenario, Overleaf's 10-second free-tier cap feels more than generous.
 Real-world manuscripts, however, rarely stay at one page. As a doctoral dissertation, technical book, or data-heavy report evolves, computational overhead scales exponentially: tables of contents force two or three consecutive compiler passes, bibliographies balloon, and programmatic vector graphics have to be recalculated from scratch on every build.
 To pinpoint exactly where that initial comfort breaks down, [let's push Overleaf to its limits](/latex/latex-online-local#pushing-overleaf-to-the-limit) with a stress test: a multi-chapter document packed with massive text blocks and dynamically rendered mathematical plots on every page.
@@ -200,13 +205,24 @@ Let's stress-test a free Overleaf account using two benchmarks designed to multi
 
 Here we generate a document featuring a table of contents (`\tableofcontents`) and `\maketitle`—guaranteeing at least two full compiler passes—followed by roughly 50 chapters, each containing eight paragraphs of text and a high-sample-rate `TikZ` figure built to tax the CPU. At roughly three pages per chapter, the resulting PDF spans around 205 pages. This is **an impossible workload for Overleaf's free tier**, as the sheer volume of calculations blows right past the timeout ceiling. Remarkably, $\TeX$ still manages to keep the resulting PDF file size surprisingly compact.
 
-Compiled locally, the entire build finishes in just a few seconds, producing a ~200-page PDF complete with 50 vector plots. [Try running it on Overleaf.](https://www.overleaf.com/docs%3Fsnip_uri%3Dhttps%253A%252F%252Fericlucero.dev%252Flatex%252Foverleaf-overcharge%252Foverleaf-overcharge.tex%26engine%3Dpdflatex%26snip_name%3DPrueba%2520de%2520esfuerzo%2520Overleaf)
+<TexShowcase
+  texSource="/latex/overleaf-overcharge/overleaf-overcharge.tex"
+  compiledPdf="/latex/overleaf-overcharge/overleaf-overcharge.pdf"
+  title="overleaf-overcharge.tex"
+/>
+
+Compiled locally, the entire build finishes in just a few seconds, producing a ~200-page PDF complete with 50 vector plots. [Try running it on Overleaf.](https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fericlucero.dev%2Flatex%2Foverleaf-overcharge%2Foverleaf-overcharge.tex&engine=pdflatex&snip_name=Prueba%20de%20esfuerzo%20Overleaf)
 
 ### Experiment 2: The Mandelbrot Set
 
 To watch the timeout wall hit in real time, let's run a second benchmark that serves no practical purpose other than making the compiler sweat: rendering the **Mandelbrot set** pixel by pixel using `TikZ`. Every single pixel requires up to 30 complex-number multiplications, and $\TeX$ computes all of them natively via macros—without offloading a single calculation to an external script. The final page of the PDF prints the exact compilation time.
 
-[Open it in Overleaf](https://www.overleaf.com/docs%3Fsnip_uri%3Dhttps%253A%252F%252Fericlucero.dev%252Flatex%252FMandelbrot%252FMandelbrot.tex%26engine%3Dpdflatex%26snip_name%3DPrueba%2520de%2520esfuerzo%2520Overleaf) and tweak `\resolucion` (line 23) to find the exact breaking point of your plan:
+<TexShowcase
+  texSource="/latex/Mandelbrot/Mandelbrot.tex"
+  compiledPdf="/latex/Mandelbrot/Mandelbrot.pdf"
+  title="Mandelbrot.tex"
+/>
+[Open it in Overleaf](https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fericlucero.dev%2Flatex%2FMandelbrot%2FMandelbrot.tex&engine=pdflatex&snip_name=Prueba%20de%20esfuerzo%20Overleaf) and tweak `\resolucion` (line 23) to find the exact breaking point of your plan:
 
 | Resolution | Local Machine | Free Plan (10 s) | Paid Plan (240 s) |
 | :---: | :---: | :---: | :---: |
