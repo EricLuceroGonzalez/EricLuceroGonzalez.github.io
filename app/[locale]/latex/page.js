@@ -47,13 +47,25 @@ const Latex = async ({ params }) => {
           transition={{ duration: 0.25, ease: [0, 0.71, 0.2, 1.01] }}
         >
           <TitlePage>{t("title")}</TitlePage>
-          <MdParagraph style={{ fontSize: "1.1rem", color: "var(--subheading)", maxWidth: "40rem" }}>
+          <MdParagraph
+            style={{
+              fontSize: "1.1rem",
+              color: "var(--subheading)",
+              maxWidth: "40rem",
+            }}
+          >
             {t("subtitle")}
           </MdParagraph>
 
-          <MdSubHeadA style={sectionTitle}>
-            {t("templates_title")}
-          </MdSubHeadA>
+          {cards.length > 0 && (
+            <>
+              <MdSubHeadA style={sectionTitle}>
+                {t("articles_title")}
+              </MdSubHeadA>
+              <HomeBoxes props={cards} locale={locale} />
+            </>
+          )}
+          <MdSubHeadA style={sectionTitle}>{t("templates_title")}</MdSubHeadA>
           <MdParagraph style={{ color: "var(--subheading)" }}>
             {home("latex_subtitle")}
           </MdParagraph>
@@ -74,15 +86,12 @@ const Latex = async ({ params }) => {
             }}
           />
 
-          {cards.length > 0 && (
-            <>
-              <MdSubHeadA style={sectionTitle}>{t("articles_title")}</MdSubHeadA>
-              <HomeBoxes props={cards} locale={locale} />
-            </>
-          )}
-
-          <MdBlockQuote style={{ margin: "3rem 0 1.5rem", padding: "1.25rem 1.5rem" }}>
-            <p style={{ margin: 0, fontSize: "1.1rem", lineHeight: 1.6 }}>{t("donald_text")}</p>
+          <MdBlockQuote
+            style={{ margin: "3rem 0 1.5rem", padding: "1.25rem 1.5rem" }}
+          >
+            <p style={{ margin: 0, fontSize: "1.1rem", lineHeight: 1.6 }}>
+              {t("donald_text")}
+            </p>
             {/* <footer style={{ marginTop: "0.75rem", fontSize: "0.9rem" }}>— Donald E. Knuth</footer> */}
           </MdBlockQuote>
           <MdParagraph>{t("advanced_text")}</MdParagraph>
@@ -114,7 +123,9 @@ export async function generateMetadata({ params }) {
       description,
       url,
       siteName: "Eric Lucero González",
-      images: [{ url: meta("thumbnailImage"), width: 1200, height: 630, alt: title }],
+      images: [
+        { url: meta("thumbnailImage"), width: 1200, height: 630, alt: title },
+      ],
       locale,
       type: "website",
     },

@@ -1,40 +1,306 @@
 ---
-slug: 'online-local'
+## slug: 'latex-online-local'
 id: 'latex-004'
-date: "2026-05-20"
-order: 0
+date: "2026-11-21"
+order: 3
 author: "Eric Lucero"
-socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509745/elCronopio/Thumbnails/g39902_asgbej.png
-coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
-coverImageAlt: 'Cover image featuring the TeX logo in its classic typography, with a hand-drawn effect.'
-title: "Pending..."
-shortTitle: "Pending..."
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259524/elCronopio/Blog-posts/overleaf-local_fjy03d.jpg
+coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259524/elCronopio/Blog-posts/overleaf-local_fjy03d.jpg
+coverImageAlt: 'Hand-drawn crayon-style illustration comparing the Overleaf and local TeX logos.'
+title: "LaTeX, Online or Local: Which Is the Best Choice for Writing Scientific Documents?"
+shortTitle: "LaTeX, Online or Local"
 entryType: "latex"
-excerpt: "Pending..."
+excerpt: "LaTeX, Online or Local: Which Is the Best Choice for Writing Scientific Documents?"
 doctype: ["latex"]
-categories: ["LaTeX","TeX","Knuth"]
-keywords: ["blog","LaTeX","TeX","Knuth","latex"]
-isPublic: false
-isFeatured: false        # solo UN post a la vez: el destacado del hero
-interactive: false       # muestra la etiqueta "Interactivo"
+categories: ["LaTeX","TeX","Overleaf"]
+keywords: ["blog","LaTeX","TeX","Knuth","latex","overleaf","editor","online","local","compilation","typesetting","scientific documents"]
+isPublic: true
+isFeatured: false        # only ONE post at a time: the hero featured post
+interactive: false       # displays the "Interactive" badge
 topic: "latex"     # ia | algoritmos | datos | espacio | latex
 isTop: false
 ---
-Pending...
 
-## Content
+In a rush, or never used TeX before? Use Overleaf. Writing a thesis or a book? Into coding? Go local.
 
-Pending...
+## Contents
+
+## Compiling on Your Machine or in the Cloud?
+
+Whether you're editing a scientific paper or your dissertation, or you just finished reading [Donald Knuth's story](/latex/que-es-tex-2) and the [creation of $\TeX$](/latex/que-es-tex-1), your fingers are probably itching to type your very first `\documentclass{article}`. Before you write a single line of code, however, you face the first major architectural decision of every document creator: **Where and how should you compile your $\TeX$ source files to produce a PDF?**
+
+> Currently, there are two primary ways to work with $\TeX$ documents. Both are valid, yet they serve very different workflows:
+> **A local installation or cloud-based compilers**.
+> 
+> 
+
+### First Things First: It's a Typesetting System
+
+Whether you run it locally or in the cloud (Overleaf, etc.), whatever parses and compiles your $\TeX$-formatted source code into a PDF is a typesetting or document-production system. Under the hood, this system is a binary program—or a suite of binaries—that, once loaded into memory, compiles a `.tex` file and outputs your desired target (a PDF or another format). This software is a **distribution** capable of understanding Plain $\TeX$ (or $\LaTeX$, OpTeX, ConTeXt, and so on) and compiling it through an engine (pdfTeX, XeTeX, LuaTeX, etc.). That engine-and-distribution stack is the core of the entire typesetting pipeline—meaning your documents are always compiled by these exact same distributions and engines, whether locally or online.
+
+![caption=Whether you install it on your computer or compile TeX documents in Overleaf, the actual compilation from `.tex` to `.pdf` is performed by a distribution.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259523/elCronopio/Blog-posts/motor-latex_kkgmis.jpg)
+
+## The Most Popular Online Compiler: Overleaf
+
+Since its inception in the 1980s, $\TeX$ was predominantly used locally by people in computer science. Keep the timeline in mind: $\TeX$ predates Microsoft Word (1983), the Macintosh (1984), Windows (1985), and the PDF format (1993)—and very nearly personal computing itself. During the 1990s, as commercial word processors like Word took over, academia began looking for free, publication-grade alternatives ($\TeX$ was already the gold standard among scientific publishers). Out of that need, Overleaf and ShareLaTeX emerged independently in the early 2010s. Personally, I owe a great deal to ShareLaTeX, and I look back fondly on my earliest steps with $\LaTeX$—in a world before modern search engines or LLMs, it was my gateway into learning the ecosystem.
+
+![caption=In 2017, ShareLaTeX merged with Overleaf, and the community began to fade away. But that is another topic.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795099975/elCronopio/Blog-posts/overleaf-sharelatex_wdd9bu.png)
+
+> Today, Overleaf is arguably the most widely used online compiler in the world—and without question, the lowest-friction way to get started with $\TeX$ (or $\LaTeX$).
+
+Overleaf is a collaborative, cloud-based $\LaTeX$ editor with real-time previewing. It is partially open-source: alongside its hosted [web platform](https://www.overleaf.com/), you can self-host the core service from its [GitHub repository](https://github.com/overleaf/overleaf) using the [Community Edition](https://docs.overleaf.com/on-premises/welcome/server-pro-vs.-community-edition) paired with Docker.
+
+Despite its popularity, Overleaf operates on a *freemium* model: free to start, paid as soon as your project scales—and that is precisely where it stops being viable for many people who need a serious typesetting environment. While a free tier exists, you hit walls from multiple directions: when a document grows large (a book, a dissertation, etc.), when multiple co-authors need to collaborate (a journal paper, an edited volume), or simply when the time required to compile `.tex` into `.pdf` exceeds the platform's execution cap—currently 10 seconds on the free plan.
+
+Countless blog posts, Reddit threads, Stack Overflow discussions, and even peer-reviewed studies have evaluated and compared these two workflows (which are really the same underlying engine, just operated differently). One dissertation analyzing the correlation between university rankings and institutional Overleaf adoption found a solid 35% positive association between campus-wide Overleaf subscriptions and university ranking scores.
+
+Another study comparing Microsoft Word against Overleaf—measuring adoption rates and the time required to format technical manuscripts across a (admittedly small) cohort of 21 students over several months—concluded that Overleaf outperforms Word in collaborative review, formatting efficiency, turnaround time, and ease of onboarding.
+
+Typically, you can spin up an account and start compiling immediately; in fact, it is the best way to test-drive $\TeX$ by building a basic document and inspecting the PDF output. Overleaf is hands-down the right call when you need to draft a single paper and never touch $\TeX$ again—especially when co-authoring with people who neither know nor care to learn Git or download several gigabytes of packages for a one-off manuscript.
+
+Here is a breakdown of Overleaf's current monthly pricing tiers:
+
+Most users rely on the Free or Student plans, yet **compile timeout remains the primary bottleneck**, as 10 seconds is far too tight for substantial documents like a dissertation or a book. Unless you are a casual user compiling a single document in your lifetime, the best way to get real mileage out of Overleaf is through an institutional license that grants higher resource limits. Otherwise, you are far better off installing a local $\TeX$ distribution and keeping full control in your own hands. [You can check whether your institution provides an Overleaf license here](https://www.overleaf.com/for/institutions-using-overleaf).
+
+The table below summarizes the technical limits between Overleaf's free tier and paid plans:
+
+| Limit / Feature | Free Plan | Paid Plans (Premium) |
+| :---: | :---: | :---: |
+| **Compile timeout** | 10 seconds | 240 seconds |
+| **Maximum files per project** | 2,000 | 2,000 |
+| **Maximum editable material per project** | 7 MB | 7 MB |
+| **Maximum individual editable text file size** | 2 MB | 2 MB |
+| **Maximum individual file upload size** | 50 MB | 50 MB |
+| **Maximum total project size** | Unlimited | Unlimited |
+| **Maximum number of projects** | Unlimited | Unlimited |
+| **Daily AI allowance** | Basic (no assistant) | Plan dependent |
+
+Over the past decade, platforms like **Overleaf** have brought $\LaTeX$ beyond mathematics and theoretical physics straight into the browser. In essence, they rent you a pre-configured cloud machine with $\LaTeX$ ready to go so you can focus purely on writing.
+
+> With the rise of LLMs and *vibecoding*, countless new online editors—quasi-competitors to Overleaf—have been popping up almost weekly. There is even a community tracker counting the days since the last new $\LaTeX$ editor launched—*sitting at roughly 126 editors as of this writing*. You can browse another curated list of these editors here.
+> 
+> 
+
+### Clear Advantages
+
+* **Zero friction:** Sign up, open a project, and start typing. No 8 GB downloads or system `$PATH` configuration—though you are bound by size and time caps.
+
+
+* **Real-time collaboration:** It is the "Google Docs" of $\LaTeX$. Multiple authors can edit the same source file simultaneously and leave inline comments.
+
+
+* **Total portability:** Work on your thesis from a library desktop, an iPad, or your office laptop.
+
+
+* **Built-in version history:** Automatic change tracking saves your skin if you accidentally delete a crucial section (full history requires a paid tier).
+
+
+
+### Drawbacks (Beyond $\TeX$'s Own Learning Curve)
+
+* Free accounts enforce strict compile timeouts (typically 10 seconds). If your document grows complex or your bibliography gets heavy, builds will fail with a "Time Out" error, nudging you toward a Premium upgrade.
+
+
+* You need a persistent internet connection.
+
+
+
+### Taking Overleaf for a Spin
+
+When you first open a free Overleaf account, the onboarding experience is remarkably fast. Within seconds of signing up, you can compile `.tex` files without worrying about missing packages—Overleaf's servers already have virtually everything preinstalled. You create a blank project, paste in a minimal document, and in roughly a second and a half, a crisp PDF renders on the right-hand pane.
+To see this in action—and to give you a ready-made starter template if you have never touched $\LaTeX$ before—try compiling [this self-contained minimal document](https://www.overleaf.com/docs%3Fsnip_uri%3Dhttps%253A%252F%252Fericlucero.dev%252Flatex%252Fhello-world%252Fhello-world.tex%26engine%3Dpdflatex%26snip_name%3DHello%2520de%2520world%2520Overleaf) that packs all the building blocks of a standard paper (sections, math equations, placeholder text, a figure, and references):
+
+This snippet compiles in the blink of an eye because the workload we are handing the typesetting engine is trivial: a single page, zero heavy vector math, and a single fast pass. In this scenario, Overleaf's 10-second free-tier cap feels more than generous.
+Real-world manuscripts, however, rarely stay at one page. As a doctoral dissertation, technical book, or data-heavy report evolves, computational overhead scales exponentially: tables of contents force two or three consecutive compiler passes, bibliographies balloon, and programmatic vector graphics have to be recalculated from scratch on every build.
+To pinpoint exactly where that initial comfort breaks down, [let's push Overleaf to its limits](/latex/latex-online-local#pushing-overleaf-to-the-limit) with a stress test: a multi-chapter document packed with massive text blocks and dynamically rendered mathematical plots on every page.
+
+## Local $\TeX$ Installation
+
+Ditching Overleaf and managing the stack on your own machine unlocks major advantages—starting with zero artificial limits on compile time or project size. Better yet, **it has always been—and will always remain—completely free**.
+
+Installing $\LaTeX$ locally means setting up every layer of the $\TeX$ architecture on your computer so you can build as many documents as you want at any scale—primarily the distribution and your editor of choice. Concretely, assembling a complete local stack involves four pieces:
+
+* **Installing a distribution.** This is the only non-negotiable component, and the most critical one: it bundles the compiler engines, fonts, and core packages that make the magic happen. The standard choices are *TeX Live, MacTeX, and MiKTeX*.
+
+
+* **Choosing a text editor.** This is where you write, refactor, and format your source code. You can invoke the $\TeX$ engine directly from the terminal (not recommended when starting out) or use a dedicated editor like TeXstudio (the most popular local option), *VS Code* (my daily driver), Vim, TeXworks, TeXShop, or GNU Emacs.
+
+
+* **Selecting a macro format.** Included out of the box with your distribution. Donald Knuth originally created *Plain TeX*, though $\LaTeX$ is by far the most widely adopted format today.
+
+
+* **A package manager.** Also bundled with the distribution, this CLI tool handles installing and updating external libraries (packages) and keeps your documents wired into them.
+
+
+
+### Advantages
+
+* **Privacy and ownership:** Your drafts (and unpublished research data) never leave your local drive.
+
+
+* **Zero cloud dependencies:** No internet required. You can compile your dissertation in an off-grid mountain cabin or on a long-haul flight.
+
+
+* **Uncapped speed:** No arbitrary timeouts imposed by a shared remote container. If your manuscript includes 200 high-resolution TikZ diagrams, your CPU will simply crunch through them until the job is done.
+
+
+* **A hacker-friendly ecosystem:** Hook your builds into terminal tools like `latexmk`, custom Python scripts, or hyper-customized editors like VS Code, Vim, or Emacs.
+
+
+
+### The Few Drawbacks (If You Can Call Them That)
+
+* Full distributions are hefty, typically taking up between 4 GB and 8 GB of disk space.
+
+
+* Setting up the environment for the first time and keeping packages updated means getting comfortable with the command line—though there is an endless supply of tutorials and community guides.
+
+
+* You have to learn how to debug compiler errors yourself (fortunately, Stack Overflow has an answer for virtually every cryptic TeX log).
+
+
+
+## My Recommendation
+
+If you are just getting started, collaborating on a lightweight paper with few figures that compiles comfortably within a free or campus-licensed account, stick to the cloud (Overleaf)—especially if this is a one-off $\TeX$ project.
+
+If you are writing a book, a doctoral dissertation, or simply value digital sovereignty, install $\LaTeX$ locally.
+And if you are an infrastructure-savvy power user looking to host your own online instance, spin up a Docker container with a TeX Live image or self-host Overleaf Community Edition on your own server.
+
+The table below provides a side-by-side comparison of both approaches. As noted above, the right choice ultimately comes down to your specific workflow:
+
+| Dimension | Overleaf | Local |
+| --- | --- | --- |
+| **Compile time** | Capped by shared CPU quotas; free accounts time out after 10 seconds. | Unlimited. Uses 100% of your local CPU and RAM. |
+| **Collaboration** | Real-time Google Docs-style editing and inline comments. | Asynchronous workflows via Git. |
+| **Availability** | Dependent on your internet connection, account access, and Overleaf's server uptime. Offline on a train or plane? You're locked out. | 100% offline. Always accessible on your local drive or private Git repository. |
+| **Version control** | Basic visual history (limited to the last 24 hours on the free tier). | Full native Git. Initialize a repo per project or folder and track every commit cleanly. |
+| **Package management** | Builds never fail due to a missing standard package. | Your first hurdle might be figuring out how and where to install a missing package. |
+| **Automation** | Virtually nonexistent; custom build scripts are not supported. | Automate everything: `Makefile`, `.latexmkrc`, dotfiles, Python or Bash scripts, and more. |
+| **Scalability** | Tier-dependent; individual plans hit a low ceiling quickly. | Unbounded. Create projects of any size or page count, and collaborate globally via Git. |
+| **Privacy** | Files live on third-party servers. If your work is confidential or under NDA, don't even consider it. | 100% private and local on your disk—essential for sensitive data or NDAs. |
+| **Learning curve** | Zero setup friction, though debugging compilation errors is just as challenging as on local. | Moderate-to-steep initial setup (installing a distribution and configuring an editor), followed by smooth sailing. |
+| **Integrations** | Git & GitHub, Dropbox, ReadCube, Zotero, Mendeley (paid plans). | Git & GitHub, Dropbox, ReadCube, Zotero, Mendeley, iCloud, and anything else on your OS. |
+
+## Pushing Overleaf to the Limit
+
+Let's stress-test a free Overleaf account using two benchmarks designed to multiply the computational cost of `pdflatex` by combining three compile-time bottlenecks:
+
+1. **Massive text volume:** A `pgffor` + `lipsum` loop generating over 200 pages of structured text with dynamic headers and footers (**Experiment 1**).
+
+
+2. **Mandatory multi-pass builds:** Adding `\tableofcontents` and cross-references (`\label` / `\ref`) to force `pdflatex` to run at least two or three consecutive passes within the same timeout window (**Experiment 1**).
+
+
+3. **Repetitive vector math:** Embedding programmatic plots (`pgfplots` function sampling) or dense `TikZ` grids inside every iteration, forcing the engine to compute thousands of coordinates per pass (**Experiment 2**).
+
+
+
+### Experiment 1: Compilation Loops
+
+Here we generate a document featuring a table of contents (`\tableofcontents`) and `\maketitle`—guaranteeing at least two full compiler passes—followed by roughly 50 chapters, each containing eight paragraphs of text and a high-sample-rate `TikZ` figure built to tax the CPU. At roughly three pages per chapter, the resulting PDF spans around 205 pages. This is **an impossible workload for Overleaf's free tier**, as the sheer volume of calculations blows right past the timeout ceiling. Remarkably, $\TeX$ still manages to keep the resulting PDF file size surprisingly compact.
+
+Compiled locally, the entire build finishes in just a few seconds, producing a ~200-page PDF complete with 50 vector plots. [Try running it on Overleaf.](https://www.overleaf.com/docs%3Fsnip_uri%3Dhttps%253A%252F%252Fericlucero.dev%252Flatex%252Foverleaf-overcharge%252Foverleaf-overcharge.tex%26engine%3Dpdflatex%26snip_name%3DPrueba%2520de%2520esfuerzo%2520Overleaf)
+
+### Experiment 2: The Mandelbrot Set
+
+To watch the timeout wall hit in real time, let's run a second benchmark that serves no practical purpose other than making the compiler sweat: rendering the **Mandelbrot set** pixel by pixel using `TikZ`. Every single pixel requires up to 30 complex-number multiplications, and $\TeX$ computes all of them natively via macros—without offloading a single calculation to an external script. The final page of the PDF prints the exact compilation time.
+
+[Open it in Overleaf](https://www.overleaf.com/docs%3Fsnip_uri%3Dhttps%253A%252F%252Fericlucero.dev%252Flatex%252FMandelbrot%252FMandelbrot.tex%26engine%3Dpdflatex%26snip_name%3DPrueba%2520de%2520esfuerzo%2520Overleaf) and tweak `\resolucion` (line 23) to find the exact breaking point of your plan:
+
+| Resolution | Local Machine | Free Plan (10 s) | Paid Plan (240 s) |
+| :---: | :---: | :---: | :---: |
+| 20 | ~2 s | ✅ | ✅ |
+| 30 | ~5 s | ✅ | ✅ |
+| 40 | ~9 s | ✅ | ✅ |
+| 60 | ~21 s | ❌ | ✅ |
+| 100 | ~56 s | ❌ | ✅ |
+| 200 | ~270 s | ❌ | ❌ |
+
+Locally, that same build has no ceiling: if it takes four minutes, it takes four minutes—and finishes cleanly.
+
+## Bonus: Other Online Compilers
+
+Overleaf isn't the only cloud game in town, though nearly every web-based alternative falls into one of two buckets:
+
+* **Server-side editors (with AI or collaboration features):** Great for quick drafting or equation autocompletion, but they inherit the exact same server CPU timeouts and project size caps on their free tiers.
+
+
+* **In-browser compilers (WebAssembly):** They sidestep server timeouts by running TeX directly inside your browser tab, but they have to re-download tens of megabytes of packages whenever you clear your cache—and they still don't integrate with real Git workflows, Python pipelines, or local `texmf` trees.
+
+
+
+> Fueled by *vibecoding*, dozens of new alternatives have popped up in recent years—many of them free—and more will keep appearing. Frankly, I wouldn't recommend relying on any of this new wave for serious work.
+> 
+> 
+
+Still, here is a quick tour of what's out there:
+
+### Classic & Minimalist Server-Side Editors (Pre-AI)
+
+* [LaTeX Previewer (tlhiv)](https://www.tlhiv.org/ltxpreview/): One of the oldest and most straightforward web compilers around (maintained by Troy Henderson). No sign-up, no project management—just paste a snippet, pick your engine (`pdflatex`, `xelatex`, `lualatex`, `latex+dvips+ps2pdf`), and get an instant PDF or image. Ideal for quick sanity checks.
+
+
+* [Papeeria](https://papeeria.com): The closest traditional peer to Overleaf in architecture—a cloud-based collaborative editor supporting multi-file projects, templates, and Git/Google Drive sync. Its free plan structures private-project limits a bit differently from Overleaf.
+
+
+* [TeXPage](https://www.texpage.com): A cloud collaborative editor geared toward academic writing, offering fast server-side builds, version history, inline comments, and scientific templates.
+
+
+
+### The AI-Native Wave
+
+Over the past couple of years, a wave of editors aiming to become the *"Cursor for $\LaTeX$"* has emerged, baking LLM autocompletion, equation/table generation, and academic prose polishing straight into the editor. Many of these are solo indie projects with no long-term sustainability guarantees—if the maintainer shuts down the server tomorrow, your workspace vanishes—though it is still worth seeing what they are exploring:
+
+* [Octree](https://www.useoctree.com): A modern $\LaTeX$ editor with a built-in AI assistant for generating TikZ code, equations, and tables, alongside live compilation and PDF export.
+
+
+* [Murfy AI](https://www.murfy.ai/en): An AI-assisted academic writing platform pairing $\LaTeX$ editing with tools to draft sections, polish scientific prose, and compile in the cloud.
+
+
+* [LoongTeX](https://www.loongtex.com/en/): A collaborative online editor focused on scientific research with integrated AI assistance for drafting and formula generation.
+
+
+* [OpenAI Prism](https://prism.openai.com): An experimental environment from OpenAI geared toward scientific writing and LLM-assisted editing.
+
+
+* [TypeTex](https://www.typetex.app): A lightweight, modern web editor for $\LaTeX$ featuring a clean UI, real-time preview, and quick-authoring helpers.
+
+
+* [Typevia](https://www.typevia.com): An online editor designed for structured technical writing and fast cloud PDF exports via $\LaTeX$.
+
+
+* [TeXPal](https://texpal.app.space): A web utility focused on streamlining $\LaTeX$ code generation and writing workflows.
+
+
+* [Letx](https://letx.app): A minimalist, fast-iterating web editor for $\LaTeX$.
+
+
+* [Lyra Editor](https://www.lyraeditor.com): A sleek, minimalist editor built for technical and scientific documents with $\LaTeX$ workflow support.
+
+
+
+### In-Browser Compilation (WASM / Client-Side) & Indie Projects
+
+* [TeXpile](https://texpile.com): A lightweight browser/cloud $\LaTeX$ compiler built for fast builds without heavy configuration.
+
+
+* [GlyphTeX](https://glyphtex.nexonauts.com): An indie web editor focused on fast editing and clean $\LaTeX$ document previews.
+
+
+* [TeX (SwimmingBrain)](https://tex.swimmingbrain.dev): An experimental indie web environment built by an independent developer to compile and preview $\TeX$ directly in the browser.
+
+
+* [TeXmate](https://texmate.es): A Spanish-language web platform aimed at making online $\LaTeX$ editing and compilation accessible with zero setup.
+
+
 
 ## References
 <ReferenceList>
-  <ReferenceItem id="1" text="Monotype System" url="https://en.wikipedia.org/wiki/Monotype_system" />
-  <ReferenceItem id="2" text="Donald Knuth Kyoto Prize Lecture (1996)" url="https://www.kyotoprize.org/en/lectures/the-1996-kyoto-prize/" />
-  <ReferenceItem id="3" text="The Computer Scientist Who Cant Stop Telling Stories" url="https://www.quantamagazine.org/computer-scientist-donald-knuth-cant-stop-telling-stories-20200416/" />
-  <ReferenceItem id="4" text="Xerox Graphics Printer (XGP)" url="https://gunkies.org/wiki/Xerox_Graphics_Printer" />
-  <ReferenceItem id="5" text="Artificial Intelligence, Patrick H. Winston (1977)" url="https://en.wikipedia.org/wiki/Artificial_Intelligence_(book)" />
-  <ReferenceItem id="6" text="An Interview with Donald Knuth 1974 ACM Turing Award Recipient (2007)" url="https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf" />
-  <ReferenceItem id="7" text="METAFONT on Wikipedia" url="https://en.wikipedia.org/wiki/Metafont" />
-  <ReferenceItem id="8" text="Mathematical Typography, D. E. Knuth, Bulletin of the American Mathematical Society, Volume 1, Number 2, 1979, pp. 337-372." url="https://projecteuclid.org/journalArticle/Download?urlId=bams%2F1183544082&isResultClick=False" />
-  <ReferenceItem id="9" text="25 Years of TeX and METAFONT: Looking Back and Looking Forward, Nelson Beebe (2003)" url="https://www.tug.org/TUGboat/Articles/tb25-1/beebe-2003keynote.pdf" />
-</ReferenceList>
+  <ReferenceItem id="1" text="Tesis: LaTeX and quality of university - comparing institutional use of Overleaf and university ranking,  Patrik Čihák (Charles University)" url="http://hdl.handle.net/20.500.11956/213342" />
+  <ReferenceItem id="2" text="Cloud-based LaTeX editors for collaborative academic projects, case study in Overleaf, Sánchez Egea et al" url="https://hdl.handle.net/2117/455461" />
+  <ReferenceItem id="3" text="Overleaf plans limits" url="https://docs.overleaf.com/getting-started/free-and-premium-plans/plan-limits" />
+  <ReferenceItem id="4" text="Days since the latest known new LaTeX editor website" url="https://ayaka-notes.github.io/days-since-last-latex-editor/" />
+  <ReferenceItem id="5" text="Vibecoded LaTeX Editors" url="https://github.com/ayaka-notes/ayakaleaf-pro/discussions/146" />
+  <ReferenceItem id="6" text="Other formats off \TeX." url="https://www.tug.org/begin.html" />
+</ReferenceList> 

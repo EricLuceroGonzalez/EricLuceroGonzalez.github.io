@@ -1,76 +1,238 @@
 ---
-slug: 'online-local'
+slug: 'latex-online-local'
 id: 'latex-004'
-date: "2026-05-20"
-order: 0
+date: "2026-11-20"
+order: 3
 author: "Eric Lucero"
-socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1768509748/elCronopio/Thumbnails/g39930_x2tfyv.png
-coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1767130507/elCronopio/Blog-posts/IMG_0048_xg2lgr.jpg
-coverImageAlt: 'Imagen de cover con el logo de TeX en su tipografía clásica, con un efecto hecho a mano.'
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259524/elCronopio/Blog-posts/overleaf-local_fjy03d.jpg
+coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259524/elCronopio/Blog-posts/overleaf-local_fjy03d.jpg
+coverImageAlt: 'Ilustración hecha a mano estilo crayón comparando los logotipos de Overleaf y TeX local.'
 title: "LaTeX, online o local: ¿Cuál es la mejor opción para escribir documentos científicos?"
 shortTitle: "LaTeX, online o local"
 entryType: "latex"
 excerpt: "LaTeX, online o local: ¿Cuál es la mejor opción para escribir documentos científicos?"
 doctype: ["latex"]
-categories: ["LaTeX","TeX"]
+categories: ["LaTeX","TeX","Overleaf"]
 keywords: ["blog","LaTeX","TeX","Knuth","latex","overleaf","editor","online","local","compilación","documentos científicos"]
-isPublic: false
+isPublic: true
 isFeatured: false        # solo UN post a la vez: el destacado del hero
 interactive: false       # muestra la etiqueta "Interactivo"
 topic: "latex"     # ia | algoritmos | datos | espacio | latex
 isTop: false
 ---
-
+¿Tienes prisa, o nunca has usado TeX? usa Overleaf. ¿Tesis o libro? ¿Programas? instala en local.
 ## Contenido
 
-# ¿Compilar en tu máquina o en la nube?
 
-Si vienes de leer la historia de Donald Knuth y la creación de TeX, seguramente ya te pican los dedos por escribir tu primer `\documentclass{article}`. Pero antes de escribir una sola línea de código, te enfrentas a la primera gran decisión de todo creador de documentos: __¿Dónde va a vivir el compilador de LaTeX?__
+## ¿Compilar en tu máquina o en la nube?
 
->Actualmente, existen dos formas principales de operar LaTeX. Ambas son válidas, pero responden a necesidades (y niveles de paranoia) muy diferentes.
+O bien necesitas editar un artículo científico o tu tesis, o vienes de leer la [historia de Donald Knuth](/latex/que-es-tex-2) y la [creación de $\TeX$](/latex/que-es-tex-1), seguramente ya te pican los dedos por escribir tu primer `\documentclass{article}`. Antes de escribir una sola línea de código, te enfrentas a la primera gran decisión de todo creador de documentos: __¿Dónde y cómo compilar los documentos de $\TeX$ para producir un PDF?__
+
+
+>Actualmente, existen dos formas principales de operar documentos $\TeX$. Ambas son válidas, pero responden a necesidades muy diferentes:
 >**La instalación local o el uso de compiladores online**. 
 
-En esta entrada, vamos a comparar ambos enfoques para ayudarte a decidir cuál es el mejor para ti.
+### Primero: no olvidar que es un sistema de composición tipográfica
 
-## 1. La Vía Tradicional: Instalación Local
+Ya sea en local o en la nube (Overleaf, etc), quien compila e interpreta nuestro código escrito usando el formato $\TeX$ y lo convierte en un PDF es un sistema de composición tipográfica o sistema de producción de documentos. Este sistema es un programa o un conjunto de programas binarios que una vez instalados en memoria compilan un documento `.tex` y nos dan una salida deseada (un PDF o cualquier otro formato). Este software es una **distribución** que entiende software en formato Plain $\TeX$ (o $\LaTeX$, OpTeX, ConTeXt, etc) y lo compila mediante un motor (pdfTeX, XeTeX, LuaTeX, etc)  y es la parte fundamental de todo el proceso de composición, por lo tanto nuestros documentos siempre serán compilados por estas distribuciones y motores, ya sea local u online.
 
-Instalar LaTeX en tu propio ordenador significa descargar una distribución (los motores de compilación, las fuentes y los miles de paquetes disponibles) y un editor de texto. Es la forma en la que los puristas y los profesionales operan.
+![caption=Sea que lo instales en tu ordenador, o que compiles documentos tex en Overleaf, en el fondo la compilación de `.tex` a `.pdf` la hace una distribución.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259523/elCronopio/Blog-posts/motor-latex_kkgmis.jpg)
 
-**Ventajas absolutas:**
+## El compilador online más conocido: Overleaf
+
+Desde sus inicios en los años 80, $\TeX$ fue usado generalmente por personas del campo de la computación de modo local. Recordemos: el sistema $\TeX$ precede a Word (1983), al Macintosh (1984), a Windows (1985) y al PDF (1993), y casi a las computadoras mismas. Durante los años 90 y con el surgimiento de los procesadores de texto (como Word) el mundo académico se empezó a fijar en sistemas gratuitos y de calidad (ya se usaba $\TeX$ como un estándar dentro de las editoriales científicas), de ahí surgen independientemente (creo) Overleaf y ShareLaTeX a principios de la década de 2010. Personalmente a ShareLaTeX le debo mucho, y recuerdo con nostalgia mis primeros pasos en $\LaTeX$ ya que, en un mundo previo a Google o a los LLM, fue la puerta de entrada para mí en el aprendizaje de $\LaTeX$.
+
+![caption=En 2017 ShareLaTeX es fusionada con Overleaf y empieza a desaparecer la comunidad. Pero ese es otro tema.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795099975/elCronopio/Blog-posts/overleaf-sharelatex_wdd9bu.png)
+
+> Actualmente Overleaf es quizás el compilador en línea más usado en el mundo. Y, sin duda, la forma más fácil de usar $\TeX$ (o $\LaTeX$).
+
+Overleaf es un editor  de $\LaTeX$, online y colaborativo, que visualiza cambios en tiempo real, de código abierto (una parte) que funciona en una [versión online](https://www.overleaf.com/). También tiene su opción de código abierto y ofrece algunas opciones para ejecutar el servicio en local desde su [repositorio de GitHub](https://github.com/overleaf/overleaf) y utilizarlo a través de su plataforma llamada [Community Edition](https://docs.overleaf.com/on-premises/welcome/server-pro-vs.-community-edition) junto con servicios Docker.
+
+A pesar de ser el más utilizado, es _freemium_: gratis para empezar, de pago en cuanto el proyecto crece y aquí es donde Overleaf deja de ser una opción para la mayoría de personas que necesitan un sistema de composición y escritura de calidad. Si bien existe un plan gratuito de Overleaf, las limitaciones llegan por múltiples rutas: cuando el documento crece (un libro, una tesis, etc.), cuando varias personas necesitan contribuir en el documento (un paper, una revista, un libro con múltiples autores, etc.) o simplemente el tiempo necesario para que el `.tex` genere un PDF se pasa del tiempo disponible en la plataforma, que suele ser de 10 segundos en el plan gratuito.
+
+Hay entradas de blogs, preguntas en Reddit y Stack Overflow e incluso estudios académicos (papers, tesis) que evalúan y comparan estos dos sistemas (que en realidad es uno, lo diferente son las formas de trabajar con ellos). Hay tesis que estudian la correlación entre el ranking de universidades y la adopción institucional de Overleaf, indicando una asociación positiva sólida del 35 % entre las suscripciones institucionales a Overleaf y las puntuaciones en las clasificaciones universitarias<CitationSup id="1"/>.
+
+Hay un artículo que compara Word con Overleaf para evaluar la tasa de adopción de Overleaf y determinar su impacto en el tiempo necesario para dar formato a sus documentos técnicos, con un (algo pequeño) grupo de 21 estudiantes que usaron ambos sistemas durante un tiempo, estos estudiantes evaluaron la plataforma online luego de meses de uso y el resultado, según el estudio, es que Overleaf supera a Word para la revisión colaborativa de documentos, la eficiencia en el formato, el tiempo de espera y el tiempo de adopción<CitationSup id="2"/>.
+
+Usualmente uno puede crear una cuenta y empezar a compilar documentos inmediatamente, de hecho es la mejor forma de probar el sistema $\TeX$ compilando cualquier documento básico y viendo su salida en PDF. Overleaf es sin duda la mejor opción para cuando es necesario redactar un solo documento y más nunca volver a usar $\TeX$, más aún cuando hay una coautoría, y nadie sabe ni quiere usar el sistema Git, ni instalar varios GB para un único documento. 
+
+Veamos los costos mensuales de los distintos planes que tiene Overleaf para sus usuarios:
+
+<DataGrid>
+  <DataCard value="31€" label={["Pro", "Uso de IA máximo", "Colaboradores ilimitados", "Tiempo de compilación de 240 segundos", "Control de versiones"]} duration="500"/>
+  <DataCard value="15€" label={["Standard","Uso de IA", "10 colaboradores por proyecto", "Tiempo de compilación de 240 segundos", "Control de versiones"]} duration="500"/>
+  <DataCard value="11€" label={["Para estudiantes", "Uso de IA básico", "1 colaborador por proyecto", "Tiempo de compilación de 240 segundos", "Control de versiones"]} duration="500"/>
+  <DataCard value="?" label={["Para organizaciones", "Academia, Instituciones, Editoriales, Empresas", "Más barato por persona", "Autenticación SSO","Otras opciones"]} duration="500"/>
+  <DataCard value="0€" label={["Gratuito", "Uso de IA básico", "1 colaborador por proyecto", "Tiempo de compilación de 10 segundos"]} duration="500"/>
+</DataGrid>
+
+Sin duda, la mayoría de usuarios utilizan el plan gratuito o de estudiante, sin embargo __la limitante es el tiempo de compilación__, ya que es muy poco para documentos, relativamente grandes como una tesis o un libro<CitationSup id ="3"/>. Si no eres un usuario casual, que sólo necesita compilar un solo documento en la vida, la mejor forma de aprovechar Overleaf es si tu institución tiene contratado un plan que te permita llevar a cabo tareas un poco más extensas para poder compilar a tiempo. De lo contrario, quizás te convenga instalar una distribución $\TeX$ y tener todo en nuestras manos. [Puedes verificar si tu institución contrata los servicios de Overleaf dando clic aquí](https://www.overleaf.com/for/institutions-using-overleaf).
+
+La siguiente tabla muestra la diferencia entre el plan gratuito y los planes de pago en Overleaf:
+| Característica / Límite | Plan gratuito | Planes de pago (Premium) |
+| :--- | :---: | :---: |
+| **Tiempo máximo de compilación** | 10 segundos | 240 segundos |
+| **Número máximo de archivos por proyecto** | 2.000 | 2.000 |
+| **Tamaño máximo de material editable por proyecto** | 7 MB | 7 MB |
+| **Tamaño máximo de un archivo de texto editable individual** | 2 MB | 2 MB |
+| **Tamaño máximo de subida por archivo individual** | 50 MB | 50 MB |
+| **Tamaño máximo del proyecto** | Ilimitado | Ilimitado |
+| **Número máximo de proyectos** | Ilimitado | Ilimitado |
+| **Cuota diaria de IA** | Básica (sin asistente) | Depende del plan |
+
+En la última década, plataformas como **Overleaf** han popularizado $\LaTeX$, fuera del entorno académico matemático, llevándolo al navegador. Básicamente, te prestan un ordenador que ya tiene $\LaTeX$ perfectamente configurado para que tú solo te preocupes por escribir. 
+
+>Con los LLMs y el _vibecoding_ también han surgido innumerables (casi todas las semanas) editores en línea, algo así como pseudo-competidores de Overleaf, de hecho hay una comunidad que lleva un registro de días desde que salió el último editor de $\LaTeX$ <CitationSup id="4"/>, *hasta la fecha de escritura de esta entrada van unos 126 editores*. Aquí puedes ver otra lista de editores <CitationSup id="5"/>.
+
+### Ventajas absolutas
+* **Cero fricción:** Te registras, abres un documento y empiezas a teclear. Sin instalaciones de 8 GB ni configuraciones de rutas del sistema, aunque sujeto a límites de tamaño y tiempo.
+* **Colaboración en tiempo real:** Es el "Google Docs" de $\LaTeX$. Varios autores pueden editar el mismo documento simultáneamente y dejar comentarios.
+* **Portabilidad total:** Puedes editar tu tesis desde el ordenador de la biblioteca, tu iPad o el portátil del trabajo.
+* **Control de versiones integrado:** Llevan un registro automático de los cambios, lo que te salva la vida si borras un párrafo por error (completo solo en los planes de pago).
+
+### Desventajas (no menos que las de $\TeX$)
+* Las cuentas gratuitas tienen límites estrictos de tiempo de compilación (suele ser 10 segundos). Si tu documento es muy complejo o tu bibliografía muy extensa, la compilación fallará por "Time Out" y te pedirán que pagues la versión Premium.
+* Requieres conexión a Internet permanente.
+
+### Probemos el Overleaf
+
+Cuando abres por primera vez una cuenta gratuita en Overleaf, la experiencia es rápida. En segundos (lo que tome crear una cuenta) puedes compilar documentos `.tex` sin necesidad ni preocupación de instalar ningún paquete, en los ordenadores de Overleaf seguro tendrán todo lo que necesitas. Creas un proyecto en blanco, pegas un documento básico y, en apenas un segundo y medio, tienes un PDF al otro lado de la pantalla.
+Para comprobarlo, y para que tengas una plantilla base lista si nunca has tocado $\LaTeX$, prueba a compilar [este pequeño documento autocontenido](https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fericlucero.dev%2Flatex%2Fhello-world%2Fhello-world.tex&engine=pdflatex&snip_name=Hello%20de%20world%20Overleaf) que reúne los ingredientes esenciales de cualquier artículo (secciones, ecuaciones, texto simulado, una figura y referencias):
+
+<TexShowcase
+  texSource="/latex/hello-world/hello-world.tex"
+  compiledPdf="/latex/hello-world/hello-world.pdf"
+  title="hello-world.tex"
+/>
+
+Este ejemplo compila en un parpadeo porque el trabajo que le pedimos al motor tipográfico es trivial: una sola página, cero cálculos vectoriales complejos y una única pasada rápida. En este escenario, los 10 segundos de tiempo límite que impone el plan gratuito de Overleaf parecen más que suficientes.
+Sin embargo, los documentos reales rara vez se quedan en una página. A medida que avanza una tesis doctoral, un libro técnico o un informe cargado de gráficas generadas por código, la carga computacional crece de forma exponencial: aparecen índices que obligan a compilar dos o tres veces seguidas, bibliografías extensas y figuras vectoriales que el procesador debe calcular desde cero en cada ejecución.
+Para ver exactamente dónde se rompe esa comodidad inicial, [vamos a someter a Overleaf](/latex/latex-online-local#llevar-overleaf-al-límite) a una prueba de estrés: un documento de varias decenas de capítulos con texto masivo y gráficas matemáticas renderizadas dinámicamente en cada página. 
+
+## Instalación Local de $\TeX$
+
+Prescindir de Overleaf y empezar a gestionar el sistema por nuestra cuenta tiene muchas ventajas, empezando que no tenemos ningún límite de tiempo ni de tamaño para compilar nuestros documentos. Además, __siempre ha sido y será gratis__. 
+
+Instalar $\LaTeX$ en tu propio ordenador significa incorporar todas las partes del sistema $\TeX$ para poder compilar y generar nuestros documentos (los que queramos, sin límite de cantidad ni volumen), principalmente la distribución y el editor. Con esto anterior, me refiero a incorporar todo un sistema (parte por parte) que nos permita usar todos los niveles requeridos para usar el sistema $\TeX$, esas partes son:  
+  - **Instalar una distribución**. Eso es lo único imprescindible, y lo más importante, ya que contiene los motores de compilación, las fuentes y paquetes básicos para que ocurra la magia. Las más conocidas son _TeX Live, MacTeX y MiKTeX._
+  - **Instalar editor de texto**. Aquí es donde vas a escribir, editar y formatear. Puedes compilar con el motor de $\TeX$ en la terminal (no recomendado al principio) o usar un editor como TeXStudio (el más usado localmente), _VS Code_ (el que uso yo), Vim, TeXworks, TeXShop, GNU Emacs, etc.
+  - Elegir un formato de macros. Ya viene con la distribución, Knuth originalmente desarrolló el paquete de macros _Plain TeX_, sin embargo el más utilizado es $\LaTeX$ <CitationSup id="6"/>.
+  - Un administrador de paquetes. Ya viene con la distribución instalada, es el que se encarga de administrar los paquetes (librerías) que instalamos, y comunica nuestro documento con la información que contienen estos paquetes.
+
+### Ventajas
 * **Privacidad y Control:** Tus documentos (y tus datos de investigación no publicados) no salen de tu disco duro.
 * **Cero dependencias:** No necesitas conexión a Internet. Puedes compilar tu tesis en un refugio de montaña.
 * **Velocidad sin límites:** No hay "tiempos máximos de compilación" impuestos por un servidor ajeno. Si tu documento tiene 200 gráficos en TikZ de alta resolución, tu procesador se encargará de sudar la gota gorda hasta terminar.
 * **Ecosistema de Hackers:** Puedes integrar la compilación con herramientas de terminal como `latexmk`, scripts de Python, o usar editores hiper-personalizados como VS Code, Vim o Emacs.
 
-**La cara oscura:**
+### Las pocas desventajas (si se les puede llamar así):
 * Las instalaciones completas son pesadas (pueden ocupar entre 4 GB y 8 GB de tu disco duro).
-* Configurar el entorno por primera vez y mantener los paquetes actualizados requiere perderle el miedo a la consola.
+* Configurar el entorno por primera vez y mantener los paquetes actualizados requiere perderle el miedo a la consola. Hay cantidad ilimitada de tutoriales y material de apoyo de la comunidad.
+* Hay que aprender a solucionar los errores. Para esto hay muchas preguntas en stack overflow.
 
-## 2. La Vía Moderna: Compiladores Online (La Nube)
+## Mi recomendación
 
-En la última década, plataformas como **Overleaf** han democratizado LaTeX llevándolo al navegador. Básicamente, te prestan un ordenador que ya tiene LaTeX perfectamente configurado para que tú solo te preocupes por escribir.
+Si estás empezando o trabajas en un *paper* colaborativo y no tiene muchas imágenes, y su compilación es liviana y se puede hacer en una cuenta gratuita o institucional, usa la nube (Overleaf), sobre todo si vas a usar este sistema una única vez. 
 
-**Ventajas absolutas:**
-* **Cero fricción:** Te registras, abres un documento y empiezas a teclear. Sin instalaciones de 8 GB ni configuraciones de rutas del sistema.
-* **Colaboración en tiempo real:** Es el "Google Docs" de LaTeX. Varios autores pueden editar el mismo documento simultáneamente y dejar comentarios.
-* **Portabilidad total:** Puedes editar tu tesis desde el ordenador de la biblioteca, tu iPad o el portátil del trabajo.
-* **Control de versiones integrado:** Llevan un registro automático de los cambios, lo que te salva la vida si borras un párrafo por error.
+Si estás escribiendo un libro, una tesis doctoral, o simplemente valoras tu soberanía digital, instala $\LaTeX$ en local.
+Si eres experto y quieres prestar un servicio online (crear tu propio Overleaf) usa Docker con la imagen de TeX Live, o Overleaf Community Edition en tu propio servidor.
 
-**La cara oscura:**
-* Las cuentas gratuitas tienen límites estrictos de tiempo de compilación (suele ser 1 minuto). Si tu documento es muy complejo o tu bibliografía muy extensa, la compilación fallará por "Time Out" y te pedirán que pagues la versión Premium.
-* Requieres conexión a Internet permanente.
+La siguiente tabla muestra una breve comparación que he podido hacer entre estas dos formas de usar $\TeX$, de la cual resalto, que depende de las necesidades de cada quien, me ciño al párrafo anterior.
 
-**El veredicto del Diablo:** Si estás empezando o trabajas en un *paper* colaborativo, usa la nube (Overleaf). Si estás escribiendo un libro, una tesis doctoral pesada, o simplemente valoras tu soberanía digital, instala LaTeX en local.
+| Dimensión | Overleaf | Local |
+| :--- | :--- | :--- |
+|  **Tiempo de compilación** | Limitado por cuota de CPU compartida, el plan gratuito deja de compilar tras 10 segundos | Ilimitado. Se usa el 100% de la capacidad de RAM y CPU. |
+|  **Colaboración** | Edición simultánea tipo Google Docs y comentarios en línea | Asíncrona mediante Git. |
+|  **Disponibilidad** | Siempre y cuando no pierdas conexión a internet, acceso a tu cuenta y los servidores de Overleaf no se caigan. En un tren o un avión, no podrías trabajar. | Totalmente offline. Siempre disponible en tu disco o en tu repositorio de GitHub. |
+|  **Control de versiones** | Historial visual básico (en plan gratuito solo últimas 24 horas).| Git nativo completo. Puedes crear un repo en cada proyecto o folder y desde ahí registrar cada cambio que hagas. |
+| **Administración de paquetes** | Tu compilación nunca va a fallar porque no tengas instalado o configurado un paquete estándar. | Puede que enfrentes tu primer problema al tener que instalar un paquete sin saber dónde se guardan. |
+|  **Automatización** | Casi nulo. No permite crear scripts personalizados. | Puedes automatizar todo. Hacer `Makefile`, `.latexmkrc`, dotfiles, scripts en python, bash, etc. |
+|  **Escalabilidad** | Depende del plan. Si es individual el techo es muy bajo. | Sin límites. Puedes crear los proyectos que quieras, con la extensión y tamaño que desees. Al tener un repo, literalmente cualquier persona con internet podría colaborar.  |
+|  **Privacidad** | Alojas la información en servidores de terceros. Si es confidencial, ni lo consideres. | 100% offline y privado en tu disco (clave para datos sensibles o NDAs).  |
+|  **Curva de aprendizaje** | Nula (cero instalación). Excepto los comandos esenciales que resulta igual de difícil que en local, salvo la resolución de errores de compilación. | Media-alta la primera vez (instalar distribución + configurar editor). Aprender comandos esenciales es relativamente intuitivo. Puede ser retador si aparecen errores de compilación. |
+| **Integraciones**|Git and GitHub, Dropbox, ReadCube, Zotero, Mendeley (planes de pago).| Git and GitHub, Dropbox, ReadCube, Zotero, Mendeley, iCloud y más.
+
+## Llevar Overleaf al límite
+Ponemos a prueba la capacidad de una cuenta de Overleaf a través de dos experimentos que multiplican el coste computacional del compilador `pdflatex` de la plataforma combinando tres factores que disparan el tiempo de compilación:
+  1. Volumen de texto masivo: Bucle con `pgffor` + `lipsum` para generar más de 200 páginas de texto estructurado con encabezados y pies de página dinámicos (__Experimento 1__)
+  2. Doble pasada obligatoria: Incluir `\tableofcontents` y referencias cruzadas (`\label` / `\ref`) para forzar a `pdflatex` a ejecutar el compilador al menos dos o tres veces seguidas dentro del mismo límite de tiempo (__Experimento 1__)
+  3. Cálculo vectorial repetitivo: Incrustar dentro de cada iteración una gráfica matemática con `pgfplots` (muestreo de funciones trigonométricas o curvas) o mallas de `tikz` que obliguen al motor a calcular miles de coordenadas en cada pasada (__Experimento 2__)
+
+### Experimento 1: Bucles de compilación
+
+Generamos un documento que incluye un índice con `\tableofcontents` y `\maketitle`, esto asegura que se compile al menos dos veces, además generamos unos 50 capítulos compuestos de ocho párrafos y una figura generada con el paquete Tikz, con gran cantidad de puntos de muestreo para exigir el CPU. Cada capítulo tiene unas tres páginas, generando en todo el documentos unos 205 páginas de PDF. Esto es __una tarea imposible para el Overleaf básico__ ya que el tiempo y la cantidad de cálculos en la compilación sobrepasa los límites de overleaf. Sorprende cómo $\TeX$ es tan eficiente para mantener el tamaño del documento generado relativamente pequeño.
+
+<TexShowcase
+  texSource="/latex/overleaf-overcharge/overleaf-overcharge.tex"
+  compiledPdf="/latex/overleaf-overcharge/overleaf-overcharge.pdf"
+  title="overleaf-overcharge.tex"
+/>
+
+Al compilar este documento localmente todo se completa en unos segundos de ejecución, generando un PDF de unas 200 páginas con unas 50 gráficas. [Pruébalo en Overleaf.](https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fericlucero.dev%2Flatex%2Foverleaf-overcharge%2Foverleaf-overcharge.tex&engine=pdflatex&snip_name=Prueba%20de%20esfuerzo%20Overleaf)
+
+### Experimento 2: Conjunto de Mandelbrot
+Para ver el límite de tiempo en acción veamos este otro documento que no sirve para nada útil,
+pero que hace trabajar al compilador: dibuja el **conjunto de Mandelbrot** píxel a
+píxel con la librería `TikZ`. Cada píxel exige hasta 30 multiplicaciones de números complejos, y $\TeX$ las hace con macros, sin ayuda de ningún programa externo. Al final del PDF aparece cuánto tardó en compilar.
+
+<TexShowcase
+  texSource="/latex/Mandelbrot/Mandelbrot.tex"
+  compiledPdf="/latex/Mandelbrot/Mandelbrot.pdf"
+  title="Mandelbrot.tex"
+/>
+
+[Ábrelo en Overleaf](https://www.overleaf.com/docs?snip_uri=https%3A%2F%2Fericlucero.dev%2Flatex%2FMandelbrot%2FMandelbrot.tex&engine=pdflatex&snip_name=Prueba%20de%20esfuerzo%20Overleaf) y cambia `\resolucion` (línea 23) para encontrar el límite de tu plan:
+
+| Resolución | En ordenador | Plan gratuito (10 s) | De pago (240 s) |
+| :---: | :---: | :---: | :---: |
+| 20 | ~2 s | ✅ | ✅ |
+| 30 | ~5s | ✅ | ✅ |
+| 40 | ~9 s | ✅ | ✅ |
+| 60 | ~21 s | ❌ | ✅ |
+| 100 | ~56 s | ❌ | ✅ |
+| 200 | ~270 s | ❌ | ❌ |
+
+En local, la misma compilación no tiene techo: si tarda 4 minutos, tarda 4 minutos, pero termina.
+
+## Extra: Otros compiladores online
+
+Overleaf no es la única opción en la nube, pero casi todas las alternativas web caen en uno de dos grupos:
+- Editores en servidor (con IA o colaboración): Resuelven la redacción rápida o el autocompletado de ecuaciones, pero siguen heredando límites de tiempo de CPU o tamaño de proyecto en sus planes gratuitos. 
+- Compiladores en navegador (WebAssembly): Evitan los timeouts de servidor ejecutando TeX en tu propia pestaña, pero descargan decenas de megabytes de paquetes cada vez que limpias la caché y siguen sin integrarse con tu flujo real de Git, scripts en Python o librerías locales texmf.
+
+>Con el vibecoding han surgido en los últimos años muchas otras alternativas, y seguirán apareciendo más, algunas gratuitas. Sin lugar a duda no recomiendo usar ninguno de la nueva ola. 
+
+Aquí una breve lista de algunos:
+### Clásicos y Minimalistas de Servidor (Pre-IA)
+- [LaTeX Previewer (tlhiv)](https://www.tlhiv.org/ltxpreview/): Uno de los compiladores web más veteranos y directos (mantenido por Troy Henderson). Sin registro ni proyectos; pegas un fragmento o documento corto, eliges el motor (pdflatex, xelatex, lualatex, latex+dvips+ps2pdf) y te devuelve el PDF o imagen al instante. Ideal para probar snippets rápidos.
+- [Papeeria](https://papeeria.com): La alternativa clásica más directa a Overleaf en arquitectura tradicional (editor colaborativo en la nube con proyectos multiarchivo, plantillas y sincronización con Git/Google Drive). Su plan gratuito suele tener límites distintos en proyectos privados frente a Overleaf.
+- [TeXPage](https://www.texpage.com): Editor colaborativo en la nube enfocado en escritura académica, con soporte para compilación rápida en servidor, historial de versiones, comentarios y plantillas científicas. 
+
+### Nueva ola con IA integrada
+En los últimos años han surgido múltiples editores que buscan ser el "Cursor para $\LaTeX$", integrando autocompletado, generación de ecuaciones/tablas y revisión de redacción con LLMs. Muchos son proyectos individuales recién creados sin garantías de continuidad a largo plazo, ni seguridad -si mañana cierran el servidor, pierdes el entorno-, aunque vale la pena conocer qué están explorando:
+- [Octree](https://www.useoctree.com): Editor moderno de $\LaTeX$ con asistente de IA integrado para generar código TikZ, ecuaciones, tablas y refactorizar texto académico, con compilación en vivo y exportación a PDF.
+- [Murfy AI](https://www.murfy.ai/en): Plataforma de escritura académica asistida por IA que combina edición en $\LaTeX$ con herramientas para generar borradores, corregir estilo científico y compilar en la nube.
+- [LoongTeX](https://www.loongtex.com/en/): Editor colaborativo en línea con foco en investigación científica e integración de IA para redacción y generación de fórmulas.
+- [OpenAI Prism](https://prism.openai.com): Proyecto/entorno experimental de OpenAI orientado a la escritura científica y edición asistida por modelos de lenguaje.
+- [TypeTex](https://www.typetex.app): Editor web ligero y moderno para $\LaTeX$ con interfaz limpia, vista previa en tiempo real y ayudas de escritura rápida.
+- [Typevia](https://www.typevia.com): Editor en línea orientado a la redacción estructurada y exportación rápida a PDF mediante $\LaTeX$ en la nube.
+- [TeXPal](https://texpal.app.space): Herramienta web enfocada en asistir la escritura y generación de código $\LaTeX$ de forma ágil.
+- [Letx](https://letx.app): Editor web minimalista de $\LaTeX$ con desarrollo iterativo rápido.
+- [Lyra Editor](https://www.lyraeditor.com): Editor moderno orientado a documentos técnicos y científicos con interfaz minimalista y soporte para flujo de trabajo en $\LaTeX$.
+
+
+### Compilación en el navegador (WASM / Client-Side) y Proyectos Indie
+- [TeXpile](https://texpile.com): Compilador de $\LaTeX$ basado en navegador/nube ligero pensado para compilar rápido sin configuraciones pesadas.
+- [GlyphTeX](https://glyphtex.nexonauts.com): Editor web indie enfocado en edición rápida y previsualización limpia de documentos $\LaTeX$.
+- [TeX (SwimmingBrain)](https://tex.swimmingbrain.dev): Entorno web experimental/indie desarrollado por un creador independiente para compilar y previsualizar código $\TeX$ directamente desde el navegador.
+- [TeXmate](https://texmate.es): Plataforma en español orientada a facilitar la edición y compilación de documentos $\LaTeX$ en línea sin instalación previa.
 
 ## Referencias
 <ReferenceList>
-  <ReferenceItem id="1" text="Monotype System" url="https://en.wikipedia.org/wiki/Monotype_system" />
-  <ReferenceItem id="2" text="Conferencia del Premio Kyoto de Donald Knuth (1996)" url="https://www.kyotoprize.org/en/lectures/the-1996-kyoto-prize/" />
-  <ReferenceItem id="3" text="The Computer Scientist Who Cant Stop Telling Stories" url="https://www.quantamagazine.org/computer-scientist-donald-knuth-cant-stop-telling-stories-20200416/" />
-  <ReferenceItem id="4" text="Xerox Graphics Printer (XGP)" url="https://gunkies.org/wiki/Xerox_Graphics_Printer" />
-  <ReferenceItem id="5" text="Artificial Intelligence, Patrick H. Winston (1977)" url="https://en.wikipedia.org/wiki/Artificial_Intelligence_(book)" />
-  <ReferenceItem id="6" text="An Interview with Donald Knuth 1974 ACM Turing Award Recipient (2007)" url="https://amturing.acm.org/pdf/KnuthTuringTranscript.pdf" />
-  <ReferenceItem id="7" text="METAFONT en Wikipedia" url="https://en.wikipedia.org/wiki/Metafont" />
-  <ReferenceItem id="8" text="Mathematical Typography, D. E. Knuth, Bulletin of the American Mathematical Society, Volume 1, Number 2, 1979, pp. 337-372." url="https://projecteuclid.org/journalArticle/Download?urlId=bams%2F1183544082&isResultClick=False" />
-  <ReferenceItem id="9" text="25 Years of TeX and METAFONT: Looking Back and Looking Forward, Nelson Beebe (2003)" url="https://www.tug.org/TUGboat/Articles/tb25-1/beebe-2003keynote.pdf" />
-</ReferenceList>
+  <ReferenceItem id="1" text="Tesis: LaTeX and quality of university - comparing institutional use of Overleaf and university ranking,  Patrik Čihák (Charles University)" url="http://hdl.handle.net/20.500.11956/213342" />
+  <ReferenceItem id="2" text="Cloud-based LaTeX editors for collaborative academic projects, case study in Overleaf, Sánchez Egea et al" url="https://hdl.handle.net/2117/455461" />
+  <ReferenceItem id="3" text="Límites de los planes de Overleaf" url="https://docs.overleaf.com/getting-started/free-and-premium-plans/plan-limits" />
+  <ReferenceItem id="4" text="Days since the latest known new LaTeX editor website" url="https://ayaka-notes.github.io/days-since-last-latex-editor/" />
+  <ReferenceItem id="5" text="Editores de Latex vibecodeados" url="https://github.com/ayaka-notes/ayakaleaf-pro/discussions/146" />
+  <ReferenceItem id="6" text="Otros formatos de $\TeX$." url="https://www.tug.org/begin.html" />
+</ReferenceList> 
