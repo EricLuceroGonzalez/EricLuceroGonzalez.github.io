@@ -42,7 +42,8 @@ const IconWrapper = styled(motion.div)`
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  // resolvedTheme es el tema que se ve; theme puede valer "system"
+  const { resolvedTheme, setTheme } = useTheme();
   const t = useTranslations("Navigation");
 
   useEffect(() => {
@@ -52,7 +53,7 @@ const ThemeSwitcher = () => {
   if (!mounted) {
     return <SwitchContainer aria-hidden="true" style={{ opacity: 0 }} />;
   }
-  const isDark = theme === "dark";
+  const isDark = resolvedTheme === "dark";
 
   return (
     <SwitchContainer

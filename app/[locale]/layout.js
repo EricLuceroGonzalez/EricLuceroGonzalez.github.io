@@ -15,6 +15,7 @@ import { Analytics } from "@vercel/analytics/next";
 import nextDynamic from "next/dynamic";
 import SkipLink from "../components/SkipLink";
 import PageViewTracker from "../components/PageViewTracker";
+import { THEME_COLORS } from "../lib/themeColors";
 // import ViewportSize from "../components/viewPortViewer";
 // import ArtemisBanner from "../components/ArtemisBanner";
 
@@ -77,10 +78,12 @@ const NaviBar = nextDynamic(
 export function generateStaticParams() {
   return [{ locale: "es" }, { locale: "en" }];
 }
+// Primera carga: color según el tema del sistema. Si el visitante eligió otro tema
+// con el botón, ThemeColorSync (en Providers) lo corrige al hidratar.
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0077FF" }, // Blanco o gris claro
-    { media: "(prefers-color-scheme: dark)", color: "#FF3366" }, // Negro o tu gris oscuro
+    { media: "(prefers-color-scheme: light)", color: THEME_COLORS.light },
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLORS.dark },
   ],
 };
 
