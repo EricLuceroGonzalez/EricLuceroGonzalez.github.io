@@ -1,11 +1,11 @@
 ---
-## slug: 'latex-online-local'
+slug: 'latex-online-local'
 id: 'latex-004'
 date: "2026-11-21"
 order: 3
 author: "Eric Lucero"
-socialThumbnail: 
-coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795265281/elCronopio/Thumbnails/online-or-local_oq7ogc.png
+socialThumbnail: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795265282/elCronopio/Thumbnails/online-o-local_t6y97v.png
+coverImage: https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259524/elCronopio/Blog-posts/overleaf-local_fjy03d.jpg
 coverImageAlt: 'Hand-drawn crayon-style illustration comparing the Overleaf and local TeX logos.'
 title: "LaTeX, Online or Local: Which Is the Best Choice for Writing Scientific Documents?"
 shortTitle: "LaTeX, Online or Local"
@@ -39,6 +39,66 @@ Whether you're editing a scientific paper or your dissertation, or you just fini
 Whether you run it locally or in the cloud (Overleaf, etc.), whatever parses and compiles your $\TeX$-formatted source code into a PDF is a typesetting or document-production system. Under the hood, this system is a binary program—or a suite of binaries—that, once loaded into memory, compiles a `.tex` file and outputs your desired target (a PDF or another format). This software is a **distribution** capable of understanding Plain $\TeX$ (or $\LaTeX$, OpTeX, ConTeXt, and so on) and compiling it through an engine (pdfTeX, XeTeX, LuaTeX, etc.). That engine-and-distribution stack is the core of the entire typesetting pipeline—meaning your documents are always compiled by these exact same distributions and engines, whether locally or online.
 
 ![caption=Whether you install it on your computer or compile TeX documents in Overleaf, the actual compilation from `.tex` to `.pdf` is performed by a distribution.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259523/elCronopio/Blog-posts/motor-latex_kkgmis.jpg)
+
+To understand why one document takes longer than another, it helps to see what happens between clicking "Compile" and getting the PDF. You write a `.tex` file, which is plain text with commands. That file is processed by a **distribution**, and it makes no difference whether it lives on your computer or on an Overleaf server: it is the same software. Inside it, the **engine** (pdfTeX, XeTeX or LuaTeX) places every letter on the page; before that, it loads a **format** such as $\LaTeX$, which teaches it what `\section` means, plus any **packages** you request with `\usepackage`. What explains almost every timing problem is the loop: on the first pass the engine does not yet know which page each chapter will end up on, so it records that in auxiliary files (`.aux`, `.toc`), and an orchestrator such as `latexmk` compiles again until the numbers stop changing. A table of contents, cross-references or a bibliography mean two, three or four passes, and on Overleaf every one of them counts against the same time limit.
+
+```mermaid
+---
+config:
+  layout: dagre
+  look: classic
+  theme: base
+  themeVariables:
+    fontSize: "15px"
+    lineColor: "#7A8699"
+    edgeLabelBackground: "#FFFFFF"
+  flowchart:
+    nodeSpacing: 30
+    rankSpacing: 45
+---
+flowchart TD
+    %% 1. You write: the same .tex works in both places
+    A(["✍️ You write <b>document.tex</b><br/>text + commands like \section"])
+    A --> L["💻 <b>On your computer</b><br/>VS Code, TeXstudio…<br/><i>no time limit</i>"]
+    A --> O["☁️ <b>On Overleaf</b><br/>their servers compile<br/><i>limit: 10 s free · 240 s paid</i>"]
+
+    %% 2. The distribution does the work, wherever it runs
+    subgraph DIST [" "]
+        direction TB
+        DIS["📦 <b>TeX distribution</b><br/>TeX Live · MacTeX · MiKTeX<br/><i>the same in both cases</i>"]
+        ORQ["⚙️ <b>Orchestrator</b> · latexmk<br/>decides how many passes are needed"]
+        FMT["📐 <b>Format</b><br/>LaTeX · ConTeXt · Plain TeX<br/>what \section means"]
+        PKG["📚 <b>Packages and fonts</b><br/>tikz, amsmath, babel…"]
+        MOT["🔧 <b>Engine</b><br/>pdfTeX · XeTeX · LuaTeX<br/>places every letter on the page"]
+        AUX[("🗂️ <b>Auxiliary files</b><br/>contents, references, citations<br/>.aux · .toc · .bbl")]
+
+        DIS --> ORQ
+        ORQ -->|"one pass"| MOT
+        FMT --> MOT
+        PKG --> MOT
+        MOT -->|"records page numbers"| AUX
+        AUX -.->|"anything changed? another pass"| ORQ
+    end
+
+    L --> DIS
+    O --> DIS
+    MOT ==>|"final pass"| PDF(["📄 <b>document.pdf</b>"])
+
+    %% Styles: readable on light and dark backgrounds
+    classDef autor   fill:#FFF8E1,stroke:#F9A825,stroke-width:1.5px,color:#3E2723;
+    classDef lugar   fill:#E3F2FD,stroke:#1565C0,stroke-width:1.5px,color:#0D2A4F;
+    classDef distro  fill:#ECEFF1,stroke:#455A64,stroke-width:2px,color:#1F2937;
+    classDef nucleo  fill:#FFF3E0,stroke:#EF6C00,stroke-width:1.5px,color:#4E2600;
+    classDef recurso fill:#F3E5F5,stroke:#7B1FA2,stroke-width:1.5px,color:#311B3F;
+    classDef salida  fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B3D1F;
+    class A autor;
+    class L,O lugar;
+    class DIS distro;
+    class ORQ,MOT nucleo;
+    class FMT,PKG,AUX recurso;
+    class PDF salida;
+    style DIST fill:#F7F9FC,stroke:#7A8699,stroke-width:2px,stroke-dasharray:6 4,color:#1F2937;
+```
 
 ## The Most Popular Online Compiler: Overleaf
 

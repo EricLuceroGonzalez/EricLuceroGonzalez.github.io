@@ -23,11 +23,9 @@ isTop: false
 ¿Tienes prisa, o nunca has usado TeX? usa Overleaf. ¿Tesis o libro? ¿Programas? instala en local.
 ## Contenido
 
-
 ## ¿Compilar en tu máquina o en la nube?
 
 O bien necesitas editar un artículo científico o tu tesis, o vienes de leer la [historia de Donald Knuth](/latex/que-es-tex-2) y la [creación de $\TeX$](/latex/que-es-tex-1), seguramente ya te pican los dedos por escribir tu primer `\documentclass{article}`. Antes de escribir una sola línea de código, te enfrentas a la primera gran decisión de todo creador de documentos: __¿Dónde y cómo compilar los documentos de $\TeX$ para producir un PDF?__
-
 
 >Actualmente, existen dos formas principales de operar documentos $\TeX$. Ambas son válidas, pero responden a necesidades muy diferentes:
 >**La instalación local o el uso de compiladores online**. 
@@ -38,6 +36,65 @@ Ya sea en local o en la nube (Overleaf, etc), quien compila e interpreta nuestro
 
 ![caption=Sea que lo instales en tu ordenador, o que compiles documentos tex en Overleaf, en el fondo la compilación de `.tex` a `.pdf` la hace una distribución.](https://res.cloudinary.com/dcvnw6hvt/image/upload/v1795259523/elCronopio/Blog-posts/motor-latex_kkgmis.jpg)
 
+Para entender por qué un documento tarda más que otro, conviene ver qué pasa entre que pulsas «Compilar» y aparece el PDF. Tú escribes un `.tex`, que es texto plano con órdenes. Ese archivo lo procesa la **distribución**, y da igual si está en tu ordenador o en un servidor de Overleaf: es el mismo software. Dentro, el **motor** (pdfTeX, XeTeX o LuaTeX) coloca cada letra en la página; antes carga un **formato** como $\LaTeX$, que le enseña qué significa `\section`, y los **paquetes** que pidas con `\usepackage`. Lo que explica casi todos los problemas de tiempo es el bucle: en la primera pasada el motor todavía no sabe en qué página acabará cada capítulo, así que lo anota en archivos auxiliares (`.aux`, `.toc`), y un orquestador como `latexmk` vuelve a compilar hasta que los números dejan de cambiar. Un índice, referencias cruzadas o una bibliografía suponen dos, tres o cuatro pasadas, y en Overleaf todas cuentan dentro del mismo límite de tiempo.
+
+```mermaid
+---
+config:
+  layout: dagre
+  look: classic
+  theme: base
+  themeVariables:
+    fontSize: "13px"
+    lineColor: "#7A8699"
+    edgeLabelBackground: "#FFFFFF"
+  flowchart:
+    nodeSpacing: 20
+    rankSpacing: 45
+---
+flowchart TD
+    %% 1. Escribes: el mismo .tex sirve en los dos sitios
+    A(["✍️ Escribes <b>documento.tex</b><br/>texto + órdenes como \section"])
+    A --> L["💻 <b>En tu ordenador</b><br/>VS Code, TeXstudio…<br/><i>sin límite de tiempo</i>"]
+    A --> O["☁️ <b>En Overleaf</b><br/>sus servidores compilan<br/><i>límite: 10 s gratis · 240 s pago</i>"]
+
+    %% 2. La distribución hace el trabajo, esté donde esté
+    subgraph DIST [" "]
+        direction TB
+        DIS["📦 <b>Distribución TeX</b><br/>TeX Live · MacTeX · MiKTeX<br/><i>la misma en los dos casos</i>"]
+        ORQ["⚙️ <b>Orquestador</b> · latexmk<br/>decide cuántas pasadas hacen falta"]
+        FMT["📐 <b>Formato</b><br/>LaTeX · ConTeXt · Plain TeX<br/>qué significa \section"]
+        PKG["📚 <b>Paquetes y fuentes</b><br/>tikz, amsmath, babel…"]
+        MOT["🔧 <b>Motor</b><br/>pdfTeX · XeTeX · LuaTeX<br/>coloca cada letra en la página"]
+        AUX[("🗂️ <b>Archivos auxiliares</b><br/>índice, referencias, citas<br/>.aux · .toc · .bbl")]
+
+        DIS --> ORQ
+        ORQ -->|"una pasada"| MOT
+        FMT --> MOT
+        PKG --> MOT
+        MOT -->|"anota números de página"| AUX
+        AUX -.->|"¿cambió algo? otra pasada"| ORQ
+    end
+
+    L --> DIS
+    O --> DIS
+    MOT ==>|"última pasada"| PDF(["📄 <b>documento.pdf</b>"])
+
+    %% Estilos: legibles sobre fondo claro y oscuro
+    classDef autor   fill:#FFF8E1,stroke:#F9A825,stroke-width:1.5px,color:#3E2723;
+    classDef lugar   fill:#E3F2FD,stroke:#1565C0,stroke-width:1.5px,color:#0D2A4F;
+    classDef nucleo  fill:#FFF3E0,stroke:#EF6C00,stroke-width:1.5px,color:#4E2600;
+    classDef recurso fill:#F3E5F5,stroke:#7B1FA2,stroke-width:1.5px,color:#311B3F;
+    classDef salida  fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B3D1F;
+    class A autor;
+    class L,O lugar;
+    classDef distro  fill:#ECEFF1,stroke:#455A64,stroke-width:2px,color:#1F2937;
+    class DIS distro;
+    class ORQ,MOT nucleo;
+    class FMT,PKG,AUX recurso;
+    class PDF salida;
+    style DIST fill:#F7F9FC,stroke:#7A8699,stroke-width:2px,stroke-dasharray:6 4,color:#1F2937;
+```
 ## El compilador online más conocido: Overleaf
 
 Desde sus inicios en los años 80, $\TeX$ fue usado generalmente por personas del campo de la computación de modo local. Recordemos: el sistema $\TeX$ precede a Word (1983), al Macintosh (1984), a Windows (1985) y al PDF (1993), y casi a las computadoras mismas. Durante los años 90 y con el surgimiento de los procesadores de texto (como Word) el mundo académico se empezó a fijar en sistemas gratuitos y de calidad (ya se usaba $\TeX$ como un estándar dentro de las editoriales científicas), de ahí surgen independientemente (creo) Overleaf y ShareLaTeX a principios de la década de 2010. Personalmente a ShareLaTeX le debo mucho, y recuerdo con nostalgia mis primeros pasos en $\LaTeX$ ya que, en un mundo previo a Google o a los LLM, fue la puerta de entrada para mí en el aprendizaje de $\LaTeX$.

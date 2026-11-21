@@ -21,6 +21,18 @@ export const TAG_STYLES = {
     bg: "var(--latex-green)",
     text: "#002332",
   },
+  tex: {
+    bg: "#2b69f8",
+    text: "#ffffff",
+  },
+  tikz: {
+    bg: "#c82bf8",
+    text: "#ffffff",
+  },
+  overleaf: {
+    bg: "#11b83e",
+    text: "#ffffff",
+  },
   ai: {
     bg: "var(--accent)",
     text: "var(--bg)",
