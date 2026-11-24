@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import SyntaxHighlighter, { codeTheme as tomorrowNightBright } from "./MdCompos/highlighter";
+import SyntaxHighlighter from "./MdCompos/highlighter";
 import styled from "styled-components";
 import { LuCopy, LuCopyCheck } from "react-icons/lu";
 
@@ -36,7 +36,7 @@ const CopyButton = styled.button`
   align-items: center;
   justify-content: center;
   background: ${($props) =>
-    $props.$isCopy ? "rgba(46, 204, 113, 0.2)" : "rgba(255, 255, 255, 0.1)"};
+    $props.$isCopy ? "rgba(46, 204, 113, 0.2)" : "rgba(128, 128, 128, 0.12)"};
   color: ${($props) => ($props.$isCopy ? "#2ecc71" : "var(--accent)")};
   border: 1px solid ${($props) => ($props.$isCopy ? "#2ecc71" : "transparent")};
   border-radius: 4px;
@@ -47,7 +47,7 @@ const CopyButton = styled.button`
   min-height: 28px;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(128, 128, 128, 0.25);
     transform: translateY(-1px);
   }
 
@@ -86,7 +86,6 @@ const CodeBlock = ({ language, value }) => {
       </Toolbar>
       <SyntaxHighlighter
         language={language}
-        style={tomorrowNightBright}
         wrapLines={true}
         showLineNumbers={true}
         customStyle={{

@@ -91,7 +91,19 @@ a {
     
     --code-fg: #D72638; 
     --code-bg: #E2E6EA; 
-    --code-box-bg:#002332;
+    --code-box-bg: #F1F4F8;   /* fondo de los bloques de código */
+
+    /* Resaltado de código (clases hljs-*): contraste ≥ 4.5:1 sobre --code-box-bg */
+    --code-text: #1F2328;
+    --code-muted: #57606A;        /* etiquetas del panel, meta */
+    --code-line-number: #636C76;
+    --code-comment: #5C6670;
+    --code-keyword: #C4162A;
+    --code-string: #0A3069;
+    --code-number: #0550AE;
+    --code-title: #6F42C1;
+    --code-variable: #953800;
+    --code-attribute: #116329;
     --primary-border: #DEE2E6;
     --box-border-hover: #0077FF;
     --gray-light: #919ca2ff;
@@ -163,7 +175,19 @@ a {
     /* CORRECCIÓN DE CÓDIGO */
     --code-fg: #00FFE7; /* Cyan neón para el texto */
     --code-bg: #00364D; /* Casi negro (más oscuro que el fondo principal) */
-    --code-box-bg:#002332;
+    --code-box-bg: #002332;
+
+    /* Resaltado de código (clases hljs-*): contraste ≥ 4.5:1 sobre --code-box-bg */
+    --code-text: #E6EDF3;
+    --code-muted: #9AA5B1;
+    --code-line-number: #8B98A5;
+    --code-comment: #9AA5B1;
+    --code-keyword: #D2A8FF;
+    --code-string: #C3E88D;
+    --code-number: #F2A365;
+    --code-title: #82AAFF;
+    --code-variable: #FF8A80;
+    --code-attribute: #FFD580;
 
     --warning: #eac626;
     --primary-border: #004966;
@@ -178,6 +202,28 @@ a {
   :where(h1) { font-size: var(--text-h1); font-weight: 800; letter-spacing: -0.02em; }
   :where(h2) { font-size: var(--text-h2); font-weight: 700; }
   :where(h3) { font-size: var(--text-h3); font-weight: 600; }
+
+  /* Resaltado de código: highlighter.js solo pone clases (hljs-keyword…) y los colores
+     salen de las variables --code-*, que cambian con [data-theme]. */
+  .hljs { color: var(--code-text); }
+  .hljs-comment, .hljs-quote { color: var(--code-comment); font-style: italic; }
+  .hljs-keyword, .hljs-selector-tag, .hljs-doctag { color: var(--code-keyword); }
+  .hljs-string, .hljs-regexp, .hljs-symbol, .hljs-bullet, .hljs-addition { color: var(--code-string); }
+  .hljs-number, .hljs-literal, .hljs-built_in, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: var(--code-number); }
+  .hljs-title, .hljs-section, .hljs-function .hljs-title, .hljs-title.function_ { color: var(--code-title); }
+  .hljs-variable, .hljs-template-variable, .hljs-name, .hljs-tag, .hljs-selector-id, .hljs-selector-class, .hljs-deletion { color: var(--code-variable); }
+  .hljs-attribute, .hljs-attr, .hljs-property { color: var(--code-attribute); }
+  .hljs-emphasis { font-style: italic; }
+  .hljs-strong { font-weight: bold; }
+  .hljs .linenumber {
+    display: inline-block;
+    min-width: 2.25em;
+    padding-right: 1em;
+    text-align: right;
+    user-select: none;
+    color: var(--code-line-number);
+    font-style: normal;
+  }
 
   /* Utilidades */
   [data-theme='dark'] [data-hide-on-theme='dark'],

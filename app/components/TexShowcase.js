@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, lazy, Suspense } from "react";
-import SyntaxHighlighter, { codeTheme as tomorrowNightBright } from "./MdCompos/highlighter";
+import SyntaxHighlighter from "./MdCompos/highlighter";
 import styled from "styled-components";
 import { LuCopy, LuCopyCheck, LuFileText, LuFileOutput } from "react-icons/lu";
 
@@ -96,7 +96,7 @@ const PanelLabel = styled.div`
   letter-spacing: 0.06em;
   text-transform: uppercase;
   background: var(--code-box-bg, #1a1a2e);
-  color: var(--fg-muted, #888);
+  color: var(--code-muted);
   border-bottom: 1px solid var(--border, rgba(128, 128, 128, 0.2));
   display: flex;
   align-items: center;
@@ -110,7 +110,7 @@ const CopyBtn = styled.button`
   align-items: center;
   justify-content: center;
   background: ${({ $copied }) =>
-    $copied ? "rgba(46,204,113,0.2)" : "rgba(255,255,255,0.1)"};
+    $copied ? "rgba(46,204,113,0.2)" : "rgba(128,128,128,0.12)"};
   color: ${({ $copied }) => ($copied ? "#2ecc71" : "var(--accent)")};
   border: 1px solid
     ${({ $copied }) => ($copied ? "#2ecc71" : "transparent")};
@@ -122,7 +122,7 @@ const CopyBtn = styled.button`
   min-height: 28px;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(128, 128, 128, 0.25);
   }
 
   svg {
@@ -142,7 +142,7 @@ const PDFWrapper = styled.div`
 
 const LoadingMsg = styled.p`
   padding: 2rem;
-  color: var(--fg-muted, #888);
+  color: var(--code-muted);
   font-size: 0.9rem;
 `;
 
@@ -212,15 +212,14 @@ export default function TexShowcase({ texSource, compiledPdf, title }) {
           ) : (
             <SyntaxHighlighter
               language="latex"
-              style={tomorrowNightBright}
-              wrapLines
+                    wrapLines
               showLineNumbers
               customStyle={{
                 margin: 0,
                 padding: "1rem",
                 fontSize: "0.82rem",
                 lineHeight: "1.55",
-                backgroundColor: "transparent",
+                backgroundColor: "var(--code-box-bg)",
                 minHeight: "360px",
               }}
             >
